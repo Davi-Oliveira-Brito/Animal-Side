@@ -1,0 +1,46 @@
+.comp-sideBar{
+    border: solid 1px black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 20%;
+
+    .logo img{
+        width: 10em;;
+    }
+    .title{
+        font-family: century;
+        color: #CE5101;   
+    }
+    .info-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .element-info{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border: solid 1px black;
+        width: 10em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .element-info p{
+        font-size: 16px;
+    }
+
+    .comp-image {
+        width: 2em;
+        height: 2em;
+    }
+
+    .sair{
+
+    }
+}
