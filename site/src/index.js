@@ -1,3 +1,5 @@
+import './common/common.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppRoutes from './Routes.js';

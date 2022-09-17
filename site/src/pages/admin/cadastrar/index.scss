@@ -2,6 +2,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 2em;
 
 
     .right{
@@ -9,8 +10,132 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        border: solid 2px;
         width: 80vw;
     }
 
+    .conteudo-cadastro{
+        padding: 1em;
+
+        width: 70vw;
+        height: 90vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+   
+    .superior{
+        width:30vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+
+        img{
+            width:5em;
+            height: 5em;
+        }
+
+        .infos-admin{
+            align-items: center;
+            display:flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content:center;
+            height: 17vh;
+                    
+            .bold{
+                font-family: 'poppins-semibold';
+                font-size: 12px;
+            }
+
+            p{
+               
+                font-family: 'poppins-regular';
+                font-size: 12px;
+            }
+        }
+    }
+
+    .medio{
+        align-self: baseline;
+        width: 35vw;
+        text-align:center;
+        height:auto;
+        font-family: 'poppins-semibold';
+        color:#ff6909;
+    }
+
+    .baixo{
+        display: flex;
+        flex-direction:column;
+    }
+
+    .dados{
+        padding-bottom: 1em;
+        height: 31vh;
+        width:50vw;
+        display:flex;
+        justify-content: space-between;
+        flex-direction:row;
+    }
+
+    .inputs-dados{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30vh;
+    }
+
+    .desc{
+        margin-top: .4em;
+        height: 15vh;
+        width: 50vw;
+    }
+
+    .inputo{
+        font-family: 'poppins-regular';
+        font-size: 12px;
+        width: 22vw
+    }
+
+
+    .final{
+        width:50vw;
+        display:flex;
+        flex-direction: column;
+    }
+
+    .imagem{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width:22vw;
+        height: 30vh;
+        background-color: #f6f6f6;
+    }
+
+    .final button{
+        margin-top: .4em;
+        align-self: end;
+        border: solid #ff6909;
+        background-color: #ff6909;
+        width: 8em;
+        color:white;
+        font-family: 'poppins-medium';
+
+        font-size: 12px;
+    }
+
+    .quadrado{
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+        width:55vw;
+        padding: 1em 0em 1em 0em;
+        height: 70vh;
+
+        border:solid #00000039;
+    }
 }

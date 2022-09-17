@@ -10,7 +10,7 @@ export default function SideBar() {
             </div>
 
             <div className="title">
-                <h3>perfil do Administrador</h3>
+                <p>perfil do Administrador</p>
             </div>
 
             <div className="info-container">
@@ -67,11 +67,11 @@ export default function SideBar() {
 
             </div>
 
-            <div className="sair">
+            
                 <button className="sair-button" > <img className="comp-image" src="/assets/images/Logout.png" alt="" /></button>
                
 
-            </div>
+            
 
 
         </main>
