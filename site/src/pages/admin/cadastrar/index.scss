@@ -1,0 +1,16 @@
+.cadastro-page{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    .right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border: solid 2px;
+        width: 80vw;
+    }
+
+}

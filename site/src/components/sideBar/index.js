@@ -1,7 +1,7 @@
 import './index.scss'
 
 
-export default function SideBar(props) {
+export default function SideBar() {
     return (
         <main className="comp-sideBar">
 
@@ -13,40 +13,40 @@ export default function SideBar(props) {
                 <h3>perfil do Administrador</h3>
             </div>
 
-            <div className="Info-Container">
+            <div className="info-container">
 
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/Userperfil.png" alt="" />
-                    <p>Perfil</p>
+                    <button className="element-button">Perfil</button>
 
                 </div>
 
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/Prancheta.png" alt="" />
-                    <p>Feed Adoção</p>
+                    <button className="element-button">Feed Adoção</button>
 
                 </div>
 
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/mais.png" alt="" />
-                    <p>Posts</p>
+                    <button className="element-button">Posts</button>
 
                 </div>
 
                 <div className="element-info" >
                     
                     <img className="comp-image" src="/assets/images/Download.png" alt="" />
-                    <p>Cadastrar</p>
+                    <button className="element-button">Cadastrar</button>
 
                 </div>
 
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/denuncias.png" alt="" />
-                    <p>Denuncias</p>
+                    <button className="element-button">Denuncias</button>
 
 
                 </div>
@@ -54,22 +54,22 @@ export default function SideBar(props) {
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/Calendario.png" alt="" />
-                    <p>Eventos</p>
+                    <button className="element-button" >Eventos</button>
 
                 </div>
 
                 <div className="element-info" >
 
                     <img className="comp-image" src="/assets/images/dados.png" alt="" />
-                    <p>Dados</p>
+                    <button className="element-button" >Dados</button>
 
                 </div>
 
             </div>
 
             <div className="sair">
-                
-                <img className="comp-image" src="/assets/images/Logout.png" alt="" />
+                <button className="sair-button" > <img className="comp-image" src="/assets/images/Logout.png" alt="" /></button>
+               
 
             </div>
 
