@@ -14,7 +14,7 @@ export default function Login() {
                     <a>Esqueceu sua senha?</a>
                 </div>
 
-                <button className="login-button">Entrar</button>
+                <button className="login-button">ENTRAR</button>
                 
                 <p className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
 
