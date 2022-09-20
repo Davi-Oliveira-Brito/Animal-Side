@@ -60,9 +60,6 @@
             }
         }
 
-        .login-button button{
-            font-family: 'poppins-medium';
-        }
 
         .login-button {
             padding: 0.8em 1.8em;
@@ -76,6 +73,7 @@
             font-family: 'poppins-medium';
             transition: .3s;
             z-index: 1;
+            cursor: pointer;
             color: #ffffff;
            }
 
@@ -99,7 +97,7 @@
            }
            
            .login-button:hover {
-            color: #111;
+            color: #1A1F59;
             font-family: 'poppins-medium';
 
            }

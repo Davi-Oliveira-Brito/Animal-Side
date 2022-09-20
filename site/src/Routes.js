@@ -1,4 +1,4 @@
-import PageCadastrar from "./pages/admin/cadastrar"
+import PageCadastrar from "./pages/admin/cadastrarAdocao"
 import LoginPage from "./pages/login/index"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
