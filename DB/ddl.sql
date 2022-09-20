@@ -16,6 +16,13 @@ create table tb_usuario(
 	IMG_USUARIO					varchar(100)
 );
 
+create table tb_admin(
+id_admin		int primary key auto_increment,
+nm_admin 		varchar(100),
+ds_email		varchar(100),
+ds_senha		varchar(100)
+);
+
 create table tb_porte (
 id_porte 		int primary key auto_increment,
 ds_porte		varchar(300)
@@ -24,6 +31,11 @@ ds_porte		varchar(300)
 create table tb_raca(
 id_raca		int primary key auto_increment,
 ds_raca		varchar(300)
+);
+
+create table tb_preferencia(
+id_preferencia		int primary key auto_increment,
+ds_preferencia		varchar(100)
 );
 
 create table tb_animal_perdido(
@@ -55,17 +67,18 @@ id_animal_adocao		int primary key auto_increment,
 nm_animal		varchar(100),
 nr_idade		int,
 ds_sexo			varchar(100),
-ds_preferencia		varchar(100),
 ds_descricao		varchar(100),
 img_animal			varchar(100),
 id_usuario			int,
 id_porte			int,
 id_raca				int,
 id_comentario_adocao int,
+id_preferencia		int,
 foreign key (id_comentario_adocao) references tb_comentario_adocao(id_comentario_adocao),
 foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 foreign key (id_porte) references tb_porte(id_porte),
-foreign key (id_raca) references tb_raca(id_raca)
+foreign key (id_raca) references tb_raca(id_raca),
+foreign key (id_preferencia) references tb_preferencia(id_preferencia)
 );
 
 create table tb_doacao(
@@ -104,12 +117,7 @@ foreign key (id_animal_perdido) references tb_animal_perdido(id_animal),
 foreign key (id_comentario) references tb_comentario(id_comentario)
 );
 
-create table tb_admin(
-id_admin		int primary key auto_increment,
-nm_admin 		varchar(100),
-ds_email		varchar(100),
-ds_senha		varchar(100)
-);
+
 
 create table tb_calendario(
 id_calendario		int primary key auto_increment,
