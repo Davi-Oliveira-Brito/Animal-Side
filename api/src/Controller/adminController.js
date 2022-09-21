@@ -1,4 +1,4 @@
-import { loginAdmin } from "../Repository/adminRepository.js"
+import { loginAdmin, nameAdmin} from "../Repository/adminRepository.js"
 
 import { Router } from "express";
 
@@ -14,7 +14,6 @@ server.post('/admin/loginAdmin', async (req, resp) => {
 
         const userlogado = await loginAdmin(admin);
 
-        console.log(userlogado)
         if(!userlogado)
             throw new Error("Credenciais Inválidas");
         resp.status(200).send({
@@ -30,5 +29,23 @@ server.post('/admin/loginAdmin', async (req, resp) => {
     }
 
 });
+
+server.get('/admin/nomeAdmin', async (req,resp) =>{
+
+    try {
+        const admin = req.body;
+
+        const name = await nameAdmin(admin);
+        console.log(name)
+        resp.status(200).send({
+            nome:name.nome
+        })
+
+    } catch (err) {
+        resp.status(404).send({
+            error: err.message
+        });
+    }
+})
 
 export default server;

@@ -11,7 +11,19 @@ export async function loginAdmin (admin)
     and     ds_senha = ?;
     `;
 
-    const [ userlogado ] = await con.query(comando, [admin.email, admin.senha, admin.id]); 
-    
+    const [userlogado]  = await con.query(comando, [admin.email, admin.senha]); 
+    console.log(userlogado);
     return userlogado[0];
 }
+
+export async function nameAdmin(admin)
+{
+    const comando = `
+    select 	nm_admin as nome
+    from 	tb_admin
+    where	id_admin = ?;
+    `;
+
+    const [resposta] = await con.query(comando, [admin.id]);
+    return resposta[0];
+} 
