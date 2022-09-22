@@ -33,4 +33,17 @@ from	tb_preferencia;
 -- insert da tabela adocao
 insert into tb_animal_adocao(nm_animal,nr_idade,ds_sexo,ds_descricao,img_animal,id_usuario,id_porte,id_raca,id_comentario_adocao,id_preferencia)
 			  values('Apolo',12,'Macho','aaaa','',1,1,1,1,1);
+
+
+-- insert da raça
+insert into tb_raca(ds_raca)
+                values('Vira-Late');
+
+-- insert da preferencia                
+insert into tb_preferencia(ds_preferencia)
+                   values('Apartamento');
+                   
+-- insert da porte				   
+insert into tb_porte(ds_porte)
+              values('G');
               

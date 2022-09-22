@@ -50,7 +50,7 @@ server.post('/admin/adocao', async (req, resp) => {
           throw new Error ('A preferência de lar do animal é obrigatória!')
 
         const animalInserido = await cadastrarAnimal(animalAdocao);
-        resp.send(animalInserido);
+        resp.send({x:1});
 
     }  catch (err) {
         resp.status(400).send({
