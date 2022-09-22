@@ -1,9 +1,30 @@
 import './index.scss'
+
+// Componentes
 import SideBar from '../../../components/sideBar/index.js'
 import NavBar from '../../../components/navBar/index.js'
 
+// Hooks
+import { useState, useEffect } from 'react';
+
+// Api
+import { buscarRacas } from '../../../api/baseApi.js'; 
 
 export default function PageCadastrar() {
+    const [racas, setRacas] = useState([]);
+    const [porte, setPorte] = useState([]);
+    const [preferencia, setPreferencia] = useState([]);
+
+    async function carregarSelects() {
+        let r = await buscarRacas();
+        setRacas(r);
+    }
+
+    useEffect(() => {
+        carregarSelects();
+    },[]);
+
+    console.log(racas);
     return (
         <main className="cadastro-page">
 
