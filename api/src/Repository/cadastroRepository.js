@@ -44,3 +44,13 @@ export async function cadastrarAnimal(animal) {
     
     return resposta;
 }
+
+export async function alterarImagem(imagem, id) {
+    const comando = 
+            `UPDATE  tb_animal_adocao
+                SET  img_animal         = ?
+              WHERE  id_animal_adocao        = ?`;
+
+    const [ resposta ] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
+}

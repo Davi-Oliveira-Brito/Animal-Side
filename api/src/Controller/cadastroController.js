@@ -1,9 +1,10 @@
-import { buscaRaca, buscaPorte, buscaPreferencia, cadastrarAnimal} from "../Repository/cadastroRepository.js"
+import { buscaRaca, buscaPorte, buscaPreferencia, cadastrarAnimal, alterarImagem} from "../Repository/cadastroRepository.js"
 
 import { Router } from "express";
-
+import multer from "multer";
 
 const server = Router();
+const upload = multer({dest: 'storage/animalAdocao'});
 
 server.get('/admin/buscaRaca', async (req,resp)=>{
     const raca = await buscaRaca();
@@ -57,6 +58,24 @@ server.post('/admin/adocao', async (req, resp) => {
             erro: err.message
         })
     }
+})
+
+server.put ('/admin/:id/imagem', upload.single('perfil'), async (req, resp) =>{
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
+        const resposta = await alterarImagem(imagem, id);
+    
+        if (resposta != 1)
+          throw new Error ('A imagem não foi salva')
+
+        resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+
 })
 
 export default server;
