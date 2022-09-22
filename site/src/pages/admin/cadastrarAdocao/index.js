@@ -59,6 +59,11 @@ export default function PageCadastrar() {
 
                                     <select className="inputo" >
                                         <option disable selected hidden>Raça</option>
+                                        {racas.map(item => {
+                                            return(
+                                                <option value={ item.raca } key="">{ item.raca }</option>
+                                            );
+                                        })}
                                     </select>
 
                                     <select className="inputo">
