@@ -1,5 +1,37 @@
-import './index.scss'
+import React, { useEffect, useState } from 'react';
+import './index.scss';
+
+import { loginAdmin } from '../../api/loginAdmin.js'; 
+
+import storage from 'local-storage';
+
+import { toast } from 'react-toastify';
+
+import { useNavigate } from 'react-router-dom';
+
 export default function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const navigate = useNavigate();
+    
+    async function logar(){
+      try{
+        const resposta = await loginAdmin(email.trim(), senha.trim());
+        storage('usuario-logado', resposta)
+        
+        toast.dark('Usuario Logado');
+
+      }catch(error) {
+          console.log(error);
+          toast.error(error.response.data.error);
+      }
+    }
+
+    useEffect(()=>{
+      if(storage('usuario-logado')){
+        navigate('/admin');
+      }
+    },[])
     return (
         <main className="login-main">
             <div className="left">
@@ -9,12 +41,12 @@ export default function Login() {
                  informações, fazer posts, e ajudar as pessoas</p>
 
                 <div className="inputs">
-                    <input className="email" type="text" placeholder="EMAIL" />
-                    <input className="senha"type="text" placeholder="SENHA" />
+                    <input className="email" type="text" placeholder="EMAIL"  value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input className="senha"type="password" placeholder="SENHA" value={senha} onChange={e => setSenha(e.target.value)}/>
                     <a>Esqueceu sua senha?</a>
                 </div>
 
-                <button className="login-button">ENTRAR</button>
+                <button className="login-button" onClick={logar}>ENTRAR</button>
                 
                 <p className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
 

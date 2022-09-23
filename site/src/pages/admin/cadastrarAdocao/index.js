@@ -8,11 +8,22 @@ import NavBar from '../../../components/navBar/index.js'
 import { useState, useEffect } from 'react';
 
 // Api
-import { buscarRacas } from '../../../api/baseApi.js'; 
+import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem } from '../../../api/baseApi.js.js'; 
 
 export default function PageCadastrar() {
+    
+    const [nome,setNome] = useState('');
+    const [idade,setIdade] = useState();
+    const [sexo,setSexo] = useState('');
+    const [descricao,setDescricao] = useState('');
+
+    const [idRaca,setIdRaca] = useState();
     const [racas, setRacas] = useState([]);
+
+    const [idPorte,setIdPorte] = useState();
     const [porte, setPorte] = useState([]);
+
+    const [idPreferencia,setIdPreferencia] = useState();
     const [preferencia, setPreferencia] = useState([]);
 
     async function carregarSelects() {
@@ -24,7 +35,6 @@ export default function PageCadastrar() {
         carregarSelects();
     },[]);
 
-    console.log(racas);
     return (
         <main className="cadastro-page">
 
