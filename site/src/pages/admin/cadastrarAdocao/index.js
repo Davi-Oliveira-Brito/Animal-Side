@@ -8,7 +8,7 @@ import NavBar from '../../../components/navBar/index.js'
 import { useState, useEffect } from 'react';
 
 // Api
-import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem } from '../../../api/baseApi.js.js'; 
+import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem } from '../../../api/cadastraAnimal.js'; 
 
 export default function PageCadastrar() {
     
@@ -26,9 +26,19 @@ export default function PageCadastrar() {
     const [idPreferencia,setIdPreferencia] = useState();
     const [preferencia, setPreferencia] = useState([]);
 
+    console.log(racas);
+
     async function carregarSelects() {
-        let r = await buscarRacas();
-        setRacas(r);
+        let ra = await buscarRacas();
+        let po = await buscarPorte();
+        let pr = await buscarPreferencia();
+        setRacas(ra);
+        setPorte(po);
+        setPreferencia(pr);
+    }
+
+    async function cadastrarAnimal(){
+        await cadastrarAnimal(nome, idade, sexo, descricao, );
     }
 
     useEffect(() => {
@@ -64,8 +74,8 @@ export default function PageCadastrar() {
                         <div className="baixo">
                             <div className="dados">
                                 <div className="inputs-dados">
-                                    <input className="inputo" type="text" placeholder="Nome" />
-                                    <input className="inputo" type="text" placeholder="Idade" />
+                                    <input onChange={(e)=>setNome(e.target.value)}className="inputo" type="text" placeholder="Nome" />
+                                    <input onChange={(e)=>setIdade(e.target.value)}className="inputo" type="text" placeholder="Idade" />
 
                                     <select className="inputo" >
                                         <option disable selected hidden>Raça</option>
@@ -78,14 +88,26 @@ export default function PageCadastrar() {
 
                                     <select className="inputo">
                                         <option disable selected hidden>Porte</option>
+                                        {porte.map(item => {
+                                            return(
+                                                <option value={ item.porte } key="">{ item.porte }</option>
+                                            );
+                                        })}
                                     </select>
 
-                                    <select className="inputo">
+                                    <select onChange={(e)=> setSexo(e.target.value)} className="inputo">
                                         <option disable selected hidden>Sexo</option>
+                                        <option>Macho</option>
+                                        <option>Femea</option>
                                     </select>
 
                                     <select className="inputo">
                                         <option disable selected hidden>Preferência</option>
+                                        {preferencia.map(item => {
+                                            return(
+                                                <option value={ item.preferencia } key="">{ item.preferencia }</option>
+                                            );
+                                        })}
                                     </select>
                                 </div>
 
@@ -95,7 +117,7 @@ export default function PageCadastrar() {
                             </div>
                         </div>
                         <div className="final">
-                            <input className="desc" type="text" placeholder="Descrição" />
+                            <input onChange={(e)=>setDescricao(e.target.value)}  className="desc" type="text" placeholder="Descrição" />
                             <button>Salvar</button>
                         </div>
 

@@ -3,17 +3,16 @@ import './index.scss';
 
 import { loginAdmin } from '../../api/loginAdmin.js'; 
 
-import storage from 'local-storage';
-
 import { toast } from 'react-toastify';
-
 import { useNavigate } from 'react-router-dom';
+
+import localStorage from 'local-storage';
+import storage from 'local-storage';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const navigate = useNavigate();
-    
     async function logar(){
       try{
         const resposta = await loginAdmin(email.trim(), senha.trim());
@@ -22,7 +21,6 @@ export default function Login() {
         toast.dark('Usuario Logado');
 
       }catch(error) {
-          console.log(error);
           toast.error(error.response.data.error);
       }
     }
