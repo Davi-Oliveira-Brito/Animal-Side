@@ -1,5 +1,5 @@
 import PageCadastrar from "./pages/admin/cadastrarAdocao"
-import LoginPage from "./pages/login/index"
+import LoginPage from "./pages/login"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -9,7 +9,6 @@ export default function AppRoutes() {
             <Routes>
                 <Route path='/' element={<PageCadastrar/>} />
                 <Route path='/login' element={<LoginPage/>} />
-                <Route path='/' element={<LoginPage/>} />
             </Routes>
         </BrowserRouter>
     )

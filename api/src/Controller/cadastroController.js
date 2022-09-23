@@ -50,8 +50,13 @@ server.post('/admin/adocao', async (req, resp) => {
         if(!animalAdocao.preferencia)
           throw new Error ('A preferência de lar do animal é obrigatória!')
 
+          if(!animalAdocao.admin)
+          throw new Error ('admin não foi inserido!')
+
         const animalInserido = await cadastrarAnimal(animalAdocao);
-        resp.send({x:1});
+        resp.send({
+          insertedId: animalInserido
+        });
 
     }  catch (err) {
         resp.status(400).send({

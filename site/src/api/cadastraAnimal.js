@@ -27,7 +27,7 @@ export async function cadastrarAnimal(nome,idade,sexo,descricao,porte,raca,comen
         descricao:descricao,
         porte:porte,
         raca:raca,
-        comentario: comentario,
+        comentario:comentario,
         preferencia:preferencia
     });
     return resp.data;

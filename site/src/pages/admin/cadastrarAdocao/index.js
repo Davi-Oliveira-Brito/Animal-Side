@@ -6,9 +6,11 @@ import NavBar from '../../../components/navBar/index.js'
 
 // Hooks
 import { useState, useEffect } from 'react';
+import storage from 'local-storage';
 
 // Api
 import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem } from '../../../api/cadastraAnimal.js'; 
+import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
     
@@ -26,6 +28,8 @@ export default function PageCadastrar() {
     const [idPreferencia,setIdPreferencia] = useState();
     const [preferencia, setPreferencia] = useState([]);
 
+    const [imagem,setImagem] = useState('');
+
     console.log(racas);
 
     async function carregarSelects() {
@@ -38,7 +42,18 @@ export default function PageCadastrar() {
     }
 
     async function cadastrarAnimal(){
-        await cadastrarAnimal(nome, idade, sexo, descricao, );
+        try{
+            const admin = storage('usuario-logado').data.id;
+        await cadastrarAnimal(nome, idade, sexo, descricao);
+        toast.dark('animal inserido');
+        }
+        catch(error){
+            if(error.response)
+                toast.dark(error.message);
+            
+            else
+                toast.dark(error.message);
+        }
     }
 
     useEffect(() => {
@@ -118,7 +133,7 @@ export default function PageCadastrar() {
                         </div>
                         <div className="final">
                             <input onChange={(e)=>setDescricao(e.target.value)}  className="desc" type="text" placeholder="Descrição" />
-                            <button>Salvar</button>
+                            <button onClick={cadastrarAnimal}>Salvar</button>
                         </div>
 
 

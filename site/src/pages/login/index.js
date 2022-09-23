@@ -12,7 +12,9 @@ import storage from 'local-storage';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+
     const navigate = useNavigate();
+
     async function logar(){
       try{
         const resposta = await loginAdmin(email.trim(), senha.trim());
@@ -25,9 +27,13 @@ export default function Login() {
       }
     }
 
+    setTimeout(()=>{
+      navigate('/')
+    }, 2000)
+
     useEffect(()=>{
       if(storage('usuario-logado')){
-        navigate('/admin');
+        navigate('/');
       }
     },[])
     return (

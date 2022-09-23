@@ -37,10 +37,10 @@ export async function buscaPreferencia()
 export async function cadastrarAnimal(animal) {
     console.log(animal);
     const comando =
-        `INSERT INTO tb_animal_adocao(nm_animal, nr_idade, ds_sexo, ds_descricao, id_porte, id_raca, id_comentario_adocao, id_preferencia)
-                               VALUES(?, ?, ?, ?, ?, ?, ?, ?)`    
+        `insert into tb_animal_adocao(nm_animal,nr_idade,ds_sexo,ds_descricao,id_admin,id_porte,id_raca,id_comentario_adocao,id_preferencia)
+        values(?,?,?,?,?,?,?,?,?,);`    
 
-    const [ resposta ] = await con.query(comando, [animal.nome, animal.idade, animal.sexo, animal.descricao, animal.porte, animal.raca, animal.comentario, animal.preferencia]);
+    const [ resposta ] = await con.query(comando, [animal.nome, animal.idade, animal.sexo, animal.descricao, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia]);
     
     return resposta;
 }
