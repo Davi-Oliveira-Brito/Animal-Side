@@ -4,7 +4,7 @@ import { con } from './connection.js'
 export async function buscaRaca()
 {
     const comando = `
-    select 	ds_raca as raca
+    select 	*
     from	tb_raca;
     `;
 
@@ -15,7 +15,7 @@ export async function buscaRaca()
 export async function buscaPorte()
 {
     const comando = `
-    select 	ds_porte as porte
+    select 	*
     from	tb_porte;
     `;
 
@@ -26,7 +26,7 @@ export async function buscaPorte()
 export async function buscaPreferencia()
 {
     const comando = `
-    select 	ds_preferencia as preferencia 
+    select 	*
     from	tb_preferencia;
     `;
 
@@ -37,18 +37,18 @@ export async function buscaPreferencia()
 export async function cadastrarAnimal(animal) {
     console.log(animal);
     const comando =
-        `insert into tb_animal_adocao(nm_animal,nr_idade,ds_sexo,ds_descricao,id_admin,id_porte,id_raca,id_comentario_adocao,id_preferencia)
-        values(?,?,?,?,?,?,?,?,?,);`    
+        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_sexo, ds_descricao, id_usuario, id_porte, id_raca, id_comentario_adocao, id_preferencia)
+                               values(?,?,?,?,?,?,?,?,?)`    
 
-    const [ resposta ] = await con.query(comando, [animal.nome, animal.idade, animal.sexo, animal.descricao, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia]);
+    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.sexo, animal.descricao, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia]);
     
-    return resposta;
+    return resposta.insertId;
 }
 
 export async function alterarImagem(imagem, id) {
     const comando = 
             `UPDATE  tb_animal_adocao
-                SET  img_animal         = ?
+                SET  img_animal             = ?
               WHERE  id_animal_adocao        = ?`;
 
     const [ resposta ] = await con.query(comando, [imagem, id]);

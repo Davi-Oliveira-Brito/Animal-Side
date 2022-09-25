@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import storage from 'local-storage';
 
 // Api
-import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem } from '../../../api/cadastraAnimal.js'; 
+import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem, pegarImagem } from '../../../api/cadastraAnimal.js'; 
 import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
@@ -30,8 +30,6 @@ export default function PageCadastrar() {
 
     const [imagem,setImagem] = useState('');
 
-    console.log(racas);
-
     async function carregarSelects() {
         let ra = await buscarRacas();
         let po = await buscarPorte();
@@ -41,18 +39,23 @@ export default function PageCadastrar() {
         setPreferencia(pr);
     }
 
-    async function cadastrarAnimal(){
+    async function cadastrar(){
         try{
-            const admin = storage('usuario-logado').data.id;
-        await cadastrarAnimal(nome, idade, sexo, descricao);
-        toast.dark('animal inserido');
+            //const admin = storage('usuario-logado').id;    
+            let { insertedId } = await cadastrarAnimal(nome, idade, sexo, descricao, idPorte, idRaca, idPreferencia);
+            enviarImagem(imagem, insertedId);
+            toast.dark('animal inserido');
         }
         catch(error){
-            if(error.response)
-                toast.dark(error.message);
-            
-            else
-                toast.dark(error.message);
+           toast.dark(error.response.data.erro);
+        }
+    }
+
+    function mostrarImagem() {
+        if(typeof(imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }else{
+            return pegarImagem(imagem)
         }
     }
 
@@ -92,20 +95,20 @@ export default function PageCadastrar() {
                                     <input onChange={(e)=>setNome(e.target.value)}className="inputo" type="text" placeholder="Nome" />
                                     <input onChange={(e)=>setIdade(e.target.value)}className="inputo" type="text" placeholder="Idade" />
 
-                                    <select className="inputo" >
+                                    <select onChange={(e) => setIdRaca(Number(e.target.value))} className="inputo" >
                                         <option disable selected hidden>Raça</option>
                                         {racas.map(item => {
                                             return(
-                                                <option value={ item.raca } key="">{ item.raca }</option>
+                                                <option value={ item.id_raca } key="">{ item.ds_raca }</option>
                                             );
                                         })}
                                     </select>
 
-                                    <select className="inputo">
+                                    <select onChange={(e) => setIdPorte(Number(e.target.value))} className="inputo">
                                         <option disable selected hidden>Porte</option>
                                         {porte.map(item => {
                                             return(
-                                                <option value={ item.porte } key="">{ item.porte }</option>
+                                                <option value={ item.id_porte } key="">{ item.ds_porte }</option>
                                             );
                                         })}
                                     </select>
@@ -116,24 +119,27 @@ export default function PageCadastrar() {
                                         <option>Femea</option>
                                     </select>
 
-                                    <select className="inputo">
+                                    <select  onChange={(e) => setIdPreferencia(Number(e.target.value))} className="inputo">
                                         <option disable selected hidden>Preferência</option>
                                         {preferencia.map(item => {
                                             return(
-                                                <option value={ item.preferencia } key="">{ item.preferencia }</option>
+                                                <option value={ item.id_preferencia } key="">{ item.ds_preferencia }</option>
                                             );
                                         })}
                                     </select>
                                 </div>
 
                                 <div className="imagem">
-                                    <img src="/assets/images/downCloud.png" alt="" />
+                                    <input type='file' onChange={(e) => setImagem(e.target.files[0])}/>
+                                    {imagem &&
+                                        <img src={mostrarImagem()} alt="" />
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div className="final">
                             <input onChange={(e)=>setDescricao(e.target.value)}  className="desc" type="text" placeholder="Descrição" />
-                            <button onClick={cadastrarAnimal}>Salvar</button>
+                            <button onClick={() => cadastrar()}>Salvar</button>
                         </div>
 
 

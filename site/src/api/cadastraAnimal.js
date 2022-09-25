@@ -19,27 +19,32 @@ export async function buscarPorte(){
     return resp.data;
 }
 
-export async function cadastrarAnimal(nome,idade,sexo,descricao,porte,raca,comentario,preferencia){
+export async function cadastrarAnimal(nome, idade, sexo, descricao, porte, raca, preferencia){
     const resp = await api.post('/admin/adocao',{
         nome: nome,
         idade:idade,
         sexo:sexo,
         descricao:descricao,
         porte:porte,
+        admin: null,
         raca:raca,
-        comentario:comentario,
+        comentario:null,
         preferencia:preferencia
     });
     return resp.data;
 }
 
 export async function enviarImagem(imagem, id){
-    FormData = new FormData();
-    FormData.append('imagem', imagem);
-    const resp = await api.put('/admin/:id/imagem', FormData,{
+    let formData = new FormData();
+    formData.append('imagem', imagem);
+    const resp = await api.put(`/admin/${id}/imagem`, formData,{
         headers: {
             "Content-Type": "multipart/form-data"
         }
     });
     return resp.status;
+}
+
+export function pegarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`
 }
