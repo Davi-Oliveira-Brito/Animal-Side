@@ -19,8 +19,8 @@ export default function Login() {
       try{
         const resposta = await loginAdmin(email.trim(), senha.trim());
         storage('usuario-logado', resposta)
-        
         toast.dark('Usuario Logado');
+        navigate('/cadastro');
 
       }catch(error) {
           toast.error(error.response.data.error);
