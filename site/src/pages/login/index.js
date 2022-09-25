@@ -28,12 +28,14 @@ export default function Login() {
     }
 
     setTimeout(()=>{
-      navigate('/')
+      if(storage('usuario-logado')){
+        navigate('/cadastro');
+      }
     }, 2000)
 
     useEffect(()=>{
       if(storage('usuario-logado')){
-        navigate('/');
+        navigate('/cadastro');
       }
     },[])
     return (

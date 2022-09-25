@@ -7,8 +7,8 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<PageCadastrar/>} />
-                <Route path='/login' element={<LoginPage/>} />
+                <Route path='/cadastro' element={<PageCadastrar/>} />
+                <Route path='/' element={<LoginPage/>} />
             </Routes>
         </BrowserRouter>
     )
