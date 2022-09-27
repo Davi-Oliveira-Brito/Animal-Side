@@ -107,12 +107,29 @@
 
     .imagem{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width:22vw;
         height: 30vh;
         background-color: #f6f6f6;
+
+        img{
+            width:  100%;
+            height: 100%;
+        }
+
+        .cloud{
+            height: auto;
+            width: 6em;
+        }
+
+        #input-image{
+            border: solid green;
+            visibility: hidden;
+        }
+    
+    
     }
 
     .final button{
@@ -136,6 +153,6 @@
         height: 70vh;
         
         background: #FFFFFF;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
     }
 }

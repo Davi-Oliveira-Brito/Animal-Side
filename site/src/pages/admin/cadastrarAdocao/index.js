@@ -59,6 +59,10 @@ export default function PageCadastrar() {
         }
     }
 
+    function mudarImagem() {
+       document.getElementById('input-image').click(); 
+     }
+
     useEffect(() => {
         carregarSelects();
     },[]);
@@ -129,11 +133,14 @@ export default function PageCadastrar() {
                                     </select>
                                 </div>
 
-                                <div className="imagem">
-                                    <input type='file' onChange={(e) => setImagem(e.target.files[0])}/>
+                                <div onClick={() => mudarImagem()} className="imagem">
+                                    {!imagem &&
+                                        <img className='cloud' src="/assets/images/imageDownload.png" alt="" />
+                                    }
                                     {imagem &&
                                         <img src={mostrarImagem()} alt="" />
                                     }
+                                    <input id='input-image' type='file' onChange={(e) => setImagem(e.target.files[0])}/>
                                 </div>
                             </div>
                         </div>
