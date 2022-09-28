@@ -1,0 +1,53 @@
+.side-feed{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height:100vh;
+    width: 18vw;
+    border:solid green;
+    line-height: 2px;
+    align-items: center;
+
+    background-color: #FFFFFF;
+
+    .side-sub-feed{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: solid green;
+        min-height: 50vh;
+        width: 17vw;
+
+    
+    }
+
+    .animais{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: solid green;
+        text-transform: none;
+        line-height: 2px;
+        height: 13em;
+    }
+
+    .side-title{
+        font-family: 'Poppins-Regular';
+        font-size: 18px;
+        color: #FF6909;
+    }
+
+    .side-text{
+        font-family: 'Poppins-Regular';
+        font-size: 15px;
+    }
+
+    .check-side{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+
+}

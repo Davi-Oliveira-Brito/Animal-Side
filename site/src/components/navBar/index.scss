@@ -1,0 +1,45 @@
+.nav-feed{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+
+    background-color: #FFFFFF;
+    height: 4em;
+
+
+    .sub-feed{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        
+    }
+
+    .nav-image{
+        height: auto;
+
+        .logo-feed{
+            width:10em;
+            height: auto;
+        }
+    }
+
+    .element-nav-mom{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 50%;
+
+
+        .element-nav-feed{
+            font-family: 'Poppins-Medium';
+            font-size: 15px;
+            text-decoration: none;
+            color: #000000;
+        }
+
+    }
+
+}
