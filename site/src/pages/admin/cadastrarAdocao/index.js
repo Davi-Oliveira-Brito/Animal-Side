@@ -76,7 +76,7 @@ export default function PageCadastrar() {
 
             <div className="right">
                 <div className="nav">
-                    <NavBar />
+                    <NavBar id="navbar" />
                 </div>
 
                 <div className="conteudo-cadastro">
@@ -145,7 +145,7 @@ export default function PageCadastrar() {
                             </div>
                         </div>
                         <div className="final">
-                            <input onChange={(e)=>setDescricao(e.target.value)}  className="desc" type="text" placeholder="Descrição" />
+                            <textarea  onChange={(e)=>setDescricao(e.target.value)}  className="desc"  placeholder="Descrição" />
                             <button onClick={() => cadastrar()}>Salvar</button>
                         </div>
 

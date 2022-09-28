@@ -16,7 +16,7 @@
     }
     .title{
         font-family: 'poppins-bold';
-        font-size: 15px;
+        font-size:20px;
         color: #CE5101;   
     }
 
@@ -24,32 +24,36 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        height: 20em;
+        height: 30em;
+        width: 20em;
     
         .element-info{
             display: flex;
             border: solid 2px #ffffff;
-            flex-direction: row;
+            flex-direction: row-reverse;
             align-items: center;
-            justify-content: flex-start;
-            width: 11em;
+            justify-content:space-between;
+            text-align:start; 
+            width: 19em;
             cursor: pointer;
             padding: 0em 1em 0em 1em;
         }
-        
+
+       
         .element-button{
+        justify-self: flex-start;
         border: none;
         background: none;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 15px;
         padding-left: 1em;
         font-family: 'poppins-semibold';
         color:#CE5101;
         }
 
         .comp-image {
-            width: 1.3em;
-            height: 1.3em;
+            width: 1.7em;
+            height: 1.7em;
         }
 
     }

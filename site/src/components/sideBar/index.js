@@ -10,7 +10,7 @@ export default function SideBar() {
             </div>
 
             <div className="title">
-                <p>perfil do Administrador</p>
+                <p>Administrador</p>
             </div>
 
             <div className="info-container">
