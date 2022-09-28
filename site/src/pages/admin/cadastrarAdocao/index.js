@@ -1,8 +1,8 @@
 import './index.scss'
 
 // Componentes
-import SideBar from '../../../components/sideBar/index.js'
-import NavBar from '../../../components/navBar/index.js'
+import SideBarAdmin from '../../../components/sideBarAdmin/index.js'
+import NavBarAdmin from '../../../components/navBarAdmin/index.js'
 
 // Hooks
 import { useState, useEffect } from 'react';
@@ -71,12 +71,12 @@ export default function PageCadastrar() {
         <main className="cadastro-page">
 
             <div className="left">
-                <SideBar />
+                <SideBarAdmin />
             </div>
 
             <div className="right">
                 <div className="nav">
-                    <NavBar id="navbar" />
+                    <NavBarAdmin id="navbar" />
                 </div>
 
                 <div className="conteudo-cadastro">
