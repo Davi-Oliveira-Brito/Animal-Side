@@ -1,7 +1,7 @@
 import './index.scss'
 
 
-export default function SideBar() {
+export default function SideBarAdmin() {
     return (
         <main className="comp-sideBar">
 
