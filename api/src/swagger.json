@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Animal Side",
+        "description": "API do nosso tcc animal side",
+        "contact": "teste@teste.com"
+    },
+    "servers":[
+        {
+            "url": "http://localhost:5000"
+        } 
+    ],
+    "paths":{
+        "/admin/loginAdmin":{
+            "post":{
+                "summary": "Login administrador",
+                "description": "Rota responsavel por logar um administrador no sistema e gerar um TOKEN de acesso",
+                "tags":["admin"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/admin"
+                            },
+                            "examples":{
+                                "admin":{
+                                    "value":{
+                                        "email": "teste@teste.com",
+                                        "senha": "senhadahora"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "OK",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties":{
+                                        "id":{
+                                            "type": "number"
+                                        },
+                                        "email":{
+                                            "type": "string"
+                                        },
+                                        "senha":{
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+            "admin":{
+                "type": "object",
+                "properties":{
+                    "email": {
+                        "type":"string"
+                    },
+                    "senha":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}
