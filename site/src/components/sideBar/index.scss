@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height:100vh;
-    width: 18vw;
-    border:solid green;
+    min-height:100%;
+    width: 15vw;
     line-height: 2px;
     align-items: center;
 
@@ -14,9 +13,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border: solid green;
         min-height: 50vh;
-        width: 17vw;
+        width: 14vw;
 
     
     }
@@ -25,7 +23,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border: solid green;
         text-transform: none;
         line-height: 2px;
         height: 13em;
@@ -33,13 +30,13 @@
 
     .side-title{
         font-family: 'Poppins-Regular';
-        font-size: 18px;
+        font-size: 17px;
         color: #FF6909;
     }
 
     .side-text{
         font-family: 'Poppins-Regular';
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .check-side{

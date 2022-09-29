@@ -16,7 +16,7 @@ export default function SideBar() {
                     <p className="side-title">Sexo</p>
                     <div className="check-side">
                         <input type="checkbox" placeholder />
-                        <p>Macho</p>
+                        <p className="side-text">Macho</p>
                     </div>
                 </div>
 
