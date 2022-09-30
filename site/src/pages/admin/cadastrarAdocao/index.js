@@ -9,14 +9,13 @@ import { useState, useEffect } from 'react';
 import storage from 'local-storage';
 
 // Api
-import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem, pegarImagem } from '../../../api/cadastraAnimal.js'; 
+import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem, pegarImagem, buscarSexo, buscarTipo } from '../../../api/cadastraAnimal.js'; 
 import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
     
     const [nome,setNome] = useState('');
     const [idade,setIdade] = useState();
-    const [sexo,setSexo] = useState('');
     const [descricao,setDescricao] = useState('');
 
     const [idRaca,setIdRaca] = useState();
@@ -24,6 +23,12 @@ export default function PageCadastrar() {
 
     const [idPorte,setIdPorte] = useState();
     const [porte, setPorte] = useState([]);
+
+    const [idSexo,setIdSexo] = useState();
+    const [sexo, setSexo] = useState([]);
+
+    const [idTipo,setIdTipo] = useState();
+    const [tipo, setTipo] = useState([]);
 
     const [idPreferencia,setIdPreferencia] = useState();
     const [preferencia, setPreferencia] = useState([]);
@@ -34,6 +39,11 @@ export default function PageCadastrar() {
         let ra = await buscarRacas();
         let po = await buscarPorte();
         let pr = await buscarPreferencia();
+        let sx = await buscarSexo();
+        let tp = await buscarTipo();
+
+        setSexo(sx);
+        setTipo(tp);
         setRacas(ra);
         setPorte(po);
         setPreferencia(pr);
@@ -42,7 +52,7 @@ export default function PageCadastrar() {
     async function cadastrar(){
         try{
             //const admin = storage('usuario-logado').id;    
-            let { insertedId } = await cadastrarAnimal(nome, idade, sexo, descricao, idPorte, idRaca, idPreferencia);
+            let { insertedId } = await cadastrarAnimal(nome, idade, descricao, idPorte, idRaca, idPreferencia,idTipo,idSexo);
             enviarImagem(imagem, insertedId);
             toast.dark('animal inserido');
         }
@@ -117,10 +127,22 @@ export default function PageCadastrar() {
                                         })}
                                     </select>
 
-                                    <select onChange={(e)=> setSexo(e.target.value)} className="inputo">
+                                    <select onChange={(e)=> setIdSexo(e.target.value)} className="inputo">
                                         <option disable selected hidden>Sexo</option>
-                                        <option>Macho</option>
-                                        <option>Femea</option>
+                                        {sexo.map(item => {
+                                            return(
+                                                <option value={ item.id_sexo } key="">{ item.ds_sexo }</option>
+                                            );
+                                        })}
+                                    </select>
+
+                                    <select  onChange={(e) => setIdTipo(Number(e.target.value))} className="inputo">
+                                        <option disable selected hidden>Tipo</option>
+                                        {tipo.map(item => {
+                                            return(
+                                                <option value={ item.id_tipo } key="">{ item.nm_tipo }</option>
+                                            );
+                                        })}
                                     </select>
 
                                     <select  onChange={(e) => setIdPreferencia(Number(e.target.value))} className="inputo">

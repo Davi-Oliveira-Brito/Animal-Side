@@ -1,8 +1,7 @@
 import { con } from './connection.js'
 
 
-export async function buscaRaca()
-{
+export async function buscaRaca(){
     const comando = `
     select 	*
     from	tb_raca;
@@ -12,8 +11,7 @@ export async function buscaRaca()
     return resposta;   
 }
 
-export async function buscaPorte()
-{
+export async function buscaPorte(){
     const comando = `
     select 	*
     from	tb_porte;
@@ -23,8 +21,7 @@ export async function buscaPorte()
     return resposta;   
 }
 
-export async function buscaPreferencia()
-{
+export async function buscaPreferencia(){
     const comando = `
     select 	*
     from	tb_preferencia;
@@ -34,13 +31,33 @@ export async function buscaPreferencia()
     return resposta;   
 }
 
+export async function buscaSexo(){
+    const comando = `
+    select  *
+    from	tb_sexo;
+    `;
+
+    const [resposta] = await con.query(comando, []);
+    return resposta;
+}
+
+export async function buscaTipo(){
+    const comando = `
+    select *
+    from tb_tipo;
+    `;
+
+    const [resposta] = await con.query(comando, []);
+    return resposta;
+}
+
 export async function cadastrarAnimal(animal) {
     console.log(animal);
     const comando =
-        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_sexo, ds_descricao, id_usuario, id_porte, id_raca, id_comentario_adocao, id_preferencia)
-                               values(?,?,?,?,?,?,?,?,?)`    
+        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, img_animal, id_usuario,id_admin, id_porte, id_raca, id_comentario_adocao, id_preferencia, id_sexo, id_tipo)
+        values(?,?,?,?,?,?,?,?,?,?,?,?);`    
 
-    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.sexo, animal.descricao, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia]);
+    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.imagem, animal.usuario, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia,animal.sexo, animal.tipo]);
     
     return resposta.insertId;
 }

@@ -19,17 +19,31 @@ export async function buscarPorte(){
     return resp.data;
 }
 
-export async function cadastrarAnimal(nome, idade, sexo, descricao, porte, raca, preferencia){
+export async function buscarTipo(){
+    const resp = await api.get('/admin/buscaTipo');
+    return resp.data;
+}
+
+export async function buscarSexo(){
+    const resp = await api.get('/admin/buscaSexo');
+    return resp.data;
+}
+
+
+export async function cadastrarAnimal(nome, idade, descricao, porte, raca, preferencia,tipo,sexo){
     const resp = await api.post('/admin/adocao',{
         nome: nome,
         idade:idade,
-        sexo:sexo,
         descricao:descricao,
         porte:porte,
-        admin: null,
+        usuario: null,
+        admin:null,
+        porte:porte,
         raca:raca,
         comentario:null,
-        preferencia:preferencia
+        preferencia:preferencia,
+        sexo:sexo,
+        tipo:tipo
     });
     return resp.data;
 }

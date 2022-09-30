@@ -1,4 +1,4 @@
-import { buscaRaca, buscaPorte, buscaPreferencia, cadastrarAnimal, alterarImagem} from "../Repository/cadastroRepository.js"
+import { buscaRaca, buscaPorte, buscaPreferencia, cadastrarAnimal, alterarImagem, buscaTipo, buscaSexo} from "../Repository/cadastroRepository.js"
 import { validar } from "../services/validarAnimal.js";
 
 import { Router } from "express";
@@ -20,6 +20,16 @@ server.get('/admin/buscaPreferencia', async (req,resp)=>{
 server.get('/admin/buscaPorte', async (req,resp)=>{
     const porte = await buscaPorte();
     resp.status(200).send(porte)
+})
+
+server.get('/admin/buscaTipo', async (req,resp)=>{
+    const tipo = await buscaTipo();
+    resp.status(200).send(tipo)
+})
+
+server.get('/admin/buscaSexo', async (req,resp)=>{
+    const sexo = await buscaSexo();
+    resp.status(200).send(sexo)
 })
 
 server.post('/admin/adocao', async (req, resp) => {

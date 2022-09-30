@@ -5,7 +5,7 @@ insert into tb_admin(nm_admin, ds_email, ds_senha)
 			  values('Administrador','admin@admin','admin');
               
 insert into tb_raca(ds_raca)
-				values('Vira-Late');
+				values('Pastor Emilio');
                 
                 
 select * from tb_animal_adocao; 
@@ -15,6 +15,12 @@ insert into tb_preferencia(ds_preferencia)
                    
 insert into tb_porte(ds_porte)
 			  values('G');
+              
+insert into tb_tipo(nm_tipo)
+			 values('Porquinho Da ìndia');
+
+insert into tb_sexo(ds_sexo)
+			 values('Femea');
 
 -- select da login-page
 select id_admin,
@@ -42,10 +48,17 @@ from	tb_porte;
 select 	ds_preferencia
 from	tb_preferencia;
 
+-- select do tipo
+select nm_tipo
+from tb_tipo;
+
+-- select do sexo
+select  ds_sexo
+from	tb_sexo;
+
 -- insert da tabela adocao
-insert into tb_animal_adocao(nm_animal,nr_idade,ds_sexo,ds_descricao,img_animal,id_usuario,id_porte,id_raca,id_comentario_adocao,id_preferencia)
-			  values('Apolo',12,'Macho','aaaa','',1,1,1,1,1);
-              
+insert into tb_animal_adocao(nm_animal,nr_idade,ds_descricao,img_animal,id_usuario, id_porte,id_raca, id_comentario_adocao, id_preferencia,id_sexo,id_tipo)
+					  values('doguinho',11,'cachorrooooo','', null, 1,1,null,1,1,1 );			
               
 			
 -- select das dog adoção
