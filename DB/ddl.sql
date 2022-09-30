@@ -38,12 +38,16 @@ create table tb_preferencia(
 	ds_preferencia		varchar(100)
 );
 
+create table tb_sexo(
+id_sexo 		int primary key auto_increment,
+ds_sexo			varchar(100)
+);
+
 create table tb_animal_perdido(
 	id_animal		int primary key auto_increment,
 	nm_animal		varchar(100),
 	nr_idade		int,
 	ds_telefone_contato		varchar(100),
-	ds_sexo			varchar(100),
 	dt_dia_sumico		date,
 	ds_descricao		varchar(100),
 	bt_status		boolean,
@@ -51,9 +55,11 @@ create table tb_animal_perdido(
 	id_usuario		int,
 	id_porte		int,
 	id_raca			int,
+    id_sexo			int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_porte) references tb_porte(id_porte),
-	foreign key (id_raca) references tb_raca(id_raca)
+	foreign key (id_raca) references tb_raca(id_raca),
+    foreign key (id_sexo) references tb_sexo(id_sexo)
 );
 create table tb_comentario_adocao(
 	id_comentario_adocao 	int primary key auto_increment,
@@ -74,11 +80,13 @@ create table tb_animal_adocao(
 	id_raca				int,
 	id_comentario_adocao int,
 	id_preferencia		int,
+    id_sexo 			int,
 	foreign key (id_comentario_adocao) references tb_comentario_adocao(id_comentario_adocao),
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_porte) references tb_porte(id_porte),
 	foreign key (id_raca) references tb_raca(id_raca),
-	foreign key (id_preferencia) references tb_preferencia(id_preferencia)
+	foreign key (id_preferencia) references tb_preferencia(id_preferencia),
+    foreign key (id_sexo) references tb_sexo(id_sexo)
 );
 
 create table tb_doacao(
