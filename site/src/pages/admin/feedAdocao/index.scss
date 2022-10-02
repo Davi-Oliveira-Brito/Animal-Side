@@ -1,0 +1,27 @@
+.feed-main{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+    width: 100%;
+    height: auto;
+
+    min-height: 100vh;
+
+
+    .card-input{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        margin: 4em;
+    }
+    .input{
+        width: 65em;
+        height: 2em;
+        outline: none;
+        font-family:'Poppins-Medium' ;
+        margin-bottom: 4em;
+        background-color: #C8C8C8;
+        border: none;
+    }
+}
