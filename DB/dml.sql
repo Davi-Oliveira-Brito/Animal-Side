@@ -5,7 +5,7 @@ insert into tb_admin(nm_admin, ds_email, ds_senha)
 			  values('Administrador','admin@admin','admin');
               
 insert into tb_raca(ds_raca)
-				values('Pastor Emilio');
+				values('Salsicha');
                 
                 
 select * from tb_animal_adocao; 
@@ -70,13 +70,13 @@ where nm_animal like 'Cachorro%';
 
 -- filtros
 select * from tb_animal_adocao
-where id_raca = 1;
+where id_tipo = 1 ;
 
 select * from tb_animal_adocao
-where ds_sexo = 'Macho';
+where id_sexo = 2;
 
 select * from tb_animal_adocao
-where ds_sexo = 'Femea';
+where id_sexo = 1;
 
 select * from tb_animal_adocao
 where id_porte = 2;
@@ -93,6 +93,16 @@ where nr_idade <=10;
 
 select * from tb_animal_adocao
 where nr_idade >10;
+
+-- select do card 
+select 	img_animal,
+		nm_animal,
+        id_raca,
+        ds_descricao,
+        nr_idade
+from 	tb_animal_adocao;
+        
+        
 
 
 

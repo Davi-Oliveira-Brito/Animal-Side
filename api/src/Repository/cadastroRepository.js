@@ -71,3 +71,4 @@ export async function alterarImagem(imagem, id) {
     const [ resposta ] = await con.query(comando, [imagem, id]);
     return resposta.affectedRows;
 }
+

@@ -1,6 +1,6 @@
 import { con } from './connection.js'
 
-export default async function filtroTipo(id) {
+export async function filtroTipo(id) {
     const comando = `
         select * from tb_animal_adocao
         where id_tipo = ? ;
@@ -10,7 +10,7 @@ export default async function filtroTipo(id) {
     return resposta;
 }
 
-export default async function filtroSexo(id) {
+export async function filtroSexo(id) {
     const comando = `
         select * from tb_animal_adocao
         where id_sexo = ?;`;
@@ -19,7 +19,7 @@ export default async function filtroSexo(id) {
     return resposta;
 }
 
-export default async function filtroPorte(id) {
+export async function filtroPorte(id) {
     const comando = `
         select * from tb_animal_adocao
         where id_porte = ?;`;
@@ -28,7 +28,7 @@ export default async function filtroPorte(id) {
     return resposta;
 }
 
-export default async function filtroIdade(idade){
+export async function filtroMenorIdade(idade){
     const comando = `
     select * from tb_animal_adocao
     where nr_idade <= ?;
@@ -37,4 +37,32 @@ export default async function filtroIdade(idade){
     const [resposta] = await con.query(comando, [idade]);
     return resposta;
 
+}
+
+
+export async function filtroMaiorIdade(idade){
+    const comando = `
+    select * from tb_animal_adocao
+    where nr_idade >= ?;
+    `;
+
+    const [resposta] = await con.query(comando, [idade]);
+    return resposta;
+
+}
+
+
+
+export async function adocaoCard(){
+    const comando = `
+    select 	img_animal,
+		    nm_animal,
+            id_raca,
+            ds_descricao,
+            nr_idade
+    from 	tb_animal_adocao;
+    `;
+
+    const [resposta] = await con.query(comando);
+    return resposta;
 }
