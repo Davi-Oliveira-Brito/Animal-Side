@@ -54,7 +54,7 @@ export async function buscaTipo(){
 export async function cadastrarAnimal(animal) {
     console.log(animal);
     const comando =
-        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, img_animal, id_usuario,id_admin, id_porte, id_raca, id_comentario_adocao, id_preferencia, id_sexo, id_tipo)
+        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, img_animal, id_usuario id_admin, id_porte, id_raca, id_comentario_adocao, id_preferencia, id_sexo, id_tipo)
         values(?,?,?,?,?,?,?,?,?,?,?,?);`    
 
     const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.imagem, animal.usuario, animal.admin, animal.porte, animal.raca, animal.comentario, animal.preferencia,animal.sexo, animal.tipo]);
@@ -71,3 +71,4 @@ export async function alterarImagem(imagem, id) {
     const [ resposta ] = await con.query(comando, [imagem, id]);
     return resposta.affectedRows;
 }
+

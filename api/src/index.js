@@ -11,6 +11,7 @@ import fs from 'fs'
 
 // Routes
 import adminController from './Controller/adminController.js'
+import feedController from './Controller/feedController.js'
 import cadastroController from './Controller/cadastroController.js'
 import usuarioController from './Controller/usuarioController.js'
 
@@ -24,6 +25,7 @@ server.use(express.json());
 
 
 server.use(adminController);
+server.use(feedController);
 server.use(cadastroController);
 server.use(usuarioController);
 
