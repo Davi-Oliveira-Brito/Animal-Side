@@ -101,6 +101,28 @@ select 	img_animal,
         ds_descricao,
         nr_idade
 from 	tb_animal_adocao;
+
+select nm_animal,
+		nr_idade,
+		id_porte,
+        id_raca,
+        id_preferencia
+ from tb_animal_adocao;
+ 
+ delete from tb_animal_adocao
+ where id_animal= 1;
+ 
+ update tb_animal_adocao
+ set nm_animal ='cachorro caramelo',
+	nr_idade  = 11,
+    ds_descricao ='perigoso',
+    id_usuario  = 1,
+    id_porte	= 1,
+    id_raca		= 1,
+    id_preferencia =1,
+    id_sexo			=1,
+    id_tipo			=1
+where id_animal_adocao = 1;
         
         
 
