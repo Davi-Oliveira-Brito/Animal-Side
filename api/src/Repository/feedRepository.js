@@ -1,5 +1,15 @@
 import { con } from './connection.js'
 
+export async function buscarCard(nome){
+    const comando = `
+    select * from tb_animal_adocao
+    where nm_animal like ?;
+    `;
+    const [resposta] = await con.query(comando, [`%${nome}%`]);
+    return resposta;
+
+}
+
 export async function filtroTipo(id) {
     const comando = `
         select * from tb_animal_adocao
@@ -50,6 +60,7 @@ export async function filtroMaiorIdade(idade){
     return resposta;
 
 }
+
 
 
 
