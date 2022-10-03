@@ -12,6 +12,7 @@ import fs from 'fs'
 // Routes
 import adminController from './Controller/adminController.js'
 import cadastroController from './Controller/cadastroController.js'
+import usuarioController from './Controller/usuarioController.js'
 
 const swaggerOptions = JSON.parse(fs.readFileSync('./src/swagger.json'));
 
@@ -24,6 +25,7 @@ server.use(express.json());
 
 server.use(adminController);
 server.use(cadastroController);
+server.use(usuarioController);
 
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 

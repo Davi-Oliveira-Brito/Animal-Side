@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-import { loginAdmin } from '../../api/loginAdmin.js'; 
+import { loginUsuario } from '../../api/loginUsuario.js'; 
 
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ export default function Login() {
 
     async function logar(){
       try{
-        const resposta = await loginAdmin(email.trim(), senha.trim());
+        const resposta = await loginUsuario(email.trim(), senha.trim());
         storage('usuario-logado', resposta)
         toast.dark('Usuario Logado');
         navigate('/cadastro');

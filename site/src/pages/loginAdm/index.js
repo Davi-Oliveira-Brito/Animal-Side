@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import localStorage from 'local-storage';
 import storage from 'local-storage';
 
-export default function Login() {
+export default function LoginAdmin() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
