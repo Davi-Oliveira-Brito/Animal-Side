@@ -2,7 +2,7 @@ import PageCadastrar from "./pages/admin/cadastrarAdocao"
 import LoginPage from "./pages/login"
 import AdoteFeed from "./pages/adote/feed/index.js"
 import FeedAdocao from "./pages/admin/feedAdocao/index.js"
-import LoginAdmin from "./pages/login"
+import LoginAdmin from "./pages/loginAdm"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -14,6 +14,7 @@ export default function AppRoutes() {
                 <Route path='/' element={<LoginPage/>} />
                 <Route path='/adoteFeed' element={<AdoteFeed/>} />
                 <Route path='/feedAdocaoAdmin' element={<FeedAdocao/>}/>
+                <Route path='/loginAdmin' element={<LoginAdmin/>}/>
             </Routes>
         </BrowserRouter>
     )
