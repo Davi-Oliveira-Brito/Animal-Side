@@ -14,6 +14,7 @@ import adminController from './Controller/adminController.js'
 import feedController from './Controller/feedController.js'
 import cadastroController from './Controller/cadastroController.js'
 import usuarioController from './Controller/usuarioController.js'
+import FeedAdmiController from './Controller/FeedadminController.js'
 
 const swaggerOptions = JSON.parse(fs.readFileSync('./src/swagger.json'));
 
@@ -28,6 +29,7 @@ server.use(adminController);
 server.use(feedController);
 server.use(cadastroController);
 server.use(usuarioController);
+server.use(FeedAdmiController);
 
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
