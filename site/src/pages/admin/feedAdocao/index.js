@@ -9,9 +9,8 @@ export default function FeddAdocao(){
     return(
         <main className="feed-main">
             <NavBarAdmin/>
-            <div className='compSide'>
             <SideBarAdmin/>
-            </div>
+
 
             <div className='card-input'>
                 <input className='input' type='text' placeholder='Busca por nome'/>
