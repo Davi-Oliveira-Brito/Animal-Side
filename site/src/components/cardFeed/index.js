@@ -2,30 +2,33 @@ import './index.scss'
 
 export default function CardFeed(props) {
     return (
-        <div className="cards-mom">
+        <main className="card">
+            <div className="left-area">
+                <img src="/assets/images/dogBranco.png" alt="" />
+            </div>
 
-            <div className="carde">
+            <div className="right-area">
+                
+                <div className="text-area">
+                    <h1 className="card-title">Doguinho Daora</h1>
+                    <b className="card-raca">Raça</b>
+                    <p className="card-desc">
+                    Isso é uma texto ilustrativo para 
+                    a descrição de uma suposto animal
+                    </p>
+                    <p className="card-idade">10 Anos</p>
+                </div>
 
-                <img className="card-image" src="/assets/images/dogBranco.png" alt="" />
+                <div className="buttons-area">
 
-                <div className="left-card">
-                    <div className="text-card">
-                        <p className="titleCard">{props.nome}</p>
-                        <p className="little-letters">{props.idade}</p>
-                        <p className="little-desc">{props.descricao} </p>
-                        <p className="little-letters">{props.porte}</p>
-                    </div>
-
-                    <div className="buttons-div">
-                        <div className="butoes">
-                            <button className="butao">Conhecer</button>
-                            <button className="butao">Adotar</button>
-                        </div>
+                    <div className="buttons">
+                        <button className="botao">Conhecer</button>
+                        <button className="botao">Adotar</button>
                     </div>
 
                 </div>
             </div>
 
-        </div>
+        </main>
     );
 }

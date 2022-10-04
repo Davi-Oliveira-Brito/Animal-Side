@@ -1,87 +1,90 @@
-.cards-mom{
-    display:flex;
-    flex-direction: column;
+.card{
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    min-height: 100vh;
-    line-height: 0;
-
-
-    .carde{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;         
-        background: #FFFFFF;            
-        background-color: #FFFFFF;
-        width: 55em;
-        height:14em;
-        margin-bottom: 2em;
-        
-        
     
-        
-        .card-image{
-            width:15em;
-            height: auto;
+    background-color: #FFFFFF;
+
+    width: 75%;
+    max-width: 80%;
+    height: auto;
+
+    .left-area{
+        height: auto;
+        width: auto;
+
+        img{
+            width: 15em;
+            height: 100%;
         }
-    
-        .left-card{
-            display:flex;
+    }
+
+    .right-area{    
+        padding: 1em;
+        width: 65%;
+
+        .text-area{
+            display: flex;
             flex-direction: column;
             justify-content: space-around;
-    
-            height:14em;
-    
-            padding: .5em;
+            line-height: 1.3em;
+            height: 80%;
+
+            .card-title{
+                font-family: 'Poppins-SemiBold';
+                font-size: 30px;
+                color: #000000;
+            }
+
+            .card-raca{
+                font-family: 'Poppins-Regular';
+                font-size: 16px;
+                color: #000000;
+            }
+
+            .card-desc{
+                font-family: 'Poppins-Regular';
+                font-size: 14px;
+                width: 93%;
+            }
+            .card-idade{
+                font-family: 'Poppins-Regular';
+                font-size: 14px;
+            }
         }
-    
-        .text-card{
-            display:flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height:11em;
-            width: 38em;
-            line-height: 1em;
-        }
-    
-        .little-desc{
-            line-height: normal;
-            font-family: 'Poppins-Regular';
-            font-size: 13px;
-        }
-    
-        .titleCard{
-            font-family: 'poppins-semibold';
-            font-size: 20px;
-        }
-    
-        .little-letters{
-            font-family: 'Poppins-Regular';
-            font-size: 13px;
-        }
-        .buttons-div{
+
+        .buttons-area{
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-    
-            .butoes{
+            width: 100%;
+
+
+            .buttons{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                width: 15em;
+                width: 45%;
+                .botao{
+                    flex-direction: row;
+                    display: flex;
+
+                    border-radius: 2em;
+                    padding: .5em 1em .5em 1em;
+                    background-color: #FF6909;
+                    border: none;
+
+                    font-family: 'Poppins-Regular';
+                    color: #FFFFFF;       
+                }
             }
-        
-            .butao{
-                height: 2em;
-                width: 8em;
-                color: #FFFFFF;
-                border:none;
-           
-                background: #FF6909;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
-                border-radius: 15px;
-            }
+
+            
+
+
         }
-        
+
     }
+
 
 }

@@ -33,7 +33,7 @@ export default function () {
                     <SideBar />
                 </div>
                 <div className='card-s'>
-                    {animais.map(item => {
+                {animais.map(item => {
                         return (
                             <CardFeed
                                 nome={item.nome}
@@ -48,6 +48,7 @@ export default function () {
                             />
                         );
                     })}
+                  
                 </div>
 
             </div>
