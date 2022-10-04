@@ -4,7 +4,7 @@ import { Router } from "express";
 const server = Router();
 
 
-server.get('feed/buscaNome/q', async (req,resp) =>{
+server.get('/feed/buscaNome/q', async (req,resp) =>{
     try{
         const nome = req.query.nome;
         const resposta = await buscarCard(nome);
@@ -17,7 +17,6 @@ server.get('feed/buscaNome/q', async (req,resp) =>{
     }
 
 })
-
 
 
 server.get('/feed/filtroTipo/q', async (req,resp) =>{

@@ -11,9 +11,9 @@ export default function CardFeed(props) {
                 <div className="left-card">
                     <div className="text-card">
                         <p className="titleCard">{props.nome}</p>
-                        <p className="little-letters">{props.visto}</p>
-                        <p className="little-desc">{props.desc} </p>
                         <p className="little-letters">{props.idade}</p>
+                        <p className="little-desc">{props.descricao} </p>
+                        <p className="little-letters">{props.porte}</p>
                     </div>
 
                     <div className="buttons-div">

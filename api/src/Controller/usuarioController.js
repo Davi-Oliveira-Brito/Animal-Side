@@ -29,3 +29,5 @@ server.post('/usuario/loginUsuario', async (req, resp) => {
     }
 
 });
+
+export default server;

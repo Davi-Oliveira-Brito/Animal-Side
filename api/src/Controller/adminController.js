@@ -8,7 +8,8 @@ const server = Router();
 server.post('/admin/loginAdmin', async (req, resp) => {
     try{
         const admin = req.body;
-        
+        console.log(admin);
+
         if(!admin.email || !admin.senha) 
             throw new Error("Todos os campos são obrigatorios!");          
 

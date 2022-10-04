@@ -1,7 +1,6 @@
 import { con } from './connection.js'
 
-export async function loginUsuario (usuario)
-{
+export async function loginUsuario (usuario) {
     const comando = `
     select  id_usuario as id,
             ds_email as email,
@@ -12,6 +11,6 @@ export async function loginUsuario (usuario)
     `;
 
     const [userlogado]  = await con.query(comando, [usuario.email, usuario.senha]); 
-    console.log(userlogado);
     return userlogado[0];
 }
+
