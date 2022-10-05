@@ -1,0 +1,74 @@
+.lading-mom{
+    display: flex;
+    flex-direction: column;
+
+
+    .hero-sec{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: linear-gradient(108.28deg,
+        #43AFFF 38%, rgba(0, 147, 255, 0.3) 98.96%);
+        padding: 0em 1em 0em 1em;
+        align-items: center;
+        
+
+        .sub-hero{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 30em;
+
+            .text-area{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+    
+                height: 20em;
+                width: 24em;
+    
+    
+                .hero-title{
+                    font-family: 'Poppins-Bold';
+                    font-size: 30px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                }
+    
+                .texto-hero{
+                    font-family: 'Poppins-Bold';
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+    
+                    span{
+                        color: #FF6909;
+                    }
+                }
+    
+                .nome{
+                    font-family: 'Poppins-Bold';
+                    font-size: 16px;
+                    color: #FFFFFF;
+                }
+    
+                .hero-button{
+                    font-family: 'Poppins-Bold';
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    background-color: #FF6909;
+                    border: none;
+    
+                    width: 200px;
+                    height: 42px;
+                }
+            }
+
+        }
+        .img-hero img{
+            width: 80%;
+            height: auto;
+        }
+    }
+}
