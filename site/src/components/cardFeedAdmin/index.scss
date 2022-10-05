@@ -1,82 +1,39 @@
-
-.cards-mom{
-    display:flex;
+.Card{
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    .carde{
+    width: 70%;
+    box-shadow: 2px 0px 30px 3px rgba(0, 0, 0, 0.25);
+    
+    .image-left{
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;         
-        background: #FFFFFF;            
-        background-color: #FFFFFF;
-        width: 32em;
-        height:15em;
-        margin-bottom: 1em;
-        box-shadow: 1px 0px 30px 1px rgba(0, 0, 0, 0.25);
-        
-    
-        
-        .card-image{
-            width:15em;
-            height: auto;
-        }
-    
-        .left-card{
-            display:flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height:14em;
-        }
-    
-        .text-card{
-            display:flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 15em;
-        }
-    
-        .titleCard{
-            font-family: 'poppins-semibold';
-            font-size: 20px;
-
-        }
-    
-        .little-letters{
-            font-family: 'Poppins-Regular';
-            font-size: 15px;
-
-        }
-        .buttons-div{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            margin-bottom: -1.5em;
-
-            
-            
-            .butao{
-                cursor: pointer;
-                height: 2em;
-                width: 7em;
-                color: #FFFFFF;
-                border:none;
-           
-                background: #FF6909;
-                border-radius: 5px;
-            }
-        }
-        .image-interative{
-            width: 2em;
-            height: 1.5em;
-        }
-        .imageInterativa{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            cursor: pointer;
-        }
-        
+        justify-content: center;   
     }
 
-}
+    .Card-right{
+        display: flex;
+        flex-direction: column;
+        width: 70%; 
+        margin-left: .8em; 
+
+    }
+    .text{
+        font-family: 'Poppins-Regular';
+        font-size: 13px;
+    }
+    .botao-img{
+        cursor: pointer;         
+        display: flex;
+        flex-direction: row;       
+    }
+    
+    .botao{
+        background-color: #FF6909;
+        width: 6em;
+        padding: .5em 1em .5em 1em;
+        color: #ffff;
+        border-radius: 3px;         
+    }
+    .img-interative{
+        margin-left: 5.5em;
+    }
+    }
