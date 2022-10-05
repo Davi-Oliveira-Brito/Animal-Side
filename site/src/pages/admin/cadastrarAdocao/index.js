@@ -35,6 +35,7 @@ export default function PageCadastrar() {
 
     const [imagem,setImagem] = useState('');
 
+    const animal = {};
     async function carregarSelects() {
         let ra = await buscarRacas();
         let po = await buscarPorte();
@@ -136,7 +137,7 @@ export default function PageCadastrar() {
                                         })}
                                     </select>
 
-                                    <select  onChange={(e) => setIdTipo(Number(e.target.value))} className="inputo">
+                                    <select onChange={(e) => setIdTipo(Number(e.target.value))} className="inputo">
                                         <option disable selected hidden>Tipo</option>
                                         {tipo.map(item => {
                                             return(
