@@ -28,6 +28,7 @@ export default function () {
                 <img className="dog-procure" src="/assets/images/orangeDog.png" alt="" />
                 <input className="pesquisa" type="text" placeholder="Procure seu Bichinho..." />
             </div>
+            <div></div>
             <div className="bottom">
                 <div className="comp-side">
                     <SideBar />
