@@ -8,7 +8,7 @@ export default function Navbar(){
                 <div className='nav-image' >
                     <img className='logo-feed' src="/assets/images/Logorow.png" alt="" />
                 </div>
-
+                
                 <div className='element-nav-mom'>
                     <a className='element-nav-feed' href="">A ONG</a>
                     <a className='element-nav-feed' href="">Quem Somos?</a>
