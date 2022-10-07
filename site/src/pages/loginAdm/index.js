@@ -53,9 +53,10 @@ export default function LoginAdmin() {
 
                 <button className="admin-login-button" onClick={logar}>Entrar</button>
 
-                <p className="admin-crie-sua-conta">Não tem uma conta? Cadastre-se</p>
+                <p className="admin-crie-sua-conta">Não tem uma conta? <a>Cadastre-se</a></p>
 
                 <div className="admin-left">
+                    <button className="botao-direita">Pagina Inicial</button>
                     <div className="imagem"><img src="" alt="" /></div>
                 </div>
             </div>

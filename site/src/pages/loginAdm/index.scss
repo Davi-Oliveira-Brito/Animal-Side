@@ -1,0 +1,135 @@
+.admin-login-main{
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content:space-between;
+    min-height: 100vh;
+    
+
+    .admin-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+        width: 50vw;
+
+        padding: 2em;
+
+        background-color: #43afff;
+        
+        
+        .admin-login-title{
+            width:5em;
+            
+        
+            font-family: 'poppins-bold';
+            font-weight: 700;
+            font-size: 60px;
+            color: #FFFFFF;
+        }
+
+        .admin-login-text{
+            width: 25em;
+            
+            font-family: 'poppins-medium';
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+        .admin-inputs{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #FFFFFF;
+
+            & > input {
+                margin-bottom: 15px;
+            }
+
+            a{
+                font-family: 'poppins-medium';
+                color: #FFFFFF;
+            }
+            .email{
+                padding-left: 1em;
+                border: #FFFFFF;
+                height: 45px;
+            }
+            .senha{
+                padding-left: 1em;
+                border: #FFFFFF;
+                height: 45px;
+            }
+        }
+
+
+        .admin-login-button {
+            padding: 0.8em 1.8em;
+            width: 10em;
+            border: 2px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'poppins-medium';
+            transition: .3s;
+            z-index: 1;
+            cursor: pointer;
+            color: #ffffff;
+           }
+
+        .admin-login-button::before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(39deg);
+            background: #ffffff;
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+           }
+           
+           .admin-login-button:hover::before {
+            width: 105%;
+
+           }
+           
+           .admin-login-button:hover {
+            color: #1A1F59;
+            font-family: 'poppins-medium';
+
+           }
+           
+
+        .admin-crie-sua-conta{
+            font-family: 'poppins-medium';
+            color: #FFFFFF;
+
+            a{
+                text-decoration:underline;
+                color: #FFFFFF;
+
+            }
+        }
+
+    }
+
+    .admin-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        .botao-direita{
+        align-self: flex-end;
+        margin: 1em 1em 0em 0em;
+        border: 2px solid #43AFFF;
+        border-radius: 17px;
+        background: none;
+        width: 200px;
+        height: 35px;
+        }
+    }
+}
