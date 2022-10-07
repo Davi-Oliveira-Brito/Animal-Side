@@ -3,21 +3,19 @@ import './index.scss'
 import NavBar from '../../../components/navBar/index.js'
 import SideBar from '../../../components/sideBar/index.js'
 import CardFeed from '../../../components/cardFeed/index.js'
-
-import { adocaoCard } from '../../../api/feed.js';
-
 import { useState } from 'react';
+
+import { listarTodosAnimais, filtroAnimal } from '../../../api/feed.js';
+
 
 export default function () {
     const [animais, setAnimais] = useState([]);
+    const [nome, setNome] = useState('');
 
     async function carregarAnimais() {
-        let r = await adocaoCard();
+        let r = await listarTodosAnimais();
         setAnimais(r);
     }
-
-    console.log(animais);
-
     useEffect(() => {
         carregarAnimais();
     }, []);
@@ -26,11 +24,14 @@ export default function () {
             <NavBar />
             <div className="top">
                 <img className="dog-procure" src="/assets/images/orangeDog.png" alt="" />
-                <input className="pesquisa" type="text" placeholder="Procure seu Bichinho..." />
+                <input value={nome} onChange={(e)=> setNome(e.target.value)} className="pesquisa" type="text" placeholder="Procure seu Bichinho..." />
             </div>
             <div className="bottom">
                 <div className="comp-side">
-                    <SideBar />
+                    <SideBar
+                    setAnimais={setAnimais}
+                    nome={nome}
+                    />
                 </div>
                 <div className='card-s'>
                 {animais.map(item => {

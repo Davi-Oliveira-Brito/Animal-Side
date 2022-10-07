@@ -1,12 +1,12 @@
 import { con } from './connection.js'
 
-export async function buscarAnimal(nome, tipo, sexo, porte, menor, maior){
-    nome =  !nome ? '' : `%${nome}%`;
-    tipo =  !tipo ? '' : `%${tipo}%`;
-    sexo =  !sexo ? '' : `%${sexo}%`;
-    porte =  !porte ? '' : `%${porte}%`;
-
-
+export async function buscarPorFiltro(nome, tipo, sexo, porte, menor, maior){
+    if(!tipo || tipo === undefined) tipo = ''
+    if(!sexo || sexo === undefined) sexo = ''
+    if(!porte || porte === undefined) porte = ''
+    if(!menor || menor === undefined) menor = ''
+    if(!maior || maior === undefined) maior = ''
+    
     const comando = `
     select  nm_animal 		                    as nome,
             nr_idade		                    as idade,
@@ -36,69 +36,16 @@ export async function buscarAnimal(nome, tipo, sexo, porte, menor, maior){
     inner join tb_preferencia on tb_animal_adocao.id_preferencia = tb_preferencia.id_preferencia
     
     where   (? = '' or nm_animal like ?) 
-    and     (? = '' or tb_tipo.nm_tipo like ?) 
-    and     (? = '' or tb_sexo.ds_sexo like ? )
-    and     (? = '' or tb_porte.ds_porte like ?)`;
+    and     (? = '' or tb_tipo.id_tipo = ?) 
+    and     (? = '' or tb_sexo.id_sexo = ? )
+    and     (? = '' or tb_porte.id_porte = ?)`;
 
-    const [resposta] = await con.query(comando, [nome, nome, tipo, tipo, sexo, sexo, porte, porte]);
+    const [resposta] = await con.query(comando, [nome, `%${nome}%`, tipo, tipo, sexo, sexo, porte, porte]);
     return resposta;
 
 }
 
-export async function filtro(id) {
-    const comando = `
-        select   
-        
-        from tb_animal_adocao
-        where id_tipo = ?
-    `;
-
-    const [resposta] = await con.query(comando, [id]);
-    return resposta;
-}
-
-export async function filtroSexo(id) {
-    const comando = `
-        select * from tb_animal_adocao
-        where id_sexo = ?`;
-
-    const [resposta] = await con.query(comando, [id]);
-    return resposta;
-}
-
-export async function filtroPorte(id) {
-    const comando = `
-        select * from tb_animal_adocao
-        where id_porte = ?`;
-
-    const [resposta] = await con.query(comando, [id]);
-    return resposta;
-}
-
-export async function filtroMenorIdade(idade){
-    const comando = `
-    select * from tb_animal_adocao
-    where nr_idade <= ?
-    `;
-
-    const [resposta] = await con.query(comando, [idade]);
-    return resposta;
-
-}
-
-
-export async function filtroMaiorIdade(idade){
-    const comando = `
-    select * from tb_animal_adocao
-    where nr_idade >= ?;
-    `;
-
-    const [resposta] = await con.query(comando, [idade]);
-    return resposta;
-
-}
-
-export async function adocaoCard(){
+export async function listarTodosAnimais(){
     const comando = `
     select 	nm_animal 		                    as nome,
 			nr_idade		                    as idade,

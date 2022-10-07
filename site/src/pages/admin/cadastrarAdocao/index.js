@@ -35,7 +35,6 @@ export default function PageCadastrar() {
 
     const [imagem,setImagem] = useState('');
 
-    const animal = {};
     async function carregarSelects() {
         let ra = await buscarRacas();
         let po = await buscarPorte();

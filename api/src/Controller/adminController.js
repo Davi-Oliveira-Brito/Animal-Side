@@ -1,4 +1,4 @@
-import { loginAdmin, nameAdmin} from "../../Repository/adminRepository.js"
+import { loginAdmin, nameAdmin} from "../Repository/adminRepository.js"
 
 import { Router } from "express";
 
