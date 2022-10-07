@@ -1,9 +1,30 @@
 .admin-login-main{
     display: flex;
-    flex-direction:row-reverse;
+    flex-direction:row;
     justify-content:space-between;
     min-height: 100vh;
     
+
+    .admin-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        .botao-direita{
+            align-self: flex-end;
+            margin: 4em 1em 0em 4em;
+            border: 2px solid #43AFFF;
+            border-radius: 17px;
+            background: none;
+            width: 200px;
+            height: 35px;
+        }
+    }
+
+    .imagem{
+        width: 766px;
+        height: 613px;
+    }
 
     .admin-right{
         display: flex;
@@ -18,12 +39,12 @@
         
         
         .admin-login-title{
-            width:5em;
+           
             
         
             font-family: 'poppins-bold';
             font-weight: 700;
-            font-size: 60px;
+            font-size: 55px;
             color: #FFFFFF;
         }
 
@@ -117,19 +138,5 @@
 
     }
 
-    .admin-left{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        
-        .botao-direita{
-        align-self: flex-end;
-        margin: 1em 1em 0em 0em;
-        border: 2px solid #43AFFF;
-        border-radius: 17px;
-        background: none;
-        width: 200px;
-        height: 35px;
-        }
-    }
+   
 }

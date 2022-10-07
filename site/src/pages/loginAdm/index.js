@@ -40,6 +40,11 @@ export default function LoginAdmin() {
     },[])
     return (
         <main className="admin-login-main">
+            <div className="admin-left">
+                    <button className="botao-direita">Pagina Inicial</button>
+                    <div className="imagem"><img src="/assets/images/loginAdmin.png" alt="" /></div>
+            </div>
+
             <div className="admin-right">
                 <h1 className="admin-login-title">Bem-vindo administrador</h1>
 
@@ -55,10 +60,7 @@ export default function LoginAdmin() {
 
                 <p className="admin-crie-sua-conta">Não tem uma conta? <a>Cadastre-se</a></p>
 
-                <div className="admin-left">
-                    <button className="botao-direita">Pagina Inicial</button>
-                    <div className="imagem"><img src="" alt="" /></div>
-                </div>
+                
             </div>
         </main>
 
