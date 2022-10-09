@@ -1,25 +1,31 @@
+
 .feed-main{
     display: flex;
     flex-direction: row;
-    background-color: #ffff;
     width: 100%;
     height: auto;
 
-    .card-input{
+    .top{
         display: flex;
         flex-direction: column;
-        justify-content: center; 
-        gap:15px;
-        margin: 4em;
-        height: 30%;
+        justify-content: flex-start;
+        margin-left: 1.5em;
+        margin-top: 5em;
+        width: 100%;
+        height: auto;
+        .Barra-de-busca{
+            align-items: center;
+            width: 65em;
+            height: 2em;
+            outline: none;
+            margin-bottom: 3em;
+        }
     }
-    .input{
-        width: 65em;
-        height: 2em;
-        outline: none;
-        font-family:'Poppins-Medium' ;
-        margin-bottom: 4em;
-        background-color: #c8c8c8;
-        border: none;
+    .comp{
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        flex-wrap: wrap;
     }
-}
+
+    }

@@ -1,25 +1,31 @@
 .Card{
     display: flex;
     flex-direction: row;
-    width: 70%;
-    height: auto;
+    width: 45%;
     box-shadow: 2px 0px 30px 3px rgba(0, 0, 0, 0.25);
     
     .image-left{
         display: flex;
-        justify-content: center;   
+        justify-content: flex-start;
+        width: 58%;
+   
+        .imgdog{
+            width: 15em;
+            height: 14em;
+        } 
     }
 
     .Card-right{
         display: flex;
         flex-direction: column;
-        width: 70%; 
-        margin-left: .8em; 
-
+        justify-content: flex-start;
+        height: 13em;
     }
     .text{
         font-family: 'Poppins-Regular';
-        font-size: 13px;
+        font-size: 15px;
+        letter-spacing: 0px;
+        word-spacing: 0px;
     }
     .botao-img{
         cursor: pointer;         
@@ -28,13 +34,18 @@
     }
     
     .botao{
+        cursor: pointer; 
         background-color: #FF6909;
-        width: 6em;
-        padding: .5em 1em .5em 1em;
+        width: 5.5em;
+        padding: .3em .5em .3em .5em;
         color: #ffff;
-        border-radius: 3px;         
+        border-radius: 3px;
+        border: none;
+        margin-top: 9px;
+        outline: none;
     }
     .img-interative{
-        margin-left: 5.5em;
+        margin-left: 2em;
+        margin-top: 9px;
     }
     }
