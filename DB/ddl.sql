@@ -83,16 +83,16 @@ create table tb_animal_adocao(
 	nr_idade				int,
 	ds_descricao			varchar(100),
 	img_animal				varchar(100),
+    id_admin				int,
 	id_porte				int,
 	id_raca					int,
 	id_preferencia			int,
     id_sexo 				int,
-    id_tipo					int,
-	foreign key (id_porte) references tb_porte(id_porte),
+	foreign key (id_admin) references tb_admin(id_admin),
+    foreign key (id_porte) references tb_porte(id_porte),
 	foreign key (id_raca) references tb_raca(id_raca),
 	foreign key (id_preferencia) references tb_preferencia(id_preferencia),
-    foreign key (id_sexo) references tb_sexo(id_sexo),
-    foreign key (id_tipo) references tb_tipo(id_tipo)
+    foreign key (id_sexo) references tb_sexo(id_sexo)
 );
 
 create table tb_doacao(

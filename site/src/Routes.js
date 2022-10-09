@@ -11,7 +11,7 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/cadastro' element={<PageCadastrar/>} />
+                <Route path='/cadastro/:id' element={<PageCadastrar/>} />
                 <Route path='/' element={<LadingPage/>} />
                 <Route path='/login' element={<LoginPage/>} />
                 <Route path='/adoteFeed' element={<AdoteFeed/>} />

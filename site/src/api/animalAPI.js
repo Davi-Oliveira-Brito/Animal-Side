@@ -14,10 +14,12 @@ export async function buscaFiltro() {
     const sexo = await api.get(`/animal/sexo`);
     const porte = await api.get(`/animal/porte`);
     const raca = await api.get(`/animal/raca`);
+    const preferencia = await api.get(`/animal/preferencia`);
 
     return {
         sexo: sexo.data,
         porte: porte.data,
-        raca: raca.data
+        raca: raca.data,
+        preferencia: preferencia.data
     }
 }

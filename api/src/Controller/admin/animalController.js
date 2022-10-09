@@ -1,3 +1,4 @@
+import { validar } from "../../services/validarAnimal.js";
 import { cadastroAnimal, alterarAnimal, deletarAnimal, alterarImagem } from "../../Repository/admin/animalRepository.js";
 
 import multer from "multer";

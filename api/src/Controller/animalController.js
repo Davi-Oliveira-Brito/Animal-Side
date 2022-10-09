@@ -1,4 +1,4 @@
-import { buscaAnimal, buscaPorte, buscaRaca, buscaPreferencia, buscaSexo } from '../Repository/animalRepository.js'
+import { buscaAnimal, buscaPorte, buscaRaca, buscaPreferencia, buscaSexo, buscaAnimalId } from '../Repository/animalRepository.js'
 
 import { Router } from "express";
 const server = Router();
@@ -14,6 +14,21 @@ server.get('/animal/q', async (req,resp) =>{
         let { maior } = req.query;
         
         const resposta = await buscaAnimal(nome, sexo, porte, raca, menor, maior);
+        
+        resp.status(200).send(resposta);
+    } catch (error){
+        resp.status(404).send({
+            error:error.message
+        })
+    }
+
+})
+
+server.get('/animal/id/:id', async (req,resp) =>{
+    try{
+        const { id } = req.params;
+        
+        const resposta = await buscaAnimalId(id);
         
         resp.status(200).send(resposta);
     } catch (error){

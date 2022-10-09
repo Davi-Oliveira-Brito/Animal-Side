@@ -3,10 +3,10 @@ import { con } from '../connection.js'
 export async function cadastroAnimal(animal) {
     console.log(animal);
     const comando =
-        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, img_animal, id_admin, id_porte, id_raca, id_preferencia, id_sexo, id_tipo)
-        values(?,?,?,?,?,?,?,?,?,?);`    
+        `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, id_admin, id_porte, id_raca, id_preferencia, id_sexo )
+        values(?,?,?,?,?,?,?,?);`    
 
-    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.imagem, animal.admin, animal.porte, animal.raca, animal.preferencia,animal.sexo, animal.tipo]);
+    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.admin, animal.porte, animal.raca, animal.preferencia, animal.sexo]);
     
     return resposta.insertId;
 }

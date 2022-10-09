@@ -1,78 +1,27 @@
 import React from 'react';
 import './index.scss'
 import { useState, useEffect } from 'react';
-import { buscarSexo, buscarTipo, buscarRacas, buscarPreferencia, buscarPorte} from '../../api/cadastraAnimal.js';
-import { filtroAnimal } from '../../api/feed';
+import { buscaFiltro } from '../../api/animalAPI';
 
 export default function SideBar({ setAnimais, nome }) {
-    const [sexo, setSexo] = useState([]);
-    const [idSexo, setIdSexo] = useState(''); 
+    const [selects, setSelects] = useState();
+    const [idPorte, setIdPorte] = useState();
+    const [idSexo, setIdSexo] = useState();
+    const [idPreferencia, setIdPreferecia] = useState();
 
-    const [tipo, setTipo] = useState([]);
-    const [idTipo, setIdTipo] = useState('');
-
-    const [racas, setRacas] = useState([]);
-    const [idRaca, setIdRaca] = useState('');
-    
-    const [porte, setPorte] = useState([]);
-    const [idPorte, setIdPorte] = useState('');
-    
-    const [preferencia, setPreferencia] = useState([]);
-    const [idPreferencia, setIdPreferencia] = useState('');
-    
     async function carregarFiltros() {
-        let ra = await buscarRacas();
-        let po = await buscarPorte();
-        let pr = await buscarPreferencia();
-        let sx = await buscarSexo();
-        let tp = await buscarTipo();
-
-        setSexo(sx);
-        setTipo(tp);
-        setRacas(ra);
-        setPorte(po);
-        setPreferencia(pr);
-    }
-
-    async function carregarAnimaisFiltrados() {
-        let r = await filtroAnimal(nome, idTipo, idSexo, idPorte, '', '');
-        setAnimais(r);
-    }
-
-    function mudarIdSexo(e, id) {
-        if(e.target.checked) setIdSexo(id)
-        else setIdSexo('')
-    }
-    function mudarIdTipo(e, id) {
-        if(e.target.checked) setIdTipo(id)
-        else setIdTipo('')
-    }
-
-    
-    function mudarIdRaca(e, id) {
-        if(e.target.checked) setIdRaca(id)
-        else setIdRaca('')
+        let filtro = await buscaFiltro();
+        setSelects(filtro);
     }
     
-    function mudarIdPorte(e, id) {
-        if(e.target.checked) setIdPorte(id)
-        else setIdPorte('')
+    function verificarCheckBox(e, id) {
+        if(e.target.checked) return id
+        else return '';
     }
-    
-    function mudarIdPreferencia(e, id) {
-        if(e.target.checked) setIdPreferencia(id)
-        else setIdPreferencia(undefined)
-    }
-
-    
 
     useEffect(()=>{
         carregarFiltros()
     },[]);
-
-    useEffect(()=>{
-        carregarAnimaisFiltrados()
-    },[nome, idSexo, idTipo, idRaca, idPorte, idPreferencia ]);
     return (
         <main className="side-feed" >
             <section className="side-sub-feed">
@@ -86,11 +35,11 @@ export default function SideBar({ setAnimais, nome }) {
 
                 <div className="sexo">
                     <p className="side-title">Sexo</p>
-                    {sexo.map(item => {
+                    {selects.sexo.map(item => {
                         return(
                             <div className="check-side">
-                                <input onChange={(e)=>mudarIdSexo(e, item.id_sexo)} type="checkbox" placeholder />
-                                <p className="side-text">{ item.ds_sexo }</p>
+                                <input onChange={(e)=> setIdSexo(verificarCheckBox(e, item.id_sexo))} type="checkbox" placeholder />
+                                <p className="side-text">{ item.sexo }</p>
                             </div>
                         )  
                     })}
@@ -98,11 +47,11 @@ export default function SideBar({ setAnimais, nome }) {
 
                 <div className="porte">
                     <p className="side-title">Porte</p>
-                    {porte.map(item => {
+                    {selects.porte.map(item => {
                         return(
                             <div className="check-side">
-                                <input onChange={(e) => mudarIdPorte(e, item.id_porte)} type="checkbox" />
-                                <p className="side-text">{ item.ds_porte }</p>
+                                <input onChange={(e)=> setIdSexo(verificarCheckBox(e, item.id_porte))} type="checkbox" />
+                                <p className="side-text">{ item.porte }</p>
                             </div>
                         )  
                     })}

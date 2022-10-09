@@ -25,14 +25,10 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
             tb_sexo.ds_sexo						as sexo,
             tb_sexo.id_sexo,
             
-            tb_tipo.nm_tipo						as tipo,
-            tb_tipo.id_tipo
-            
     from tb_animal_adocao
     inner join tb_porte on tb_animal_adocao.id_porte = tb_porte.id_porte
     inner join tb_raca on tb_animal_adocao.id_raca = tb_raca.id_raca
     inner join tb_sexo on tb_animal_adocao.id_sexo = tb_sexo.id_sexo
-    inner join tb_tipo on tb_animal_adocao.id_tipo = tb_tipo.id_tipo
     inner join tb_preferencia on tb_animal_adocao.id_preferencia = tb_preferencia.id_preferencia
     
     where   (? = '' or nm_animal like ?) 
@@ -43,6 +39,23 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
     const [resposta] = await con.query(comando, [nome, `%${nome}%`, raca, raca, sexo, sexo, porte, porte]);
     return resposta;
 
+}
+
+export async function buscaAnimalId(id) {
+    const command = `
+        select  nm_animal           as nome,
+                nr_idade            as idade,
+                ds_descricao        as descricao,
+                img_animal          as imagem,
+                id_porte            as porte,
+                id_raca             as raca,
+                id_preferencia      as preferencia,
+                id_sexo             as sexo
+        from    tb_animal_adocao     
+        where   id_animal_adocao = ?;
+    `
+    const [resposta] = await con.query(command, [id]);
+    return resposta[0];
 }
 
 export async function buscaSexo() {

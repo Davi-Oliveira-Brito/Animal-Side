@@ -5,7 +5,7 @@ import SideBar from '../../../components/sideBar/index.js'
 import CardFeed from '../../../components/cardFeed/index.js'
 import { useState } from 'react';
 
-import { listarTodosAnimais, filtroAnimal } from '../../../api/feed.js';
+import { buscaAnimal } from '../../../api/animalAPI.js';
 
 
 export default function () {
@@ -13,7 +13,7 @@ export default function () {
     const [nome, setNome] = useState('');
 
     async function carregarAnimais() {
-        let r = await listarTodosAnimais();
+        let r = await buscaAnimal();
         setAnimais(r);
     }
     useEffect(() => {

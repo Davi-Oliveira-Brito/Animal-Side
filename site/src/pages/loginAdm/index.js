@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-import { loginAdmin } from '../../api/loginAdmin.js'; 
+import { loginAdmin } from '../../api/admin/adminAPI.js'; 
 
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';

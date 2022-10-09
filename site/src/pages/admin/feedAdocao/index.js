@@ -4,7 +4,8 @@ import './index.scss'
 import NavBarAdmin from '../../../components/navBarAdmin/index.js'
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js'
 import CardFeedAdmin from '../../../components/cardFeedAdmin/index.js'
-import { listarAnimal } from '../../../api/feedAdmin';
+
+import { buscaAnimal } from '../../../api/animalAPI.js';
 
 
 
@@ -13,7 +14,7 @@ export default function FeddAdocao() {
     const navigate = useNavigate('');
     async function carregarAnimais() {
         try {
-            const r = await listarAnimal();
+            const r = await buscaAnimal();
             setAnimais(r);
         } catch (error) {
 
