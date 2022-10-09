@@ -37,23 +37,23 @@ from 	tb_admin
 where	id_admin = 1;
 
 -- select da raça
-select 	ds_raca
+select 	*
 from 	tb_raca;
 
 -- select do porte
-select 	ds_porte
+select 	*
 from	tb_porte;
 
 -- select da preferencia
-select 	ds_preferencia
+select 	*
 from	tb_preferencia;
 
 -- select do tipo
-select nm_tipo
+select *
 from tb_tipo;
 
 -- select do sexo
-select  ds_sexo
+select  *
 from	tb_sexo;
 
 -- insert da tabela adocao

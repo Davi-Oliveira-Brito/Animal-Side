@@ -19,66 +19,6 @@ server.get('/feed/buscaNome/q', async (req,resp) =>{
 })
 
 
-server.get('/feed/filtroTipo/q', async (req,resp) =>{
-    try{
-        const id = req.query.id;
-        const resposta = await filtroTipo(id);
-
-        resp.status(200).send(resposta)
-    } catch (error){
-        error:error.message
-    }
-
-})
-
-
-server.get('/feed/filtroPorte/q', async (req,resp) =>{
-    try{
-        const id = req.query.id;
-        const resposta = await filtroPorte(id);
-
-        resp.status(200).send(resposta)
-    } catch (error){
-        error:error.message
-    }
-
-})
-
-server.get('/feed/filtroMenorIdade/q', async (req,resp) =>{
-    try{
-        const idade = req.query.idade;
-        const resposta = await filtroMenorIdade(idade);
-
-        resp.status(200).send(resposta)
-    } catch (error){
-        error:error.message
-    }
-
-})
-
-server.get('/feed/filtroMaiorIdade/q', async (req,resp) =>{
-    try{
-        const idade = req.query.idade;
-        const resposta = await filtroMaiorIdade(idade);
-
-        resp.status(200).send(resposta)
-    } catch (error){
-        error:error.message
-    }
-
-})
-
-server.get('/feed/filtroSexo/q', async (req,resp) =>{
-    try{
-        const id = req.query.id;
-        const resposta = await filtroSexo(id);
-
-        resp.status(200).send(resposta)
-    } catch (error){
-        error:error.message
-    }
-
-})
 
 
 server.get('/feed/listarCards', async (req,resp) => {

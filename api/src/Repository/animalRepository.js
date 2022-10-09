@@ -47,7 +47,8 @@ export async function buscarPorFiltro(nome, tipo, sexo, porte, menor, maior){
 
 export async function listarTodosAnimais(){
     const comando = `
-    select 	nm_animal 		                    as nome,
+    select 	id_animal                           ,
+            nm_animal 		                    as nome,
 			nr_idade		                    as idade,
 			ds_descricao	                    as descricao,
             img_animal		                    as imagem,
