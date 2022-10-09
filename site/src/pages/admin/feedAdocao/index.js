@@ -11,11 +11,10 @@ import { buscaAnimal } from '../../../api/animalAPI.js';
 
 export default function FeddAdocao() {
     const [animais, setAnimais] = useState([]);
-    const navigate = useNavigate('');
-    
+    const navigate = useNavigate(``);
     async function carregarAnimais() {
         try {
-            const r = await buscaAnimal(undefined, undefined, undefined, undefined);
+            const r = await buscaAnimal();
             setAnimais(r);
         } catch (error) {
             console.log(error);
@@ -36,7 +35,7 @@ export default function FeddAdocao() {
                 <div className='comp'>
                 {animais.map(item => {
                 return(
-                    <CardFeedAdmin 
+                    <CardFeedAdmin
                     nome={item.nm_animal} 
                     raca={item.ds_raca} 
                     porte={item.ds_porte} 

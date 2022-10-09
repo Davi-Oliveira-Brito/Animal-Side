@@ -1,12 +1,12 @@
 import { con } from './connection.js'
 
 export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
-    nome = '';
-    if(!raca || raca == undefined) raca = ''
-    if(!sexo || sexo == undefined) sexo = ''
-    if(!porte || porte == undefined) porte = ''
-    if(!menor || menor == undefined) menor = ''
-    if(!maior || maior == undefined) maior = ''
+    if(nome === 'undefined' || nome === undefined) nome = ''
+    if(raca == 'undefined' || raca == undefined) raca = ''
+    if(sexo == 'undefined' || sexo == undefined) sexo = ''
+    if(porte == 'undefined' || porte == undefined) porte = ''
+    if(menor == 'undefined' || menor == undefined) menor = ''
+    if(maior == 'undefined' || maior == undefined) maior = ''
 
     const comando = `
     select  nm_animal 		                    as nome,
