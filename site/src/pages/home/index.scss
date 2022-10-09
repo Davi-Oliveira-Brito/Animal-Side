@@ -1,7 +1,7 @@
 .lading-mom{
     display: flex;
     flex-direction: column;
-
+    position: relative;
 
     .hero-sec{
         display: flex;
@@ -70,5 +70,71 @@
             width: 80%;
             height: auto;
         }
+    }
+
+    .faixa2-lading{
+        padding: 1.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40em;
+        width: 100%;
+
+        .f2-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height:30em;
+            width: 70%;
+
+            .f2-top{
+                display: flex;
+                flex-direction: column;
+                line-height: .5em;
+                .title{
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 25px;
+                    color:#FF6909;
+                    text-transform: uppercase;
+                }
+
+                .text{
+                    font-family: 'Poppins-Medium';
+                    font-size: 20px;
+                    color:#000000;
+                }
+
+            }
+            .f2-cards{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .f2-button{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .f2-button button{
+            
+            font-family: 'Poppins-SemiBold';
+            font-size: 20px;
+
+            align-self: center;
+
+            color:#FFFFFF;
+            background: #FF6909;
+            border:none;
+            
+            height: 2.5em;
+            width:9em
+        }
+
     }
 }
