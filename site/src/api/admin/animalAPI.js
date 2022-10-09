@@ -26,13 +26,13 @@ export async function cadastroAnimal(animal, admin) {
 }
 
 
-export async function alterarAnimal(animal, id) {
+export async function alterarAnimal(animal, id, admin) {
     const resposta = await api.put(`/admin/${id}/animal`, {
         nome:           animal.nome,
         idade:          animal.idade,
         descricao:      animal.descricao,
         porte:          animal.porte,
-        admin:          animal.null,
+        admin:          admin,
         porte:          animal.porte,
         raca:           animal.raca,
         preferencia:    animal.preferencia,
@@ -54,7 +54,7 @@ export async function enviarImagem(imagem, id){
             "Content-Type": "multipart/form-data"
         }
     });
-    return resp.status;
+    return resp;
 }
 
 export function pegarImagem(imagem) {

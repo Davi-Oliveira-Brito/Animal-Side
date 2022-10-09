@@ -10,16 +10,17 @@ import { useSearchParams } from 'react-router-dom';
 import storage from 'local-storage';
 
 // Api
-import { buscaAnimalId, cadastroAnimal, enviarImagem, pegarImagem } from '../../../api/admin/animalAPI.js'; 
+import { alterarAnimal, buscaAnimalId, cadastroAnimal, enviarImagem, pegarImagem } from '../../../api/admin/animalAPI.js'; 
 import { buscaFiltro } from '../../../api/animalAPI';
 import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
     // Porte, Raca, Sexo, Preferencia são ID's 
-    const [idAnimal] = useSearchParams();
+    const [idAnimal, setIdAnimal] = useSearchParams();
     const [animal, setAnimal] = useState({
         nome:       '',
         idade:      0,
+        imagem:     '',
         descricao:  '',
         porte:      0,
         admin:      0,
@@ -28,10 +29,7 @@ export default function PageCadastrar() {
         preferencia:0,
         sexo:       0,
     });
-    const [imagem, setImagem] = useState('');
-    const [selects, setSelects] = useState({raca: [], porte: [], sexo: [], preferencia: []});
-    console.log(idAnimal);
-
+    const [selects, setSelects] = useState({raca: [], porte: [], sexo: [], preferencia: []})
     async function carregarSelects() {
         let filtros = await buscaFiltro();
         setSelects(filtros);
@@ -39,21 +37,27 @@ export default function PageCadastrar() {
 
     async function carregarAnimal() {
         try{
-            if(idAnimal){
-                let r = await buscaAnimalId();
-                setAnimal(r);
-            }
+            let r = await buscaAnimalId(idAnimal.get('id'));
+            setAnimal(r);
+            
         }catch(error) {
             toast.dark(error.response.data.error);
         }
     }
 
+
     async function cadastrar(){
         try{
-            //const admin = storage('usuario-logado').id;    
-            let { insertedId } = await cadastroAnimal(animal, 1);
-            enviarImagem(imagem, insertedId);
-            toast.dark('animal inserido');
+            if(!idAnimal.get('id') || idAnimal.get('id') === null){
+                //const admin = storage('usuario-logado').id;    
+                const { insertedId } = await cadastroAnimal(animal, 1);
+                enviarImagem(animal.imagem, insertedId);
+                toast.dark('animal inserido');
+            }else{
+                await alterarAnimal(animal, idAnimal.get('id'), 1)
+                enviarImagem(animal.imagem, idAnimal.get('id'));
+                toast.dark('animal alterado');
+            }
         }
         catch(error){
            toast.dark(error.response.data.erro);
@@ -62,10 +66,10 @@ export default function PageCadastrar() {
     }
 
     function mostrarImagem() {
-        if(typeof(imagem) == 'object'){
-            return URL.createObjectURL(imagem);
+        if(typeof(animal.imagem) == 'object'){
+            return URL.createObjectURL(animal.imagem);
         }else{
-            return pegarImagem(imagem)
+            return pegarImagem(animal.imagem)
         }
     }
 
@@ -74,10 +78,9 @@ export default function PageCadastrar() {
      }
 
     useEffect(() => {
-        if(idAnimal) carregarAnimal();
+        if(idAnimal.get('id') != null) carregarAnimal();
         carregarSelects();
     },[]);
-
     return (
         <main className="cadastro-page">
 
@@ -148,19 +151,24 @@ export default function PageCadastrar() {
                                 </div>
 
                                 <div onClick={() => mudarImagem()} className="imagem">
-                                    {!imagem &&
+                                    {!animal.imagem &&
                                         <img className='cloud' src="/assets/images/imageDownload.png" alt="" />
                                     }
-                                    {imagem &&
+                                    {animal.imagem &&
                                         <img src={mostrarImagem()} alt="" />
                                     }
-                                    <input id='input-image' type='file' onChange={(e) => setImagem(e.target.files[0])}/>
+                                    <input id='input-image' type='file' onChange={(e) => setAnimal({...animal, imagem: e.target.files[0]})}/>
                                 </div>
                             </div>
                         </div>
                         <div className="final">
-                            <textarea  onChange={(e)=>setAnimal({...animal, descricao: e.target.value})}  className="desc"  placeholder="Descrição" />
-                            <button onClick={() => cadastrar()}>Salvar</button>
+                            <textarea onChange={(e)=>setAnimal({...animal, descricao: e.target.value})} className="desc" value={animal.descricao} placeholder="Descrição" />
+                            {idAnimal.get('id') &&
+                                <button onClick={() => cadastrar()}>Alterar</button>
+                            }
+                            {!idAnimal.get('id') &&
+                                <button onClick={() => cadastrar()}>Salvar</button>
+                            }
                         </div>
 
 

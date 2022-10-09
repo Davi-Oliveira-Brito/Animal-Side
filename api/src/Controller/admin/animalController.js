@@ -47,20 +47,7 @@ server.put('/admin/:id/animal', async (req,resp) =>{
     try{
         const animal = req.body;
         const { id } = req.params;
-        
-        if(animal.nome ||
-            animal.idade ||
-            animal.descricao ||
-            animal.usuario || 
-            animal.porte || 
-            animal.raca ||
-            animal.preferencia||
-            animal.sexo ||
-            animal.tipo||
-            id){
-                throw new Error('Todos os campos são necessarios!')
-                   }
-                   
+    
         const resposta = await alterarAnimal(animal, id);
         resp.send({x:resposta})
     }catch(error){

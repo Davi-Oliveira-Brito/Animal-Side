@@ -36,5 +36,6 @@ server.use(animalController);
 
 
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
+server.use('/storage/animalAdocao', express.static('storage/animalAdocao'));
 
 server.listen(process.env.PORT, () => console.log(`API conectada na porta ${process.env.PORT}`))

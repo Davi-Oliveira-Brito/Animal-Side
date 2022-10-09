@@ -1,12 +1,13 @@
 import { con } from './connection.js'
 
 export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
-    if(!raca || raca === undefined) raca = ''
-    if(!sexo || sexo === undefined) sexo = ''
-    if(!porte || porte === undefined) porte = ''
-    if(!menor || menor === undefined) menor = ''
-    if(!maior || maior === undefined) maior = ''
-    
+    nome = '';
+    if(!raca || raca == undefined) raca = ''
+    if(!sexo || sexo == undefined) sexo = ''
+    if(!porte || porte == undefined) porte = ''
+    if(!menor || menor == undefined) menor = ''
+    if(!maior || maior == undefined) maior = ''
+
     const comando = `
     select  nm_animal 		                    as nome,
             nr_idade		                    as idade,
@@ -23,7 +24,7 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
             tb_preferencia.id_preferencia,
 
             tb_sexo.ds_sexo						as sexo,
-            tb_sexo.id_sexo,
+            tb_sexo.id_sexo
             
     from tb_animal_adocao
     inner join tb_porte on tb_animal_adocao.id_porte = tb_porte.id_porte
@@ -32,7 +33,7 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
     inner join tb_preferencia on tb_animal_adocao.id_preferencia = tb_preferencia.id_preferencia
     
     where   (? = '' or nm_animal like ?) 
-    and     (? = '' or tb_tipo.id_raca = ?) 
+    and     (? = '' or tb_raca.id_raca = ?) 
     and     (? = '' or tb_sexo.id_sexo = ? )
     and     (? = '' or tb_porte.id_porte = ?)`;
 

@@ -12,12 +12,13 @@ import { buscaAnimal } from '../../../api/animalAPI.js';
 export default function FeddAdocao() {
     const [animais, setAnimais] = useState([]);
     const navigate = useNavigate('');
+    
     async function carregarAnimais() {
         try {
-            const r = await buscaAnimal();
+            const r = await buscaAnimal(undefined, undefined, undefined, undefined);
             setAnimais(r);
         } catch (error) {
-
+            console.log(error);
         }
     }
     console.log(animais);

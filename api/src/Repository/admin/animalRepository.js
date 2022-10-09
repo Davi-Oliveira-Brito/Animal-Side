@@ -17,16 +17,15 @@ export async function alterarAnimal(animal,id){
     set nm_animal           = ?,
        nr_idade             = ?,
        ds_descricao         = ?,
-       id_usuario           = ?,
+       id_admin             = ?,
        id_porte	            = ?,
        id_raca		        = ?,
        id_preferencia       = ?,
-       id_sexo			    = ?,
-       id_tipo			    = ?
+       id_sexo			    = ?
    where id_animal_adocao   = ?;
     `;
-    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.preferencia, animal.sexo, animal.tipo, id]);
-    return resposta.affectedRows;
+    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.preferencia, animal.sexo, id]);
+    return resposta.insertId;
 }
 
 export async function deletarAnimal(id){
