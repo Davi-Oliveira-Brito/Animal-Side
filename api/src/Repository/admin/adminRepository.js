@@ -1,7 +1,6 @@
-import { con } from './connection.js'
+import { con } from '../connection.js'
 
-export async function loginAdmin (admin)
-{
+export async function loginAdmin (admin) {
     const comando = `
     select  id_admin as id,
             ds_email as email,
@@ -16,8 +15,7 @@ export async function loginAdmin (admin)
     return userlogado[0];
 }
 
-export async function nameAdmin(admin)
-{
+export async function nomeAdmin(admin) {
     const comando = `
     select 	nm_admin as nome
     from 	tb_admin

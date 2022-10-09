@@ -9,50 +9,33 @@ import { useState, useEffect } from 'react';
 import storage from 'local-storage';
 
 // Api
-import { buscarRacas, buscarPreferencia, buscarPorte, cadastrarAnimal, enviarImagem, pegarImagem, buscarSexo, buscarTipo } from '../../../api/cadastraAnimal.js'; 
+import { cadastroAnimal, buscaFiltro } from '../../../api/admin/animalAPI.js'; 
 import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
-    
-    const [nome,setNome] = useState('');
-    const [idade,setIdade] = useState();
-    const [descricao,setDescricao] = useState('');
-
-    const [idRaca,setIdRaca] = useState();
-    const [racas, setRacas] = useState([]);
-
-    const [idPorte,setIdPorte] = useState();
-    const [porte, setPorte] = useState([]);
-
-    const [idSexo,setIdSexo] = useState();
-    const [sexo, setSexo] = useState([]);
-
-    const [idTipo,setIdTipo] = useState();
-    const [tipo, setTipo] = useState([]);
-
-    const [idPreferencia,setIdPreferencia] = useState();
-    const [preferencia, setPreferencia] = useState([]);
-
-    const [imagem,setImagem] = useState('');
+    // Porte, Raca, Sexo, Preferencia são ID's 
+    const [animal, setAnimal] = useState({
+        nome:       '',
+        idade:      0,
+        descricao:  '',
+        porte:      0,
+        admin:      0,
+        porte:      0,
+        raca:       0,
+        preferencia:0,
+        sexo:       0,
+    }); 
+   
 
     async function carregarSelects() {
-        let ra = await buscarRacas();
-        let po = await buscarPorte();
-        let pr = await buscarPreferencia();
-        let sx = await buscarSexo();
-        let tp = await buscarTipo();
-
-        setSexo(sx);
-        setTipo(tp);
-        setRacas(ra);
-        setPorte(po);
-        setPreferencia(pr);
+        let filtros = await buscarRacas();
+        setSelects(filtros);
     }
 
     async function cadastrar(){
         try{
             //const admin = storage('usuario-logado').id;    
-            let { insertedId } = await cadastrarAnimal(nome, idade, descricao, idPorte, idRaca, idPreferencia,idTipo,idSexo);
+            let { insertedId } = await cadastroAnimal(animal);
             enviarImagem(imagem, insertedId);
             toast.dark('animal inserido');
         }

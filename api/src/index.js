@@ -9,12 +9,14 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import fs from 'fs'
 
-// Routes
-import adminController from './Controller/adminController.js'
-import feedController from './Controller/feedController.js'
-import cadastroController from './Controller/cadastroController.js'
-import usuarioController from './Controller/usuarioController.js'
-import FeedAdmiController from './Controller/FeedadminController.js'
+// Admin
+import adminController from './Controller/admin/adminController.js'
+import adminAnimalController from './Controller/admin/animalController.js'
+
+// User
+import usuarioController from './Controller/usuario/usuarioController.js'
+
+// General
 import animalController from './Controller/animalController.js'
 
 const swaggerOptions = JSON.parse(fs.readFileSync('./src/swagger.json'));
@@ -25,13 +27,13 @@ server.use(cors());
 server.use(express.json());
 
 
-
 server.use(adminController);
-server.use(feedController);
-server.use(cadastroController);
-server.use(usuarioController);
-server.use(FeedAdmiController);
+server.use(adminAnimalController);
+
+server.use(usuarioController)
+
 server.use(animalController);
+
 
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 

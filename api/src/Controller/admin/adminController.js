@@ -1,14 +1,13 @@
-import { loginAdmin, nameAdmin} from "../../Repository/adminRepository.js"
+import { loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
 
 import { Router } from "express";
 
 
 const server = Router();
 
-server.post('/admin/loginAdmin', async (req, resp) => {
+server.post('/admin/login', async (req, resp) => {
     try{
         const admin = req.body;
-        console.log(admin);
 
         if(!admin.email || !admin.senha) 
             throw new Error("Todos os campos são obrigatorios!");          
@@ -17,6 +16,7 @@ server.post('/admin/loginAdmin', async (req, resp) => {
 
         if(!userlogado)
             throw new Error("Credenciais Inválidas");
+        
         resp.status(200).send({
             id:    userlogado.id,
             email: userlogado.email,
@@ -31,12 +31,12 @@ server.post('/admin/loginAdmin', async (req, resp) => {
 
 });
 
-server.get('/admin/nomeAdmin', async (req,resp) =>{
+server.get('/admin/nome', async (req,resp) =>{
 
     try {
         const admin = req.body;
 
-        const name = await nameAdmin(admin);
+        const name = await nomeAdmin(admin);
         console.log(name)
         resp.status(200).send({
             nome:name.nome

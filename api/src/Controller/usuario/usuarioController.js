@@ -1,11 +1,10 @@
-import { loginUsuario} from "../Repository/usuarioRepository.js"
-
+import { loginUsuario } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 
 const server = Router();
 
-server.post('/usuario/loginUsuario', async (req, resp) => {
+server.post('/usuario/login', async (req, resp) => {
     try{
         const usuario = req.body;
         
