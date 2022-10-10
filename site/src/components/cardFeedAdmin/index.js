@@ -3,6 +3,7 @@ import './index.scss'
 
 import { deletarAnimal } from '../../api/admin/animalAPI'; 
 import { pegarImagem } from '../../api/admin/animalAPI';
+import { toast } from 'react-toastify';
 
 export default function CardFeedAdmin(props) {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function CardFeedAdmin(props) {
             await deletarAnimal(props.id);
             props.carregarAnimais();
         } catch (error) {
-            console.log(error);
+            toast.dark(error.response.data.error);
         }
     }
     
