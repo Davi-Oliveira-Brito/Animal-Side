@@ -11,9 +11,9 @@ export async function buscaAnimalId(id) {
 
 export async function cadastroAnimal(animal, admin) {
     const resposta = await api.post('/admin/animal', {
-        nome:           animal.nome,
+        nome:           animal.nome.trim(),
         idade:          animal.idade,
-        descricao:      animal.descricao,
+        descricao:      animal.descricao.trim(),
         porte:          animal.porte,
         admin:          admin,
         porte:          animal.porte,
@@ -28,9 +28,9 @@ export async function cadastroAnimal(animal, admin) {
 
 export async function alterarAnimal(animal, id, admin) {
     const resposta = await api.put(`/admin/${id}/animal`, {
-        nome:           animal.nome,
+        nome:           animal.nome.trim(),
         idade:          animal.idade,
-        descricao:      animal.descricao,
+        descricao:      animal.descricao.trim(),
         porte:          animal.porte,
         admin:          admin,
         porte:          animal.porte,

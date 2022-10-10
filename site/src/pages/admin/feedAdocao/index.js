@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import './index.scss'
+
+// Components
 import NavBarAdmin from '../../../components/navBarAdmin/index.js'
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js'
 import CardFeedAdmin from '../../../components/cardFeedAdmin/index.js'
 
+// Api
 import { buscaAnimal } from '../../../api/animalAPI.js';
 
+import { toast } from 'react-toastify'
 
 
 export default function FeddAdocao() {
     const [animais, setAnimais] = useState([]);
-    const navigate = useNavigate(``);
     async function carregarAnimais() {
         try {
             const r = await buscaAnimal();
             setAnimais(r);
         } catch (error) {
-            console.log(error);
+            toast.dark(error.response.data.error);
         }
     }
     useEffect(() => {
@@ -42,6 +45,7 @@ export default function FeddAdocao() {
                     porte={item.porte} 
                     idade={item.idade} 
                     preferencia={item.preferencia}
+                    descricao={item.descricao}
                     carregarAnimais={carregarAnimais} />
                 )
             })}

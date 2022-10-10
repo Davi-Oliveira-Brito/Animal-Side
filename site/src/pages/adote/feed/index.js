@@ -29,23 +29,22 @@ export default function () {
             <div className="bottom">
                 <div className="comp-side">
                     <SideBar
-                    setAnimais={setAnimais}
-                    nome={nome}
+                        nome={nome}
+                        setAnimais={setAnimais}
                     />
                 </div>
                 <div className='card-s'>
                 {animais.map(item => {
                         return (
                             <CardFeed
+                                id={item.id_animal_adocao}
+                                imagem={item.imagem}
                                 nome={item.nome}
-                                idade={item.idade}
-                                descricao={item.descricao}
-                                imagem={item.idade}
-                                porte={item.porte}
                                 raca={item.raca}
+                                porte={item.porte}
+                                idade={item.idade}
                                 preferencia={item.preferencia}
-                                sexo={item.sexo}
-                                tipo={item.tipo}
+                                descricao={item.descricao}
                             />
                         );
                     })}

@@ -10,10 +10,11 @@ server.get('/animal/q', async (req,resp) =>{
         let { raca } = req.query;
         let { sexo } = req.query;
         let { porte } = req.query;
+        let { preferencia } = req.query;
         let { menor } = req.query;
         let { maior } = req.query;
         
-        const resposta = await buscaAnimal(nome, sexo, porte, raca, menor, maior);
+        const resposta = await buscaAnimal(nome, sexo, porte, raca, preferencia, menor, maior);
         
         resp.status(200).send(resposta);
     } catch (error){

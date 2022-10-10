@@ -6,7 +6,7 @@ import NavBarAdmin from '../../../components/navBarAdmin/index.js'
 
 // Hooks
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { isRouteErrorResponse, useFetcher, useNavigate, useSearchParams } from 'react-router-dom';
 import storage from 'local-storage';
 
 // Api
@@ -16,14 +16,15 @@ import { toast } from 'react-toastify';
 
 export default function PageCadastrar() {
     // Porte, Raca, Sexo, Preferencia são ID's 
-    const [idAnimal, setIdAnimal] = useSearchParams();
+    const navigate = useNavigate();
+    const [idAnimal, setIdAnimal] = useSearchParams('id');  
+    const admin = storage('admin-logado').id;    
     const [animal, setAnimal] = useState({
         nome:       '',
         idade:      0,
         imagem:     '',
         descricao:  '',
         porte:      0,
-        admin:      0,
         porte:      0,
         raca:       0,
         preferencia:0,
@@ -32,7 +33,6 @@ export default function PageCadastrar() {
     const [selects, setSelects] = useState({raca: [], porte: [], sexo: [], preferencia: []})
     async function carregarSelects() {
         let filtros = await buscaFiltro();
-        console.log(filtros);
         setSelects(filtros);
     }
 
@@ -46,23 +46,24 @@ export default function PageCadastrar() {
         }
     }
 
-
     async function cadastrar(){
         try{
-            if(!idAnimal.get('id') || idAnimal.get('id') === null){
-                //const admin = storage('usuario-logado').id;    
-                const { insertedId } = await cadastroAnimal(animal, 1);
-                enviarImagem(animal.imagem, insertedId);
-                toast.dark('animal inserido');
+            if(animal.imagem){
+                if(!idAnimal.get('id') || idAnimal.get('id') === null){
+                    const { insertedId } = await cadastroAnimal(animal, admin);
+                    enviarImagem(animal.imagem, insertedId);
+                    toast.dark('🐶 animal inserido', {autoClose: 1500});
+                    navigate(`/cadastro?id=${insertedId}`)
+                }else{
+                    await alterarAnimal(animal, idAnimal.get('id'),admin)
+                    enviarImagem(animal.imagem, idAnimal.get('id'));
+                    toast.dark('✅ animal alterado', {autoClose: 1500});
+                }
             }else{
-                await alterarAnimal(animal, idAnimal.get('id'), 1)
-                enviarImagem(animal.imagem, idAnimal.get('id'));
-                toast.dark('animal alterado');
+                toast.dark('❗ Envie uma imagem')
             }
-        }
-        catch(error){
-           toast.dark(error.response.data.erro);
-           console.log(error.response);
+        }catch(error){
+            toast.dark('❗ ' + error.response.data.error, {autoClose: 1500});
         }
     }
 
@@ -79,7 +80,7 @@ export default function PageCadastrar() {
      }
 
     useEffect(() => {
-        if(idAnimal.get('id') != null) carregarAnimal();
+        if(idAnimal || idAnimal !== null) carregarAnimal();
         carregarSelects();
     },[]);
     return (

@@ -19,20 +19,14 @@ export default function LoginAdmin() {
       try{
         const resposta = await loginAdmin(email.trim(), senha.trim());
         storage('admin-logado', resposta)
-        toast.dark('Admin Logado');
-        navigate('/cadastro');
-
+        toast.dark('Admin Logado', {autoClose: 1500});
+        setTimeout(()=>{
+          navigate('/cadastro');
+        }, 2000)
       }catch(error) {
           toast.error(error.response.data.error);
       }
     }
-
-    setTimeout(()=>{
-      if(storage('admin-logado')){
-        navigate('/cadastro');
-      }
-    }, 2000)
-
     useEffect(()=>{
       if(storage('admin-logado')){
         navigate('/cadastro');
@@ -56,7 +50,7 @@ export default function LoginAdmin() {
                     <a>Esqueceu sua senha?</a>
                 </div>
 
-                <button className="admin-login-button" onClick={logar}>Entrar</button>
+                <button className="admin-login-button" onClick={() => logar() }>Entrar</button>
 
                 <p className="admin-crie-sua-conta">Não tem uma conta? <a>Cadastre-se</a></p>
 

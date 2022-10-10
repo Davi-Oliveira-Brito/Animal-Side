@@ -1,10 +1,11 @@
 import { con } from './connection.js'
 
-export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
+export async function buscaAnimal(nome, sexo, porte, raca, preferencia, menor, maior){
     if(nome === 'undefined' || nome === undefined) nome = ''
     if(raca == 'undefined' || raca == undefined) raca = ''
     if(sexo == 'undefined' || sexo == undefined) sexo = ''
     if(porte == 'undefined' || porte == undefined) porte = ''
+    if(preferencia == 'undefined' || preferencia == undefined) preferencia = ''
     if(menor == 'undefined' || menor == undefined) menor = ''
     if(maior == 'undefined' || maior == undefined) maior = ''
 
@@ -36,9 +37,12 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
     where   (? = '' or nm_animal like ?) 
     and     (? = '' or tb_raca.id_raca = ?) 
     and     (? = '' or tb_sexo.id_sexo = ? )
-    and     (? = '' or tb_porte.id_porte = ?)`;
+    and     (? = '' or tb_porte.id_porte = ?)
+    and     (? = '' or tb_preferencia.id_preferencia = ?)
+    and     (? = '' or nr_idade > ?)
+    and     (? = '' or nr_idade < ?)`;
 
-    const [resposta] = await con.query(comando, [nome, `%${nome}%`, raca, raca, sexo, sexo, porte, porte]);
+    const [resposta] = await con.query(comando, [nome, `%${nome}%`, raca, raca, sexo, sexo, porte, porte, preferencia, preferencia, maior, maior, menor, menor]);
     return resposta;
 
 }

@@ -5,8 +5,8 @@ const api = axios.create({
 });
 
 
-export async function buscaAnimal(nome, sexo, porte, raca, menor, maior) {
-    const resposta = await api.get(`/animal/q?nome=${nome}&sexo=${sexo}&porte=${porte}&raca=${raca}`);
+export async function buscaAnimal(nome, sexo, porte, raca, preferencia, menor, maior) {
+    const resposta = await api.get(`/animal/q?nome=${nome ? nome.trim() : nome}&sexo=${sexo}&porte=${porte}&raca=${raca}&preferencia=${preferencia}&maior=${maior}&menor=${menor}`);
     return resposta.data;
 }
 

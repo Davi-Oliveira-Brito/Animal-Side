@@ -4,8 +4,11 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
-export async function loginAdmin() {
-    const resposta = await api.post('/admin/login');
+export async function loginAdmin(email, senha) {
+    const resposta = await api.post('/admin/login', {
+        email: email,
+        senha: senha
+    });
     return resposta.data;
 }
 

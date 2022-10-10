@@ -17,9 +17,9 @@ server.post('/admin/animal', async (req, resp) => {
           insertedId: animalInserido
         });
 
-    }  catch (err) {
+    }  catch (error) {
         resp.status(400).send({
-            erro: err.message
+            error: error.message
         })
     }
 })
@@ -29,14 +29,13 @@ server.put('/admin/:id/animal/imagem', upload.single('imagem'), async (req, resp
         const { id } = req.params;
         const imagem = req.file.path;
         const resposta = await alterarImagem(imagem, id);
-    
         if (resposta != 1)
           throw new Error ('A imagem não foi salva')
 
         resp.status(204).send();
-    } catch (err) {
+    } catch (error) {
         resp.status(400).send({
-            erro: err.message
+            error: error.message
         })
     }
 
@@ -47,7 +46,7 @@ server.put('/admin/:id/animal', async (req,resp) =>{
     try{
         const animal = req.body;
         const { id } = req.params;
-    
+        validar(animal);
         const resposta = await alterarAnimal(animal, id);
         resp.send({x:resposta})
     }catch(error){
