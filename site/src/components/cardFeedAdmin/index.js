@@ -27,11 +27,11 @@ export default function CardFeedAdmin(props) {
     return (
         <main className='Card'>
             <div className='image-left'>
-                <img className='imgdog' src={mostrarImagem()} alt="" />
+                <img className='imgdog' src="/assets/images/dogBranco.png" alt="" />
             </div>
             <div className='Card-right'>
                 <div className='text'>
-                    <h1>{props.nome}</h1>
+                    <h1 className='title'>{props.nome}</h1>
                     <div>Raça: {props.raca}</div>
                     <div>Porte: {props.porte}</div>
                     <div>Idade: {props.idade}</div>

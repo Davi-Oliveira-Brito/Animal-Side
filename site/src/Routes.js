@@ -1,5 +1,5 @@
-import PageCadastrar from "./pages/admin/cadastrarAdocao"
-import LoginPage  from "./pages/login"
+import PageCadastrar from "./pages/admin/cadastrarAdocao/index.js"
+import LoginPage  from "./pages/login/index.js"
 import AdoteFeed  from "./pages/adote/feed/index.js"
 import FeedAdocao from "./pages/admin/feedAdocao/index.js"
 import LoginAdmin from "./pages/loginAdm"
