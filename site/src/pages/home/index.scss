@@ -137,4 +137,121 @@
         }
 
     }
+
+    .faixa3-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        background-color: #43AFFF;
+        
+        padding: 3em;
+        min-height:35em;
+        width: 100%;
+        position: relative;
+
+        .f3-dog{
+            width: 25em;
+            height: auto;
+            left: 0;
+            top:-10em;
+            position: absolute;
+        }
+
+        .f3-sub{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 67%;
+
+            .f3-item{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                padding: 1em;
+                width: 20em;
+                height: 20em;
+
+                img{
+                    width: 7em;
+                }
+
+                .f3-title{
+                    font-family: 'Poppins-Bold';
+                    text-transform: uppercase;
+                    
+                    font-size: 18px;
+                    color: #FFFFFF;
+                }
+
+                .f3-desc1{
+                    font-family: 'Poppins-Regular';
+                    
+                    font-size: 16px;
+                    color: #FFFFFF;
+                    width: 15em;
+                }
+                .f3-desc2{
+                    font-family: 'Poppins-Regular';
+                    
+                    width: 16em;
+                    font-size: 16px;
+                    color: #FFFFFF;
+                }
+                .f3-desc3{
+                    font-family: 'Poppins-Regular';
+                    
+                    width: 15em;
+                    font-size: 16px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+
+    .f4-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background-image: url("../../../public/assets/images/f3dog.png");
+        background-size: 53em;
+        background-repeat: no-repeat;
+        background-position-y: 1.5em;
+        background-position-x: 46.5em;
+
+        height: 35em;
+        padding: 3em;
+
+        .f4-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 2em;
+            width: 50%;
+            line-height: 0;
+            height:10em;
+
+            .f4-title{
+                font-family: 'Poppins-SemiBold';
+                font-size: 35px;
+                color: #FF6909;
+            }
+
+            .f4-desc{
+                font-family: 'Poppins-Medium';
+                font-size: 18px;
+                width: 80%;
+                line-height: 1.3em;
+                label{
+                    font-weight: 1000;
+                }
+            }
+        }
+    }
 }
