@@ -63,12 +63,10 @@ create table tb_animal_perdido(
 	id_porte				int,
 	id_raca					int,
     id_sexo					int,
-    id_tipo					int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_porte) references tb_porte(id_porte),
 	foreign key (id_raca) references tb_raca(id_raca),
-    foreign key (id_sexo) references tb_sexo(id_sexo),
-    foreign key (id_tipo) references tb_tipo(id_tipo)
+    foreign key (id_sexo) references tb_sexo(id_sexo)
 );
 create table tb_comentario_adocao(
 	id_comentario_adocao 	int primary key auto_increment,

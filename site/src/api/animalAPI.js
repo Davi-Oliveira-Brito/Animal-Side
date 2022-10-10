@@ -6,7 +6,6 @@ const api = axios.create({
 
 
 export async function buscaAnimal(nome, sexo, porte, raca, menor, maior) {
-    console.log(nome);
     const resposta = await api.get(`/animal/q?nome=${nome}&sexo=${sexo}&porte=${porte}&raca=${raca}`);
     return resposta.data;
 }

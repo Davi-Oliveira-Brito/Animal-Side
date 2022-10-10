@@ -1,7 +1,6 @@
 import { con } from '../connection.js'
 
 export async function cadastroAnimal(animal) {
-    console.log(animal);
     const comando =
         `insert into tb_animal_adocao(nm_animal, nr_idade, ds_descricao, id_admin, id_porte, id_raca, id_preferencia, id_sexo )
         values(?,?,?,?,?,?,?,?);`    
@@ -31,7 +30,7 @@ export async function alterarAnimal(animal,id){
 export async function deletarAnimal(id){
     const comando =` 
         delete from tb_animal_adocao
-        where       id_animal   = ?:
+        where       id_animal_adocao   = ?
     `;
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;

@@ -9,7 +9,8 @@ export async function buscaAnimal(nome, sexo, porte, raca, menor, maior){
     if(maior == 'undefined' || maior == undefined) maior = ''
 
     const comando = `
-    select  nm_animal 		                    as nome,
+    select  id_animal_adocao,
+            nm_animal 		                    as nome,
             nr_idade		                    as idade,
             ds_descricao	                    as descricao,
             img_animal		                    as imagem,

@@ -57,8 +57,8 @@ select  *
 from	tb_sexo;
 
 -- insert da tabela adocao
-insert into tb_animal_adocao(nm_animal,nr_idade,ds_descricao,img_animal,id_usuario, id_porte,id_raca, id_comentario_adocao, id_preferencia,id_sexo,id_tipo)
-					  values('doguinho',11,'cachorrooooo','', null, 1,1,null,1,1,1 );			
+insert into tb_animal_adocao(nm_animal,nr_idade,ds_descricao,img_animal,id_admin, id_porte,id_raca, id_preferencia,id_sexo)
+					  values('doguinho',11,'cachorrooooo','', 1, 1, 1, 1, 1);			
               
 			
 -- select das dog adoção

@@ -20,7 +20,6 @@ export default function FeddAdocao() {
             console.log(error);
         }
     }
-    console.log(animais);
     useEffect(() => {
         carregarAnimais();
     }, []);
@@ -36,11 +35,14 @@ export default function FeddAdocao() {
                 {animais.map(item => {
                 return(
                     <CardFeedAdmin
-                    nome={item.nm_animal} 
-                    raca={item.ds_raca} 
-                    porte={item.ds_porte} 
-                    idade={item.nr_idade} 
-                    pref={item.ds_preferencia} />
+                    id={item.id_animal_adocao}
+                    imagem={item.imagem}
+                    nome={item.nome} 
+                    raca={item.raca} 
+                    porte={item.porte} 
+                    idade={item.idade} 
+                    preferencia={item.preferencia}
+                    carregarAnimais={carregarAnimais} />
                 )
             })}
                 </div>

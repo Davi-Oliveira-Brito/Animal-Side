@@ -32,6 +32,7 @@ export default function PageCadastrar() {
     const [selects, setSelects] = useState({raca: [], porte: [], sexo: [], preferencia: []})
     async function carregarSelects() {
         let filtros = await buscaFiltro();
+        console.log(filtros);
         setSelects(filtros);
     }
 
