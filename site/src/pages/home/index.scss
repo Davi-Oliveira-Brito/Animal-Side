@@ -222,8 +222,8 @@
         background-image: url("../../../public/assets/images/f3dog.png");
         background-size: 53em;
         background-repeat: no-repeat;
-        background-position-y: 1.5em;
-        background-position-x: 46.5em;
+        background-position-y: 100%;
+        background-position-x: 100%;
 
         height: 35em;
         padding: 3em;
@@ -254,4 +254,110 @@
             }
         }
     }
+
+    .f5-lading{
+
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background-color: #43AFFF;
+        min-height: 35em;
+        width: 100%;
+        padding:2em;
+
+        .f5-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items:center;
+            height: 30em;
+
+            .f5-title{
+                font-family: 'Poppins-SemiBold';
+                font-size: 35px;
+                color:#FFFFFF;
+            }   
+
+            .f5-kits{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 80%;
+
+                .kit{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items:center;
+                    text-align: center;
+                    line-height: 0;
+                    width:25%;
+                    
+                    .image{
+                        width:5em;
+                        height:auto;
+                    }
+                    
+                    .title{
+                        font-size: 18px;
+                        line-height: 1em;
+                        font-family:'Poppins-Bold';
+                        color: #FFF;
+                        width: 80%;
+                    }
+                    
+                    .desc1{
+                        font-size:14px;
+                        font-family:'Poppins-Regular';
+                        color: #FFF;
+                        width: 80%;
+                        line-height: 1.5em;
+                        
+                    }
+                    .desc2{
+                        font-size:14px;
+                        font-family:'Poppins-Regular';
+                        color: #FFF;
+                        width: 50%;
+                        line-height: 1.5em;
+                        
+                    }
+                    .desc3{
+                        font-size:14px;
+                        font-family:'Poppins-Regular';
+                        color: #FFF;
+                        width: 80%;
+                        line-height: 1.5em;
+                        
+                    }
+                    .desc4{
+                        font-size:14px;
+                        font-family:'Poppins-Regular';
+                        color: #FFF;
+                        width: 60%;
+                        line-height: 1.5em;
+                        
+                    }
+                }
+            
+            }
+
+        
+            .f5-button{
+                    
+                font-family:'Poppins-Bold';
+                font-size: 20px;
+                
+                color: #43AFFF;
+                background-color: #FFF;
+
+                border: none;
+                height:2em;
+                width:6em;
+            }
+        
+        }
+    }
+
 }

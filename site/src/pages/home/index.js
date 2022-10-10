@@ -63,8 +63,8 @@ export default function LadingPage() {
             </section>
 
             <section className="faixa3-lading">
-                
-            <img className="f3-dog" src="/assets/images/cachorrao.png" alt="" />
+
+                <img className="f3-dog" src="/assets/images/cachorrao.png" alt="" />
 
                 <div className="f3-sub">
                     <div className="f3-item">
@@ -77,8 +77,8 @@ export default function LadingPage() {
                     <div className="f3-item">
                         <img src="/assets/images/ajudaAnimais.png" alt="" />
                         <p className="f3-title">Ajuda Aos Animais</p>
-                        <p className="f3-desc2">Ajudar os bichinhos não custa muito, faça o que puder. 
-                        Fazendo o básico, você pode ajudar um bichinho</p>
+                        <p className="f3-desc2">Ajudar os bichinhos não custa muito, faça o que puder.
+                            Fazendo o básico, você pode ajudar um bichinho</p>
                     </div>
 
                     <div className="f3-item">
@@ -94,6 +94,42 @@ export default function LadingPage() {
                     <p className="f4-title">AJUDE NOSSA CAUSA DOANDO </p>
                     <p className="f4-desc">A <label>ANIMAL SIDE</label> ela se mantem através das doações, sejam as mesmas destinadas aos gastos específicos ou o valor que você conseguir dentro de seu orçamento.</p>
                 </div>
+            </section>
+
+            <section className="f5-lading">
+                <div className="f5-sub">
+                    <h1 className="f5-title">Conheça nosso kits</h1>
+
+                    <div className="f5-kits">
+                        <div className="kit">
+                            <img className="image" src="/assets/images/limpeza.png" alt="deu ruim" />
+                            <p className="title">limpeza</p>
+                            <p className="desc1">Produtos de higiene que são
+                                destinados aos cuidados</p>
+                        </div>
+
+                        <div className="kit">
+                            <img className="image" src="/assets/images/alimentacao.png" alt="deu ruim" />
+                            <p className="title">limpeza</p>
+                            <p className="desc2">Rações, petiscos, alpistes</p>
+                        </div>
+
+                        <div className="kit">
+                            <img className="image" src="/assets/images/veterinario.png" alt="deu ruim" />
+                            <p className="title">limpeza</p>
+                            <p className="desc3">Vacinas, soro, cateter, esparadrapo, medicação</p>
+                        </div>
+
+                        <div className="kit">
+                            <img className="image" src="/assets/images/livre.png" alt="deu ruim" />
+                            <p className="title">limpeza</p>
+                            <p className="desc4">Nos mande o valor que você tiver.</p>
+                        </div>
+                    </div>
+
+                    <button className="f5-button">DOE</button>
+                </div>
+
             </section>
         </main>
     );
