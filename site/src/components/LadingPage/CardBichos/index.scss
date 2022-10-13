@@ -1,0 +1,141 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    height: 25em;
+    width:22em;
+    
+    .img-area{
+        width:100%;
+        height:55%;
+        
+        img{
+            width:100%;
+            height: 100%;
+        }
+    }
+    
+    .azul{
+        background-color: #43AFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        line-height: 0;
+        height: 45%;
+        width: 100%;
+        padding: 1em;
+
+    
+        .nome{
+            font-family: 'Poppins-SemiBold';
+            font-size:18px;
+            text-transform: uppercase;
+            color:#FFFFFF;
+        }
+
+        .desc{
+            line-height: normal;
+            font-family: 'Poppins-Regular';
+            font-size: 14px;
+            color:#FFFFFF;
+        }
+
+        .botao{
+           height: 2em;
+            width: 7em;
+            border: 2px solid #FFFFFF;
+            background: none;
+            font-family: 'Poppins-Medium';
+            font-size: 15px;
+            color:#FFFFFF;
+            text-transform: uppercase;
+        }
+    
+    }
+
+
+    .laranja{
+        background-color: #FF6909;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        line-height: 0;
+        height: 45%;
+        width: 100%;
+        padding: 1em;
+
+    
+        .nome{
+            font-family: 'Poppins-SemiBold';
+            font-size:18px;
+            text-transform: uppercase;
+            color:#FFFFFF;
+        }
+
+        .desc{
+            line-height: normal;
+            font-family: 'Poppins-Regular';
+            font-size: 14px;
+            color:#FFFFFF;
+        }
+
+        .botao{
+           height: 2em;
+            width: 7em;
+            border: 2px solid #FFFFFF;
+            background: none;
+            font-family: 'Poppins-Medium';
+            font-size: 15px;
+            color:#FFFFFF;
+            text-transform: uppercase;
+        }
+    
+    }
+    .verde{
+        background-color: #15A635;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        line-height: 0;
+        height: 45%;
+        width: 100%;
+        padding: 1em;
+
+    
+        .nome{
+            font-family: 'Poppins-SemiBold';
+            font-size:18px;
+            text-transform: uppercase;
+            color:#FFFFFF;
+        }
+
+        .desc{
+            line-height: normal;
+            font-family: 'Poppins-Regular';
+            font-size: 14px;
+            color:#FFFFFF;
+        }
+
+        .botao{
+           height: 2em;
+            width: 7em;
+            border: 2px solid #FFFFFF;
+            background: none;
+            font-family: 'Poppins-Medium';
+            font-size: 15px;
+            color:#FFFFFF;
+            text-transform: uppercase;
+        }
+    
+    }
+
+    
+
+
+
+}

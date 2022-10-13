@@ -360,4 +360,352 @@
         }
     }
 
+    .f6-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5em;
+
+
+        .f6-text{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            line-height: 1px;
+            
+            
+
+            .f6-title{
+                font-family: 'Poppins-Bold';
+                font-size: 35px;
+                color:#43AFFF;
+                text-transform: uppercase;
+            }
+
+            .f6-desc{
+                font-family: 'Poppins-Medium';
+                font-size:20px;
+            }
+        }
+    
+
+        .f6-cards{
+            padding: 3em;
+            align-items: center;
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap:wrap;
+            width: 100%;
+            gap: 3em;
+        }
+    }
+
+    .f7-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em;
+        
+        background-image: url('../../../public/assets/images/perdeu_.png');
+        background-size: 35em;
+        background-position-x:90% ;
+        background-position-y: 70%;
+        background-repeat: no-repeat;
+        background-color: #43AFFF;
+
+        min-height:35em;
+
+
+        .sub-f7{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            width: 35%;
+            height: 90%;
+            padding-left: 5em;
+
+            .f7-title{
+                font-size: 35px;
+                font-family: 'Poppins-Bold';
+                color:#FFFFFF;
+                text-transform: uppercase;
+            }
+
+            .f7-desc{
+                font-size: 16px;
+                font-family:'Poppins-Medium';
+                color:#FFFFFF;
+
+                span{
+                    color:#FF6909;
+                }
+            }
+
+            .f7-button{
+                font-family: 'Poppins-Bold';
+                font-size:14px;
+
+                background-color: #FF6909;
+                border: none;
+                color: #FFFFFF;
+
+                height: 3em;
+                width: 8em;
+            }
+        }
+    }
+
+
+    .f8-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3em;
+        align-items: flex-end;
+        
+        background-image: url('../../../public/assets/images/lupa.png');
+        background-size: 22em;
+        background-position-x:20% ;
+        background-position-y: 70%;
+        background-repeat: no-repeat;
+
+        min-height:35em;
+
+
+        .sub-f8{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding-right: 5em;
+            width: 35%;
+            height: 90%;
+
+            .f8-title{
+                font-size: 35px;
+                font-family: 'Poppins-Bold';
+
+                text-transform: uppercase;
+            }
+
+            .f8-desc{
+                font-size: 16px;
+                font-family:'Poppins-Medium';
+
+
+                span{
+                    color:#FF6909;
+                }
+            }
+
+            .f8-button{
+                font-family: 'Poppins-Bold';
+                font-size:14px;
+
+                background-color: #FF6909;
+                border: none;
+                color: #FFFFFF;
+
+                height: 3em;
+                width: 8em;
+            }
+        }
+    }
+
+    .f9-lading{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1em;
+        align-items: center;
+
+        background-color: #43AFFF;
+
+        .f9-title{
+            font-family:'Poppins-Bold';
+            font-size: 35px;
+            color:#FFFFFF;
+            text-transform:uppercase;
+        }
+
+        .marcas{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width:100%;
+
+            img{
+                width:7em;
+                
+            }
+        }
+
+    }
+
+    .f10-lading{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3em;
+        align-items: center;
+        text-align: center;
+    
+        
+        
+        .f10-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        
+            .f10-title{
+                font-family: 'Poppins-Bold';
+                font-size:35px;
+                color: #43AFFF;
+                text-transform:uppercase;
+            }
+
+            .f10-dados{
+                display: flex;
+                flex-direction:row;
+                justify-content: space-around;
+                width: 100%;
+    
+                .dados-item1{
+                    font-family:'Poppins-Regular' ;
+                    font-size: 16px;
+                    display: flex;
+                    flex-direction: row;
+                    gap:1em;
+    
+                    text-align: left;
+                    align-items: center;
+                    width:22%;
+    
+                    .image{
+                        width:4em;
+                        height:4em;
+                    }  
+                }
+    
+                .dados-item2{
+                    font-family:'Poppins-Regular' ;
+                    font-size: 16px;
+                    display: flex;
+                    flex-direction: row;
+                    gap:1em;
+    
+                    text-align: left;
+                    align-items: center;
+                    width:20%;
+    
+                    .image{
+                        width:4em;
+                        height:4em;
+                    }  
+                }
+    
+                .dados-item3{
+                    font-family:'Poppins-Regular' ;
+                    font-size: 16px;
+                    display: flex;
+                    flex-direction: row;
+                    gap:1em;
+    
+                    text-align: left;
+                    align-items: center;
+                    width:15.5%;
+    
+                    .image{
+                        width:4em;
+                        height:4em;
+                    }  
+                }
+    
+                .dados-item4{
+                    font-family:'Poppins-Regular' ;
+                    font-size: 16px;
+                    display: flex;
+                    flex-direction: row;
+                    gap:1em;
+     
+                    text-align: left;
+                    align-items: center;
+                    width:18%;
+    
+                    .image{
+                        width:4em;
+                        height:4em;
+                    }  
+                }
+    
+            }
+       
+
+            iframe{
+                width: 65%;
+                filter: drop-shadow(6px 8px 3px rgba(0, 3, 4, 0.689));
+            }
+        }
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #2F2F2F;
+        
+        align-items: center;
+
+        height: 20em;
+        width: 100%;
+        
+        .sub{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap:5em;
+            width: 80%;
+            min-height: 90%;
+
+
+            background-image: url('../../../public/assets/images/logobola.png');
+            background-repeat: no-repeat;
+            background-position-x: 0%;
+            background-position-y: center;
+
+
+            .empresa, .produto{
+                padding-left: 2em;
+                display:flex;
+                flex-direction: column;
+                justify-content: space-around;
+                
+                p{
+                    font-size: 18px;
+                    font-family: 'Poppins-Bold';
+                    color: #D4EAFB;
+                    text-transform:uppercase;
+                }
+
+                a{
+
+                    font-family:'Poppins-Medium';
+                    font-size: 16px;
+                    text-decoration: none;
+                    outline: none;
+                    color: #FFF;
+                }
+            }
+            
+        }
+
+    }
+
+
 }
