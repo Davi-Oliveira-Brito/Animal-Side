@@ -73,7 +73,7 @@
     }
 
     .faixa2-lading{
-        padding: 1.5em;
+        padding: 1em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -85,13 +85,18 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: none;
+            align-items: center;
             height:30em;
-            width: 70%;
+            width: 100%;
 
             .f2-top{
                 display: flex;
                 flex-direction: column;
                 line-height: .5em;
+                text-align: left;
+                align-items: center;
+                width: 90%;
                 .title{
                     font-family: 'Poppins-SemiBold';
                     font-size: 30px;
@@ -109,8 +114,9 @@
             .f2-cards{
                 display:flex;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: center;
+                width: 90%;
             }
         }
 
