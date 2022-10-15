@@ -47,4 +47,181 @@
         
     }
 
+    .f3-ong{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 2em;
+
+        height: 30em;
+
+        background-color: #FF6400;
+        background-image: url("../../../public/assets/images/gatoo.png");
+        background-repeat: no-repeat;
+        background-size: 35em;
+        background-position-x: 90%;
+        background-position-y: 100% ;
+
+
+        .f3-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left:2em ;
+
+            height: 50%;
+            width: 35%;
+
+            .f3-title{
+                font-family:'Poppins-Bold';
+                color: #FFFFFF;
+            }
+
+            .text1{
+                font-family:'Poppins-Regular';
+                color: #FFFFFF;
+            
+                span{
+                    color:#000000;
+                }
+            
+            }
+        }
+
+    }
+
+    .f4-ong{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 30em;
+
+        .f4-title{
+            font-family: 'Poppins-Bold';
+            font-size: 35px;
+            text-transform: uppercase;
+            color:#531607;
+        }
+
+        .ong-cards{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 90%;
+
+        }
+    }
+
+    .f5-ong{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        background-color: #15A635;
+        width: 100%;
+        padding: 3em;
+
+        .f5-sub{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 80%;
+
+            img{
+                width:30em;
+            }
+
+            .f5-text{
+                display:flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width:40%;
+
+                .f5-title{
+                    font-family: 'Poppins-SemiBold';
+                    color:#FFFFFF;
+                    font-size:35px;
+                    text-transform: uppercase;
+                }
+
+                .text{
+                    font-family:'Poppins-Regular';
+                    color:#FFFFFF;
+                    font-size: 16px;
+                    span{
+                        color:#000000;
+                    }
+                }
+
+                .f5-button{
+                    font-family:'Poppins-Regular';
+                    font-size:16px;
+                    color:#15A635;
+                    background-color: #FFFFFF;
+
+                    height:2.5em;
+                    border:none;
+                    width: 9em;
+                }
+            }
+        }
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #2F2F2F;
+        
+        align-items: center;
+
+        height: 20em;
+        width: 100%;
+        
+        .sub{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap:5em;
+            width: 80%;
+            min-height: 90%;
+
+
+            background-image: url('../../../public/assets/images/logobola.png');
+            background-repeat: no-repeat;
+            background-position-x: 0%;
+            background-position-y: center;
+
+
+            .empresa, .produto{
+                padding-left: 2em;
+                display:flex;
+                flex-direction: column;
+                justify-content: space-around;
+                
+                p{
+                    font-size: 18px;
+                    font-family: 'Poppins-Bold';
+                    color: #D4EAFB;
+                    text-transform:uppercase;
+                }
+
+                a{
+
+                    font-family:'Poppins-Medium';
+                    font-size: 16px;
+                    text-decoration: none;
+                    outline: none;
+                    color: #FFF;
+                }
+            }
+            
+        }
+
+    }
+
+
 }

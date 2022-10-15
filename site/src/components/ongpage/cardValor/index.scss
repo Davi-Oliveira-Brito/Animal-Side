@@ -1,0 +1,29 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    text-align: center;
+    padding: 1em;
+
+    height: 16em;
+    width:14em;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    img{
+        width:5em;
+    }
+
+
+    .titulo{
+        font-family:'Poppins-Bold';
+        font-size: 18px;
+        color:#531607;
+    }
+
+    .desc{
+        font-family:'Poppins-Regular';
+        font-size: 14px;
+    }
+}
