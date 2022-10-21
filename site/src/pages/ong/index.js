@@ -18,12 +18,64 @@ export default function PageOng() {
                 </div>
             </section>
 
-            <section className="carro">
+            <section className='f1-ong'>
+                <h1 className="titulo">Nossas Atividades</h1>
+                <div className='f1-sub'>
+                    <div className="texts">
+                        <h1 className='title'>Adoção</h1>
+                        <p className='desc'>
+                           Encontre um novo amor e um membro para aumentar sua familia 
+                        </p>
+                        <button className='botao'> quero adotar </button>
+                    </div>
+                </div>
             </section>
 
-            <section className="f3-ong">
+            <section className='f1-ong'>
+                <h1 className="titulo">Nossas Atividades</h1>
+                <div className='f1-sub'>
+                    <div className="texts">
+                        <h1 className='title'>Adoção</h1>
+                        <p className='desc'>
+                           Encontre um novo amor e um membro para aumentar sua familia 
+                        </p>
+                        <button className='botao'> quero adotar </button>
+                    </div>
+                </div>
+            </section>
+
+            <section className='f2-ong'>
+                <h1 className="titulo">Nossas Atividades</h1>
+                <div className='f2-sub'>
+                    <div className="texts">
+                        <h1 className='title'>Doação</h1>
+                        <p className='desc'>
+                        Ajude nossa causa, doando uma quantia em dinheiro, ração ou brinquedos.
+                        </p>
+                        <button className='botao'> quero doar </button>
+                    </div>
+                </div>
+            </section>
+
+            <section className='f3-ong'>
+                <h1 className="titulo">Nossas Atividades</h1>
                 <div className='f3-sub'>
-                    <h1 className="f3-title">MISSÃO</h1>
+                    <div className="texts">
+                        <h1 className='title'>Cadastre</h1>
+                        <p className='desc'>
+                            Perdeu o seu companheiro(a)? Faça um cadastro para que encontremos o mesmo.
+                        </p>
+                        <button className='botao'> quero cadastrar </button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section className="f4-ong">
+                <div className='f4-sub'>
+                    <h1 className="f4-title">MISSÃO</h1>
 
 
                     <p className="text1">
@@ -38,8 +90,8 @@ export default function PageOng() {
                 </div>
             </section>
 
-            <section className="f4-ong">
-                <h1 className="f4-title">Valores</h1>
+            <section className="f5-ong">
+                <h1 className="f5-title">Valores</h1>
                 
                 <div className="ong-cards">
                     <CardValor
@@ -65,12 +117,12 @@ export default function PageOng() {
                 </div>
             </section>
 
-            <section className="f5-ong">
-                <div className="f5-sub">
+            <section className="f6-ong">
+                <div className="f6-sub">
                     <img src="/assets/images/gradeDOGs.png" alt="" />
 
-                    <div className="f5-text">
-                        <h1 className='f5-title'>Feira de adoção</h1>
+                    <div className="f6-text">
+                        <h1 className='f6-title'>Feira de adoção</h1>
 
                         <p className='text'>
                         A <span> FEIRA DE ADOÇÃO </span> serve para encontrarmos novos lares para os nossos animalzinhos.
@@ -80,7 +132,7 @@ export default function PageOng() {
                         Fique dentro das datas e encontre conosco o melhor companheiro para você.
                         </p>
 
-                        <button className="f5-button">
+                        <button className="f6-button">
                             Ver Calendário
                         </button>
                     </div>

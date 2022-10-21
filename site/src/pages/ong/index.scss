@@ -43,11 +43,251 @@
 
     }
 
-    .carro{
+
+    .f1-ong{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 30em;
         
+        background-image: url("../../../public/assets/images/pintadoEpequeno.png");
+        background-size: 20em;
+        background-repeat: no-repeat; 
+        background-position: 25%  55%;
+        background-color: #FFFFFF;
+        padding-bottom: 2em;
+            
+           
+            
+        .titulo{
+            align-self: center;
+            font-family: 'Poppins-Bold';
+            font-size: 30px;
+            color: #FF6400;
+            text-transform: uppercase;
+        
+        }
+
+        .f1-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            width: 70%;
+            height: 70%;
+            padding:1em 1em 3em 1em ;
+
+
+            .texts{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                width: 35%;
+                    
+                    
+                .title{
+                    font-family: 'Poppins-Bold';
+                    font-size: 30px;
+                    color: #FF6400;
+                }
+                    
+                .desc{
+                    font-family: 'Poppins-Regular';
+                    font-size: 18px;
+                    color: #000000;
+  
+                }
+
+                .botao{
+                    font-family: 'Poppins-Regular';
+                    font-size: 16px;
+                    color: #ffffff;
+                    background-color: #FF6400;
+                    border: none;
+                    height: 3em;
+                    width: 9em;
+
+                }
+
+
+
+
+                }
+
+
+            }
+            
     }
 
+
+    .f2-ong{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 30em;
+        
+        background-image: url("../../../public/assets/images/gatuONG.png");
+        background-size: 25em;
+        background-repeat: no-repeat; 
+        background-position: 25%  55%;
+        background-color: #15A635;
+        padding-bottom: 2em;
+            
+           
+            
+        .titulo{
+            align-self: center;
+            font-family: 'Poppins-Bold';
+            font-size: 30px;
+            color: #ffffff;
+            text-transform: uppercase;
+        
+        }
+
+        .f2-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            width: 70%;
+            height: 70%;
+            padding:1em 1em 3em 1em ;
+
+
+            .texts{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                width: 35%;
+                    
+                    
+                .title{
+                    font-family: 'Poppins-Bold';
+                    font-size: 30px;
+                    color: #FFF;
+                }
+                    
+                .desc{
+                    font-family: 'Poppins-Regular';
+                    font-size: 18px;
+                    color: #fff;
+  
+                }
+
+                .botao{
+                    font-family: 'Poppins-Regular';
+                    font-size: 16px;
+                    color: #15A635;
+                    background-color: #FFF;
+                    border: none;
+                    height: 3em;
+                    width: 9em;
+
+                }
+
+
+
+
+                }
+
+
+            }
+
+            
+    }
+
+
     .f3-ong{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 30em;
+        
+        background-image: url("../../../public/assets/images/hamertiFundo.png");
+        background-size: 20em;
+        background-repeat: no-repeat; 
+        background-position: 25%  55%;
+        background-color: #ffffff;
+        padding-bottom: 2em;
+            
+           
+            
+        .titulo{
+            align-self: center;
+            font-family: 'Poppins-Bold';
+            font-size: 30px;
+            color: #FF6400;
+            text-transform: uppercase;
+        
+        }
+
+        .f3-sub{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            width: 70%;
+            height: 70%;
+            padding:1em 1em 3em 1em ;
+
+
+            .texts{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                width: 35%;
+                    
+                    
+                .title{
+                    font-family: 'Poppins-Bold';
+                    font-size: 30px;
+                    color: #FF6400;
+                }
+                    
+                .desc{
+                    font-family: 'Poppins-Regular';
+                    font-size: 18px;
+                    color: #000000;
+  
+                }
+
+                .botao{
+                    font-family: 'Poppins-Regular';
+                    font-size: 16px;
+                    color: #ffffff;
+                    background-color: #FF6400;
+                    border: none;
+                    height: 3em;
+                    width: 9em;
+
+                }
+
+
+
+
+                }
+
+
+            }
+
+            
+    }
+
+   
+    
+    .f4-ong{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -64,7 +304,7 @@
         background-position-y: 100% ;
 
 
-        .f3-sub{
+        .f4-sub{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -73,7 +313,7 @@
             height: 50%;
             width: 35%;
 
-            .f3-title{
+            .f4-title{
                 font-family:'Poppins-Bold';
                 color: #FFFFFF;
             }
@@ -91,14 +331,19 @@
 
     }
 
-    .f4-ong{
+
+
+
+
+    .f5-ong{
         display:flex;
         flex-direction: column;
         justify-content: space-around;
+        padding-bottom: 3em;
         align-items: center;
         height: 30em;
 
-        .f4-title{
+        .f5-title{
             font-family: 'Poppins-Bold';
             font-size: 35px;
             text-transform: uppercase;
@@ -114,7 +359,7 @@
         }
     }
 
-    .f5-ong{
+    .f6-ong{
         display:flex;
         flex-direction: column;
         justify-content: center;
@@ -123,7 +368,7 @@
         width: 100%;
         padding: 3em;
 
-        .f5-sub{
+        .f6-sub{
             display:flex;
             flex-direction: row;
             justify-content: space-around;
@@ -133,13 +378,13 @@
                 width:30em;
             }
 
-            .f5-text{
+            .f6-text{
                 display:flex;
                 flex-direction: column;
                 justify-content: space-around;
                 width:40%;
 
-                .f5-title{
+                .f6-title{
                     font-family: 'Poppins-SemiBold';
                     color:#FFFFFF;
                     font-size:35px;
@@ -155,7 +400,7 @@
                     }
                 }
 
-                .f5-button{
+                .f6-button{
                     font-family:'Poppins-Regular';
                     font-size:16px;
                     color:#15A635;
