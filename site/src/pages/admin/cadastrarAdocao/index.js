@@ -17,8 +17,8 @@ import { toast } from 'react-toastify';
 export default function PageCadastrar() {
     // Porte, Raca, Sexo, Preferencia são ID's 
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState();
     const [idAnimal, setIdAnimal] = useSearchParams('id');  
-    const admin = storage('admin-logado').id;    
     const [animal, setAnimal] = useState({
         nome:       '',
         idade:      0,
@@ -34,6 +34,21 @@ export default function PageCadastrar() {
     async function carregarSelects() {
         let filtros = await buscaFiltro();
         setSelects(filtros);
+    }
+
+    async function novo() {
+        setAnimal({
+            nome:       '',
+            idade:      0,
+            imagem:     '',
+            descricao:  '',
+            porte:      0,
+            porte:      0,
+            raca:       0,
+            preferencia:0,
+            sexo:       0,
+        })
+        navigate('/cadastro');
     }
 
     async function carregarAnimal() {
@@ -80,6 +95,11 @@ export default function PageCadastrar() {
      }
 
     useEffect(() => {
+        if(!storage('admin-logado')){
+            navigate('/loginAdmin');
+        }else{
+            setAdmin(storage('admin-logado').id);
+        }
         if(idAnimal || idAnimal !== null) carregarAnimal();
         carregarSelects();
     },[]);
@@ -98,7 +118,7 @@ export default function PageCadastrar() {
                 <div className="conteudo-cadastro">
 
                     <div className="superior">
-                        <img src="/assets/images/admin.png" alt="Imagem nâo encontrada" />
+                        <img src="/assets/images/admin.png" alt="Imagem nâo encontrada"/>
                         <div className="infos-admin">
                             <b className="bold">Administrador</b>
                             <p>São Paulo, Zona Sul</p>
@@ -154,7 +174,7 @@ export default function PageCadastrar() {
 
                                 <div onClick={() => mudarImagem()} className="imagem">
                                     {!animal.imagem &&
-                                        <img className='cloud' src="/assets/images/imageDownload.png" alt="" />
+                                        <img className='cloud' src="/assets/images/imageDownload.png" alt=""/>
                                     }
                                     {animal.imagem &&
                                         <img src={mostrarImagem()} alt="" />
@@ -166,7 +186,10 @@ export default function PageCadastrar() {
                         <div className="final">
                             <textarea onChange={(e)=>setAnimal({...animal, descricao: e.target.value})} className="desc" value={animal.descricao} placeholder="Descrição" />
                             {idAnimal.get('id') &&
-                                <button onClick={() => cadastrar()}>Alterar</button>
+                                <>
+                                    <button onClick={() => cadastrar()}>Alterar</button>
+                                    <button onClick={() => novo()}>Novo</button>
+                                </>
                             }
                             {!idAnimal.get('id') &&
                                 <button onClick={() => cadastrar()}>Salvar</button>

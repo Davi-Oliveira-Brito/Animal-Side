@@ -15,7 +15,7 @@ export default function CardFeedAdmin(props) {
             toast.dark(error.response.data.error);
         }
     }
-    
+
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
             return URL.createObjectURL(props.imagem);
@@ -27,7 +27,7 @@ export default function CardFeedAdmin(props) {
     return (
         <main className='Card'>
             <div className='image-left'>
-                <img className='imgdog' src="/assets/images/dogBranco.png" alt="" />
+            <img className='imgdog' src={mostrarImagem()} alt="" />
             </div>
             <div className='Card-right'>
                 <div className='text'>

@@ -6,7 +6,6 @@ import { loginAdmin } from '../../api/admin/adminAPI.js';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-import localStorage from 'local-storage';
 import storage from 'local-storage';
 
 export default function LoginAdmin() {
@@ -28,9 +27,7 @@ export default function LoginAdmin() {
       }
     }
     useEffect(()=>{
-      if(storage('admin-logado')){
-        navigate('/cadastro');
-      }
+      if(storage('admin-logado')) navigate('/cadastro');
     },[])
     return (
         <main className="admin-login-main">
