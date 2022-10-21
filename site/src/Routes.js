@@ -7,6 +7,7 @@ import LadingPage from "./pages/home/index.js"
 import AONG from "./pages/ong/index.js"
 import ComentarioAdocao from "./pages/adote/comentario/index.js"
 import Ajude from "./pages/ajude/index.js"
+import PerfilUser from "./pages/usuario/perfil/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -31,6 +32,8 @@ export default function AppRoutes() {
                 
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
                 <Route path='/quemsomos' element={<QuemSomos/>}/>
+
+                <Route path='/userPerfil' element={<PerfilUser/>}/>
 
             </Routes>
         </BrowserRouter>
