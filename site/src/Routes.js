@@ -6,6 +6,7 @@ import LoginAdmin from "./pages/loginAdm"
 import LadingPage from "./pages/home/index.js"
 import AONG from "./pages/ong/index.js"
 import ComentarioAdocao from "./pages/adote/comentario/index.js"
+import Ajude from "./pages/ajude/index.js"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -21,6 +22,7 @@ export default function AppRoutes() {
                 <Route path='/loginAdmin' element={<LoginAdmin/>}/>
                 <Route path='/ong' element={<AONG/>}/>
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
+                <Route path='/Ajude' element={<Ajude/>}/>
 
             </Routes>
         </BrowserRouter>
