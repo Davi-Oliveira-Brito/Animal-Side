@@ -31,7 +31,7 @@ export default function CardFeedAdmin(props) {
             </div>
             <div className='Card-right'>
                 <div className='text'>
-                    <h1 className='title'>{props.nome}</h1>
+                    <div className='title'>{props.nome}</div>
                     <div>Raça: {props.raca}</div>
                     <div>Porte: {props.porte}</div>
                     <div>Idade: {props.idade}</div>

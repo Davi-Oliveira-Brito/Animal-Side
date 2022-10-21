@@ -1,10 +1,11 @@
 .Card{
     display: flex;
     flex-direction: row;
-    width: 47%;
-    height: auto;
+    min-width: 47%;
     box-shadow: 2px 0px 30px 3px rgba(0, 0, 0, 0.25);
     
+    padding: 40px 0px;
+
     .image-left{
         display: flex;
         justify-content: flex-start;
@@ -26,8 +27,8 @@
     }
     .text{
         font-family: 'Poppins-Regular';
-        font-size: 15px;a
         .title{
+            font-size: 3em;
             float: left;
             word-wrap: break-word;
         }

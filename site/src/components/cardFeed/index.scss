@@ -1,4 +1,4 @@
-.card{
+.comp-card{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,7 +28,6 @@
             flex-direction: column;
             justify-content: space-around;
             line-height: 1.3em;
-            height: 80%;
 
             .card-title{
                 font-family: 'Poppins-SemiBold';
@@ -50,6 +49,7 @@
             .card-idade{
                 font-family: 'Poppins-Regular';
                 font-size: 14px;
+                margin: 0px;
             }
         }
 

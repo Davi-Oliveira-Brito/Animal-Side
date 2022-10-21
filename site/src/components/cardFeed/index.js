@@ -14,7 +14,7 @@ export default function CardFeed(props) {
     }
 
     return (
-        <main className="card">
+        <main className="comp-card">
             <div className="left-area">
                 <img src={mostrarImagem()} alt="" />
             </div>

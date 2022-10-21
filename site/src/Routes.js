@@ -8,21 +8,29 @@ import AONG from "./pages/ong/index.js"
 import ComentarioAdocao from "./pages/adote/comentario/index.js"
 import Ajude from "./pages/ajude/index.js"
 
+import QuemSomos from "./pages/quemSomos/index.js"
+
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/cadastro' element={<PageCadastrar/>} />
                 <Route path='/' element={<LadingPage/>} />
-                <Route path='/login' element={<LoginPage/>} />
-                <Route path='/adoteFeed' element={<AdoteFeed/>} />
-                <Route path='/feedAdocaoAdmin' element={<FeedAdocao/>}/>
-                <Route path='/loginAdmin' element={<LoginAdmin/>}/>
                 <Route path='/ong' element={<AONG/>}/>
-                <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
                 <Route path='/Ajude' element={<Ajude/>}/>
+                
+                <Route path='/login' element={<LoginPage/>} />
+                <Route path='/loginAdmin' element={<LoginAdmin/>}/>
+                
+                <Route path='/cadastro' element={<PageCadastrar/>} />
+                
+                <Route path='/adoteFeed' element={<AdoteFeed/>} />
+                
+                <Route path='/feedAdocaoAdmin' element={<FeedAdocao/>}/>
+                
+                <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
+                <Route path='/quemsomos' element={<QuemSomos/>}/>
 
             </Routes>
         </BrowserRouter>

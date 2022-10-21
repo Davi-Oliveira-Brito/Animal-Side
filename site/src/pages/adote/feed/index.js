@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { buscaAnimal } from '../../../api/animalAPI.js';
 
 
-export default function () {
+export default function AdoteFeed() {
     const [animais, setAnimais] = useState([]);
     const [nome, setNome] = useState('');
 

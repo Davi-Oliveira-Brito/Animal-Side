@@ -16,7 +16,6 @@ import { toast } from 'react-toastify'
 
 export default function FeddAdocao() {
     const [animais, setAnimais] = useState([]);
-    console.log(animais);
     async function carregarAnimais() {
         try {
             const r = await buscaAnimal();
@@ -30,7 +29,6 @@ export default function FeddAdocao() {
     }, []);
     return (
         <main className="feed-main">
-            <ActionPopUp/>    
             <NavBarAdmin />
             <div className='componente'>
                 <SideBarAdmin />
