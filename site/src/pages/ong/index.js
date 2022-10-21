@@ -2,8 +2,7 @@ import './index.scss'
 import NavBar from '../../components/navBar/index.js'
 import CardValor from '../../components/ongpage/cardValor/index.js'
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import Carousel from 'react-bootstrap/Carousel';
+import Footer from '../../components/footer/index.js';
 
 
 export default function PageOng() {
@@ -89,23 +88,7 @@ export default function PageOng() {
             </section>
 
             
-            <section className="footer">
-                    <div className="sub">
-                        <div className="empresa">
-                            <p>empresa</p>
-                            <a href="">A ong</a>
-                            <a href="">Quem Somos?</a>
-                            <a href="">Feira</a>
-                        </div>
-
-                        <div className="produto">
-                            <p>produto</p>
-                            <a href="">Doe</a>
-                            <a href="">Adotar</a>
-                            <a href="">Cadastar</a>
-                        </div>
-                    </div>
-            </section>
+            <Footer/>
 
         </main>
 

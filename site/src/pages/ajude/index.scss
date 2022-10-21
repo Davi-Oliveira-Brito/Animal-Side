@@ -48,9 +48,213 @@
             }
 
         }
+
+    
     }
+    
+        .f1-ajude{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 25em;
+            
+            background-image: url("../../../public/assets/images/papagas.png");
+            background-size: 18em;
+            background-repeat: no-repeat; 
+            background-position: 80% -50%;
+            background-color: #FFFFFF;
+            padding: 2em;
+            
+
+            .f1-sub{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 80%;
+                height: 85%;
+                padding: 1em;
+                
+
+                .texts{
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 90%;
+                    width: 42%;
+                    
+                    .title{
+                        font-family: 'Poppins-Bold';
+                        font-size: 30px;
+                        color: #0E3F63;
+                    }
+                    
+                    .desc{
+                        font-family: 'Poppins-Regular';
+                        font-size: 16px;
+                        color: #000000;
+
+                        label{
+                            color: #2C73A8;
+                        }
+                    }
+
+                    .botao{
+                        font-family: 'Poppins-Regular';
+                        font-size: 16px;
+                        color: #ffffff;
+                        background-color: #88B5D6;
+                        border: none;
+                        height: 3em;
+                        width: 9em;
+
+                    }
 
 
+
+
+
+                }
+
+
+            }
+
+            
+        }
+    
+
+        
+        .f2-ajude{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 25em;
+            
+            background-image: url("../../../public/assets/images/hamerti.png");
+            background-size: 18em;
+            background-repeat: no-repeat; 
+            background-position: 20% -50%;
+            background-color: #FF6400;
+            padding: 2em;
+            
+
+            .f2-sub{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                width: 80%;
+                height: 85%;
+                padding: 1em;
+                
+
+                .texts{
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 90%;
+                    width: 42%;
+                    
+                    .title{
+                        font-family: 'Poppins-Bold';
+                        font-size: 30px;
+                        color: #ffffff;
+                    }
+                    
+                    .desc{
+                        font-family: 'Poppins-Regular';
+                        font-size: 16px;
+                        color: #ffffff;
+
+                        label{
+                            color: #873602;
+                        }
+                    }
+
+                    .botao{
+                        font-family: 'Poppins-Regular';
+                        font-size: 16px;
+                        color: #ffffff;
+                        background-color: #88B5D6;
+                        border: none;
+                        height: 3em;
+                        width: 9em;
+
+                    }
+
+
+
+
+                }
+
+
+            }
+
+            
+        }
+
+
+        
+        .f3-ajude{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 25em;
+            
+            background-image: url("../../../public/assets/images/caoIgato.png");
+            background-size: 25em;
+            background-repeat: no-repeat; 
+            background-position: 80% 100%;
+            background-color: #15A635;
+            padding: 2em;
+            
+
+            .f3-sub{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 80%;
+                height: 65%;
+                padding: 1em;
+                
+
+                .texts{
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 90%;
+                    width: 42%;
+                    
+                    .title{
+                        font-family: 'Poppins-Bold';
+                        font-size: 30px;
+                        color: #ffffff;
+                    }
+                    
+                    .desc{
+                        font-family: 'Poppins-Regular';
+                        font-size: 16px;
+                        color: #ffffff;
+
+                        label{
+                            color: #6EEC8A;
+                        }
+                    }
+
+                }
+
+
+            }
+
+            
+        }
 
 
 }

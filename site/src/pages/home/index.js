@@ -2,6 +2,7 @@ import './index.scss'
 import NavBar from '../../components/navBar/index.js'
 import CardAdote from '../../components/LadingPage/CardAdote/index.js'
 import CardBicho from '../../components/LadingPage/CardBichos/index.js'
+import Footer from '../../components/footer/index.js'
 
 export default function LadingPage() {
     return (
@@ -250,23 +251,8 @@ export default function LadingPage() {
                 </div>
             </section>
 
-            <section className="footer">
-                    <div className="sub">
-                        <div className="empresa">
-                            <p>empresa</p>
-                            <a href="">A ong</a>
-                            <a href="">Quem Somos?</a>
-                            <a href="">Feira</a>
-                        </div>
-
-                        <div className="produto">
-                            <p>produto</p>
-                            <a href="">Doe</a>
-                            <a href="">Adotar</a>
-                            <a href="">Cadastar</a>
-                        </div>
-                    </div>
-            </section>
+            <Footer/>
+            
         </main>
     );
 }
