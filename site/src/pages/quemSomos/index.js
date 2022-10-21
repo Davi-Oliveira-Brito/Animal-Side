@@ -15,7 +15,7 @@ export default function QuemSomos() {
         <Navbar/>
         <div className='hero-section'>
             <div className='text'>
-                <p>ANIMAL SIDE</p>
+                <div><img src="assets/images/logo.png" alt="" /></div>
                 <p>Vendo um lado para todos os bichinhos</p>
             </div>
             <div className='image'><img src="/assets/images/araraVerde.png" alt="" /></div>

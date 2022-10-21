@@ -1,59 +1,67 @@
-.Card{
+.comp-card-admin{
+
+    width: 95%;
+    height: 250px;
+ 
     display: flex;
     flex-direction: row;
-    min-width: 47%;
-    box-shadow: 2px 0px 30px 3px rgba(0, 0, 0, 0.25);
     
-    padding: 40px 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
 
-    .image-left{
-        display: flex;
-        justify-content: flex-start;
-        width: 16em;
-   
-        .imgdog{
+    .image {
+        width: 40%;
+        height: 100%;
+        img{
             width: 100%;
-            height: auto;
-        } 
-    }
-
-    .Card-right{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: auto;
-        height: auto;
-        margin-left: 1em;
+            height: 100%;
+        }   
     }
     .text{
-        font-family: 'Poppins-Regular';
-        .title{
-            font-size: 3em;
-            float: left;
-            word-wrap: break-word;
-        }
-    }
-    .botao-img{
-        cursor: pointer;         
+        width: 60%;
         display: flex;
-        flex-direction: row; 
-        height: auto;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 15px;
+        
+        .title{
+            font-size:2em;
+            font-family: 'Poppins-Medium';
+        }
+        .infos{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 15px;
+
+            font-family: 'Poppins-Regular';
+        }
+
+        .desc{
+            font-family: 'Poppins-Regular';
+        }
+
+        .btns{
+            display: flex;
+            justify-content: space-between;
+            
+            font-size: 1.1em;
+            font-family: 'Poppins-Regular';
+
+            & > :nth-child(1){
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 4px 30px;
+                background-color: #FF6909;
+                color: white;
+            }
+
+            & > :nth-child(2){
+                display: flex; 
+                gap: 15px;
+            }
+        }
 
     }
-    
-    .botao{
-        cursor: pointer; 
-        background-color: #FF6909;
-        width: 5.5em;
-        padding: .3em .5em .3em .5em;
-        color: #ffff;
-        border-radius: 3px;
-        border: none;
-        margin-top: 8px;
-        outline: none;
-    }
-    .img-interative{
-        margin-left: 2em;
-        margin-top: 9px;
-    }
-    }
+}   

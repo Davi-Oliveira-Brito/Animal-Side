@@ -8,18 +8,19 @@
         height: 80vh;
         
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 50%;
 
         background-color: #43AFFF;
         position: relative;
 
         .text{
-            width: 30%;
+            width: 40%;
             height: auto;
 
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
 
             color:white ;
@@ -35,8 +36,9 @@
         .image img{
             width: 32.6%;
             position: absolute;
-            top: 0;
+            
             right: 0;
+            bottom: 0;
             
         }
     }
@@ -92,7 +94,7 @@
 
         .images{
             width: 100%;
-
+            overflow-x: scroll;
             display: flex;
             justify-content: center;
             gap: 5%;

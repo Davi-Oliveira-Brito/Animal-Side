@@ -69,8 +69,6 @@ select * from tb_animal_adocao
 where nm_animal like 'Cachorro%';
 
 -- filtros
-select * from tb_animal_adocao
-where id_tipo = 1 ;
 
 select * from tb_animal_adocao
 where id_sexo = 2;
@@ -110,18 +108,17 @@ select nm_animal,
  from tb_animal_adocao;
  
  delete from tb_animal_adocao
- where id_animal= 1;
+ where id_animal_adocao= 1;
  
  update tb_animal_adocao
  set nm_animal ='cachorro caramelo',
 	nr_idade  = 11,
     ds_descricao ='perigoso',
-    id_usuario  = 1,
+    id_admin  = 1,
     id_porte	= 1,
     id_raca		= 1,
     id_preferencia =1,
-    id_sexo			=1,
-    id_tipo			=1
+    id_sexo			=1
 where id_animal_adocao = 1;
         
         

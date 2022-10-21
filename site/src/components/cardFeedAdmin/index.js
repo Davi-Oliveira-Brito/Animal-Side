@@ -25,27 +25,28 @@ export default function CardFeedAdmin(props) {
     }
 
     return (
-        <main className='Card'>
-            <div className='image-left'>
-            <img className='imgdog' src={mostrarImagem()} alt="" />
-            </div>
-            <div className='Card-right'>
-                <div className='text'>
-                    <div className='title'>{props.nome}</div>
-                    <div>Raça: {props.raca}</div>
+        <main className='comp-card-admin'>
+            <div className='image' style={{backgroundImage: mostrarImagem()}}><img src={mostrarImagem()} alt="" /></div>
+            <div className='text'>
+                <div className='title'>{props.nome}</div>
+                <div className='infos'>
+                    <div>Raca: {props.raca}</div>
                     <div>Porte: {props.porte}</div>
                     <div>Idade: {props.idade}</div>
-                    <div>Pref: {props.preferencia}</div>
+                    <div>Preferencia: {props.preferencia}</div>
                 </div>
-                <div className='botao-img'>
-                    <button className='botao'>Situação</button>
-                    <div className='img-interative'>
-                        <img className='img' onClick={() => navigate(`/cadastro?id=${props.id}`)} src="/assets/images/Edit.png" alt="" />
-                        <img className='img' onClick={()=> deletar()}src="/assets/images/Close.png" alt="" />
+                <div className='desc'>
+                    {props.descricao}
+                </div>
+
+                <div className='btns'>
+                    <div>Situação</div>
+                    <div>
+                        <div>editar</div>
+                        <div>editar</div>
                     </div>
                 </div>
             </div>
-
         </main>
     );
 }
