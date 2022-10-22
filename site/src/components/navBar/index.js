@@ -3,22 +3,23 @@ import {useNavigate} from 'react-router-dom'
 
 
 export default function Navbar(){
+    const navigate = useNavigate();
 
     return(
         <main className='nav-feed'>
             <section className="sub-feed" >
                 <div className='nav-image' >
-                    <img className='logo-feed' src="/assets/images/Logorow.png" alt="" />
+                    <img className='logo-feed' onClick={()=>navigate('/')} src="/assets/images/Logorow.png" alt="" />
                 </div>
                 
                 <div className='element-nav-mom'>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >A ONG</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Quem Somos?</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Ajude</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Feira</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Adote</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Doe</a>
-                    <a className='element-nav-feed' onCLick={useNavigate('/ong')} >Login</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/ong')} >A ONG</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/quemsomos')} >Quem Somos?</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/ajude')} >Ajude</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/')} >Feira</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/feedadocao')} >Adote</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/')} >Doe</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/login')} >Login</a>
                 </div>
             </section>
         </main>

@@ -23,10 +23,9 @@ export default function CardFeedAdmin(props) {
             return pegarImagem(props.imagem)
         }
     }
-
     return (
         <main className='comp-card-admin'>
-            <div className='image' style={{backgroundImage: mostrarImagem()}}><img src={mostrarImagem()} alt="" /></div>
+            <div className='image'></div>
             <div className='text'>
                 <div className='title'>{props.nome}</div>
                 <div className='infos'>

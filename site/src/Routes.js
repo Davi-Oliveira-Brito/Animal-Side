@@ -17,21 +17,20 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<LadingPage/>} />
+            <Route path='/' element={<LadingPage/>} />
                 <Route path='/ong' element={<AONG/>}/>
-                <Route path='/Ajude' element={<Ajude/>}/>
+                <Route path='/quemsomos' element={<QuemSomos/>}/>
+                <Route path='/ajude' element={<Ajude/>}/>
+                <Route path='/feedadocao' element={<AdoteFeed/>} />
                 
                 <Route path='/login' element={<LoginPage/>} />
-                <Route path='/loginAdmin' element={<LoginAdmin/>}/>
+                <Route path='/loginadmin' element={<LoginAdmin/>}/>
                 
                 <Route path='/cadastro' element={<PageCadastrar/>} />
-                
-                <Route path='/adoteFeed' element={<AdoteFeed/>} />
-                
-                <Route path='/feedAdocaoAdmin' element={<FeedAdocao/>}/>
+                                
+                <Route path='/feedadocaoadmin' element={<FeedAdocao/>}/>
                 
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
-                <Route path='/quemsomos' element={<QuemSomos/>}/>
 
                 <Route path='/userPerfil' element={<PerfilUser/>}/>
 

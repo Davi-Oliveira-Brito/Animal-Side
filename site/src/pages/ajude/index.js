@@ -5,8 +5,7 @@ import Footer from '../../components/footer/index.js';
 export default function PageAjude() {
     return (
         <main className='ajude-mom'>
-            <Navbar />
-
+            <Navbar/>
             <section className='hero-ajude'>
                 <div className='sub-hero'>
                     <div className='text-area'>
