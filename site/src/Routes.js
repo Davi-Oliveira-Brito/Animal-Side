@@ -8,6 +8,7 @@ import AONG from "./pages/ong/index.js"
 import ComentarioAdocao from "./pages/adote/comentario/index.js"
 import Ajude from "./pages/ajude/index.js"
 import PerfilUser from "./pages/usuario/perfil/index.js"
+import Post from "./pages/admin/posts/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -27,6 +28,7 @@ export default function AppRoutes() {
                 <Route path='/loginadmin' element={<LoginAdmin/>}/>
                 
                 <Route path='/cadastro' element={<PageCadastrar/>} />
+                <Route path='/post' element={<Post/>} />
                                 
                 <Route path='/feedadocaoadmin' element={<FeedAdocao/>}/>
                 

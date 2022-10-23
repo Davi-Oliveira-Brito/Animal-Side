@@ -37,7 +37,7 @@ export default function SideBarAdmin() {
 
                 </div>
 
-                <div  className="element-info" >
+                <div onClick={()=>navigate('/post')}  className="element-info" >
 
                     <img className="comp-image" src="/assets/images/mais.png" alt="" />
                     <button className="element-button">Posts</button>

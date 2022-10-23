@@ -25,7 +25,7 @@ export default function CardFeedAdmin(props) {
     }
     return (
         <main className='comp-card-admin'>
-            <div className='image'></div>
+            <div className='image'><img src={mostrarImagem()} alt="" /></div>
             <div className='text'>
                 <div className='title'>{props.nome}</div>
                 <div className='infos'>
@@ -41,8 +41,8 @@ export default function CardFeedAdmin(props) {
                 <div className='btns'>
                     <div>Situação</div>
                     <div>
-                        <div>editar</div>
-                        <div>editar</div>
+                        <div> <img className='img' onClick={() => navigate(`/cadastro?id=${props.id}`)} src="/assets/images/Edit.png" alt="" /></div>
+                        <div> <img className='img' onClick={()=> deletar()}src="/assets/images/Close.png" alt="" /></div>
                     </div>
                 </div>
             </div>

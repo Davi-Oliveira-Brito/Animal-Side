@@ -1,0 +1,32 @@
+
+.feed-main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+
+
+    .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 1.5em;
+        margin-top: 5em;
+        width: 100%;
+        height: auto;
+        .Barra-de-busca{
+            align-items: center;
+            width: 95%;
+            height: 2em;
+            outline: none;
+            margin-bottom: 3em;
+        }
+    }
+    .comp{
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        flex-wrap: wrap;
+    }
+
+    }
