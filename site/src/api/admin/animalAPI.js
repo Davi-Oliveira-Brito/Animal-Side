@@ -16,7 +16,6 @@ export async function cadastroAnimal(animal, admin) {
         descricao:      animal.descricao.trim(),
         porte:          animal.porte,
         admin:          admin,
-        porte:          animal.porte,
         raca:           animal.raca,
         preferencia:    animal.preferencia,
         sexo:           animal.sexo,
@@ -24,7 +23,6 @@ export async function cadastroAnimal(animal, admin) {
 
     return resposta.data;
 }
-
 
 export async function alterarAnimal(animal, id, admin) {
     const resposta = await api.put(`/admin/${id}/animal`, {
