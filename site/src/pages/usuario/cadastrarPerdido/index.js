@@ -8,6 +8,8 @@ export default function CadastrarAnimalPerdido(){
     
 
     return(
-        <h1></h1>
-    )
+        <main className='animal-perdido-main'>
+                
+        </main>
+    );
 }
