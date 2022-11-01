@@ -9,6 +9,7 @@ import ComentarioAdocao from "./pages/adote/comentario/index.js"
 import Ajude from "./pages/ajude/index.js"
 import PerfilUser from "./pages/usuario/perfil/index.js"
 import Post from "./pages/admin/posts/index.js"
+import CadastrarAnimalPerdido from "./pages/usuario/cadastrarPerdido/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -35,6 +36,8 @@ export default function AppRoutes() {
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
 
                 <Route path='/userPerfil' element={<PerfilUser/>}/>
+                <Route path='/cadastroperdido' element={<CadastrarAnimalPerdido/>}/>
+
 
             </Routes>
         </BrowserRouter>
