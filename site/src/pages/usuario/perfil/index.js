@@ -9,7 +9,63 @@ export default function PerfilUser(){
         <main className="user-perfil">
             <NavBarAdmin/>
             <SidebarUser/>
-
+            <div className='columns'>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                
+                
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" />
+                </div>
+        
+            </div>
         </main>
     );
 
