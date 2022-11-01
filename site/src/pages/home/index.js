@@ -233,7 +233,7 @@ export default function LadingPage() {
 
                         <div className="dados-item3">
                             <img src="/assets/images/Phone.png" alt="" />
-                            <p>     55 (11) 5917-9846
+                            <p>     55 (11) 5917-9846 <br/>
                                 55 (11) 91865-9266</p>
                         </div>
 

@@ -1,0 +1,19 @@
+.pageDoar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E6EEF4;
+    .top{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: #fff;
+        width: 38em;
+        flex-wrap: wrap;
+        .right{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
