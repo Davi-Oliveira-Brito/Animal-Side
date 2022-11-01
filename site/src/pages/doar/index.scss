@@ -1,6 +1,8 @@
 .pageDoar{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #E6EEF4;
     .top{
         display: flex;
@@ -8,7 +10,7 @@
         justify-content: center;
         background-color: #fff;
         width: 38em;
-        margin: 10em;
+        flex-wrap: wrap;
         .right{
             display: flex;
             flex-direction: column;
