@@ -3,6 +3,7 @@ import './index.scss'
 // Componentes
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js'
 import NavBarAdmin from '../../../components/navBarAdmin/index.js'
+import DadoUser from '../../../components/dados/user/index.js';
 
 // Hooks
 import { useState, useEffect } from 'react';
@@ -116,14 +117,9 @@ export default function PageCadastrar() {
                 </div>
 
                 <div className="conteudo-cadastro">
-
-                    <div className="superior">
-                        <img src="/assets/images/admin.png" alt="Imagem nâo encontrada"/>
-                        <div className="infos-admin">
-                            <b className="bold">Administrador</b>
-                            <p>São Paulo, Zona Sul</p>
-                        </div>
-                    </div>
+                    <DadoUser
+                    nome="Administrador"
+                    regiao="São Paulo, zona sul"/>
 
                     <div className="medio">
                         <p>Cadastre para adoção</p>
