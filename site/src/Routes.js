@@ -10,6 +10,7 @@ import Ajude from "./pages/ajude/index.js"
 import PerfilUser from "./pages/usuario/perfil/index.js"
 import Post from "./pages/admin/posts/index.js"
 import CadastrarAnimalPerdido from "./pages/usuario/cadastrarPerdido/index.js"
+import Doar from "./pages/doar/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -32,6 +33,8 @@ export default function AppRoutes() {
                 <Route path='/post' element={<Post/>} />
                                 
                 <Route path='/feedadocaoadmin' element={<FeedAdocao/>}/>
+                
+                <Route path='/doar' element={<Doar/>}/>
                 
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
 
