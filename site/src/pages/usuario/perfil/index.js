@@ -8,7 +8,6 @@ export default function PerfilUser(){
         <main className="user-perfil">
             <NavBarAdmin/>
             <SidebarUser/>
-
         </main>
     );
 

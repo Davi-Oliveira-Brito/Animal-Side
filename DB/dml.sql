@@ -122,10 +122,10 @@ select nm_animal,
 where id_animal_adocao = 1;
         
         
-
-
-
-
+-- Insert Inicial Usuário;
+insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA, IMG_USUARIO)
+				values("Biro Biro", '2003-01-23', 119881216, 'rua dos passaros, novo jaú', 1500, 6, 2, '06:00', 'teste@teste.com', '123456', null);
+			
 
 
 

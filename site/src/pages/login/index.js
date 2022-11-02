@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-//import { loginUsuario } from '../../api/loginUsuario.js'; 
+import { loginUsuario } from '../../api/usuario/usuarioAPI';
 
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-import localStorage from 'local-storage';
 import storage from 'local-storage';
 
 export default function Login() {
@@ -17,8 +16,8 @@ export default function Login() {
 
     async function logar(){
       try{
-        //const resposta = await loginUsuario(email.trim(), senha.trim());
-        //storage('usuario-logado', resposta)
+        const resposta = await loginUsuario(email.trim(), senha.trim());
+        storage('usuario-logado', resposta)
         toast.dark('Usuario Logado');
         navigate('/cadastro');
 
@@ -46,7 +45,7 @@ export default function Login() {
                     <a>Esqueceu sua senha?</a>
                 </div>
 
-                <button className="login-button" onClick={logar}>ENTRAR</button>
+                <button className="login-button" onClick={() => logar()}>ENTRAR</button>
                 
                 <p className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
 
