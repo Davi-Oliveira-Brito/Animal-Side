@@ -1,0 +1,31 @@
+.dados-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    width: 20em;
+
+    .image{
+        width: 7em;
+    }
+
+    .textos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1px;
+
+        .dado-title{
+           font-family: 'poppins-bold';
+           color:#2c2c2c;
+        }
+    
+        .dado-desc{
+            font-family: 'poppins-regular';
+            color: #5e5e5e;
+        }
+    }
+
+}

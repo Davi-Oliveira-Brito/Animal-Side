@@ -4,11 +4,20 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
-export async function loginUsuario(email, senha) {
-    const resp = await api.post('/usuario/login', {
-        email: email,
-        senha: senha
+
+export async function cadastroAnimalPerdido(animal, usuario) {
+    const resposta = await api.post('/usuario/animal', {
+        nome:           animal.nome.trim(),
+        idade:          animal.idade,
+        descricao:      animal.descricao.trim(),
+        porte:          animal.porte,
+        usuario:        usuario,
+        raca:           animal.raca,
+        sexo:           animal.sexo,
+        tipo:           animal.tipo,
+        dia:            animal.dia,
+        telefone:       animal.telefone,
     });
 
-    return resp.data;
+    return resposta.data;
 }
