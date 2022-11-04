@@ -35,18 +35,18 @@
     .bottom{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         min-height: 100vh;
-        width: 100%;
-        gap: 250px;
+        width: 75%;
+        gap: 3em;
      
 
         .card-s{
             display:flex;
             flex-direction: column;
-            width: 60em; 
+            width: 80%; 
             align-items: center;
-            gap: 5%;
+            gap: 2em;
             
         }
     

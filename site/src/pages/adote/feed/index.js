@@ -46,8 +46,11 @@ export default function AdoteFeed() {
                                 preferencia={item.preferencia}
                                 descricao={item.descricao}
                             />
+                            
                         );
                     })}
+
+                        
                   
                 </div>
 
