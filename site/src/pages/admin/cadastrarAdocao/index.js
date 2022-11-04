@@ -3,7 +3,7 @@ import './index.scss'
 // Componentes
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js'
 import NavBarAdmin from '../../../components/navBarAdmin/index.js'
-import DadoUser from '../../../components/dados/user/index.js';
+import DadoUser from '../../../components/dados/index.js';
 
 // Hooks
 import { useState, useEffect } from 'react';
