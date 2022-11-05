@@ -1,150 +1,317 @@
-.pageDoar{
+.doar-main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    /*border: solid;*/
+    min-height: 100vh;
+
     background-color: #E6EEF4;
-    height: 99vh;
-    gap: 7em;
-    .nav{
-        margin-top: -6.5em;
+
+
+    .top-nav{
+        width: 100%;
     }
-    .top{
+
+    .kits{
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 2em;
-        .card-1{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+
+        .linha1-kits{
             display: flex;
             flex-direction: row;
-            background-color: #fff;
-            width: 35em;
-            .left{
-                display: flex;
-                justify-content: left;
-                width: 60%;
-                img{
-                    width: 90%;
-                }
-            }
-            .right{
+            justify-content: space-between;
+            
+            width: 65%;
+
+
+            .kit-veterinario{
                 display: flex;
                 flex-direction: column;
-                .texto{
-                    text-align: right;
-                    font-family:'Poppins-Medium';
-                    color: #144B74;
-                    font-size: 1.4em;
-                    padding-top: 1em;
-                    width: 9em;
+                justify-content: space-between;
+                text-align: right;
+
+                height: 13em;
+                width: 45%;
+
+          
+                text-align: end;
+                
+                position: relative;
+                
+                padding: .5em 1em;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+                background-color: #FFFFFF;
+                background-image: url("../../../public/assets/images/veterinarioKit.png");
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position:0% 100%;
+
+                .kit-texts{
+                    display: flex;
+                    flex-direction: column;
+                    height: 5em;
+                    gap: 0;
+                    line-height: 0;
+
+                    .kit-title{
+                        align-self: flex-end;
+                        font-family: 'Poppins-Bold';
+                        color: #144B74;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        width: 50%;
+                        line-height: 1em;
+                    }
+    
+                    .kit-desc{
+                        align-self: flex-end;
+                        font-family: 'Poppins-regular';
+                        font-size: 13px;
+                        width: 50%;
+                        line-height: 1em;
+                        color: #706F6F;
+                    }
                 }
-                .text{
-                    text-align: right;
-                    color: #706F6F;
-                    font-family: 'Balsamiq Sans';
-                    width: 10em;
-                    margin-left: 3em;
+
+                .kit-button{
+                    align-self: flex-end;
+                    position: absolute;
+                    padding: 1em 3em;
+                    bottom: -.5em;
+                    right: -.5em;
+                    
+
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 20px;
+
+                    color: #FFFFFF;
+                    border: #6AAAD9;
+                    background-color: #6AAAD9;
                 }
+            
             }
+
+            .kit-limpeza{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: right;
+
+                height: 13em;
+                width: 45%;
+
+          
+                text-align: end;
+                
+                position: relative;
+                
+                padding: .5em 1em;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+                background-color: #FFFFFF;
+                background-image: url("../../../public/assets/images/limpezaKit.png");
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position:0% 0%;
+
+                .kit-texts{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    height: 5em;
+                    gap: 0;
+                    line-height: 0;
+
+                    .kit-title{
+                        align-self: flex-end;
+                        font-family: 'Poppins-Bold';
+                        color: #144B74;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        width: 40%;
+                        line-height: 1em;
+                    }
+    
+                    .kit-desc{
+                        align-self: flex-end;
+                        font-family: 'Poppins-regular';
+                        font-size: 13px;
+                        width: 55%;
+                        line-height: 1em;
+                        color: #706F6F;
+                    }
+                }
+
+                .kit-button{
+                    align-self: flex-end;
+                    position: absolute;
+                    padding: 1em 3em;
+                    bottom: -.5em;
+                    right: -.5em;
+                    
+
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 20px;
+
+                    color: #FFFFFF;
+                    border: #6AAAD9;
+                    background-color: #6AAAD9;
+                }
+            
+            }
+
         }
-        .card-2{
+
+        .linha2-kits{
             display: flex;
             flex-direction: row;
-            background-color: #fff;
-            width: 35em;
-            .left{
-                display: flex;
-                justify-content: center;
-                width: 70%;
-            }
-            .right{
+            justify-content: space-between;
+            
+            width: 65%;
+
+            .kit-alimentacao{
                 display: flex;
                 flex-direction: column;
-                .texto{
-                    text-align: right;
-                    font-family:'Poppins-Medium';
-                    color: #144B74;
-                    font-size: 1.4em;
-                    padding-top: 1em;
-                    width: 7em;
+                justify-content: space-between;
+                text-align: right;
+
+                height: 13em;
+                width: 45%;
+
+          
+                text-align: end;
+                
+                position: relative;
+                
+                padding: .5em 1em;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+                background-color: #FFFFFF;
+                background-image: url("../../../public/assets/images/alimentacaoKit.png");
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position:0% 150%;
+
+                .kit-texts{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    height: 5em;
+                    gap: 0;
+                    line-height: 0;
+
+                    .kit-title{
+                        align-self: flex-end;
+                        font-family: 'Poppins-Bold';
+                        color: #144B74;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        width: 50%;
+                        line-height: 1em;
+                    }
+    
+                    .kit-desc{
+                        align-self: flex-end;
+                        font-family: 'Poppins-regular';
+                        font-size: 13px;
+                        width: 70%;
+                        line-height: 1em;
+                        color: #706F6F;
+                    }
                 }
-                .text{
-                    text-align: right;
-                    color: #706F6F;
-                    font-family: 'Balsamiq Sans';
-                    width: 9em;
+
+                .kit-button{
+                    align-self: flex-end;
+                    position: absolute;
+                    padding: 1em 3em;
+                    bottom: -.5em;
+                    right: -.5em;
+                    
+
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 20px;
+
+                    color: #FFFFFF;
+                    border: #6AAAD9;
+                    background-color: #6AAAD9;
                 }
+            
+            }
+
+            .kit-qualquer{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: right;
+
+                height: 13em;
+                width: 45%;
+
+          
+                text-align: end;
+                
+                position: relative;
+                
+                padding: .5em 1em;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+                background-color: #FFFFFF;
+                background-image: url("../../../public/assets/images/qualquerKit.png");
+                background-repeat: no-repeat;
+                background-size: 50%;
+                background-position:0% 100%;
+
+                .kit-texts{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    height: 5em;
+                    gap: 0;
+                    line-height: 0;
+
+                    .kit-title{
+                        align-self: flex-end;
+                        font-family: 'Poppins-Bold';
+                        color: #144B74;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        width: 55%;
+                        line-height: 1em;
+                    }
+    
+                    .kit-desc{
+                        align-self: flex-end;
+                        font-family: 'Poppins-regular';
+                        font-size: 13px;
+                        width: 30%;
+                        color: #706F6F;
+                        line-height: 1em;
+                    }
+                }
+
+                .kit-button{
+                    align-self: flex-end;
+                    position: absolute;
+                    padding: 1em 3em;
+                    bottom: -.5em;
+                    right: -.5em;
+                    
+
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 20px;
+
+                    color: #FFFFFF;
+                    border: #6AAAD9;
+                    background-color: #6AAAD9;
+                }
+            
             }
         }
 
-    }
-    .bottom{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 2em;
-        .card-3{
-            display: flex;
-            flex-direction: row;
-            background-color: #fff;
-            width: 35em;
-            .left{
-                display: flex;
-                justify-content: center;
-                width: 60%;
-                img{
-                    width: 100%;
-                }
-            }
-            .right{
-                display: flex;
-                flex-direction: column;
-                .texto{
-                    text-align: right;
-                    font-family:'Poppins-Medium';
-                    color: #144B74;
-                    font-size: 1.4em;
-                    padding-top: 1em;
-                    width: 9em;
-                }
-                .text{
-                    text-align: right;
-                    color: #706F6F;
-                    font-family: 'Balsamiq Sans';
-                }
-            }
-        }
-        .card-4{
-            display: flex;
-            flex-direction: row;
-            background-color: #fff;
-            width: 35em;
-            .left{
-                display: flex;
-                justify-content: center;
-                width: 45%;
-                img{
-                    width: 100%;
-                }
-            }
-            .right{
-                display: flex;
-                flex-direction: column;
-                .texto{
-                    text-align: right;
-                    font-family:'Poppins-Medium';
-                    color: #144B74;
-                    font-size: 1.4em;
-                    padding-top: 1em;
-                    width: 13em;
-                }
-                .text{
-                    text-align: right;
-                    color: #706F6F;
-                    font-family: 'Balsamiq Sans';
-                    width: 15em;
-                    margin-left: 3em;
-                }
-            }
-        }
     }
 }

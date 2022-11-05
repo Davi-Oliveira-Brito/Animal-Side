@@ -12,7 +12,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         padding: 2em;
-        min-height: 100vh;
+        min-height: 90vh;
         width: 75%;
 
         .dado{
@@ -22,8 +22,7 @@
         }
 
         .comentarios{   
-            min-height: 50vh;
-            border: solid;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             gap: 2em;
