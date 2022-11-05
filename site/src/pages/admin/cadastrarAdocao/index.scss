@@ -43,7 +43,9 @@
             flex-direction: column;
             justify-content:center;
             height: auto;
-                    
+            
+
+
             .bold{
                 font-family: 'poppins-semibold';
                 font-size: 12px;
@@ -86,6 +88,15 @@
         flex-direction: column;
         justify-content: space-between;
         height: 30vh;
+    
+        input, select{
+            outline: none;
+            background: #FFFFFF;
+            border: 0.5px solid rgba(0, 0, 0, 0.23);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            padding: 8px 5px;
+            font-size: 1em;
+        }
     }
 
     .desc{
@@ -159,5 +170,16 @@
         
         background: #FFFFFF;
         box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
+        
+        textarea{
+            outline: none;
+            background: #FFFFFF;
+            border: 0.5px solid rgba(0, 0, 0, 0.23);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            padding: 8px;
+            font-size: 1.1em;
+            font-family: 'Poppins-Regular';
+        }
+    
     }
 }

@@ -32,7 +32,7 @@ export default function CadastrarAnimalPerdido(){
     });
     const [selects, setSelects] = useState({porte: [], raca: [], sexo: [], tipo: []})
     async function carregarSelects() {
-        let filtros = await buscarFiltro();
+        let filtros = await buscaFiltro();
         setSelects(filtros);
     }
 

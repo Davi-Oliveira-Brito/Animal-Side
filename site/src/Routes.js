@@ -15,12 +15,13 @@ import Doar from "./pages/doar/index.js"
 import QuemSomos from "./pages/quemSomos/index.js"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import CriarConta from "./pages/usuario/criarConta/index.js"
 
 export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-            <Route path='/' element={<LadingPage/>} />
+                <Route path='/' element={<LadingPage/>} />
                 <Route path='/ong' element={<AONG/>}/>
                 <Route path='/quemsomos' element={<QuemSomos/>}/>
                 <Route path='/ajude' element={<Ajude/>}/>
@@ -39,6 +40,7 @@ export default function AppRoutes() {
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
 
                 <Route path='/userPerfil' element={<PerfilUser/>}/>
+                <Route path='/cadastro/usuario' element={<CriarConta/>}/>
                 <Route path='/cadastroperdido' element={<CadastrarAnimalPerdido/>}/>
 
 

@@ -7,7 +7,7 @@ import DadoUser from '../../../components/dados/user/index.js';
 
 // Hooks
 import { useState, useEffect } from 'react';
-import { isRouteErrorResponse, useFetcher, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import storage from 'local-storage';
 
 // Api
@@ -20,6 +20,8 @@ export default function PageCadastrar() {
     const navigate = useNavigate();
     const [admin, setAdmin] = useState();
     const [idAnimal, setIdAnimal] = useSearchParams('id');  
+    const [cannotWrite, setCannotWrite] = useState(false);
+
     const [animal, setAnimal] = useState({
         nome:       '',
         idade:      0,
@@ -91,8 +93,8 @@ export default function PageCadastrar() {
 
     function mudarImagem() {
        document.getElementById('input-image').click(); 
-     }
-
+    }
+    
     useEffect(() => {
         if(!storage('admin-logado')){
             navigate('/loginAdmin');
@@ -178,7 +180,7 @@ export default function PageCadastrar() {
                             </div>
                         </div>
                         <div className="final">
-                            <textarea onChange={(e)=>setAnimal({...animal, descricao: e.target.value})} className="desc" value={animal.descricao} placeholder="Descrição" />
+                            <textarea onChange={(e) =>  setAnimal({...animal, descricao: e.target.value})} className="desc" value={animal.descricao} placeholder="Descrição" />
                             {idAnimal.get('id') &&
                                 <>
                                     <button onClick={() => cadastrar()}>Alterar</button>

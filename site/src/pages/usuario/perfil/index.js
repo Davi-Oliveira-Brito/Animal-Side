@@ -15,12 +15,40 @@ export default function PerfilUser(){
                     <input type="text" />
                 </div>
                 <div>
-                    <label>Nome</label>
+                    <label>Sobrenome</label>
                     <input type="text" />
                 </div>
                 <div>
-                    <label>Nome</label>
+                    <label>Data de nascimento</label>
                     <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Email</label>
+                    <input type="text" />
+                </div>
+                
+                <div>
+                    <label>Telefone</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Endereço</label>
+                    <input type="text" />
+                </div>
+                
+                
+                <div>
+                    <label>Renda</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Endereço</label>
+                    <input type="t\ext" />
                 </div>
                 
                 <div>
@@ -33,36 +61,8 @@ export default function PerfilUser(){
                     <input type="text" />
                 </div>
                 <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                
-                
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
-                </div>
-                <div>
-                    <label>Nome</label>
-                    <input type="text" />
+                    <label style={{visibility: 'hidden'}}>Nome</label>
+                    <div> Editar </div>
                 </div>
         
             </div>
