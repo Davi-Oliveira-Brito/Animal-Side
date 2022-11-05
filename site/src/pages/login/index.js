@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
+import { loginUsuario } from '../../api/usuario/usuarioAPI';
 
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +13,18 @@ export default function Login() {
     const [senha, setSenha] = useState('');
 
     const navigate = useNavigate();
+
+    async function logar(){
+      try{
+        const resposta = await loginUsuario(email.trim(), senha.trim());
+        storage('usuario-logado', resposta)
+        toast.dark('Usuario Logado');
+        navigate('/cadastro');
+
+      }catch(error) {
+          toast.error(error.response.data.error);
+      }
+    }
 
     useEffect(()=>{
       if(storage('usuario-logado')){
@@ -32,7 +45,7 @@ export default function Login() {
                     <a>Esqueceu sua senha?</a>
                 </div>
 
-                <button className="login-button">ENTRAR</button>
+                <button className="login-button" onClick={() => logar()}>ENTRAR</button>
                 
                 <p className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
 

@@ -1,0 +1,35 @@
+.coment-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 100vh;
+    .coment-left{
+        width: 25%;
+    }
+
+    .coment-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 2em;
+        min-height: 100vh;
+        width: 75%;
+
+        .dado{
+            width: 50%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .comentarios{   
+            min-height: 50vh;
+            border: solid;
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
+    }
+
+
+
+}

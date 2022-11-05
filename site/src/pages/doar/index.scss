@@ -2,18 +2,149 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     background-color: #E6EEF4;
+    height: 99vh;
+    gap: 7em;
+    .nav{
+        margin-top: -6.5em;
+    }
     .top{
         display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color: #fff;
-        width: 38em;
-        flex-wrap: wrap;
-        .right{
+        gap: 2em;
+        .card-1{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            background-color: #fff;
+            width: 35em;
+            .left{
+                display: flex;
+                justify-content: left;
+                width: 60%;
+                img{
+                    width: 90%;
+                }
+            }
+            .right{
+                display: flex;
+                flex-direction: column;
+                .texto{
+                    text-align: right;
+                    font-family:'Poppins-Medium';
+                    color: #144B74;
+                    font-size: 1.4em;
+                    padding-top: 1em;
+                    width: 9em;
+                }
+                .text{
+                    text-align: right;
+                    color: #706F6F;
+                    font-family: 'Balsamiq Sans';
+                    width: 10em;
+                    margin-left: 3em;
+                }
+            }
+        }
+        .card-2{
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            width: 35em;
+            .left{
+                display: flex;
+                justify-content: center;
+                width: 70%;
+            }
+            .right{
+                display: flex;
+                flex-direction: column;
+                .texto{
+                    text-align: right;
+                    font-family:'Poppins-Medium';
+                    color: #144B74;
+                    font-size: 1.4em;
+                    padding-top: 1em;
+                    width: 7em;
+                }
+                .text{
+                    text-align: right;
+                    color: #706F6F;
+                    font-family: 'Balsamiq Sans';
+                    width: 9em;
+                }
+            }
+        }
+
+    }
+    .bottom{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2em;
+        .card-3{
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            width: 35em;
+            .left{
+                display: flex;
+                justify-content: center;
+                width: 60%;
+                img{
+                    width: 100%;
+                }
+            }
+            .right{
+                display: flex;
+                flex-direction: column;
+                .texto{
+                    text-align: right;
+                    font-family:'Poppins-Medium';
+                    color: #144B74;
+                    font-size: 1.4em;
+                    padding-top: 1em;
+                    width: 9em;
+                }
+                .text{
+                    text-align: right;
+                    color: #706F6F;
+                    font-family: 'Balsamiq Sans';
+                }
+            }
+        }
+        .card-4{
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            width: 35em;
+            .left{
+                display: flex;
+                justify-content: center;
+                width: 45%;
+                img{
+                    width: 100%;
+                }
+            }
+            .right{
+                display: flex;
+                flex-direction: column;
+                .texto{
+                    text-align: right;
+                    font-family:'Poppins-Medium';
+                    color: #144B74;
+                    font-size: 1.4em;
+                    padding-top: 1em;
+                    width: 13em;
+                }
+                .text{
+                    text-align: right;
+                    color: #706F6F;
+                    font-family: 'Balsamiq Sans';
+                    width: 15em;
+                    margin-left: 3em;
+                }
+            }
         }
     }
 }

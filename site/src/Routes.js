@@ -11,6 +11,7 @@ import PerfilUser from "./pages/usuario/perfil/index.js"
 import Post from "./pages/admin/posts/index.js"
 import CadastrarAnimalPerdido from "./pages/usuario/cadastrarPerdido/index.js"
 import Doar from "./pages/doar/index.js"
+import UserComent from "./pages/usuario/comentario/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -26,6 +27,7 @@ export default function AppRoutes() {
                 <Route path='/quemsomos' element={<QuemSomos/>}/>
                 <Route path='/ajude' element={<Ajude/>}/>
                 <Route path='/feedadocao' element={<AdoteFeed/>} />
+                <Route path='/comentarios/user' element={<UserComent/>} />
                 
                 <Route path='/login' element={<LoginPage/>} />
                 <Route path='/loginadmin' element={<LoginAdmin/>}/>
