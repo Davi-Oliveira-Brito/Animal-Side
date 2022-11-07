@@ -37,6 +37,7 @@ export default function PerfilUser(){
             setNaoPodeEditar(true);            
             toast.dark('✅ Alterações Salvas');
         } catch (error) {
+            console.log(error);
             toast.dark(error.response.data);
         }
     }

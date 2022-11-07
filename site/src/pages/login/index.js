@@ -17,9 +17,9 @@ export default function Login() {
     async function logar(){
       try{
         const resposta = await loginUsuario(email.trim(), senha.trim());
-        storage('usuario-logado', resposta)
+        storage('usuario-logado', {id: resposta.id})
         toast.dark('Usuario Logado');
-        navigate('/cadastro');
+        navigate('/userPerfil');
 
       }catch(error) {
           toast.error(error.response.data.error);
@@ -28,7 +28,7 @@ export default function Login() {
 
     useEffect(()=>{
       if(storage('usuario-logado')){
-        navigate('/cadastro');
+        navigate('/userPefil');
       }
     },[])
     return (
