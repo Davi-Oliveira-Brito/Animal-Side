@@ -8,6 +8,7 @@ import SideBarAdmin from '../../../components/sideBarAdmin/index.js';
 
 
 export default function Post() {
+    
     return (
         <main className="feed-main">
             <NavBarAdmin />

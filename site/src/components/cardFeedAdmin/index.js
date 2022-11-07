@@ -20,7 +20,7 @@ export default function CardFeedAdmin(props) {
         if(typeof(props.imagem) == 'object'){
             return URL.createObjectURL(props.imagem);
         }else{
-            return pegarImagem(props.imagem)
+            return pegarImagem(props.imagem);
         }
     }
     return (

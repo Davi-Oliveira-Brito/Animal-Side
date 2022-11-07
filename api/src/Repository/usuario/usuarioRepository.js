@@ -2,8 +2,8 @@ import { con } from '../connection.js'
 
 export async function cadastrarUsuario(usuario) {
     const commando = `
-        insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA)
-                        values(?,?,?,?,?,?,?,?,?,?);
+        insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA, TP_RESIDENCIA)
+                        values(?,?,?,?,?,?,?,?,?,?,?);
     `;
 
     const [ result ] = await con.query(commando, [
@@ -16,7 +16,8 @@ export async function cadastrarUsuario(usuario) {
         usuario.animais_casa,
         usuario.tempo_sozinho,
         usuario.email,
-        usuario.senha      
+        usuario.senha,
+        usuario.tipo_residencia
     ]);
 
     return result.insertId;
@@ -35,4 +36,49 @@ export async function loginUsuario (usuario) {
     const [userlogado]  = await con.query(comando, [usuario.email, usuario.senha]); 
     return userlogado[0];
 }
+
+export async function listarInformacoes(id) {
+    const command = `
+        select * from tb_usuario where ID_USUARIO = ? 
+    `;
+    const [result] = await con.query(command, [id]);
+    return result[0];
+}
+
+export async function alterarInformacoes(usuario, id) {
+    console.log(usuario);
+    const command = `
+    update 	tb_usuario
+    set 	NM_USUARIO = ?,
+            DT_NASCIMENTO = ?,
+            DS_TELEFONE = ?,
+            DS_ENDERECO = ?,
+            VL_RENDA = ?,
+            QTD_PESSOAS_CASA = ?,
+            BT_ANIMAIS_CASA = ?,
+            TM_TEMPO_SOZINHO_ANIMAL = ?,
+            DS_EMAIL = ?,
+            DS_SENHA = ?,
+            TP_RESIDENCIA = ?
+    where 	ID_USUARIO = ?
+    `;
+    
+    const [result] = await con.query(command, [
+        usuario.NM_USUARIO,
+        usuario.DT_NASCIMENTO,
+        usuario.DS_TELEFONE,
+        usuario.DS_ENDERECO,
+        usuario.VL_RENDA,
+        usuario.QTD_PESSOAS_CASA,
+        usuario.BT_ANIMAIS_CASA,
+        usuario.TM_TEMPO_SOZINHO_ANIMAL,
+        usuario.DS_EMAIL,
+        usuario.DS_SENHA,
+        usuario.TP_RESIDENCIA,
+        id
+    ]);
+
+    return result.affectedRows
+}
+
 

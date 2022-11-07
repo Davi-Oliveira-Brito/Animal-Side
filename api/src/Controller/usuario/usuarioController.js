@@ -1,9 +1,10 @@
-import { cadastrarUsuario, loginUsuario } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 
 const server = Router();
 
+// Cadastrando o usuario;
 server.post('/usuario/cadastrar', async (req, resp) =>{
     try {
         const usuario = req.body;
@@ -22,6 +23,8 @@ server.post('/usuario/cadastrar', async (req, resp) =>{
     }
 })
 
+
+// Realizando login do usuario;
 server.post('/usuario/login', async (req, resp) => {
     try{
         const usuario = req.body;
@@ -42,5 +45,36 @@ server.post('/usuario/login', async (req, resp) => {
     }
 
 });
+
+// Carregando informaçoos do usuario;
+server.get('/usuario/informacao/:id', async(req, resp) => {
+    try{
+        const { id } = req.params;
+        const result = await listarInformacoes(id);
+        resp.send(result);
+    }catch(error) {
+        resp.send({
+            x: error.message
+        });
+    }
+});
+
+
+server.put('/usuario/:id', async (req, resp) => {
+    try {
+        const usuario = req.body;
+        const { id } =req.params;
+        const result = await alterarInformacoes(usuario, id);
+        resp.send({result});
+    } catch (error) {
+        resp.send({
+            x:error.message
+        });
+    }
+});
+
+
+
+
 
 export default server;

@@ -22,19 +22,20 @@ create table tb_motivo_adocao(
 
 
 create table tb_usuario(
-	ID_USUARIO					int primary key auto_increment,
-    NM_USUARIO					varchar(100),
-	DT_NASCIMENTO				date,
-	DS_TELEFONE					varchar(100),
-	DS_ENDERECO					varchar(100),
-	VL_RENDA					decimal(10,5),
-	QTD_PESSOAS_CASA			int,
-	BT_ANIMAIS_CASA				boolean,
-	TM_TEMPO_SOZINHO_ANIMAL		time(6),
-	DS_EMAIL					varchar(100),
-	DS_SENHA					varchar(100),
-	IMG_USUARIO					varchar(100)
+	ID_USUARIO               int auto_increment primary key,
+	NM_USUARIO               varchar(200)                ,
+	DT_NASCIMENTO            date                        ,
+	DS_TELEFONE              varchar(200)                ,
+	DS_ENDERECO              varchar(200)                ,
+	VL_RENDA                 int               ,
+	QTD_PESSOAS_CASA         int                         ,
+	BT_ANIMAIS_CASA          tinyint(1)                  ,
+	TM_TEMPO_SOZINHO_ANIMAL  time(6)                     ,
+	DS_EMAIL                 varchar(200)                ,
+	DS_SENHA                 varchar(200)                ,
+	TP_RESIDENCIA			 varchar(200)
 );
+
 
 create table tb_admin(
 	id_admin		int primary key auto_increment,

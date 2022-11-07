@@ -129,4 +129,20 @@ insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_R
 
 
 
-              
+
+-- Buscando informaçoes do usuario
+select * from tb_usuario where id_usuario = ? 
+
+update 	tb_usuario,
+set 	NM_USUARIO = ?,
+		DT_NASCIMENTO = ?,
+		DS_TELEFONE = ?,
+		DS_ENDERECO = ?,
+		VL_RENDA = ?,
+		QTD_PESSOAS_CASA = ?,
+		BT_ANIMAIS_CASA = ?,
+		TM_TEMPO_SOZINHO_ANIMAL = ?,
+		DS_EMAIL = ?,
+		DS_SENHA = ?,
+		TP_RESIDENCIA = ?
+where 	ID_USUARIO = ?

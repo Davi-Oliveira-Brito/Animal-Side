@@ -25,6 +25,7 @@
     
             color:white;
 
+            cursor: pointer;
             outline: none;
             padding: 15px 0px;
         }
@@ -40,7 +41,7 @@
                 font-family: 'Poppins-Regular';
             }
 
-            input{
+            input, select{
                 font-family: 'Poppins-Medium';
                 font-size: 1.1em;
                 text-align: center;
