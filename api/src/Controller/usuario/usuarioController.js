@@ -64,7 +64,12 @@ server.put('/usuario/:id', async (req, resp) => {
     try {
         const usuario = req.body;
         const { id } =req.params;
+        if (!usuario.VL_RENDA || usuario.VL_RENDA <= 0 )  throw new Error("Campo Renda Invalida")
+        if (!usuario.TM_TEMPO_SOZINHO_ANIMAL || usuario.TM_TEMPO_SOZINHO_ANIMAL <=0 ) throw new Error("Campo Tempo sozinho animal invalido")
+        if (!usuario.QTD_PESSOAS_CASA || usuario.QTD_PESSOAS_CASA <= 0 ) throw new Error("Campo Quantidade de pessoas em casa invalido ")
+
         const result = await alterarInformacoes(usuario, id);
+
         resp.send({result});
     } catch (error) {
         resp.send({
