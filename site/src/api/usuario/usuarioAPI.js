@@ -5,11 +5,11 @@ const api = axios.create({
 });
 
 export async function loginUsuario(email, senha) {
-    const resposta = await api.post('/usuario/loginUsuario', {
+    const resposta = await api.post('/usuario/login', {
         email: email,
         senha: senha
     });
-    return resposta
+    return resposta.data
 }
 
 export async function cadastrarUsuario(usuario) {
@@ -56,7 +56,7 @@ export async function alterarInformacoes(usuario, id) {
     console.log(usuario);
     const resp = await api.put(`/usuario/${id}`, {
        NM_USUARIO:              usuario.NM_USUARIO,
-       DT_NASCIMENTO:           usuario.DT_NASCIMENTO.substring(0, 10),
+       DT_NASCIMENTO:           String(usuario.DT_NASCIMENTO.substring(0, 10)),
        DS_TELEFONE:             usuario.DS_TELEFONE,
        DS_ENDERECO:             usuario.DS_ENDERECO,
        VL_RENDA:                usuario.VL_RENDA,
