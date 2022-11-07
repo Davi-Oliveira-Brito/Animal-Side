@@ -159,3 +159,41 @@ create table tb_calendario(
 	id_admin			int,
 	foreign key (id_admin) references tb_admin(id_admin)
 );
+
+
+
+-- ================================ SCRIPTS QUE TÃO FUNCINANDO =====================================================
+tb_animal_adocao;
++------------------+--------------+------+-----+---------+----------------+
+| id_animal_adocao | int          | NO   | PRI | NULL    | auto_increment |
+| nm_animal        | varchar(100) | YES  |     | NULL    |                |
+| nr_idade         | int          | YES  |     | NULL    |                |
+| ds_descricao     | varchar(100) | YES  |     | NULL    |                |
+| img_animal       | varchar(100) | YES  |     | NULL    |                |
+| id_admin         | int          | YES  | MUL | NULL    |                |
+| id_porte         | int          | YES  | MUL | NULL    |                |
+| id_raca          | int          | YES  | MUL | NULL    |                |
+| id_preferencia   | int          | YES  | MUL | NULL    |                |
+| id_sexo          | int          | YES  | MUL | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+
+tb_usuario
++-------------------------+--------------+------+-----+---------+----------------+
+| ID_USUARIO              | int          | NO   | PRI | NULL    | auto_increment |
+| NM_USUARIO              | varchar(200) | YES  |     | NULL    |                |
+| DT_NASCIMENTO           | date         | YES  |     | NULL    |                |
+| DS_TELEFONE             | varchar(200) | YES  |     | NULL    |                |
+| DS_ENDERECO             | varchar(200) | YES  |     | NULL    |                |
+| VL_RENDA                | int          | YES  |     | NULL    |                |
+| QTD_PESSOAS_CASA        | int          | YES  |     | NULL    |                |
+| BT_ANIMAIS_CASA         | tinyint(1)   | YES  |     | NULL    |                |
+| TM_TEMPO_SOZINHO_ANIMAL | time(6)      | YES  |     | NULL    |                |
+| DS_EMAIL                | varchar(200) | YES  |     | NULL    |                |
+| DS_SENHA                | varchar(200) | YES  |     | NULL    |                |
+| TP_RESIDENCIA           | varchar(200) | YES  |     | NULL    |                |
++-------------------------+--------------+------+-----+---------+----------------+
+
+tb_admin
+
+
+
