@@ -23,3 +23,4 @@ export async function buscaFiltro() {
         preferencia: preferencia.data
     }
 }
+

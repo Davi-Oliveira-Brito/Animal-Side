@@ -70,3 +70,11 @@ export async function alterarInformacoes(usuario, id) {
 
     return resp.data;
 }
+
+export async function enviarImagem(){
+
+}
+
+export async function pegarImagem(){
+    
+}

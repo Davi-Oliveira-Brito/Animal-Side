@@ -13,6 +13,7 @@ import storage from 'local-storage';
 import { buscaAnimalPerdidoId, cadastroAnimalPerdido, enviarImagem, pegarImagem } from '../../../api/usuario/usuarioAPI.js'; 
 import { buscaFiltro } from '../../../api/animalAPI';
 import { toast } from 'react-toastify';
+import { alterarAnimal } from '../../../api/admin/animalAPI';
 
 export default function CadastrarAnimalPerdido(){
     // Porte, Raca, Sexo são ID's
@@ -66,15 +67,58 @@ export default function CadastrarAnimalPerdido(){
             if(animal.image){
                 if(!idAdmin.get('id') || idAnimal.get('id') === null){
                     const { insertedId } = await cadastroAnimalPerdido(animal, admin);
-                    
-                }
+                    enviarImagem(animal.imagem, insertedId);
+                    toast.dark('animal inserido', {autoClose: 1500});
+                    navigate(`/cadastro?id=${insertedId}`)
+                }else{
+                    await alterarAnimal(animal, idAnimal.get('id'), admin)
+                    enviarImagem(animal.imagem, idAnimal.get('id'));
+                    toast.dark('animal alterado', {autoClose: 1500});
+                }   
+            }else{
+                toast.dark('Envie uma imagem')
             }
+        }catch(error){
+            toast.dark(error.response.data.error, {autoClose: 1500});
         }
     }
 
-    return(
+    function mostrarImagem() {
+        if(typeof(animal.imagem) == 'object'){
+            return URL.createObjectURL(animal.imagem);
+        }else{
+            return pegarImagem(animal.imagem)
+        }
+    }
+
+    function mudarImagem() {
+        document.getElementById('input-image').click();
+    }
+
+    useEffect(() => {
+        if(!storage('usuario-logado')){
+            navigate('/loginUsuario');
+        }else{
+            setUsuario(storage('usuario-logado').id);
+        }
+        if(idAnimal || idAnimal !== null) carregarAnimal();
+        carregarSelects();
+    },[]);
+
+    return (
         <main className='animal-perdido-main'>
 
+            <div className="left">
+                <SideBarAdmin />
+            </div>
+
+            <div className="right">
+                <div className="nav">
+                    <NavBarAdmin id="navbar" />
+                </div>
+
+
+            </div>
         </main>
     );
 }
