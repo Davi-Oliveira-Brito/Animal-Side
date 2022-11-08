@@ -54,7 +54,7 @@ export default function CadastrarAnimalPerdido(){
 
     async function carregarAnimal() {
         try{
-            let r = await buscaAnimalId(idAnimal.get('id'));
+            let r = await (idAnimal.get('id'));
             setAnimal(r);
             
         }catch(error) {
@@ -65,13 +65,13 @@ export default function CadastrarAnimalPerdido(){
     async function cadastrar() {
         try{
             if(animal.image){
-                if(!idAdmin.get('id') || idAnimal.get('id') === null){
-                    const { insertedId } = await cadastroAnimalPerdido(animal, admin);
+                if( idAnimal.get('id') === null){
+                    const { insertedId } = await cadastroAnimalPerdido(animal);
                     enviarImagem(animal.imagem, insertedId);
                     toast.dark('animal inserido', {autoClose: 1500});
                     navigate(`/cadastro?id=${insertedId}`)
                 }else{
-                    await alterarAnimal(animal, idAnimal.get('id'), admin)
+                    await alterarAnimal(animal, idAnimal.get('id'))
                     enviarImagem(animal.imagem, idAnimal.get('id'));
                     toast.dark('animal alterado', {autoClose: 1500});
                 }   
