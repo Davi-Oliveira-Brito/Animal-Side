@@ -71,10 +71,17 @@ export async function alterarInformacoes(usuario, id) {
     return resp.data;
 }
 
-export async function enviarImagem(){
-
+export async function enviarImagem(imagem, id){
+    let formData = new FormData();
+    formData.append('imagem', imagem);
+    const resp = await api.put(`/admin/${id}/animal/imagem`, formData,{
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    });
+    return resp;
 }
 
-export async function pegarImagem(){
-    
+export async function pegarImagem(imagem){
+    return `${api.getUri()}/${imagem}`
 }
