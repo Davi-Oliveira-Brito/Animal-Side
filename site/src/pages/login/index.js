@@ -28,7 +28,7 @@ export default function Login() {
 
     useEffect(()=>{
       if(storage('usuario-logado')){
-        navigate('/userPefil');
+        navigate('/userPerfil');
       }
     },[])
     return (

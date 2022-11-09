@@ -51,26 +51,30 @@ export default function CadastrarAnimalPerdido(){
         navigate('/cadastroperdido');
     }
 
-    async function carregarAnimal() {
-        try{
-            let r = await buscaAnimalId(idAnimal.get('id'));
-            setAnimal(r);
-            
-        }catch(error) {
-            toast.dark(error.response.data.error);
-        }
-    }
+    // ARRUMAR URGENTE
+    //async function carregarAnimal() {
+    //    try{
+    //        let r = await buscaAnimalId(idAnimal.get('id'));
+    //        setAnimal(r);
+    //        
+    //    }catch(error) {
+    //        toast.dark(error.response.data.error);
+    //    }
+    //}
 
-    async function cadastrar() {
-        try{
-            if(animal.image){
-                if(!idAdmin.get('id') || idAnimal.get('id') === null){
-                    const { insertedId } = await cadastroAnimalPerdido(animal, admin);
-                    
-                }
-            }
-        }
-    }
+    // ARRUMAR URGENTE
+    //async function cadastrar() {
+    //    try{
+    //        if(animal.image){
+    //            if(!idAdmin.get('id') || idAnimal.get('id') === null){
+    //                const { insertedId } = await cadastroAnimalPerdido(animal, admin);
+    //                
+    //            }
+    //        }
+    //    }catch(error) {
+    //        
+    //    }
+    //}
 
     return(
         <main className='animal-perdido-main'>
