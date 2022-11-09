@@ -12,6 +12,7 @@ import Post from "./pages/admin/posts/index.js"
 import CadastrarAnimalPerdido from "./pages/usuario/cadastrarPerdido/index.js"
 import DoarPage from "./pages/doar/index.js"
 import UserComent from "./pages/usuario/comentario/index.js"
+import Feedback from "./pages/usuario/feedback/index.js"
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -44,6 +45,7 @@ export default function AppRoutes() {
                 <Route path='/userPerfil' element={<PerfilUser/>}/>
                 <Route path='/cadastro/usuario' element={<CriarConta/>}/>
                 <Route path='/cadastroperdido' element={<CadastrarAnimalPerdido/>}/>
+                <Route path='/feedback' element={<Feedback/>}/>
 
 
             </Routes>
