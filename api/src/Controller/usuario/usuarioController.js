@@ -83,8 +83,6 @@ server.get('/usuario/comentarios', async (req, resp) => {
         const result = await mostrarComentarios();
         
         resp.status(202).send({result});
-
-        console.log(result)
     } catch (error) {
         resp.status(404).send({
             x:error.message

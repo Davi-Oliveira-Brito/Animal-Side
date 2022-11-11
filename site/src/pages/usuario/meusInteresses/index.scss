@@ -1,0 +1,12 @@
+.meus-interesses-page{
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    gap: 5em;
+
+    .right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
