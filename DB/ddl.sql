@@ -14,7 +14,7 @@ create table tb_motivo_adocao(
     ds_comentario		varchar(500),
     id_usuario			int,
     id_animal_adocao	int,
-	foreign key (id_usuario) references tb_usuario(id_usuario),
+	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
 );
 
@@ -82,11 +82,13 @@ create table tb_animal_perdido(
 	id_porte				int,
 	id_raca					int,
     id_sexo					int,
+    id_tipo					int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_porte) references tb_porte(id_porte),
 	foreign key (id_raca) references tb_raca(id_raca),
-    foreign key (id_sexo) references tb_sexo(id_sexo)
-);
+    foreign key (id_sexo) references tb_sexo(id_sexo),
+    foreign key (id_tipo) references tb_tipo(id_tipo)
+); 
 create table tb_comentario_adocao(
 	id_comentario_adocao 	int primary key auto_increment,
 	ds_descricao		varchar(100),
@@ -160,40 +162,34 @@ create table tb_calendario(
 	foreign key (id_admin) references tb_admin(id_admin)
 );
 
-
-
 -- ================================ SCRIPTS QUE TÃO FUNCINANDO =====================================================
-tb_animal_adocao;
-+------------------+--------------+------+-----+---------+----------------+
-| id_animal_adocao | int          | NO   | PRI | NULL    | auto_increment |
-| nm_animal        | varchar(100) | YES  |     | NULL    |                |
-| nr_idade         | int          | YES  |     | NULL    |                |
-| ds_descricao     | varchar(100) | YES  |     | NULL    |                |
-| img_animal       | varchar(100) | YES  |     | NULL    |                |
-| id_admin         | int          | YES  | MUL | NULL    |                |
-| id_porte         | int          | YES  | MUL | NULL    |                |
-| id_raca          | int          | YES  | MUL | NULL    |                |
-| id_preferencia   | int          | YES  | MUL | NULL    |                |
-| id_sexo          | int          | YES  | MUL | NULL    |                |
-+------------------+--------------+------+-----+---------+----------------+
+create table tb_animal_adocao (
+	id_animal_adocao  int primary key auto_increment, 
+	nm_animal         varchar(100)                 ,
+	nr_idade          int                          ,
+	ds_descricao      varchar(100)                 ,
+	img_animal        varchar(100)                 ,
+	id_admin          int                          ,
+	id_porte          int                          ,
+	id_raca           int                 ,
+	id_preferencia    int         ,                 
+	id_sexo           int,
+	foreign key (id_admin) references tb_admin(id_admin)
+)                          
+
 
 tb_usuario
-+-------------------------+--------------+------+-----+---------+----------------+
-| ID_USUARIO              | int          | NO   | PRI | NULL    | auto_increment |
-| NM_USUARIO              | varchar(200) | YES  |     | NULL    |                |
-| DT_NASCIMENTO           | date         | YES  |     | NULL    |                |
-| DS_TELEFONE             | varchar(200) | YES  |     | NULL    |                |
-| DS_ENDERECO             | varchar(200) | YES  |     | NULL    |                |
-| VL_RENDA                | int          | YES  |     | NULL    |                |
-| QTD_PESSOAS_CASA        | int          | YES  |     | NULL    |                |
-| BT_ANIMAIS_CASA         | tinyint(1)   | YES  |     | NULL    |                |
-| TM_TEMPO_SOZINHO_ANIMAL | time(6)      | YES  |     | NULL    |                |
-| DS_EMAIL                | varchar(200) | YES  |     | NULL    |                |
-| DS_SENHA                | varchar(200) | YES  |     | NULL    |                |
-| TP_RESIDENCIA           | varchar(200) | YES  |     | NULL    |                |
-+-------------------------+--------------+------+-----+---------+----------------+
-
-tb_admin
-
+ID_USUARIO               int primary key auto_increment
+NM_USUARIO               varchar(200) 
+DT_NASCIMENTO            date         
+DS_TELEFONE              varchar(200) 
+DS_ENDERECO              varchar(200) 
+VL_RENDA                 int          
+QTD_PESSOAS_CASA         int          
+BT_ANIMAIS_CASA          tinyint(1)   
+TM_TEMPO_SOZINHO_ANIMAL  time(6)      
+DS_EMAIL                 varchar(200) 
+DS_SENHA                 varchar(200) 
+TP_RESIDENCIA            varchar(200) 
 
 

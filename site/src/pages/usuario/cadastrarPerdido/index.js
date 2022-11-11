@@ -10,7 +10,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import storage from 'local-storage';
 
 // Api
-import { cadastroAnimalPerdido, enviarImagem, pegarImagem } from '../../../api/usuario/usuarioAPI.js';
+import { buscarAnimalPerdidoId, cadastroAnimalPerdido, enviarImagem, pegarImagem } from '../../../api/usuario/usuarioAPI.js';
 import { buscaFiltro } from '../../../api/animalAPI';
 import { toast } from 'react-toastify';
 import { alterarAnimal } from '../../../api/admin/animalAPI';
@@ -55,7 +55,7 @@ export default function CadastrarAnimalPerdido() {
 
     async function carregarAnimal() {
         try {
-            let r = await (idAnimal.get('id'));
+            let r = await buscarAnimalPerdidoId(idAnimal.get('id'));
             setAnimal(r);
 
         } catch (error) {
@@ -200,10 +200,7 @@ export default function CadastrarAnimalPerdido() {
                                 }
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </main>

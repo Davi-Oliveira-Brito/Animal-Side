@@ -47,6 +47,12 @@ export async function cadastroAnimalPerdido(animal, usuario) {
     return resposta.data;
 }
 
+export async function buscarAnimalPerdidoId(id){
+    const resp = await api.get(`/animal-perdido/id/${id}`);
+    return resp.data;
+
+}
+
 export async function listarInformacoes(id) {
     const resp = await api.get(`/usuario/informacao/${id}`);
     return resp.data;

@@ -28,7 +28,8 @@ export default function CriarConta() {
                 navigate('/userPerfil');
             },1500);
         } catch (error) {
-            toast.dark('❗ ' + error.response.data.x);
+            console.log(error);
+            toast.dark('❗ ' + error.response.data.error);
         }
     }
     return (

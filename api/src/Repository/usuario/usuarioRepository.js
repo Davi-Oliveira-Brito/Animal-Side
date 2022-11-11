@@ -6,7 +6,7 @@ export async function cadastrarUsuario(usuario) {
                         values(?,?,?,?,?,?,?,?,?,?,?);
     `;
 
-    const [ result ] = await con.query(commando, [
+    const [result] = await con.query(commando, [
         usuario.nome,
         usuario.nascimento,
         usuario.telefone,
@@ -23,7 +23,7 @@ export async function cadastrarUsuario(usuario) {
     return result.insertId;
 }
 
-export async function loginUsuario (usuario) {
+export async function loginUsuario(usuario) {
     const comando = `
     select  id_usuario as id,
             ds_email as email,
@@ -33,7 +33,7 @@ export async function loginUsuario (usuario) {
     and     ds_senha = ?;
     `;
 
-    const [userlogado]  = await con.query(comando, [usuario.email, usuario.senha]); 
+    const [userlogado] = await con.query(comando, [usuario.email, usuario.senha]);
     return userlogado[0];
 }
 
@@ -62,7 +62,7 @@ export async function alterarInformacoes(usuario, id) {
             TP_RESIDENCIA = ?
     where 	ID_USUARIO = ?
     `;
-    
+
     const [result] = await con.query(command, [
         usuario.NM_USUARIO,
         usuario.DT_NASCIMENTO,
@@ -79,6 +79,20 @@ export async function alterarInformacoes(usuario, id) {
     ]);
 
     return result.affectedRows
+}
+
+
+export async function mostrarComentarios() {
+    const comando = `
+    select tb_comentario.id_comentario,
+           tb_comentario.ds_comentario,
+           tb_usuario.id_usuario,
+           tb_usuario.nm_usuario
+    from tb_comentario
+    inner join tb_usuario on tb_usuario.id_usuario = tb_comentario.id_usuario`;
+
+    const [resultado] = await con.query(comando, []);
+    return resultado;
 }
 
 

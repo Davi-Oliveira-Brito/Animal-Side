@@ -1,4 +1,4 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios} from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 
@@ -75,6 +75,20 @@ server.put('/usuario/:id', async (req, resp) => {
         resp.send({
             x:error.message
         });
+    }
+});
+
+server.get('/usuario/comentarios', async (req, resp) => {
+    try {
+        const result = await mostrarComentarios();
+        
+        resp.status(202).send({result});
+
+        console.log(result)
+    } catch (error) {
+        resp.status(404).send({
+            x:error.message
+        })
     }
 });
 

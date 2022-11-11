@@ -106,3 +106,56 @@ export async function buscaPreferencia() {
     const [resposta] = await con.query(command, []);
     return resposta
 }
+
+export async function buscarAnimalPerdidoId(id) {
+    const comando = `
+        select nm_animal                as nome,
+               nr_idade                 as idade,
+               ds_telefone_contato      as telefone_contato,
+               dt_dia_sumico            as dia_sumico,
+               ds_descricao             as descricao,
+               bt_status                as status,
+               img_animal               as imagem,
+               id_usuario               as usuario,
+               id_porte                 as porte,
+               id_raca                  as raca,
+               id_sexo                  as sexo,
+               id_tipo                  as tipo, 
+        from   tb_animal_perdido
+        where  id_animal = ?;      
+        `;
+    
+        const [resposta] = await con.query(comando, [id]);
+        return resposta[0]
+}
+
+export async function deletarAnimalPerdido(id) {
+    const comando = `
+        delete from tb_animal_perdido
+        where id_animal = ?;
+    `;
+
+    const [resposta] = await con.query(comando, [id]);
+    return resposta[0]
+}
+
+export async function alterarimg(imagem, id) {
+    const comando = 
+            `UPDATE  tb_animal_perdido
+                SET  img_animal             = ?
+              WHERE  id_animal       = ?`;
+
+    const [ resposta ] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
+}
+
+export async function cadastroAnimal(animal) {
+    const comando =
+        `insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_preferencia, id_sexo, id_tipo)
+        values(?,?,?,?,?,?,?,?,?,?);`;    
+
+    const [resposta] = await con.query(comando, [animal.nome, animal.idade, animal.telefone_contato, animal.dia_sumiço, animal.descricao, animal.status, animal.usuario, animal.porte, animal.raca, animal.preferencia, animal.sexo, animal.tipo]);
+    
+    return resposta.insertId;
+}
+
