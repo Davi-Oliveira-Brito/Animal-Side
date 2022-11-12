@@ -3,9 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     min-height: 100vh;
-    .coment-left{
-        width: 25%;
-    }
+   
 
     .coment-right{
         display: flex;
@@ -21,11 +19,12 @@
             flex-direction: row-reverse;
         }
 
-        .comentarios{   
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            gap: 2em;
+       
+        .comp{
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        gap: 2em;
         }
     }
 

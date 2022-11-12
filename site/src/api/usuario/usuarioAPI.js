@@ -91,3 +91,9 @@ export async function enviarImagem(imagem, id){
 export async function pegarImagem(imagem){
     return `${api.getUri()}/${imagem}`
 }
+
+export async function mostrarComentariosFront(){
+    const comentario = await api.get(`/usuario/comentarios`);
+
+    return comentario.data;
+}

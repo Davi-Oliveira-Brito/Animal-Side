@@ -36,21 +36,21 @@ export default function FeddAdocao() {
             <div className='top'>
                 <input className='Barra-de-busca' type="text" placeholder='Buscar por nome' />
                 <div className='comp'>
-                {animais.map(item => {
-                return(
-                    <CardFeedAdmin
-                    id={item.id_animal_adocao}
-                    imagem={item.imagem}
-                    nome={item.nome} 
-                    raca={item.raca} 
-                    porte={item.porte} 
-                    idade={item.idade} 
-                    preferencia={item.preferencia}
-                    descricao={item.descricao}
-                    carregarAnimais={carregarAnimais} />
-                )
-            })}
-                 </div> 
+                    {animais.map(item => {
+                        return (
+                            <CardFeedAdmin
+                                id={item.id_animal_adocao}
+                                imagem={item.imagem}
+                                nome={item.nome}
+                                raca={item.raca}
+                                porte={item.porte}
+                                idade={item.idade}
+                                preferencia={item.preferencia}
+                                descricao={item.descricao}
+                                carregarAnimais={carregarAnimais} />
+                        )
+                    })}
+                </div>
             </div>
         </main>
     )
