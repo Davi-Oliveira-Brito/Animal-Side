@@ -12,14 +12,16 @@ import storage from 'local-storage';
 
 // Api
 import { alterarAnimal, buscaAnimalId, cadastroAnimal, enviarImagem, pegarImagem } from '../../../api/admin/animalAPI.js'; 
+import { cadastroAnimalPerdido, alterarAnimalPerdido, enviarImagemPerdido } from '../../../api/usuario/usuarioAPI.js'; 
 import { buscaFiltro } from '../../../api/animalAPI';
+
 import { toast } from 'react-toastify';
 import SidebarUser from '../../../components/sidebarUsuario';
 
 export default function UserCadastrarPerdido() {
     // Porte, Raca, Sexo, Preferencia são ID's 
     const navigate = useNavigate();
-    const [admin, setAdmin] = useState();
+    const [usuario, setUsuario] = useState();
     const [idAnimal, setIdAnimal] = useSearchParams('id');  
     const [cannotWrite, setCannotWrite] = useState(false);
 
@@ -48,10 +50,11 @@ export default function UserCadastrarPerdido() {
             descricao:  '',
             porte:      0,
             raca:       0,
-            preferencia:0,
             sexo:       0,
+            diaSumico:  '',
+            telefone:   ''
         })
-        navigate('/cadastro');
+        navigate('/userCadastrarPerdido');
     }
 
     async function carregarAnimal() {
@@ -68,13 +71,13 @@ export default function UserCadastrarPerdido() {
         try{
             if(animal.imagem){
                 if(!idAnimal.get('id') || idAnimal.get('id') === null){
-                    const { insertedId } = await cadastroAnimal(animal, admin);
-                    enviarImagem(animal.imagem, insertedId);
+                    const { insertedId } = await cadastroAnimalPerdido(animal, usuario);
+                    enviarImagemPerdido(animal.imagem, insertedId);
                     toast.dark('🐶 animal inserido', {autoClose: 1500});
-                    navigate(`/cadastro?id=${insertedId}`)
+                    navigate(`/userCadastrarPerdido?id=${insertedId}`)
                 }else{
-                    await alterarAnimal(animal, idAnimal.get('id'),admin)
-                    enviarImagem(animal.imagem, idAnimal.get('id'));
+                    await alterarAnimalPerdido(animal, idAnimal.get('id'))
+                    enviarImagemPerdido(animal.imagem, idAnimal.get('id'));
                     toast.dark('✅ animal alterado', {autoClose: 1500});
                 }
             }else{
@@ -101,7 +104,7 @@ export default function UserCadastrarPerdido() {
         if(!storage('usuario-logado')){
             navigate('/login');
         }else{
-            setAdmin(storage('usuario-logado').id);
+            setUsuario(storage('usuario-logado').id);
         }
         if(idAnimal || idAnimal !== null) carregarAnimal();
         carregarSelects();
@@ -118,7 +121,7 @@ export default function UserCadastrarPerdido() {
 
                 <div className="conteudo-cadastro">
                     <DadoUser
-                    nome="Administrador"
+                    nome="Rosana"
                     regiao="São Paulo, zona sul"/>
 
                     <div className="medio">

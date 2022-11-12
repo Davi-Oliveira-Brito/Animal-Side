@@ -6,8 +6,10 @@ import DadoUser from '../../../components/dados/index.js';
 import ComentarioComp from '../../../components/comentariosComp/index.js';
 
 // api
-
 import { mostrarComentariosFront } from '../../../api/usuario/usuarioAPI';
+
+import storage from 'local-storage'
+
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -37,8 +39,8 @@ export default function UserComent() {
             <div className="coment-right">
                 <div className='dado'>
                     <DadoUser
-                        nome="Davi Oliveira Brito"
-                        regiao="São Paulo, SP" />
+                        nome={storage('usuario-logado').nome}
+                        regiao={storage('usuario-logado').endereco} />
                 </div>
 
                 <div className='comp'>

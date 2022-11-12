@@ -3,7 +3,7 @@ import SidebarUser from '../../../components/sidebarUsuario';
 import DadoUser from '../../../components/dados';
 import NavBarAdmin from '../../../components/navBarAdmin';
 import ComentarioComp from '../../../components/comentariosComp';
-
+import storage from 'local-storage';
 export default function UserFeedBack() {
    return (
       <main className="feedback-page">
@@ -12,8 +12,8 @@ export default function UserFeedBack() {
             <div className="coment-right">
                 <div className='dado'>
                     <DadoUser
-                        nome="Davi Oliveira Brito"
-                        regiao="São Paulo, SP" />
+                        nome={storage('usuario-logado').nome}
+                        regiao={storage('usuario-logado').endereco} />
                 </div>
 
                 <div className='comp'>

@@ -26,8 +26,8 @@ export async function cadastrarUsuario(usuario) {
 export async function loginUsuario(usuario) {
     const comando = `
     select  id_usuario as id,
-            ds_email as email,
-            ds_senha as senha
+            nm_usuario,
+            ds_endereco
     from    tb_usuario
     where   ds_email = ? 
     and     ds_senha = ?;
@@ -110,4 +110,29 @@ export async function cadastroAnimalPerdido(animal) {
                                             values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     const [result] = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, 0, animal.usuario, animal.porte, animal.raca, animal.sexo]);
     return result.insertId;    
+}
+
+export async function alterarImagemPerdido(imagem, id) {
+    const command = `update table tb_animal_perdido set img_animal = ? where id_animal = ?`;
+
+    const [result] = await con.query(command, [imagem, id]);
+    return result.affectedRows;
+}
+
+export async function alterarAnimalPerdido(animal, id) {
+    const command = `
+    update tb_animal_adocao
+    set nm_animal                   = ?,
+        nr_idade                    = ?,
+        ds_telefone_contato         = ?,
+        dt_dia_sumico	            = ?,
+        ds_descricao		        = ?
+        id_usuario			        = ?
+        id_porte			        = ?
+        id_raca			            = ?
+        id_sexo			            = ?
+   where id_animal_adocao           = ?;`
+
+   const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.sexo ]);
+    return result.affectedRows
 }
