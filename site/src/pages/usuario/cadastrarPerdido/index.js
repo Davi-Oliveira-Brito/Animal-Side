@@ -16,7 +16,7 @@ import { toast } from 'react-toastify';
 import { alterarAnimal } from '../../../api/admin/animalAPI';
 import DadoUser from '../../../components/dados';
 
-export default function CadastrarAnimalPerdido() {
+export default function UserCadastrarPerdido() {
     // Porte, Raca, Sexo são ID's
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState();

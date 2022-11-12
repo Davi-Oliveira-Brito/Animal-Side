@@ -14,28 +14,28 @@ export default function SidebarUser() {
                 <p className='titulo'>Perfil do usuário</p>
 
                 <div className='items-area'>
-                    <div onClick={() => navigate('/')} className="element-info" >
+                    <div onClick={() => navigate('/userPerfil')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/Userperfil.png" alt="" />
                         <button className="element-button">Perfil</button>
 
                     </div>
 
-                    <div onClick={() => navigate('/feedAdocaoAdmin')} className="element-info" >
+                    <div onClick={() => navigate('/userPost')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/Mais.png" alt="" />
                         <button className="element-button">posts</button>
 
                     </div>
 
-                    <div className="element-info" >
+                    <div onClick={() => navigate('/userComment')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/balao.png" alt="" />
                         <button className="element-button">comentarios</button>
 
                     </div>
 
-                    <div onClick={() => navigate('/cadastro')} className="element-info" >
+                    <div onClick={() => navigate('/userFeedback')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/Prancheta.png" alt="" />
                         <button className="element-button">Feedback</button>

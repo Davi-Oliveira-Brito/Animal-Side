@@ -20,17 +20,26 @@ import QuemSomos from "./pages/quemSomos/index.js"
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import CriarConta from "./pages/usuario/criarConta/index.js"
+import UserFeedBack from "./pages/usuario/feedback/index.js"
 
 export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
+                {/*Landing page*/}
                 <Route path='/' element={<LadingPage/>} />
                 <Route path='/ong' element={<AONG/>}/>
                 <Route path='/quemsomos' element={<QuemSomos/>}/>
                 <Route path='/ajude' element={<Ajude/>}/>
+                
+                {/*usuario*/}
+                <Route path='/userPerfil' element={<PerfilUser/>}/>
+                <Route path='/userComment' element={<UserComent/>}/>
+                <Route path='/userFeedBack' element={<UserFeedBack/>}/>
+                
                 <Route path='/feedadocao' element={<AdoteFeed/>} />
                 <Route path='/comentarios/user' element={<UserComent/>} />
+                
                 
                 <Route path='/login' element={<LoginPage/>} />
                 <Route path='/loginadmin' element={<LoginAdmin/>}/>
@@ -44,7 +53,6 @@ export default function AppRoutes() {
                 
                 <Route path='/comentarioadocao' element={<ComentarioAdocao/>}/>
 
-                <Route path='/userPerfil' element={<PerfilUser/>}/>
                 <Route path='/adminPerfil' element={<PerfilAdm/>}/>
                 <Route path='/cadastro/usuario' element={<CriarConta/>}/>
                 <Route path='/cadastroperdido' element={<CadastrarAnimalPerdido/>}/>
