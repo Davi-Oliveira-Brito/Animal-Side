@@ -1,9 +1,14 @@
 import './index.scss'
 
+import { useNavigate } from 'react-router-dom';
+
 //Componentes
 import NavBar from '../../components/navBar/index.js'
 
 export default function DoarPage() {
+
+    const navigate = useNavigate();
+
     return (
         <main className='doar-main'>
             <div className='top-nav'>
@@ -19,7 +24,7 @@ export default function DoarPage() {
                             <p className='kit-desc'>Vacinas, soro, cateter, esparadrapo, medicação.</p>
                         </div>
 
-                        <button className='kit-button'>DOAR</button>
+                        <button className='kit-button' onClick={() => navigate('/pagamento/veterinario')}>DOAR</button>
                     </div>
 
                     <div className="kit-limpeza">
@@ -28,7 +33,7 @@ export default function DoarPage() {
                             <p className='kit-desc'>Produtos de higiene que são destinados aos cuidados dos bichinhos. </p>
                         </div>
 
-                        <button className='kit-button'>DOAR</button>
+                        <button className='kit-button' onClick={() => navigate('/pagamento/limpeza')}>DOAR</button>
                     </div>
 
                 </div>
@@ -41,7 +46,7 @@ export default function DoarPage() {
                             <p className='kit-desc'>Ração, petiscos, alpiste.</p>
                         </div>
 
-                        <button className='kit-button'>DOAR</button>
+                        <button className='kit-button' onClick={() => navigate('/pagamento/alimento')}>DOAR</button>
                     </div>
 
                     <div className="kit-qualquer">
@@ -50,7 +55,7 @@ export default function DoarPage() {
                             <p className='kit-desc'> ajude a causa com o valor que puder </p>
                         </div>
 
-                        <button className='kit-button'>DOAR</button>
+                        <button className='kit-button' onClick={() => navigate('/pagamento/qualquer')}>DOAR</button>
                     </div>
 
 
