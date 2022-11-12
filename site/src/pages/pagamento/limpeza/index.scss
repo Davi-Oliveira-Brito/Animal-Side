@@ -1,0 +1,133 @@
+.veterinario-pagamento{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    height: 100vh;
+    align-items: center;
+    background-color: #E6EEF4;
+
+    .veterinario-sub{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 1em;
+        padding: 1em;
+
+      
+        width: 90%;
+        height: 90%;
+
+        .principal-area{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-self: center;
+            width: 60%;
+            height: 50%;
+
+
+            .pix{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .pix-texto{
+                    display: flex;
+                    flex-direction:row;
+                    font-family: 'Poppins-Regular';
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: #000000;
+
+                    img{
+                        width: 2em;
+                        height:2em;
+                        align-self: center;
+                    }
+                }
+
+                .qr-code{
+                    width: 13em;
+                }
+
+            }
+
+            .text{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .kit{
+                    font-family: 'Poppins-Bold';
+                    font-size:16px;
+                    color: #144B74;
+                    text-transform: uppercase;
+                }
+
+                .chaves{
+                    p{
+                        font-size: 16px;
+                        font-family: 'Poppins-Regular';
+                        span{
+                            
+                            font-family: 'Poppins-SemiBold';    
+                        }
+                    }
+
+                    .title-chave{
+                        font-size: 16px;
+                        font-family: 'Poppins-bold';
+                        color:#144B74 ;
+                    }
+                }
+
+            }
+        }
+
+        .seguranca{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 65%;
+            gap: 1em;
+
+            img{
+                align-self: center;
+                width: 2em;
+                height:2em;
+            }
+            p{
+                font-size: 16px;
+                font-family: 'Poppins-Regular';
+            }
+        }
+
+        .bottom-pagamento{
+            display: flex;
+            flex-direction: column;
+            
+
+            hr{
+                width: 95%;
+            }
+
+            .sair{
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                    img{
+                        align-self: center;
+                        width: 2em;
+                        height:2em;
+                    }
+                    p{
+                        font-size: 16px;
+                        font-family: 'Poppins-Regular';
+                    }
+    
+            }
+        }
+
+    }
+}
