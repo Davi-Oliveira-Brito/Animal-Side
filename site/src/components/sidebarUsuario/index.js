@@ -42,7 +42,7 @@ export default function SidebarUser() {
 
                     </div>
 
-                    <div className="element-info" >
+                    <div onClick={() => navigate('/userCadastrarPerdido')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/cadastrar.png" alt="" />
                         <button className="element-button">Cadastrar</button>

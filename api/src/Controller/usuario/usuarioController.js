@@ -1,8 +1,20 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios} from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidos, cadastroAnimalPerdido } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 
 const server = Router();
+
+server.post('/usuario/animal/perdido', async (req, resp) => {
+    try {
+        const animal = req.body;
+        const result = await cadastroAnimalPerdido(animal);
+        resp.send({insertedId: result});
+    } catch (error) {
+        resp.send({
+            x:error.message
+        });
+    }
+});
 
 // Cadastrando o usuario;
 server.post('/usuario/cadastrar', async (req, resp) =>{
@@ -90,6 +102,18 @@ server.get('/usuario/comentarios', async (req, resp) => {
     }
 });
 
+
+server.get('/usuario/animal/:id/perdido', async (req, resp) =>{
+    try {
+        const { id } = req.params;
+        const result = await buscarAnimaisPerdidos(id);
+        resp.send(result);
+    } catch (error) {
+        resp.send({
+            x:error.message
+        })
+    }
+});
 
 
 

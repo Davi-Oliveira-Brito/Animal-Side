@@ -96,3 +96,18 @@ export async function mostrarComentarios() {
 }
 
 
+export async function buscarAnimaisPerdidos(id) {
+    const command = `
+        select * from tb_animal_perdido where id_animal = ?;
+    `;
+
+    const [result] = await con.query(command, [id]);
+    return result;
+} 
+
+export async function cadastroAnimalPerdido(animal) {
+    const command = `insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
+                                            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const [result] = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, 0, animal.usuario, animal.porte, animal.raca, animal.sexo]);
+    return result.insertId;    
+}

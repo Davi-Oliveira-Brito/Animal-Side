@@ -38,6 +38,7 @@
             height: 50%;
             width: 90%;
             align-self: center;
+            width: 100%;
 
             .element-info{
                 display: flex;
@@ -45,15 +46,14 @@
                 align-items: flex-start;
                 text-align: center;
                 justify-content: space-between;
-                width: 100%;
-                gap: 1em;
-
+                gap: 1em;            
                 .comp-image{
                     width: 2em;
                     height: auto;
                 }
 
                 .element-button{
+                    cursor: pointer;
                     border: solid transparent;
                     background:none;
                     font-size: 16px;

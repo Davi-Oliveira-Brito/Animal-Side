@@ -8,8 +8,8 @@ export default function ComentarioComp(props) {
             </div>
 
             <div className='text-comentario'>
-                <p className='coment-name'><label>Nome:</label> {props.nome}</p>
-                <p className='coment-desc'>{props.coment}</p>
+                <span className='coment-name'><label>Nome:</label> {props.nome}</span>
+                <span className='coment-desc'>{props.coment}</span>
             </div>
         </main>
     );

@@ -60,7 +60,11 @@ from	tb_sexo;
 insert into tb_animal_adocao(nm_animal,nr_idade,ds_descricao,img_animal,id_admin, id_porte,id_raca, id_preferencia,id_sexo)
 					  values('doguinho',11,'cachorrooooo','', 1, 1, 1, 1, 1);			
               
-			
+-- Insert animal perdido
+insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
+						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1);
+
+
 -- select das dog adoção
 select * from tb_animal_adocao;
 
@@ -123,12 +127,17 @@ where id_animal_adocao = 1;
         
         
 -- Insert Inicial Usuário;
-insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA, IMG_USUARIO)
-				values("Biro Biro", '2003-01-23', 119881216, 'rua dos passaros, novo jaú', 1500, 6, 2, '06:00', 'teste@teste.com', '123456', null);
+insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA, TP_RESIDENCIA)
+				values("Biro Biro", '2003-01-23', 119881216, 'rua dos passaros, novo jaú', 1500, 6, 2, '06:00', 'teste@teste.com', '123456', 'casa');
 			
 
+-- Inser inicial comentario
+insert into tb_comentario(ds_comentario, id_usuario)
+				   values('Vi um cachorro assim no parque aqui perto de casa na rua piriripororor no dia 18/10/2022', 1);
 
 
+insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo, id_tipo)
+						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1, 1);
 
 -- Buscando informaçoes do usuario
 select * from tb_usuario where id_usuario = ? 

@@ -21,6 +21,7 @@ import QuemSomos from "./pages/quemSomos/index.js"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import CriarConta from "./pages/usuario/criarConta/index.js"
 import UserFeedBack from "./pages/usuario/feedback/index.js"
+import UserCadastrarPerdido from "./pages/usuario/cadastrarPerdido/index.js"
 
 export default function AppRoutes() {
     return (
@@ -36,6 +37,7 @@ export default function AppRoutes() {
                 <Route path='/userPerfil' element={<PerfilUser/>}/>
                 <Route path='/userComment' element={<UserComent/>}/>
                 <Route path='/userFeedBack' element={<UserFeedBack/>}/>
+                <Route path='/userCadastrarPerdido' element={<UserCadastrarPerdido/>}/>
                 
                 <Route path='/feedadocao' element={<AdoteFeed/>} />
                 <Route path='/comentarios/user' element={<UserComent/>} />
