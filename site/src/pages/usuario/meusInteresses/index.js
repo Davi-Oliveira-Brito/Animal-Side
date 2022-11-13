@@ -3,7 +3,7 @@ import SidebarUser from '../../../components/sidebarUsuario';
 import NavBarAdmin from '../../../components/navBarAdmin';
 import DadoUser from '../../../components/dados';
 
-export default function MeusInteresses() {
+export default function UseInteresses() {
     return (
         <main className='meus-interesses-page'>
             <SidebarUser />

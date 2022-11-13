@@ -7,8 +7,8 @@ export default function DadoUser(props){
             <img className='image' src="/assets/images/dadoImage.png" alt="" />
 
             <div className='textos'>
-                <span className='dado-title'>{props.nome}</span>
-                <span className='dado-desc'>{props.regiao}</span>
+                <span className='dado-title'>{props.NM_USUARIO}</span>
+                <span className='dado-desc'>{props.DS_ENDERECO}</span>
             </div>  
         </div>
     );

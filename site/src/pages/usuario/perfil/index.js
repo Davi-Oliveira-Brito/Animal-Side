@@ -29,11 +29,24 @@ export default function PerfilUser(){
         toast.dark('✏️ Editando...', {autoClose: 1000});
         setNaoPodeEditar(false);        
     }
-
+    console.log(usuario);
     async function salvar(){
         try {
-            let r = await alterarInformacoes(usuario, storage('usuario-logado').id);
-            console.log(r);
+            let resposta = await alterarInformacoes(usuario, storage('usuario-logado').id);
+            
+            storage('usuario-logado', {
+                id: storage('usuario-logado').id, 
+                nome: usuario.NM_USUARIO,
+                data: usuario.DT_NASCIMENTO,
+                endereco: usuario.DS_ENDERECO,
+                telefone: usuario.DS_TELEFONE,
+                renda: usuario.VL_RENDA,
+                pessoasCasa: usuario.QTD_PESSOAS_CASA,
+                animaisCasa: usuario.BT_ANIMAIS_CASA,
+                tempoSozinho: usuario.TM_TEMPO_SOZINHO_ANIMAL,
+                email: usuario.DS_EMAIL,
+                tipoResidencia: usuario.TP_RESIDENCIA
+              })
             setNaoPodeEditar(true);            
             toast.dark('✅ Alterações Salvas');
         } catch (error) {
@@ -95,7 +108,7 @@ export default function PerfilUser(){
                 </div>
                 <div>
                     <label>Possui outro animal ?</label>
-                    <select disabled={naoPodeEditar} placeholder='-' value={usuario.BT_ANIMAIS_CASA === null ? '' : usuario.BT_ANIMAIS_CASA} onChange={(e) => setUsuario({...usuario, BT_ANIMAIS_CASA: Boolean(e.target.value)})}>
+                    <select disabled={naoPodeEditar} placeholder='-' value={usuario.BT_ANIMAIS_CASA === null ? '' : usuario.BT_ANIMAIS_CASA} onChange={(e) => setUsuario({...usuario, BT_ANIMAIS_CASA: e.target.value})}>
                         <option value={true} >Sim</option>
                         <option value={false}>Não</option>
                     </select>
@@ -105,7 +118,6 @@ export default function PerfilUser(){
                 <div>
                     <label>Endereço</label>
                     <input disabled={naoPodeEditar} placeholder='-' value={usuario.DS_ENDERECO === null ? '' : usuario.DS_ENDERECO} onChange={(e) => setUsuario({...usuario, DS_ENDERECO: e.target.value})} type="text" />
-
                 </div>
                 
                 <div>

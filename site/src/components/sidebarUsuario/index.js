@@ -50,7 +50,7 @@ export default function SidebarUser() {
 
                     </div>
 
-                    <div className="element-info" >
+                    <div onClick={() => navigate('/userInteresses')} className="element-info" >
 
                         <img className="comp-image" src="/assets/images/interesses.png" alt="" />
                         <button className="element-button" >Meus Interesses</button>

@@ -13,11 +13,23 @@ export default function Login() {
     const [senha, setSenha] = useState('');
 
     const navigate = useNavigate();
-
     async function logar(){
       try{
         const resposta = await loginUsuario(email.trim(), senha.trim());
-        storage('usuario-logado', {id: resposta.id, nome: resposta.nm_usuario, endereco: resposta.ds_endereco})
+        console.log(resposta);
+        storage('usuario-logado', {
+                                  id: resposta.ID_USUARIO ? resposta.ID_USUARIO : null, 
+                                  nome: resposta.NM_USUARIO ? resposta.NM_USUARIO : null,
+                                  data: resposta.DT_NASCIMENTO ? resposta.DT_NASCIMENTO : null,
+                                  endereco: resposta.DS_ENDERECO ? resposta.DS_ENDERECO : null,
+                                  telefone: resposta.DS_TELEFONE ? resposta.DS_TELEFONE : null,
+                                  renda: resposta.VL_RENDA ? resposta.VL_RENDA : null,
+                                  pessoasCasa: resposta.QTD_PESSOAS_CASA ? resposta.QTD_PESSOAS_CASA : null,
+                                  animaisCasa: resposta.BT_ANIMAIS_CASA ? resposta.BT_ANIMAIS_CASA : null,
+                                  tempoSozinho: resposta.TM_TEMPO_SOZINHO_ANIMAL ? resposta.TM_TEMPO_SOZINHO_ANIMAL : null,
+                                  email: resposta.DS_EMAIL ? resposta.DS_EMAIL : null,
+                                  tipoResidencia: resposta.TP_RESIDENCIA ? resposta.TP_RESIDENCIA : null
+                                })
         toast.dark('Usuario Logado');
         navigate('/userPerfil');
 

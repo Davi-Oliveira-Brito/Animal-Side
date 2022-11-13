@@ -19,6 +19,7 @@ export default function CardFeed(props) {
     return (
         <main className="comp-card">
             <AnimalPopUp 
+            id={props.id}
             imagem={props.imagem}
             nome={props.nome}
             raca={props.raca}
@@ -27,6 +28,7 @@ export default function CardFeed(props) {
             preferencia={props.preferencia}
             descricao={props.descricao}
             isOpen={isOpen}
+            setIsOpen={setIsOpen}
             />
             <div className="left-area">
                 <img src={mostrarImagem()} alt="" />

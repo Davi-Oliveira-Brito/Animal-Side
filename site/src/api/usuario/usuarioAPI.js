@@ -58,7 +58,6 @@ export async function listarInformacoes(id) {
 }
 
 export async function alterarInformacoes(usuario, id) {
-    console.log(usuario);
     const resp = await api.put(`/usuario/${id}`, {
        NM_USUARIO:              usuario.NM_USUARIO,
        DT_NASCIMENTO:           String(usuario.DT_NASCIMENTO.substring(0, 10)),
@@ -108,6 +107,15 @@ export async function alterarAnimalPerdido(animal, id) {
         sexo:       animal.sexo,
         diaSumico:  animal.diaSumico,
         telefone:   animal.telefone
+    });
+
+    return resp.data;
+}
+
+export async function enviarAdocaoAnimal(animalId, userId, comentario) {
+    console.log(animalId);
+    const resp = await api.post(`/usuario/${userId}/adocao/animal/${animalId}`, {
+        comentario: comentario
     });
 
     return resp.data;

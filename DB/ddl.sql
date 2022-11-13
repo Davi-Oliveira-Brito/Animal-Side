@@ -156,4 +156,3 @@ create table tb_motivo_adocao(
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
 );
-18

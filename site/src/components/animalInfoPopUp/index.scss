@@ -19,14 +19,15 @@
     align-items: center;
 
     background-color: #00000051;
-    
+
     .container{
+        max-width: 40%;
         display: flex;
         flex-direction: column;
         background-color: white;
         
         .image{
-            width: 50%;
+            width: 100%;
 
             img{
                 width: 100%;
@@ -39,7 +40,30 @@
             justify-content: center;
             align-items: flex-start;
             flex-direction: column;
+            gap: 15px;
+            
             padding: 25px;
+
+            .buttons{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 20px;
+                width: 45%;
+                .botao{
+                    cursor: pointer;
+                    flex-direction: row;
+                    display: flex;
+
+                    border-radius: 2em;
+                    padding: 5px 25px;
+                    background-color: #FF6909;
+                    border: none;
+
+                    font-family: 'Poppins-Regular';
+                    color: #FFFFFF;       
+                }
+            }
             
             .name{
                 font-size: 2em;
@@ -47,6 +71,8 @@
             }
             
             .info{
+                display: flex;
+                gap: 30px;
                 font-size: 1em;
                 font-family: 'poppins-medium';
             }

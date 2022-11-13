@@ -25,9 +25,7 @@ export async function cadastrarUsuario(usuario) {
 
 export async function loginUsuario(usuario) {
     const comando = `
-    select  id_usuario as id,
-            nm_usuario,
-            ds_endereco
+    select  *
     from    tb_usuario
     where   ds_email = ? 
     and     ds_senha = ?;
@@ -135,4 +133,14 @@ export async function alterarAnimalPerdido(animal, id) {
 
    const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.sexo ]);
     return result.affectedRows
+}
+
+export async function enviarAdocaoAnimal(animalId, userId, comentario) {
+    const command = `
+    insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
+                          values(?, ?, ?);
+    `;
+
+    const [result] = await con.query(command, [comentario, userId, animalId]);
+    return result.insertId;
 }

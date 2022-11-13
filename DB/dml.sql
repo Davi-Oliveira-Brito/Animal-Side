@@ -139,6 +139,20 @@ insert into tb_comentario(ds_comentario, id_usuario)
 insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo, id_tipo)
 						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1, 1);
 
+
+create table tb_motivo_adocao(
+	id_motivo_adocao	int auto_increment primary key,
+    ds_comentario		varchar(500),
+    id_usuario			int,
+    id_animal_adocao	int,
+	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
+	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
+);
+
+
+insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
+					  values('Achei ele super fofo e queria adotar ele!', 1, 1);
+
 -- Buscando informaçoes do usuario
 select * from tb_usuario where id_usuario = ? 
 
