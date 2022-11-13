@@ -1,0 +1,95 @@
+.animal-perdido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25em;
+    width: 20em;
+    border-radius:1em;
+
+    background-color: #FFFFFF;
+
+    .image-area{
+        height: 45%;
+        img{
+            border-radius:1em 1em 0em 0em;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .text-area{
+        display: flex;
+        flex-direction: column;
+        height: 55%;
+        padding: .5em 1em;
+        gap: 0em;
+
+        .nome{
+            font-family: 'Poppins-SemiBold';
+            font-size: 16px;
+            line-height: 2px;
+        }
+
+        .dados-animal{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 7em;
+            line-height: 10px;
+        
+            .text-right{
+                p{
+                    font-family: 'Poppins-Regular';
+                    font-size: 14px;
+                    span{
+                        font-size: 14px;
+                        font-family: 'Poppins-Medium';
+                        color: #FF6909;
+
+                    }
+                }
+            }
+            .text-left{
+                p{
+                    font-family: 'Poppins-Regular';
+                    font-size: 14px;
+                    span{
+                        font-size: 14px;
+                        font-family: 'Poppins-Medium';
+                        color: #FF6909;
+
+                    }
+                }
+            }
+        }
+
+        .ver-mais{
+            font-size: 14px;
+            line-height: 10px;
+            font-family: 'Poppins-Medium';
+            color: #000000;
+            text-decoration-line: underline;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .interacoes{
+            width: 100%;
+            display:flex;
+            flex-direction: row-reverse;
+            gap: 1em;
+
+            .denuncia{
+                width: 2.2em;
+                height:2.2em;
+            }
+            .coment{
+                width: 2.2em;
+                height:2.2em;
+            }
+        }
+
+
+
+    }
+}
