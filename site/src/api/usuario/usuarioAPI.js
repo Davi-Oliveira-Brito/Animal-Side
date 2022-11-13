@@ -76,10 +76,10 @@ export async function alterarInformacoes(usuario, id) {
     return resp.data;
 }
 
-export async function enviarImagem(imagem, id){
+export async function enviarImagemPerdido(imagem, id){
     let formData = new FormData();
     formData.append('imagem', imagem);
-    const resp = await api.put(`/admin/${id}/animal/imagem`, formData,{
+    const resp = await api.put(`/usuario/${id}/animal/perdido/imagem`, formData,{
         headers: {
             "Content-Type": "multipart/form-data"
         }
@@ -95,4 +95,20 @@ export async function mostrarComentariosFront(){
     const comentario = await api.get(`/usuario/comentarios`);
 
     return comentario.data;
+}
+
+export async function alterarAnimalPerdido(animal, id) {
+    const resp = await api.put(`/usuario/animal/${id}/perdido`, {
+        nome:       animal.nome,
+        idade:      animal.idade,
+        descricao:  animal.descricao,
+        porte:      animal.porte,
+        usuario:    animal.usuario,
+        raca:       animal.raca,
+        sexo:       animal.sexo,
+        diaSumico:  animal.diaSumico,
+        telefone:   animal.telefone
+    });
+
+    return resp.data;
 }

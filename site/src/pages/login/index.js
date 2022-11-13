@@ -17,7 +17,7 @@ export default function Login() {
     async function logar(){
       try{
         const resposta = await loginUsuario(email.trim(), senha.trim());
-        storage('usuario-logado', {id: resposta.id})
+        storage('usuario-logado', {id: resposta.id, nome: resposta.nm_usuario, endereco: resposta.ds_endereco})
         toast.dark('Usuario Logado');
         navigate('/userPerfil');
 

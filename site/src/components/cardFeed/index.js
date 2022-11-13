@@ -1,10 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import './index.scss'
 
 import { pegarImagem } from '../../api/admin/animalAPI';
+import AnimalPopUp from '../animalInfoPopUp';
 
 export default function CardFeed(props) {
-    
+    const [isOpen, setIsOpen] = useState('nao');
+
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
             return URL.createObjectURL(props.imagem);
@@ -15,6 +18,16 @@ export default function CardFeed(props) {
 
     return (
         <main className="comp-card">
+            <AnimalPopUp 
+            imagem={props.imagem}
+            nome={props.nome}
+            raca={props.raca}
+            porte={props.porte}
+            idade={props.idade}
+            preferencia={props.preferencia}
+            descricao={props.descricao}
+            isOpen={isOpen}
+            />
             <div className="left-area">
                 <img src={mostrarImagem()} alt="" />
             </div>
@@ -31,7 +44,7 @@ export default function CardFeed(props) {
                 <div className="buttons-area">
 
                     <div className="buttons">
-                        <button className="botao">Conhecer</button>
+                        <button onClick={() => setIsOpen('sim')} className="botao">Conhecer</button>
                         <button className="botao">Adotar</button>
                     </div>
 

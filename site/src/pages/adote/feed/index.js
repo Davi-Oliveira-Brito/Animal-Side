@@ -6,6 +6,7 @@ import CardFeed from '../../../components/cardFeed/index.js'
 import { useState } from 'react';
 
 import { buscaAnimal } from '../../../api/animalAPI.js';
+import AnimalPopUp from '../../../components/animalInfoPopUp';
 
 
 export default function AdoteFeed() {
@@ -31,7 +32,7 @@ export default function AdoteFeed() {
                     <SideBar
                         nome={nome}
                         setAnimais={setAnimais}
-                    />
+                        />
                 </div>
                 <div className='card-s'>
                 {animais.map(item => {
@@ -47,13 +48,12 @@ export default function AdoteFeed() {
                                 descricao={item.descricao}
                             />
                             
-                        );
-                    })}
+                            );
+                        })}
 
                         
                   
                 </div>
-
             </div>
         </main>
     )

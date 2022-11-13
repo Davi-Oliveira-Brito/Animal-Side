@@ -1,0 +1,60 @@
+.nao{
+    display: none;
+}
+
+.sim{
+    display: flex;
+}
+
+.animal-info-popup{
+    width: 100vw;
+    height: 100vh;
+    
+    position: fixed;
+    top:0;
+    left: 0;
+    
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #00000051;
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        
+        .image{
+            width: 50%;
+
+            img{
+                width: 100%;
+            }
+        }
+    
+        .text{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 25px;
+            
+            .name{
+                font-size: 2em;
+                font-family: 'poppins-bold';
+            }
+            
+            .info{
+                font-size: 1em;
+                font-family: 'poppins-medium';
+            }
+
+            .desc{
+                font-size: 1em;
+                font-family: 'poppins-regular';
+            }
+        }
+    }
+}
