@@ -67,7 +67,7 @@ export default function PageCadastrar() {
             if(animal.imagem){
                 if(!idAnimal.get('id') || idAnimal.get('id') === null){
                     const { insertedId } = await cadastroAnimal(animal, admin);
-                    enviarImagem(animal.imagem, insertedId);
+                    await enviarImagem(animal.imagem, insertedId);
                     toast.dark('🐶 animal inserido', {autoClose: 1500});
                     navigate(`/cadastro?id=${insertedId}`)
                 }else{

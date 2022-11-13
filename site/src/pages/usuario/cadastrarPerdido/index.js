@@ -11,8 +11,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import storage from 'local-storage';
 
 // Api
-import { alterarAnimal, buscaAnimalId, cadastroAnimal, enviarImagem, pegarImagem } from '../../../api/admin/animalAPI.js'; 
-import { cadastroAnimalPerdido, alterarAnimalPerdido, enviarImagemPerdido } from '../../../api/usuario/usuarioAPI.js'; 
+import { pegarImagem } from '../../../api/admin/animalAPI.js'; 
+import { buscarAnimalPerdidoId, cadastroAnimalPerdido, alterarAnimalPerdido, enviarImagemPerdido } from '../../../api/usuario/usuarioAPI.js'; 
 import { buscaFiltro } from '../../../api/animalAPI';
 
 import { toast } from 'react-toastify';
@@ -59,10 +59,22 @@ export default function UserCadastrarPerdido() {
 
     async function carregarAnimal() {
         try{
-            let r = await buscaAnimalId(idAnimal.get('id'));
-            setAnimal(r);
+            let [r] = await buscarAnimalPerdidoId(idAnimal.get('id'));
+            console.log(r);
+            setAnimal({
+                nome:       r.nome,
+                idade:      r.idade,
+                imagem:     r.imagem,
+                descricao:  r.descricao,
+                porte:      r.id_porte,
+                raca:       r.id_raca,
+                sexo:       r.id_sexo,
+                diaSumico:  r.diaSumico,
+                telefone:   r.telefone
+            });
             
         }catch(error) {
+            console.log(error);
             toast.dark(error.response.data.error);
         }
     }
@@ -72,12 +84,13 @@ export default function UserCadastrarPerdido() {
             if(animal.imagem){
                 if(!idAnimal.get('id') || idAnimal.get('id') === null){
                     const { insertedId } = await cadastroAnimalPerdido(animal, usuario);
-                    enviarImagemPerdido(animal.imagem, insertedId);
+                    await enviarImagemPerdido(animal.imagem, insertedId);
                     toast.dark('🐶 animal inserido', {autoClose: 1500});
                     navigate(`/userCadastrarPerdido?id=${insertedId}`)
                 }else{
-                    await alterarAnimalPerdido(animal, idAnimal.get('id'))
-                    enviarImagemPerdido(animal.imagem, idAnimal.get('id'));
+                    let x = await alterarAnimalPerdido(animal, idAnimal.get('id'))
+                    console.log(x);
+                    await enviarImagemPerdido(animal.imagem, idAnimal.get('id'));
                     toast.dark('✅ animal alterado', {autoClose: 1500});
                 }
             }else{
@@ -106,7 +119,7 @@ export default function UserCadastrarPerdido() {
         }else{
             setUsuario(storage('usuario-logado').id);
         }
-        if(idAnimal || idAnimal !== null) carregarAnimal();
+        if(idAnimal.get('id') || idAnimal.get('id') !== null) carregarAnimal();
         carregarSelects();
     },[]);
     return (

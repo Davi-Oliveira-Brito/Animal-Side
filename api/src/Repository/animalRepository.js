@@ -24,7 +24,7 @@ export async function buscaAnimal(nome, sexo, porte, raca, preferencia, menor, m
             
             tb_preferencia.ds_preferencia		as preferencia,
             tb_preferencia.id_preferencia,
-
+            
             tb_sexo.ds_sexo						as sexo,
             tb_sexo.id_sexo
             

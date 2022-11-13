@@ -6,6 +6,7 @@
     background-color: #E6EEF4;
     min-height: 100vh;
     align-items: center;
+    
 
     .nav{
         align-self: initial;
@@ -16,14 +17,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 90%;
+        width: 95%;
         min-height: 90vh;
-        border: solid;
 
         .right{
             display:flex;
             flex-direction: column;
-            border: solid green;
             width: 85%;
             align-items: center;
             padding: 1em 0em;
@@ -32,8 +31,7 @@
                 display: flex;
                 flex-direction: column;
                 height: 10em;
-                width: 90%;
-                border: solid orange;
+                width: 100%;
 
                 .top-title{
                     font-family: 'Poppins-SemiBold';
@@ -59,9 +57,12 @@
 
 
             .bichinhos{
+                margin-top: 5%;
+                width: 100%;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
+                gap: 1%;
                 
             }
 

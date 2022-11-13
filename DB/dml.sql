@@ -169,3 +169,27 @@ set 	NM_USUARIO = ?,
 		DS_SENHA = ?,
 		TP_RESIDENCIA = ?
 where 	ID_USUARIO = ?
+
+
+-- Buscar Aniamis perdido
+select  tb.animal_perdido.nm_animal				as nome,
+		tb_animal_perdido.nr_idade			    as idade,
+		tb_animal_perdido.ds_telefone_contato   as telefone,
+		tb_animal_perdido.dt_dia_sumico		    as diaSumico,
+		tb_animal_perdido.ds_descricao		    as descricao,
+		tb_animal_perdido.bt_status			    as status,
+		tb_animal_perdido.img_animal			as imagem,
+		
+		tb_porte.ds_porte					    as porte,
+		tb_porte.id_porte,                
+		
+		tb_raca.ds_raca						    as raca,
+		tb_raca.id_raca,
+		
+		tb_sexo.ds_sexo						    as sexo,
+		tb_sexo.id_sexo
+
+from 	tb_animal_perdido
+inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
+inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
+inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo;

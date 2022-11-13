@@ -94,14 +94,65 @@ export async function mostrarComentarios() {
 }
 
 
-export async function buscarAnimaisPerdidos(id) {
+export async function buscarAnimaisPerdidosPorId(id) {
     const command = `
-        select * from tb_animal_perdido where id_animal = ?;
+    select  tb_animal_perdido.nm_animal			    as nome,
+		    tb_animal_perdido.nr_idade			    as idade,
+		    tb_animal_perdido.ds_telefone_contato   as telefone,
+		    tb_animal_perdido.dt_dia_sumico		    as diaSumico,
+		    tb_animal_perdido.ds_descricao		    as descricao,
+		    tb_animal_perdido.bt_status			    as status,
+		    tb_animal_perdido.img_animal			as imagem,
+    
+		    tb_porte.ds_porte					    as porte,
+		    tb_porte.id_porte,                
+    
+		    tb_raca.ds_raca						    as raca,
+		    tb_raca.id_raca,
+    
+		    tb_sexo.ds_sexo						    as sexo,
+		    tb_sexo.id_sexo
+
+    from 	tb_animal_perdido
+    inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
+    inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
+    inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo
+    where id_animal = ?;
     `;
 
     const [result] = await con.query(command, [id]);
     return result;
 } 
+
+export async function buscarAnimaisPerdidos() {
+    const command = `
+    select  tb_animal_perdido.nm_animal			    as nome,
+            tb_animal_perdido.nr_idade			    as idade,
+            tb_animal_perdido.ds_telefone_contato   as telefone,
+            tb_animal_perdido.dt_dia_sumico		    as diaSumico,
+            tb_animal_perdido.ds_descricao		    as descricao,
+            tb_animal_perdido.bt_status			    as status,
+            tb_animal_perdido.img_animal			as imagem,
+
+            tb_porte.ds_porte					    as porte,
+            tb_porte.id_porte,                
+
+            tb_raca.ds_raca						    as raca,
+            tb_raca.id_raca,
+
+            tb_sexo.ds_sexo						    as sexo,
+            tb_sexo.id_sexo
+
+    from 	tb_animal_perdido
+    inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
+    inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
+    inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo;
+    `;
+
+    const [result] = await con.query(command, []);
+    return result 
+}
+
 
 export async function cadastroAnimalPerdido(animal) {
     const command = `insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
@@ -111,7 +162,7 @@ export async function cadastroAnimalPerdido(animal) {
 }
 
 export async function alterarImagemPerdido(imagem, id) {
-    const command = `update table tb_animal_perdido set img_animal = ? where id_animal = ?`;
+    const command = `update tb_animal_perdido set img_animal = ? where id_animal = ?`;
 
     const [result] = await con.query(command, [imagem, id]);
     return result.affectedRows;
@@ -119,19 +170,19 @@ export async function alterarImagemPerdido(imagem, id) {
 
 export async function alterarAnimalPerdido(animal, id) {
     const command = `
-    update tb_animal_adocao
+    update tb_animal_perdido
     set nm_animal                   = ?,
         nr_idade                    = ?,
         ds_telefone_contato         = ?,
         dt_dia_sumico	            = ?,
-        ds_descricao		        = ?
-        id_usuario			        = ?
-        id_porte			        = ?
-        id_raca			            = ?
+        ds_descricao		        = ?,
+        id_usuario			        = ?,
+        id_porte			        = ?,
+        id_raca			            = ?,
         id_sexo			            = ?
-   where id_animal_adocao           = ?;`
+    where id_animal                 = ?;`
 
-   const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.sexo ]);
+   const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.sexo, id ]);
     return result.affectedRows
 }
 

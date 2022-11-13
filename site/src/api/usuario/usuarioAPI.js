@@ -49,7 +49,11 @@ export async function cadastroAnimalPerdido(animal, usuario) {
 export async function buscarAnimalPerdidoId(id){
     const resp = await api.get(`/usuario/animal/${id}/perdido`);
     return resp.data;
+}
 
+export async function buscarAnimalPerdido() {
+    const resp = await api.get('/usuario/animal/perdido');
+    return resp.data;
 }
 
 export async function listarInformacoes(id) {
@@ -97,6 +101,7 @@ export async function mostrarComentariosFront(){
 }
 
 export async function alterarAnimalPerdido(animal, id) {
+    console.log(animal, id);
     const resp = await api.put(`/usuario/animal/${id}/perdido`, {
         nome:       animal.nome,
         idade:      animal.idade,

@@ -1,25 +1,32 @@
-import './index.scss'
+import { useState } from 'react';
+import { pegarImagem } from '../../api/admin/animalAPI';
+import './index.scss';
 
 export default function CardAnimalPerdido(props){
-
+    function mostrarImagem() {
+        if(typeof(props.imagem) == 'object'){
+            return URL.createObjectURL(props.imagem);
+        }else{
+            return pegarImagem(props.imagem)
+        }
+    }
     return(
         <main className="animal-perdido">
             <div className='image-area'>        
-                <img src="/assets/images/mike.png" alt="" />
+                <img src={mostrarImagem()} alt="" />
             </div>
 
             <div className="text-area">
-                <p className='nome'>SPIKE</p>
+                <p className='nome'>{ props.nome }</p>
                 <div className='dados-animal'>
                     <div className='text-left'>
-                        <p><span>Raça: </span>Husky</p>
-                        <p><span>Idade: </span>2 anos</p>
-                        <p><span>Sexo: </span>Macho</p>
+                        <p><span>Raça: </span>{ props.nome }</p>
+                        <p><span>Idade: </span>{ props.idade }</p>
+                        <p><span>Sexo: </span>{props.sexo}</p>
                     </div>
 
                     <div className='text-right'>
-                        <p><span>Cor: </span>Branco</p>
-                        <p><span>Porte: </span>G</p>
+                        <p><span>Porte: </span>{props.porte}</p>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidos, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 import multer from "multer";
@@ -99,13 +99,14 @@ server.put('/usuario/:id/animal/perdido/imagem', upload.single('imagem'), async 
     try {
         const { id } = req.params;
         const imagem = req.file.path;
+        console.log(imagem);
         const resposta = await alterarImagemPerdido(imagem, id);
         if (resposta != 1)
           throw new Error ('A imagem não foi salva')
 
         resp.status(204).send();
     } catch (error) {
-        resp.status(400).send({
+        resp.send({
             error: error.message
         })
     }
@@ -143,12 +144,21 @@ server.get('/usuario/comentarios', async (req, resp) => {
 server.get('/usuario/animal/:id/perdido', async (req, resp) =>{
     try {
         const { id } = req.params;
-        const result = await buscarAnimaisPerdidos(id);
+        const result = await buscarAnimaisPerdidosPorId(id);
         resp.send(result);
     } catch (error) {
         resp.send({
             x:error.message
         })
+    }
+});
+
+server.get('/usuario/animal/perdido', async (req, resp) => {
+    try {
+        const result = await buscarAnimaisPerdidos();
+        resp.send(result);
+    } catch (error) {
+        resp.send(error);
     }
 });
 
