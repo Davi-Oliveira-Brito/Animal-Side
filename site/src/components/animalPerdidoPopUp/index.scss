@@ -1,0 +1,89 @@
+.animal-perdido-comp {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000051;
+
+    *{
+        border: 1px solid green;
+    }
+
+    .container{
+        width: 50%;
+        height: 60%;
+        background-color: white;
+    
+        .first-row{
+            width: 100%;
+            height: 500px;
+            height: auto;
+            display: flex;
+
+            .image{
+                width: 40%;
+                max-height:500px;
+
+                img{
+                    width: 100%;
+                }
+            }
+
+            .comment-container{
+                width: 60%;
+                max-height: 250px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                overflow-y: auto;
+
+                .comment-box{
+                    width: 100%;
+                    display: flex;
+                    gap: 25px;
+
+                    .letra{
+                        width: 70px;
+                        height: 70px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 100%;
+                        font-size: 2em;
+                        font-family: 'poppins-bold';
+                    }
+                    .info{
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-direction: column;
+
+                        & > span:first-child{
+                            font-size: 1.3em;
+                            font-family: 'poppins-bold';
+                        }
+                        
+                        & > span:last-child{
+                            font-size: 1em;
+                            font-family: 'poppins-regular';
+                        }
+                    }
+                }
+            }
+        }
+
+        .second-row {
+            hnhj
+        }
+    }
+
+}

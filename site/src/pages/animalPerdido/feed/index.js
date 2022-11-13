@@ -47,36 +47,19 @@ export default function FeedAnimalPerdido() {
                     <div className='bichinhos'>
                         {animal.map((item) => {
                             return(
-                                <>
-                                    <CardAnimalPerdido
-                                        id_animal={item.id_animal}
-                                        imagem={item.imagem}
-                                        porte={item.porte}
-                                        raca={item.raca}
-                                        preferencia={item.preferencia}
-                                        sexo={item.sexo}
-                                        nome={item.nome}
-                                        idade={item.idade}
-                                        diaSumico={item.diaSumico}
-                                        telefone={item.telefone}
-                                        descricao={item.descricao}
-                                        
-                                    />
-                                    <CardAnimalPerdido
-                                        id_animal={item.id_animal}
-                                        imagem={item.imagem}
-                                        porte={item.porte}
-                                        raca={item.raca}
-                                        preferencia={item.preferencia}
-                                        sexo={item.sexo}
-                                        nome={item.nome}
-                                        idade={item.idade}
-                                        diaSumico={item.diaSumico}
-                                        telefone={item.telefone}
-                                        descricao={item.descricao}
-                                        
-                                    />
-                                </>
+                                <CardAnimalPerdido
+                                    id_animal={item.id_animal}
+                                    imagem={item.imagem}
+                                    porte={item.porte}
+                                    raca={item.raca}
+                                    preferencia={item.preferencia}
+                                    sexo={item.sexo}
+                                    nome={item.nome}
+                                    idade={item.idade}
+                                    diaSumico={item.diaSumico}
+                                    telefone={item.telefone}
+                                    descricao={item.descricao}
+                                />
                             );
                         })}
                     </div>
