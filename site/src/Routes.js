@@ -29,6 +29,7 @@ import PagamentoAlimento from "./pages/pagamento/alimento/index.js"
 import PagamentoLimpeza from "./pages/pagamento/limpeza/index.js"
 import PagamentoQualquer from "./pages/pagamento/qualquer/index.js"
 import UseInteresses from './pages/usuario/meusInteresses/index.js'
+import FeedAnimalPerdido from "./pages/animalPerdido/feed/index.js"
 
 export default function AppRoutes() {
     return (
@@ -54,6 +55,8 @@ export default function AppRoutes() {
                 <Route path='/pagamento/alimento' element={<PagamentoAlimento/>}/>
                 <Route path='/pagamento/limpeza' element={<PagamentoLimpeza/>}/>
 
+                <Route path='/feedperdido' element={<FeedAnimalPerdido/>}/>
+                
                 <Route path='/feedadocao' element={<AdoteFeed/>} />
                 <Route path='/comentarios/user' element={<UserComent/>} />
                 

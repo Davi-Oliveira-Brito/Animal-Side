@@ -1,0 +1,74 @@
+.feed-animal-perdido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #E6EEF4;
+    min-height: 100vh;
+    align-items: center;
+
+    .nav{
+        align-self: initial;
+        border: solid;
+    }
+
+     .conteudo-feed{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        min-height: 90vh;
+        border: solid;
+
+        .right{
+            display:flex;
+            flex-direction: column;
+            border: solid green;
+            width: 85%;
+            align-items: center;
+            padding: 1em 0em;
+
+            .top{
+                display: flex;
+                flex-direction: column;
+                height: 10em;
+                width: 90%;
+                border: solid orange;
+
+                .top-title{
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 30px;
+                    color: #FF6909;
+                }
+
+                .pesquisa{
+                    outline: none;
+                    width: 100%;
+                    border: none;
+                    height: 3em;
+                    font-family: 'Poppins-Regular';
+                    padding: 10px 1em;
+
+                    ::placeholder{
+                        font-family: 'Poppins-Regular';
+                        color: #A9A9A9;
+                    }
+                }
+
+            }
+
+
+            .bichinhos{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                
+            }
+
+        }
+
+
+
+     }
+
+}
