@@ -44,7 +44,6 @@ export async function listarInformacoes(id) {
 }
 
 export async function alterarInformacoes(usuario, id) {
-    console.log(usuario);
     const command = `
     update 	tb_usuario
     set 	NM_USUARIO = ?,
@@ -209,11 +208,13 @@ export async function enviarComentarioPerdido(comentario, userId, perdidoId) {
 export async function buscarComentariosPerdidos(id) {
     const command = `
         select  id_comentario,
-        ds_comentario,
-        tb_comentario.id_usuario,
-        id_animal_perdido
+                ds_comentario,
+                tb_comentario.id_usuario,
+                id_animal_perdido,
+                tb_usuario.nm_usuario
         from	tb_comentario
         inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perdido.id_animal
+        inner join tb_usuario on tb_comentario.id_usuario = tb_usuario.id_usuario
         where tb_comentario.id_animal_perdido = ?;
     `;
 
