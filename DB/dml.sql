@@ -172,7 +172,7 @@ where 	ID_USUARIO = ?
 
 
 -- Buscar Aniamis perdido
-select  tb.animal_perdido.nm_animal				as nome,
+select  tb_animal_perdido.nm_animal				as nome,
 		tb_animal_perdido.nr_idade			    as idade,
 		tb_animal_perdido.ds_telefone_contato   as telefone,
 		tb_animal_perdido.dt_dia_sumico		    as diaSumico,
@@ -193,3 +193,19 @@ from 	tb_animal_perdido
 inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
 inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
 inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo;
+
+-- inserir comentario aniaml_perdido
+insert into tb_animal_cometario(id_comentario, id_animal_perdido)
+						 values(1, 1)
+
+
+insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
+				   values('Vi um gato parecido aqui na rua', 1, 1);
+
+
+select  id_comentario,
+		ds_comentario,
+		tb_comentario.id_usuario,
+		id_animal_perdido
+from	tb_comentario
+inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perdido.id_animal;

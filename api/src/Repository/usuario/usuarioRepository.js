@@ -195,3 +195,28 @@ export async function enviarAdocaoAnimal(animalId, userId, comentario) {
     const [result] = await con.query(command, [comentario, userId, animalId]);
     return result.insertId;
 }
+
+export async function enviarComentarioPerdido(comentario, userId, perdidoId) {
+    const command = `
+    insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
+                       values(?, ?, ?);
+    `;
+
+    const [result] = await con.query(command, [comentario, userId, perdidoId]);
+    return result.insertId;
+} 
+
+export async function buscarComentariosPerdidos(id) {
+    const command = `
+        select  id_comentario,
+        ds_comentario,
+        tb_comentario.id_usuario,
+        id_animal_perdido
+        from	tb_comentario
+        inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perdido.id_animal
+        where tb_comentario.id_animal_perdido = ?;
+    `;
+
+    const [result] = await con.query(command, [id]);
+    return result
+}

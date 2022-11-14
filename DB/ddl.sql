@@ -57,7 +57,7 @@ create table tb_animal_perdido(
 	nr_idade				int,
 	ds_telefone_contato		varchar(100),
 	dt_dia_sumico			date,
-	ds_descricao			varchar(100),
+	ds_descricao			varchar(500),
 	bt_status				boolean,
 	img_animal				varchar(100),
 	id_usuario				int,
@@ -80,7 +80,7 @@ create table tb_animal_adocao(
 	id_animal_adocao		int primary key auto_increment,
 	nm_animal				varchar(100),
 	nr_idade				int,
-	ds_descricao			varchar(100),
+	ds_descricao			varchar(500),
 	img_animal				varchar(100),
     id_admin				int,
 	id_porte				int,
@@ -115,11 +115,11 @@ create table tb_denuncia(
 
 create table tb_comentario(
 	id_comentario		int primary key auto_increment,
-	nm_usuario			varchar(100),
 	ds_comentario		varchar(100),
-	nr_curtida			int,
 	id_usuario			int,
-	foreign key (id_usuario) references tb_usuario(ID_USUARIO)
+	id_animal_perdido	int,
+	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
+	foreign key (id_animal_perdido) references tb_animal_perdido(id_animal)
 );
 
 create table tb_animal_cometario(

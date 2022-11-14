@@ -5,6 +5,7 @@ import './index.scss';
 import AnimalPerdidoPopUp from '../animalPerdidoPopUp';
 
 export default function CardAnimalPerdido(props){   
+    const [isOpen, setIsOpen] = useState('nao');
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
             return URL.createObjectURL(props.imagem);
@@ -15,6 +16,8 @@ export default function CardAnimalPerdido(props){
     return(
         <main className="animal-perdido">
             <AnimalPerdidoPopUp
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
                 id_animal={props.id_animal}
                 imagem={props.imagem}
                 porte={props.porte}
@@ -45,10 +48,10 @@ export default function CardAnimalPerdido(props){
                     </div>
                 </div>
 
-                <p className='ver-mais'>Ver mais</p>
+                <p onClick={()=>setIsOpen('sim')} className='ver-mais'>Ver mais</p>
 
                 <div className='interacoes'>
-                    <img className='denuncia' src="/assets/images/coment.png" alt="" />
+                    <img onClick={()=>setIsOpen('sim')} className='denuncia' src="/assets/images/coment.png" alt="" />
                     <img className='coment' src="/assets/images/denuncia.png" alt="" />
                 </div>
             </div>
