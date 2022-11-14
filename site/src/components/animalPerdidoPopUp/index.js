@@ -11,8 +11,10 @@ export default function AnimalPerdidoPopUp(props) {
     
     async function carregarComentario() {
         try {
-            const r = await buscarComentariosPerdidos(props.id_animal);
-            setComentarios(r);
+            if(storage('usuario-logado')){
+                const r = await buscarComentariosPerdidos(props.id_animal);
+                setComentarios(r);
+            }
         } catch (error) {
             toast.dark(error.response.data);
         }
@@ -29,15 +31,15 @@ export default function AnimalPerdidoPopUp(props) {
 
     function mostrarImagem() {
         if (typeof (props.imagem) == 'object') {
-            return URL.createObjectURL(props.imagem);
+            //return URL.createObjectURL(props.imagem);
         } else {
             return pegarImagem(props.imagem)
         }
     }
     useEffect(()=>{
-        if(!storage('usuario-logado').id){
+        if(!storage('usuario-logado')){
             props.setIsOpen('nao');
-            toast.dark('Termine seu cadastro!');
+            toast.dark('❗ Faça login pra ajudar outras pessoas!');
         }
         carregarComentario()
     },[]);

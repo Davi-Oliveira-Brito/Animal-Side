@@ -8,7 +8,7 @@ export default function CardAnimalPerdido(props){
     const [isOpen, setIsOpen] = useState('nao');
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
-            return URL.createObjectURL(props.imagem);
+            //return URL.createObjectURL(props.imagem);
         }else{
             return pegarImagem(props.imagem)
         }

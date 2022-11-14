@@ -130,28 +130,23 @@ where id_animal_adocao = 1;
 insert into tb_usuario(NM_USUARIO, DT_NASCIMENTO, DS_TELEFONE, DS_ENDERECO, VL_RENDA, QTD_PESSOAS_CASA, BT_ANIMAIS_CASA, TM_TEMPO_SOZINHO_ANIMAL, DS_EMAIL, DS_SENHA, TP_RESIDENCIA)
 				values("Biro Biro", '2003-01-23', 119881216, 'rua dos passaros, novo jaú', 1500, 6, 2, '06:00', 'teste@teste.com', '123456', 'casa');
 			
-
 -- Inser inicial comentario
 insert into tb_comentario(ds_comentario, id_usuario)
 				   values('Vi um cachorro assim no parque aqui perto de casa na rua piriripororor no dia 18/10/2022', 1);
 
 
-insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo, id_tipo)
-						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1, 1);
+insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
+						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1);
 
-
-create table tb_motivo_adocao(
-	id_motivo_adocao	int auto_increment primary key,
-    ds_comentario		varchar(500),
-    id_usuario			int,
-    id_animal_adocao	int,
-	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
-	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
-);
 
 
 insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
 					  values('Achei ele super fofo e queria adotar ele!', 1, 1);
+
+
+insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
+				   values('Vi um gato parecido aqui na rua', 1, 1);
+
 
 -- Buscando informaçoes do usuario
 select * from tb_usuario where id_usuario = ? 
@@ -196,11 +191,8 @@ inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo;
 
 -- inserir comentario aniaml_perdido
 insert into tb_animal_cometario(id_comentario, id_animal_perdido)
-						 values(1, 1)
+						 values(1, 1);
 
-
-insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
-				   values('Vi um gato parecido aqui na rua', 1, 1);
 
 
 select  id_comentario,

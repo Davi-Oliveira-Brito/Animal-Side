@@ -16,7 +16,6 @@ export default function Login() {
     async function logar(){
       try{
         const resposta = await loginUsuario(email.trim(), senha.trim());
-        console.log(resposta);
         storage('usuario-logado', {
                                   id: resposta.ID_USUARIO ? resposta.ID_USUARIO : null, 
                                   nome: resposta.NM_USUARIO ? resposta.NM_USUARIO : null,
@@ -59,7 +58,7 @@ export default function Login() {
 
                 <button className="login-button" onClick={() => logar()}>ENTRAR</button>
                 
-                <p className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
+                <p onClick={()=> navigate('/cadastro/usuario')} className="crie-sua-conta">Não tem uma conta? <a href="">Cadastre-se</a></p>
 
             </div>
 
