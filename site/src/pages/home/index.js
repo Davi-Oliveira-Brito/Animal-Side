@@ -3,8 +3,12 @@ import NavBar from '../../components/navBar/index.js'
 import CardAdote from '../../components/LadingPage/CardAdote/index.js'
 import CardBicho from '../../components/LadingPage/CardBichos/index.js'
 import Footer from '../../components/footer/index.js'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function LadingPage() {
+    const navigate = useNavigate();
+
     return (
         <main className="lading-mom">
             <NavBar />
@@ -19,7 +23,7 @@ export default function LadingPage() {
                         </p>
                         <p className="nome">-Charles Darwin</p>
 
-                        <button className="hero-button">Adotar</button>
+                        <button className="hero-button" onClick={() => navigate('/feedadocao')}>Adotar</button>
                     </div>
 
                 </div>
@@ -129,7 +133,7 @@ export default function LadingPage() {
                         </div>
                     </div>
 
-                    <button className="f5-button">DOE</button>
+                    <button className="f5-button" onClick={() => navigate('/doar')} >DOE</button>
                 </div>
             </section>
 
@@ -188,15 +192,15 @@ export default function LadingPage() {
                 <div className="sub-f7">
                     <h1 className="f7-title">Perdeu seu animalzinho?</h1>
                     <p className="f7-desc">Sair pela <span>procura</span> do seu bichinho nunca foi tão fácil! Facilite seu trabalho e diminua o tempo longe dele.</p>
-                    <button className="f7-button">Cadastre</button>
+                    <button className="f7-button" onClick={() => navigate('/cadastroperdido')}>Cadastre</button>
                 </div>
             </section>
 
             <section className="f8-lading">
                 <div className="sub-f8">
                     <h1 className="f8-title">ajude a encontrar</h1>
-                    <p className="f8-desc">veja o <span>feed</span> dde cadastros e deixe um comentário caso tenha visto o animal que estão procurando.</p>
-                    <button className="f8-button">ajude</button>
+                    <p className="f8-desc">veja o <span>feed</span> de cadastros e deixe um comentário caso tenha visto o animal que estão procurando.</p>
+                    <button className="f8-button" onClick={() => navigate('/feedperdido')}>ajude</button>
                 </div>
             </section>
 

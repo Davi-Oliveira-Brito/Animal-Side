@@ -16,9 +16,8 @@ export default function Navbar(){
                     <a className='element-nav-feed' onClick={() => navigate('/ong')} >A ONG</a>
                     <a className='element-nav-feed' onClick={() => navigate('/quemsomos')} >Quem Somos?</a>
                     <a className='element-nav-feed' onClick={() => navigate('/ajude')} >Ajude</a>
-                    <a className='element-nav-feed' onClick={() => navigate('/')} >Feira</a>
                     <a className='element-nav-feed' onClick={() => navigate('/feedadocao')} >Adote</a>
-                    <a className='element-nav-feed' onClick={() => navigate('/')} >Doe</a>
+                    <a className='element-nav-feed' onClick={() => navigate('/doar')} >Doe</a>
                     <a className='element-nav-feed' onClick={() => navigate('/login')} >Login</a>
                 </div>
             </section>
