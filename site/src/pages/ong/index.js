@@ -3,10 +3,12 @@ import NavBar from '../../components/navBar/index.js'
 import CardValor from '../../components/ongpage/cardValor/index.js'
 import React from 'react';
 import Footer from '../../components/footer/index.js';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function PageOng() {
-
+    const navigate = useNavigate();
     return (
         <main className="ong-mom">
             <NavBar />
@@ -26,20 +28,7 @@ export default function PageOng() {
                         <p className='desc'>
                            Encontre um novo amor e um membro para aumentar sua familia 
                         </p>
-                        <button className='botao'> quero adotar </button>
-                    </div>
-                </div>
-            </section>
-
-            <section className='f1-ong'>
-                <h1 className="titulo">Nossas Atividades</h1>
-                <div className='f1-sub'>
-                    <div className="texts">
-                        <h1 className='title'>Adoção</h1>
-                        <p className='desc'>
-                           Encontre um novo amor e um membro para aumentar sua familia 
-                        </p>
-                        <button className='botao'> quero adotar </button>
+                        <button className='botao' onClick={() => navigate('/feedadocao')}> quero adotar </button>
                     </div>
                 </div>
             </section>
@@ -52,7 +41,7 @@ export default function PageOng() {
                         <p className='desc'>
                         Ajude nossa causa, doando uma quantia em dinheiro, ração ou brinquedos.
                         </p>
-                        <button className='botao'> quero doar </button>
+                        <button className='botao' onClick={() => navigate('/doar')}> quero doar </button>
                     </div>
                 </div>
             </section>
@@ -65,7 +54,7 @@ export default function PageOng() {
                         <p className='desc'>
                             Perdeu o seu companheiro(a)? Faça um cadastro para que encontremos o mesmo.
                         </p>
-                        <button className='botao'> quero cadastrar </button>
+                        <button className='botao' onClick={() => navigate('/cadastroperdido')}> quero cadastrar </button>
                     </div>
                 </div>
             </section>
@@ -129,7 +118,8 @@ export default function PageOng() {
                         </p>
 
                         <p className="text">
-                        Fique dentro das datas e encontre conosco o melhor companheiro para você.
+                        Fique dentro das datas e encontre conosco o melhor companheiro para você. <br/>
+                        <span> obs:a feira ainda não esta pronta, mas em breve traremos novidades!! </span>
                         </p>
 
                         <button className="f6-button">

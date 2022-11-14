@@ -1,14 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss'
+import { toast } from 'react-toastify';
 
 import NavBarAdmin from '../../../components/navBarAdmin/index.js';
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js';
+import CardPostAdmin from '../../../components/cardPostAdmin';
+import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
+
+
+
 
 
 
 
 export default function Post() {
-    
+    const[animalPerdido, setAnimalPerdido] = useState();
+
+    async function carregarAnimal() {
+        try {
+            const r = await buscarAnimalPerdido()
+            setAnimalPerdido(r);
+        } catch (error) {
+            toast.dark(error.response.data.error);
+        }
+    }
+    useEffect(() => {
+        carregarAnimal();
+    }, []);
+
     return (
         <main className="feed-main">
             <NavBarAdmin />
@@ -17,45 +36,20 @@ export default function Post() {
             </div>
             <div className='top'>
                 <input className='Barra-de-busca' type="text" placeholder='Buscar por nome' />
-            <div className='Card'>
-                <div className='left'><img className='imgdog' src="assets/images/dogBranco.png" alt="" /></div>
-                <div className='texto'>
-                    <h1>Spike</h1>
-                    <div className='infododog'>
-                        <div>Raça: Husky</div>
-                        <div>Porte: G</div>
-                        <div>Idade: 2 anos</div>
-                        <div>Sexo: Maculino</div>
-                        <div>Sumiço: 28/08/2022</div>
-                    </div>
-                    <div className='Numero'> <span className='nmr'> Numéro de contato: </span>(11) 93566 - 0437</div>
-                    <div className='desc'>Spike se soltou da coleira no estacionamento do Parque Ibirapuera, por volta das 15hrs, provavelmente saiu de dentro e deve estar pelas redondezas.
-                        O mesmo é muito carinhoso, educado e responde muito bem pelo nome.</div>
-                    <div className='bts'>    
-                    <button className='botao'>Perdido</button>
-                    </div>
-            </div>
-                </div>
-
-                <div className='Card'>
-                <div className='left'><img className='imgdog' src="assets/images/dogBranco.png" alt="" /></div>
-                <div className='texto'>
-                    <h1>Spike</h1>
-                    <div className='infododog'>
-                        <div>Raça: Husky</div>
-                        <div>Porte: G</div>
-                        <div>Idade: 2 anos</div>
-                        <div>Sexo: Maculino</div>
-                        <div>Sumiço: 28/08/2022</div>
-                    </div>
-                    <div className='Numero'> <span className='nmr'> Numéro de contato: </span>(11) 93566 - 0437</div>
-                    <div className='desc'>Spike se soltou da coleira no estacionamento do Parque Ibirapuera, por volta das 15hrs, provavelmente saiu de dentro e deve estar pelas redondezas.
-                        O mesmo é muito carinhoso, educado e responde muito bem pelo nome.</div>
-                    <div className='bts'>    
-                    <button className='botao'>Perdido</button>
-                    </div>
-            </div>
-                </div>
+                {animalPerdido.map(item => {
+                        return (
+                            <CardPostAdmin
+                                imagem={item.imagem}
+                                nome={item.nome}
+                                raca={item.raca}
+                                porte={item.porte}
+                                idade={item.idade}
+                                sexo={item.sexo}
+                                sumico={item.diaSumico}
+                                telefone={item.telefone}
+                                desc={item.descricao} />
+                        )
+                    })}
             </div>
         </main>
     )

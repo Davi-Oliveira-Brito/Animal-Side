@@ -23,7 +23,7 @@ export default function SideBarAdmin() {
 
             <div className="info-container">
 
-                <div onClick={()=>navigate('/')} className="element-info" >
+                <div onClick={()=>navigate('/adminPerfil')} className="element-info" >
 
                     <img className="comp-image" src="/assets/images/Userperfil.png" alt="" />
                     <button className="element-button">Perfil</button>
@@ -56,20 +56,6 @@ export default function SideBarAdmin() {
                     <img className="comp-image" src="/assets/images/denuncias.png" alt="" />
                     <button className="element-button">Denuncias</button>
 
-
-                </div>
-
-                <div className="element-info" >
-
-                    <img className="comp-image" src="/assets/images/Calendario.png" alt="" />
-                    <button className="element-button" >Eventos</button>
-
-                </div>
-
-                <div className="element-info" >
-
-                    <img className="comp-image" src="/assets/images/dados.png" alt="" />
-                    <button className="element-button" >Dados</button>
 
                 </div>
 

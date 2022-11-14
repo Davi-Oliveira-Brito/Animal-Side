@@ -1,21 +1,21 @@
 import './index.scss'
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+    const navigate = useNavigate();
     return(
         <section className="footer">
                     <div className="sub">
                         <div className="empresa">
                             <p>empresa</p>
-                            <a href="">A ong</a>
-                            <a href="">Quem Somos?</a>
-                            <a href="">Feira</a>
+                            <a href="" onClick={() => navigate('/ong')}>A ong</a>
+                            <a href="" onClick={() => navigate('/quemsomos')}>Quem Somos?</a>
                         </div>
 
                         <div className="produto">
                             <p>produto</p>
-                            <a href="">Doe</a>
-                            <a href="">Adotar</a>
-                            <a href="">Cadastar</a>
+                            <a href="" onClick={() => navigate('/doar')}>Doe</a>
+                            <a href="" onClick={() => navigate('/feedadocao')}>Adotar</a>
                         </div>
                     </div>
     </section>

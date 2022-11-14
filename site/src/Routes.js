@@ -14,9 +14,8 @@ import Post from "./pages/admin/posts/index.js"
 import CadastrarAnimalPerdido from "./pages/usuario/cadastrarPerdido/index.js"
 import DoarPage from "./pages/doar/index.js"
 import UserComent from "./pages/usuario/comentario/index.js"
-import Feedback from "./pages/usuario/feedback/index.js"
 import PerfilAdm from "./pages/admin/perfil/index.js"
-import MeusInteresses from "./pages/usuario/meusInteresses/index.js"
+
 
 import QuemSomos from "./pages/quemSomos/index.js"
 
@@ -30,6 +29,8 @@ import PagamentoLimpeza from "./pages/pagamento/limpeza/index.js"
 import PagamentoQualquer from "./pages/pagamento/qualquer/index.js"
 import UseInteresses from './pages/usuario/meusInteresses/index.js'
 import FeedAnimalPerdido from "./pages/animalPerdido/feed/index.js"
+import UserPost from './pages/usuario/posts/index.js'
+
 
 export default function AppRoutes() {
     return (
@@ -47,6 +48,7 @@ export default function AppRoutes() {
                 <Route path='/userFeedBack' element={<UserFeedBack/>}/>
                 <Route path='/userCadastrarPerdido' element={<UserCadastrarPerdido/>}/>
                 <Route path='/userInteresses' element={<UseInteresses/>}/>
+                <Route path='/userPost' element={<UserPost/>}/>
                 
                 
                 <Route path='/motivo/adocao' element={<PageComentario/>}/>
@@ -76,9 +78,6 @@ export default function AppRoutes() {
                 <Route path='/adminPerfil' element={<PerfilAdm/>}/>
                 <Route path='/cadastro/usuario' element={<CriarConta/>}/>
                 <Route path='/cadastroperdido' element={<CadastrarAnimalPerdido/>}/>
-                <Route path='/meusinteresses' element={<MeusInteresses/>}/>
-
-
             </Routes>
         </BrowserRouter>
     )

@@ -1,8 +1,10 @@
 import './index.scss'
 import Navbar from '../../components/navBar/index.js';
 import Footer from '../../components/footer/index.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function PageAjude() {
+    const navigate = useNavigate();
     return (
         <main className='ajude-mom'>
             <Navbar/>
@@ -23,7 +25,7 @@ export default function PageAjude() {
                             Com a sua <label>contribuição</label>, nós conseguimos dar continuidade no nosso projeto, resgatando e encontrando novos lares.
                             Além de auxiliar na busca de novas famílias, também fortalece a luta contra o abandono e maus-tratos.
                         </p>
-                        <button className='botao'> Vou doar</button>
+                        <button className='botao' onClick={ () => navigate('/doar')}> Vou doar</button>
                     </div>
                 </div>
             </section>
@@ -36,7 +38,7 @@ export default function PageAjude() {
                             A adoção é um ato de muito <label>amor</label>, mas também de <label>responsabilidade</label>. Para adotar, você se compromete com o bichinho, dando afeto e um lar seguro. 
                             Faça a diferença na sua vida e na de um animalzinho.
                         </p>
-                        <button className='botao'> Vou doar</button>
+                        <button className='botao' onClick={() => navigate('/feedadocao')}> Vou Adotar</button>
                     </div>
                 </div>
             </section>
