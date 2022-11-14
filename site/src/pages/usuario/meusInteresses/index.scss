@@ -1,61 +1,20 @@
 .meus-interesses-page{
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    min-height: 90vh;
  
     .right{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 100%;
         flex-wrap: wrap;
-        margin-top: -10em;
         gap: 2em;
-        .comp{
+        .comp1{
             display: flex;
             justify-content: center;
             width: 50%;
-        }
-        .card-meus-interesses{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            border-radius: 1em;
-            width: 80%;
-            height: 25%;
-            gap: 1em;
             margin-left: 5em;
-            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
-            .left-card{
-                display: flex;
-                justify-content: center;
-                border-radius: 1em;
-                width: 100%;
-                img{
-                    width: 100%;
-                    height: auto;
-                    border-top-left-radius: 1em;
-                    border-bottom-left-radius: 1em;
-                }
-            }
-            .card-right{
-                display: flex;
-                flex-direction: column;
-                .title{
-                    font-family: 'Poppins-Regular';
-                }
-                .infodog{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    margin-right: 1em;
-                    font-family: 'Poppins-Regular';
-                    font-size: 14px;
-                }
-                .desc{
-                    font-family: 'Poppins-Regular';
-                    font-size: 14px;
-                }
-            }
         }
     }
 }
