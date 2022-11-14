@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 300px;
+    height: 250px;
     box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
     gap: 1em;
     .left{
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: 40%;
     }
     .imgdog{
         width: 100%;
@@ -20,10 +20,10 @@
         font-family: 'Poppins-Regular';
         font-size: 14px;
         .infododog{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-right: .5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1em;
         }
         .desc{
             margin-top: .5em;
@@ -38,7 +38,9 @@
     }
     .bts{
         display: flex;
+        flex-direction: row;
         justify-content: flex-end;
+        gap: 2em;
         margin-right: 1em;
         .botao{
             justify-content: center;

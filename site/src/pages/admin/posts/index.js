@@ -14,7 +14,7 @@ import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
 
 
 export default function Post() {
-    const[animalPerdido, setAnimalPerdido] = useState();
+    const[animalPerdido, setAnimalPerdido] = useState([]);
 
     async function carregarAnimal() {
         try {
