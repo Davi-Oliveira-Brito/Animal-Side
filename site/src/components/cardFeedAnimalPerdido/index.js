@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { pegarImagem } from '../../api/admin/animalAPI';
 import './index.scss';
 
-export default function CardAnimalPerdido(props){
+import AnimalPerdidoPopUp from '../animalPerdidoPopUp';
+
+export default function CardAnimalPerdido(props){   
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
             return URL.createObjectURL(props.imagem);
@@ -12,6 +14,19 @@ export default function CardAnimalPerdido(props){
     }
     return(
         <main className="animal-perdido">
+            <AnimalPerdidoPopUp
+                id_animal={props.id_animal}
+                imagem={props.imagem}
+                porte={props.porte}
+                raca={props.raca}
+                preferencia={props.preferencia}
+                sexo={props.sexo}
+                nome={props.nome}
+                idade={props.idade}
+                diaSumico={props.diaSumico}
+                telefone={props.telefone}
+                descricao={props.descricao}
+            />
             <div className='image-area'>        
                 <img src={mostrarImagem()} alt="" />
             </div>
