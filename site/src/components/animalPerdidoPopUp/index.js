@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.scss';
 
 import { pegarImagem } from '../../api/admin/animalAPI';
-
+import { buscarAnimalPerdido } from '../../api/usuario/usuarioAPI';
+import { toast } from 'react-toastify'
 
 export default function AnimalPerdidoPopUp(props) {
+    const [animal, setAnimal] = useState([]);
+    async function carregarAnimaisPerdidos() {
+        try {
+            const r = await buscarAnimalPerdido();
+            setAnimal(r);
+        } catch (error) {
+            toast.dark(error.response.data);
+        }
+    }
+
     function mostrarImagem() {
         if (typeof (props.imagem) == 'object') {
             return URL.createObjectURL(props.imagem);
@@ -12,6 +23,7 @@ export default function AnimalPerdidoPopUp(props) {
             return pegarImagem(props.imagem)
         }
     }
+    useEffect(carregarAnimaisPerdidos);
     return (
         <div className={`animal-perdido-comp ${props.isOpen}`}>
             <div className='container'>

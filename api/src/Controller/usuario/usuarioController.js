@@ -1,4 +1,4 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos, enviarComentarioPerdido } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 import multer from "multer";
@@ -179,5 +179,26 @@ server.post('/usuario/:userId/adocao/animal/:animalId', async (req, resp) => {
     }
 });
 
+server.post('/usuario/:userId/comentario/animal/perdido/:perdidoId', async (req, resp) => {
+    try {
+        const { comentario } = req.body;
+        const { userId } = req.params;
+        const { perdidoId } = req.params;
+        const result = enviarComentarioPerdido(comentario, userId, perdidoId);
+        resp.send(result);
+    } catch (error) {
+        resp.send(error);
+    }
+})
+
+server.get('/usuario/comentarios/animal/perdido/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const result = await buscarAnimaisPerdidos(id);
+        resp.send(result);
+    } catch (error) {
+        resp.send(error);
+    }
+});
 
 export default server;

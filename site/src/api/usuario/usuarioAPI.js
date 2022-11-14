@@ -125,3 +125,16 @@ export async function enviarAdocaoAnimal(animalId, userId, comentario) {
 
     return resp.data;
 }
+
+
+export async function enviarComentarioPerdido(comentario, userId, perdidoId) {
+    const resp = await api.post(`/usuario/${userId}/comentario/animal/perdido/${perdidoId}`, {
+        comentario: comentario
+    });
+    return resp.data;
+}
+
+export async function buscarAnimalPerdidos() {
+    const resp = await api.get('/usuario/comentarios/animal/perdido');
+    return resp.data;
+}
