@@ -6,10 +6,12 @@ import './index.scss';
 // Components
 import Navbar from '../../components/navBar'
 import Footer from '../../components/footer';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function QuemSomos() {
     const[nome, setNome] = useState();
-
+    const navigate =useNavigate();
     return (
         <main className='page-quemSomos'>
         <Navbar/>
@@ -66,8 +68,8 @@ export default function QuemSomos() {
         <div className='f4-quemsomos'>
             <div className='container'>
                 <div className='title'>Faça parte dessa história </div>
-                <div className='text'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium </div>
-                <div className='botao'>Nos ajude</div>
+                <div className='text'>Doe-nos o que puder, temos kits para casos especificos, ajude! Faremos de tudo para manter os nosso bichinhos bem cuidados até encontrarem seus futuros donos.</div>
+                <div className='botao' onClick={() => navigate('/doar')}>Nos ajude</div>
             </div>
         </div>
 
