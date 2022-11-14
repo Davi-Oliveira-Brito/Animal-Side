@@ -2,15 +2,26 @@ import React, { useEffect, useState } from 'react'
 import './index.scss';
 
 import { pegarImagem } from '../../api/admin/animalAPI';
-import { buscarAnimalPerdido } from '../../api/usuario/usuarioAPI';
+import { buscarComentariosPerdidos, enviarComentarioPerdido,  } from '../../api/usuario/usuarioAPI';
 import { toast } from 'react-toastify'
-
+import storage from 'local-storage'
 export default function AnimalPerdidoPopUp(props) {
-    const [animal, setAnimal] = useState([]);
-    async function carregarAnimaisPerdidos() {
+    const [comentarios, setComentarios] = useState([]);
+    const [comentario, setComentario] = useState('');
+    
+    async function carregarComentario() {
         try {
-            const r = await buscarAnimalPerdido();
-            setAnimal(r);
+            const r = await buscarComentariosPerdidos(props.id_animal);
+            setComentarios(r);
+        } catch (error) {
+            toast.dark(error.response.data);
+        }
+    }
+
+    async function enviar() {
+        try {
+            const r = await enviarComentarioPerdido(comentario, storage('usuario-logado').id, props.id_animal);
+            carregarComentario();
         } catch (error) {
             toast.dark(error.response.data);
         }
@@ -23,34 +34,30 @@ export default function AnimalPerdidoPopUp(props) {
             return pegarImagem(props.imagem)
         }
     }
-    useEffect(carregarAnimaisPerdidos);
+    useEffect(()=>{
+        if(!storage('usuario-logado').id){
+            props.setIsOpen('nao');
+            toast.dark('Termine seu cadastro!');
+        }
+        carregarComentario()
+    },[]);
     return (
         <div className={`animal-perdido-comp ${props.isOpen}`}>
             <div className='container'>
                 <div className='first-row'>
                     <div className='image'> <img src={mostrarImagem()} alt="" /> </div>
                     <div className='comment-container'>
-                        <div className='comment-box'>
-                            <div className='letra'>L</div>
-                            <div className='info'>
-                                <span>Texto dahora</span>
-                                <span>Descricao dahora</span>
-                            </div>
-                        </div>
-                        <div className='comment-box'>
-                            <div className='letra'>L</div>
-                            <div className='info'>
-                                <span>Texto dahora</span>
-                                <span>Descricao dahora</span>
-                            </div>
-                        </div>
-                        <div className='comment-box'>
-                            <div className='letra'>L</div>
-                            <div className='info'>
-                                <span>Texto dahora</span>
-                                <span>Descricao dahora</span>
-                            </div>
-                        </div>
+                        {comentarios.map((item) => {
+                            return(
+                                <div className='comment-box'>
+                                    <div className='letra'>{item.nm_usuario[0]}</div>
+                                    <div className='info'>
+                                        <span>{ item.nm_usuario }</span>
+                                        <span>{ item.ds_comentario }</span>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className='second-row'>
@@ -86,8 +93,8 @@ export default function AnimalPerdidoPopUp(props) {
                     </div>
 
                     <div className='text-container'>
-                        <textarea placeholder='Deixa seu comentario:'></textarea>
-                        <span>Enviar</span>
+                        <textarea onChange={(e)=>setComentario(e.target.value)} placeholder='Deixa seu comentario:'>{comentario}</textarea>
+                        <span onClick={()=>enviar()}>Enviar</span>
                     </div>
                 </div>
                 <div className='third-row'>

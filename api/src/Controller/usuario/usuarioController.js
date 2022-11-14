@@ -1,4 +1,4 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos, enviarComentarioPerdido } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos, enviarComentarioPerdido, buscarComentariosPerdidos } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 import multer from "multer";
@@ -194,7 +194,7 @@ server.post('/usuario/:userId/comentario/animal/perdido/:perdidoId', async (req,
 server.get('/usuario/comentarios/animal/perdido/:id', async (req, resp) => {
     try {
         const { id } = req.params;
-        const result = await buscarAnimaisPerdidos(id);
+        const result = await buscarComentariosPerdidos(id);
         resp.send(result);
     } catch (error) {
         resp.send(error);

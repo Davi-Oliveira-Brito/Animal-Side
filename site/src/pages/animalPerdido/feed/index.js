@@ -14,7 +14,6 @@ import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
 import { toast } from 'react-toastify';
 export default function FeedAnimalPerdido() {
     const [animal, setAnimal] = useState([]);
-
     async function carregarAnimal() {
         try {
             const r = await buscarAnimalPerdido();
@@ -23,7 +22,6 @@ export default function FeedAnimalPerdido() {
             toast.dark('❗ ' + error.response.data);
         }
     }
-    console.log(animal);
     useEffect(()=>{
         carregarAnimal()
     },[]);
@@ -43,7 +41,6 @@ export default function FeedAnimalPerdido() {
 
                         <input className='pesquisa' type="text" placeholder='Procure seu bichinho...' />
                     </div>
-
                     <div className='bichinhos'>
                         {animal.map((item) => {
                             return(

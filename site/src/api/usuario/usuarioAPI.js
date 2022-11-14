@@ -26,7 +26,6 @@ export async function cadastrarUsuario(usuario) {
         senha: usuario.senha,
         tipo_residencia: null
     });
-    console.log(resposta);
     return resposta.data;
 }
 
@@ -134,7 +133,7 @@ export async function enviarComentarioPerdido(comentario, userId, perdidoId) {
     return resp.data;
 }
 
-export async function buscarAnimalPerdidos() {
-    const resp = await api.get('/usuario/comentarios/animal/perdido');
+export async function buscarComentariosPerdidos(id) {
+    const resp = await api.get(`/usuario/comentarios/animal/perdido/${id}`);
     return resp.data;
 }

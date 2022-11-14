@@ -15,7 +15,6 @@ export default function CardFeedAdmin(props) {
             toast.dark(error.response.data.error);
         }
     }
-    console.log(props.imagem);
     function mostrarImagem() {
         if (typeof (props.imagem) == 'object') {
             //return URL.createObjectURL(props.imagem)
