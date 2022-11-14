@@ -201,3 +201,5 @@ select  id_comentario,
 		id_animal_perdido
 from	tb_comentario
 inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perdido.id_animal;
+
+
