@@ -10,10 +10,12 @@ export default function AnimalPerdidoPopUp(props) {
     const [comentario, setComentario] = useState('');
     
     async function carregarComentario() {
+        console.log(storage('usuario-logado'));
         try {
             if(storage('usuario-logado')){
                 const r = await buscarComentariosPerdidos(props.id_animal);
                 setComentarios(r);
+                
             }
         } catch (error) {
             toast.dark(error.response.data);

@@ -14,6 +14,7 @@ import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
 import { toast } from 'react-toastify';
 export default function FeedAnimalPerdido() {
     const [animal, setAnimal] = useState([]);
+    console.log(animal);
     async function carregarAnimal() {
         try {
             const r = await buscarAnimalPerdido();
