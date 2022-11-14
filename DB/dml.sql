@@ -172,7 +172,7 @@ where 	ID_USUARIO = ?
 
 
 -- Buscar Aniamis perdido
-select  tb.animal_perdido.nm_animal				as nome,
+select  tb_animal_perdido.nm_animal				as nome,
 		tb_animal_perdido.nr_idade			    as idade,
 		tb_animal_perdido.ds_telefone_contato   as telefone,
 		tb_animal_perdido.dt_dia_sumico		    as diaSumico,

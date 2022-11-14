@@ -141,7 +141,7 @@ server.get('/usuario/comentarios', async (req, resp) => {
 });
 
 
-server.get('/usuario/animal/:id/perdido', async (req, resp) =>{
+server.get('/usuario/animal/:id/perdido/id', async (req, resp) =>{
     try {
         const { id } = req.params;
         const result = await buscarAnimaisPerdidosPorId(id);
