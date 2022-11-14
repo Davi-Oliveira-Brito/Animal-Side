@@ -143,9 +143,13 @@ create table tb_calendario(
 );
 
 create table tb_feedback (
-	id_feedback		int auto_increment primary key,
-    id_usuario		int,
-    ds_feedback		varchar(200)
+	id_feedback			int auto_increment primary key,
+    ds_feedback			varchar(200),
+    id_usuario			int,
+	id_animal_adocao	int,
+	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
+	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
+
 );
 
 create table tb_motivo_adocao(
