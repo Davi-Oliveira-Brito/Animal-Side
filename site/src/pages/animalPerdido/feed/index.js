@@ -3,7 +3,7 @@ import './index.scss'
 import React, { useState, useEffect } from 'react';
 
 //componentes
-import SideBar from '../../../components/sideBar';
+import SideBarPerdidos from '../../../components/sibarPerdidos';
 import Navbar from '../../../components/navBar';
 import CardAnimalPerdido from '../../../components/cardFeedAnimalPerdido';
 
@@ -13,12 +13,12 @@ import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
 // toast
 import { toast } from 'react-toastify';
 export default function FeedAnimalPerdido() {
-    const [animal, setAnimal] = useState([]);
-    console.log(animal);
+    const [animal, setAnimais] = useState([]);
+    const [nome, setNome] = useState('');
     async function carregarAnimal() {
         try {
             const r = await buscarAnimalPerdido();
-            setAnimal(r);
+            setAnimais(r);
         } catch (error) {
             toast.dark('❗ ' + error.response.data);
         }
@@ -33,14 +33,17 @@ export default function FeedAnimalPerdido() {
 
             <div className='conteudo-feed'>
 
-                <SideBar />
+                <SideBarPerdidos 
+                nome={nome}
+                setAnimais={setAnimais}
+                />
 
                 <div className='right'>
 
                     <div className='top'>
                         <p className='top-title'>PROCURE SEU ANIMAL E AJUDE OUTRAS PESSOAS A ENCONTRAREM</p>
 
-                        <input className='pesquisa' type="text" placeholder='Procure seu bichinho...' />
+                        <input onChange={(e)=>setNome(e.target.value)} className='pesquisa' type="text" placeholder='Procure seu bichinho...' />
                     </div>
                     <div className='bichinhos'>
                         {animal.map((item) => {

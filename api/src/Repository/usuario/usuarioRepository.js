@@ -129,7 +129,7 @@ export async function buscarAnimaisPerdidos() {
     tb_animal_perdido.nm_animal		as nome,
     tb_animal_perdido.nr_idade			    as idade,
     tb_animal_perdido.ds_telefone_contato   as telefone,
-    date_format(dt_dia_sumico,'%d/%m/%y')    as diaSumico,
+    date_format(dt_dia_sumico,'%d/%m/%y')   as diaSumico,
     tb_animal_perdido.ds_descricao		    as descricao,
     tb_animal_perdido.bt_status			    as status,
     tb_animal_perdido.img_animal			as imagem,

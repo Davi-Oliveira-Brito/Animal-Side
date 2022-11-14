@@ -63,7 +63,7 @@ export async function listarInformacoes(id) {
 export async function alterarInformacoes(usuario, id) {
     const resp = await api.put(`/usuario/${id}`, {
        NM_USUARIO:              usuario.NM_USUARIO,
-       DT_NASCIMENTO:           String(usuario.DT_NASCIMENTO.substring(0, 10)),
+       DT_NASCIMENTO:           usuario.DT_NASCIMENTO ? String(usuario.DT_NASCIMENTO.substring(0, 10)): null,
        DS_TELEFONE:             usuario.DS_TELEFONE,
        DS_ENDERECO:             usuario.DS_ENDERECO,
        VL_RENDA:                usuario.VL_RENDA,

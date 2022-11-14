@@ -47,6 +47,51 @@ export async function buscaAnimal(nome, sexo, porte, raca, preferencia, menor, m
 
 }
 
+export async function buscaAnimalPerdidoPorFiltro(nome, sexo, porte, raca, preferencia, menor, maior){
+    if(nome === 'undefined' || nome === undefined) nome = ''
+    if(raca == 'undefined' || raca == undefined) raca = ''
+    if(sexo == 'undefined' || sexo == undefined) sexo = ''
+    if(porte == 'undefined' || porte == undefined) porte = ''
+    if(preferencia == 'undefined' || preferencia == undefined) preferencia = ''
+    if(menor == 'undefined' || menor == undefined) menor = ''
+    if(maior == 'undefined' || maior == undefined) maior = ''
+
+    const comando = `
+    select  tb_animal_perdido.id_animal,
+        tb_animal_perdido.nm_animal		        as nome,
+        tb_animal_perdido.nr_idade			    as idade,
+        tb_animal_perdido.ds_telefone_contato   as telefone,
+        date_format(dt_dia_sumico,'%d/%m/%y')   as diaSumico,
+        tb_animal_perdido.ds_descricao		    as descricao,
+        tb_animal_perdido.bt_status			    as status,
+        tb_animal_perdido.img_animal			as imagem,
+        
+        tb_porte.ds_porte					    as porte,
+        tb_porte.id_porte,                
+        
+        tb_raca.ds_raca						    as raca,
+        tb_raca.id_raca,
+        
+        tb_sexo.ds_sexo						    as sexo,
+        tb_sexo.id_sexo
+
+    from 	tb_animal_perdido
+    inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
+    inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
+    inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo
+    
+    where   (? = '' or nm_animal like ?) 
+    and     (? = '' or tb_raca.id_raca = ?) 
+    and     (? = '' or tb_sexo.id_sexo = ? )
+    and     (? = '' or tb_porte.id_porte = ?)
+    and     (? = '' or nr_idade > ?)
+    and     (? = '' or nr_idade < ?)`;
+
+    const [resposta] = await con.query(comando, [nome, `%${nome}%`, raca, raca, sexo, sexo, porte, porte, preferencia, preferencia, maior, maior, menor, menor]);
+    return resposta;
+
+}
+
 export async function buscaAnimalId(id) {
     const command = `
         select  nm_animal           as nome,

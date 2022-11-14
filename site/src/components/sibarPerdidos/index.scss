@@ -1,0 +1,49 @@
+.side-feed-perdido{
+    display: flex;
+    flex-direction: column;
+    min-height:100%;
+    width: 12vw;
+    line-height: 2px;
+    align-items: center;
+
+    background-color: #FFFFFF;
+
+    .side-sub-feed{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 50vh;
+        width: 10vw;
+
+    
+    }
+
+    .animais{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-transform: none;
+        line-height: 2px;
+        height: 13em;
+    }
+
+    .side-title{
+        font-family: 'Poppins-Regular';
+        font-size: 17px;
+        color: #FF6909;
+    }
+
+    .side-text{
+        font-family: 'Poppins-Regular';
+        font-size: 14px;
+    }
+
+    .check-side{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+
+}
