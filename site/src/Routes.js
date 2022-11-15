@@ -30,6 +30,7 @@ import PagamentoQualquer from "./pages/pagamento/qualquer/index.js"
 import UseInteresses from './pages/usuario/meusInteresses/index.js'
 import FeedAnimalPerdido from "./pages/animalPerdido/feed/index.js"
 import UserPost from './pages/usuario/posts/index.js'
+import Denucias from './pages/admin/denuncias/index.js'
 
 
 export default function AppRoutes() {
@@ -68,6 +69,7 @@ export default function AppRoutes() {
                 
                 <Route path='/cadastro' element={<PageCadastrar/>} />
                 <Route path='/post' element={<Post/>} />
+                <Route path='/denuncias' element={<Denucias/>} />
                                 
                 <Route path='/feedadocaoadmin' element={<FeedAdocao/>}/>
                 
