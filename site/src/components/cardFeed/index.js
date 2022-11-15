@@ -7,7 +7,6 @@ import AnimalPopUp from '../animalInfoPopUp';
 
 export default function CardFeed(props) {
     const [isOpen, setIsOpen] = useState('nao');
-
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
             //return URL.createObjectURL(props.imagem);

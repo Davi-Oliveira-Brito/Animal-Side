@@ -1,8 +1,14 @@
 import './index.scss'
 
+import SituacaoAnimal from '../SituacaoAnimal';
+import { useState } from 'react';
+
 export default function ComentarioComp(props) {
+    const [isOpen, setIsOpen] = useState('nao');
+
     return (
         <main className='comentario'>
+
             <div className='bola'>
                 <p>{props.primeiraLetra}</p>
             </div>

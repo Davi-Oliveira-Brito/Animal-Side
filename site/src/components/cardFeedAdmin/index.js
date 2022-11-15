@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
 
 import { deletarAnimal } from '../../api/admin/animalAPI'; 
 import { pegarImagem } from '../../api/admin/animalAPI';
 import { toast } from 'react-toastify';
+import SituacaoAnimal from '../SituacaoAnimal';
 
 export default function CardFeedAdmin(props) {
+    const [isOpen, setIsOpen] = useState('sim');
     const navigate = useNavigate();
     async function deletar() {
         try {
@@ -24,6 +27,10 @@ export default function CardFeedAdmin(props) {
     }
     return (
         <main className='comp-card-admin'>
+            <SituacaoAnimal 
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
             <div className='image'><img src={mostrarImagem()} alt="" /></div>
             <div className='text'>
                 <div className='title'>{props.nome}</div>
