@@ -222,3 +222,17 @@ export async function buscarComentariosPerdidos(id) {
     const [result] = await con.query(command, [id]);
     return result
 }
+
+export async function mostrarFeedbacks(id){
+    const command = `
+        select tb_feedback.ds_feedback,
+        tb_animal_adocao.nm_animal,
+        tb_feedback.id_usuario
+    from tb_feedback
+    inner join tb_animal_adocao on tb_feedback.id_animal_adocao = tb_animal_adocao.id_animal_adocao
+    where id_usuario = ?;
+    `;
+
+    const [result] = await con.query(command, [id]);
+    return result;
+}
