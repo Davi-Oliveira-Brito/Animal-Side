@@ -12,6 +12,7 @@ import { buscarAnimalPerdido } from '../../../api/usuario/usuarioAPI';
 
 // toast
 import { toast } from 'react-toastify';
+
 export default function FeedAnimalPerdido() {
     const [animal, setAnimais] = useState([]);
     const [nome, setNome] = useState('');

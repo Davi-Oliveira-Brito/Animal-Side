@@ -36,9 +36,19 @@
     }
     .Nmr{
         color: #000000;
+        margin-bottom: .5em;
         .numero{
             color: #CB5204;
         }
+    }
+    .ver{
+        font-size: 14px;
+        line-height: 10px;
+        font-family: 'Poppins-Medium';
+        color: #000000;
+        text-decoration-line: underline;
+        cursor: pointer;
+        align-items: center;
     }
     .bt-img{
         display: flex;

@@ -16,7 +16,7 @@ export default function CardDenuncia() {
                         <div>Sumiço: 28/08/2022</div>
                     </div>
                 <div className='Nmr'> <span className='numero'> Numéro de contato: </span>(11) 93566 - 0437</div>
-                <div>Ver mais</div>
+                <div className='ver'>Ver mais</div>
                 <div className='bt-img'>
                     <button className='bt'>Perdido</button>
                     <div> <img className='imgs' src="/assets/images/Close.png" alt="" /></div>
