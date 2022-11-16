@@ -1,12 +1,10 @@
 use sistemaanimalside;
-
 -- isert inicial do adm
 insert into tb_admin(nm_admin, ds_email, ds_senha)
 			  values('Administrador','admin@admin','admin');
               
 insert into tb_raca(ds_raca)
 				values('Salsicha');
-                
                 
 select * from tb_animal_adocao; 
                 
@@ -138,14 +136,12 @@ insert into tb_comentario(ds_comentario, id_usuario)
 insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
 						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1);
 
-
-
 insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
 					  values('Achei ele super fofo e queria adotar ele!', 1, 1);
 
 
 insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
-				   values('Vi um gato parecido aqui na rua', 1, 1);
+				   values('Vi um gato parecido aqui na rua', 1, 2);
 
 
 -- Buscando informaçoes do usuario

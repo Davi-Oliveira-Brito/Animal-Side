@@ -48,7 +48,8 @@ export default function UserComent() {
                         return (
                             <ComentarioComp
                                 id={item.id_comentario}
-                                primeiraLetra={item.nm_usuario[0]}
+                                nm_animal={item.nm_animal}
+                                primeiraLetra={item.nm_animal[0]}
                                 nome={item.nm_usuario}
                                 coment={item.ds_comentario}
                             />

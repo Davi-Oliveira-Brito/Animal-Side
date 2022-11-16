@@ -84,9 +84,11 @@ export async function mostrarComentarios() {
     select tb_comentario.id_comentario,
            tb_comentario.ds_comentario,
            tb_usuario.id_usuario,
-           tb_usuario.nm_usuario
+           tb_usuario.nm_usuario,
+           tb_animal_perdido.nm_animal
     from tb_comentario
-    inner join tb_usuario on tb_usuario.id_usuario = tb_comentario.id_usuario`;
+    inner join tb_usuario on tb_usuario.id_usuario = tb_comentario.id_usuario
+    inner join tb_animal_perdido on tb_animal_perdido.id_animal = tb_comentario.id_animal_perdido;`
 
     const [resultado] = await con.query(comando, []);
     return resultado;
