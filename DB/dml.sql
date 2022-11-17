@@ -199,3 +199,16 @@ from	tb_comentario
 inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perdido.id_animal;
 
 
+select 	id_motivo_adocao,
+		id_usuario,
+		ds_comentario,
+
+		tb_usuario.nm_usuario,
+		tb_usuario.ds_telefone,
+		tb_usuario.ds_email,
+		tb_usuario.vl_renda,
+		tb_usuario.bt_animais_casa,
+		tb_usuario.tp_residencia
+
+from 		tb_motivo_adocao
+inner join 	tb_usuario on tb_motivo_adocao.id_usuario = tb_usuario.id_usuario;

@@ -10,10 +10,8 @@
     align-items: center;
 
     background-color: rgba(0, 0, 0, 0.439);
+    border: 1px solid green;
 
-    *{
-        border: 1px solid green;
-    }
 
     .container{
         width: 60%;
@@ -38,6 +36,7 @@
             overflow-y: scroll;
 
             .info-user{
+                padding: 15px;
                 width: 100%;
                 height: 400px;
                 display: flex;
@@ -45,7 +44,8 @@
                 align-items: center;
                 background: #FFFFFF;
                 box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25);
-
+                gap: 10px;
+                border: 1px solid black;
                 .first-row{
                     width: 80%;
                     display: flex;
@@ -83,7 +83,7 @@
                             display: flex;
                             flex-direction: column;
                             align-items: space-between;
-                            justify-content: space-between;
+                            gap: 5px;
 
                             & > div{
                                 width: 100%;
@@ -93,7 +93,7 @@
                                 font-family: 'poppins-regular';
                                 
                                 & > span:first-child{
-                                    width: 30%;
+                                    width: 50%;
                                 }
                                 
                                 & > span:last-child{
@@ -106,6 +106,33 @@
             
                 .descricao{
                     width: 80%;
+                    min-height: 100px;
+                    padding: 10px 0px;
+                    font-family:'poppins-regular';
+                    
+                }
+
+                textarea{
+                    width: 80%;
+                    height: 110px;
+                    outline: none;
+                    font-family:'poppins-regular';
+                    font-size: 1em;
+                }
+
+                .btn{
+                    width: 80%;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    span{
+                        font-family: 'poppins-bold';
+                        padding: 5px 15px;
+                        background-color: #FF6909;
+                        color: white;
+                        cursor: pointer;
+                    }
+
                 }
             }
         }

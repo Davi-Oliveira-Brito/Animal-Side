@@ -13,26 +13,26 @@ export default function SituacaoAnimal(props) {
                             <div className='names'>
                                 <div className='column'>
                                     <div>
-                                        <span>Raça</span><span>item</span>
+                                        <span>Nome</span><span>item</span>
                                     </div>
                                     <div>
-                                        <span>Idade</span><span>item</span>
+                                        <span>Fone</span><span>item</span>
                                     </div>
                                     <div>
-                                        <span>Sexo</span><span>item</span>
+                                        <span>Email</span><span>item</span>
                                     </div>
 
                                 </div>
                                 
                                 <div className='column'>
                                     <div>
-                                        <span>Raça</span><span>item</span>
+                                        <span>Renda</span><span>item</span>
                                     </div>
                                     <div>
-                                        <span>Idade</span><span>item</span>
+                                        <span>Possui Animal:</span><span>item</span>
                                     </div>
                                     <div>
-                                        <span>Sexo</span><span>item</span>
+                                        <span>Tipo de casa</span><span>item</span>
                                     </div>
 
                                 </div>
@@ -40,6 +40,12 @@ export default function SituacaoAnimal(props) {
                         </div>
 
                         <div className='descricao'>asdasdasdkjkahsudhasuhd iuashd huashud asud</div>
+
+                        <textarea></textarea>
+
+                        <div className='btn'>
+                            <span>Enviar</span>
+                        </div>
                     </div>
                 </div>
             </div>

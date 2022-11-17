@@ -1,4 +1,4 @@
-import { loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
+import buscarUsuarioPorId, { loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
 
 import { Router } from "express";
 
@@ -48,5 +48,15 @@ server.get('/admin/nome', async (req,resp) =>{
         });
     }
 })
+
+server.get('/admin/motivo/adocao', async (req, resp) => {
+    try {
+        const info = {}
+        buscarUsuarioPorId
+    } catch (error) {
+        
+    }
+});
+
 
 export default server;

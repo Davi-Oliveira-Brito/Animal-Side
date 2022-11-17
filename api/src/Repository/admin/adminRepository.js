@@ -25,3 +25,14 @@ export async function nomeAdmin(admin) {
     const [resposta] = await con.query(comando, [admin.id]);
     return resposta[0];
 } 
+
+
+export default async function buscarMotivosAdocao(id_animal) {
+    const command = `
+        select * from tb_motivo_adoca where id_animal_adocao = ?
+    `;
+
+    const [result] = await con.query(command, [id_animal]);
+    return result
+    
+}
