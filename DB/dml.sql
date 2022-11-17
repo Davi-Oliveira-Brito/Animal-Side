@@ -56,7 +56,7 @@ from	tb_sexo;
 
 -- insert da tabela adocao
 insert into tb_animal_adocao(nm_animal,nr_idade,ds_descricao,img_animal,id_admin, id_porte,id_raca, id_preferencia,id_sexo)
-					  values('doguinho',11,'cachorrooooo','', 1, 1, 1, 1, 1);			
+					  values('dogui',11,'cachor',null, 1, 1, 1, 1, 1);			
               
 -- Insert animal perdido
 insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
@@ -137,17 +137,17 @@ insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_s
 						values('Dog dahora', 15, '119881216', '2022-11-22', 'texto bem dahora aqui', 0, 1, 1, 1, 1);
 
 insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
-					  values('Achei ele super fofo e queria adotar ele!', 1, 1);
+					  values('Achei ele super fofo e queria adotar ele!', 1, 3);
 
 
 insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
-				   values('Vi um gato parecido aqui na rua', 1, 2);
+				   values('Vi um gato parecido aqui na rua', 1, 3);
 
 
 -- Buscando informaçoes do usuario
-select * from tb_usuario where id_usuario = ? 
+select * from tb_usuario where id_usuario = ?; 
 
-update 	tb_usuario,
+update 	tb_usuario
 set 	NM_USUARIO = ?,
 		DT_NASCIMENTO = ?,
 		DS_TELEFONE = ?,
@@ -159,7 +159,7 @@ set 	NM_USUARIO = ?,
 		DS_EMAIL = ?,
 		DS_SENHA = ?,
 		TP_RESIDENCIA = ?
-where 	ID_USUARIO = ?
+where 	ID_USUARIO = ?;
 
 
 -- Buscar Aniamis perdido
@@ -200,7 +200,7 @@ inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perd
 
 
 select 	id_motivo_adocao,
-		id_usuario,
+		tb_usuario.id_usuario,
 		ds_comentario,
 
 		tb_usuario.nm_usuario,
@@ -212,3 +212,39 @@ select 	id_motivo_adocao,
 
 from 		tb_motivo_adocao
 inner join 	tb_usuario on tb_motivo_adocao.id_usuario = tb_usuario.id_usuario;
+
+-- Meus Interesses
+select 	id_motivo_adocao,
+		tb_usuario.id_usuario,
+        tb_animal_adocao.id_animal_adocao,
+        
+        tb_animal_adocao.ds_descricao			 as descricao,
+        tb_animal_adocao.nm_animal				 as nome,
+        tb_animal_adocao.nr_idade			as idade,
+		tb_animal_adocao.img_animal			as imagem,
+        
+        tb_preferencia.ds_preferencia		as preferencia,
+		tb_preferencia.id_preferencia,
+        
+		tb_porte.ds_porte					    as porte,
+		tb_porte.id_porte,                
+		
+		tb_raca.ds_raca						    as raca,
+		tb_raca.id_raca,
+		
+		tb_sexo.ds_sexo						    as sexo,
+		tb_sexo.id_sexo
+        
+        
+from 	tb_motivo_adocao
+inner join 	tb_usuario on tb_motivo_adocao.id_usuario = tb_usuario.id_usuario
+inner join 	tb_animal_adocao on tb_motivo_adocao.id_animal_adocao = tb_animal_adocao.id_animal_adocao 
+inner join tb_porte on tb_animal_adocao.id_porte = tb_porte.id_porte
+inner join tb_raca on tb_animal_adocao.id_raca = tb_raca.id_raca
+inner join tb_sexo on tb_animal_adocao.id_sexo = tb_sexo.id_sexo
+inner join tb_preferencia on tb_animal_adocao.id_preferencia = tb_preferencia.id_preferencia
+
+where tb_motivo_adocao.id_usuario = 1;
+
+
+

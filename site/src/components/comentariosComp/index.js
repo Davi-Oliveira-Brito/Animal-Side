@@ -1,6 +1,6 @@
 import './index.scss'
 
-import SituacaoAnimal from '../SituacaoAnimal';
+import SituacaoAnimal from '../situacaoAnimal';
 import { useState } from 'react';
 
 export default function ComentarioComp(props) {

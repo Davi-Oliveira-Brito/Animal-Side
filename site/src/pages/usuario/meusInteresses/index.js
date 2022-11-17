@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useSearchParams } from 'react';
 import { toast } from 'react-toastify';
+import storage from 'local-storage';
 
 import './index.scss'
 import SidebarUser from '../../../components/sidebarUsuario';
@@ -8,16 +9,19 @@ import DadoUser from '../../../components/dados';
 import CardMeusInteresses from '../../../components/cardMeusInteresses';
 
 
-import { buscaAnimal } from '../../../api/animalAPI';
+import { Meusinteresses } from '../../../api/usuario/usuarioAPI';
 
 
 export default function UseInteresses() {
     const [animais, setAnimais] = useState([]);
 
+
     async function carregarAnimais() {
         try {
-            const r = await buscaAnimal();
-            setAnimais(r);
+
+            const r = await Meusinteresses(storage('usuario-logado').id);
+            console.log(r);
+            setAnimais(r.resposta);
         } catch (error) {
             toast.dark(error.response.data.error);
         }
@@ -37,6 +41,7 @@ export default function UseInteresses() {
                 {animais.map(item => {
                         return (
                             <CardMeusInteresses
+                            id={item.id_animal_adocao}
                                 imagem={item.imagem}
                                 nome={item.nome}
                                 raca={item.raca}
