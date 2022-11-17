@@ -286,3 +286,32 @@ where tb_motivo_adocao.id_usuario = ?;
     const [result] = await con.query(command, [id]);
     return result
 }
+
+export async function userPost(id){
+    const command= `
+    select  tb_animal_perdido.nm_animal                as nome,
+    tb_animal_perdido.nr_idade                as idade,
+    tb_animal_perdido.ds_telefone_contato   as telefone,
+    date_format(dt_dia_sumico,'%d/%m/%y')   as diaSumico,
+    tb_animal_perdido.ds_descricao            as descricao,
+    tb_animal_perdido.img_animal            as imagem,
+    
+    tb_porte.ds_porte                        as porte,
+    tb_porte.id_porte,                
+    
+    tb_raca.ds_raca                            as raca,
+    tb_raca.id_raca,
+    
+    tb_sexo.ds_sexo                            as sexo,
+    tb_sexo.id_sexo
+
+from     tb_animal_perdido
+inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
+inner join tb_raca on tb_animal_perdido.id_raca = tb_raca.id_raca
+inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo
+inner join tb_usuario on tb_animal_perdido.id_usuario = tb_usuario.id_usuario
+where tb_animal_perdido.id_usuario = ?;`
+
+const [result] = await con.query(command, [id]);
+return result;
+}

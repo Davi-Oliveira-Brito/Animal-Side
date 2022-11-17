@@ -35,7 +35,9 @@ export default function UseInteresses() {
             <div className='right'>
                 <div><NavBarAdmin /></div>
                 <div className='comp1'>
-                    <DadoUser />
+                    <DadoUser 
+                    usuario='' 
+                    endereco=''/>
                 </div>
                 <div className='comp2'>
                 {animais.map(item => {

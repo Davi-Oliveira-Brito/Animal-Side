@@ -252,4 +252,15 @@ server.get('/usuario/meusinteresses/:id', async (req,resp) =>{
     }
 })
 
+server.get('/usuario/userPost/:id', async (req, resp) =>{
+    try {
+        const { id } = req.params;
+        const result = await userPost(id);
+
+        resp.status(202).send({result})
+    } catch (error) {
+        resp.status(404).send(error)
+    }
+})
+
 export default server;
