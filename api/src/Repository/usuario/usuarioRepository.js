@@ -159,7 +159,16 @@ inner join tb_sexo on tb_animal_perdido.id_sexo = tb_sexo.id_sexo;
 export async function cadastroAnimalPerdido(animal) {
     const command = `insert into tb_animal_perdido(nm_animal, nr_idade, ds_telefone_contato, dt_dia_sumico, ds_descricao, bt_status, id_usuario, id_porte, id_raca, id_sexo)
                                             values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const [result] = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, 0, animal.usuario, animal.porte, animal.raca, animal.sexo]);
+    const [result] = await con.query(command, [animal.nome,
+                                               animal.idade,
+                                               animal.telefone, 
+                                               animal.diaSumico, 
+                                               animal.descricao, 
+                                               0, 
+                                               animal.usuario, 
+                                               animal.porte, 
+                                               animal.raca, 
+                                               animal.sexo            ]);
     return result.insertId;    
 }
 
@@ -237,4 +246,43 @@ export async function mostrarFeedbacks(id){
 
     const [result] = await con.query(command, [id]);
     return result;
+}
+
+export async function MeusInteresses(id) {
+    const command = `
+    select     id_motivo_adocao,
+    tb_usuario.id_usuario,
+    tb_animal_adocao.id_animal_adocao,
+    
+    tb_animal_adocao.ds_descricao             as descricao,
+    tb_animal_adocao.nm_animal                 as nome,
+    tb_animal_adocao.nr_idade            as idade,
+    tb_animal_adocao.img_animal            as imagem,
+    
+    tb_preferencia.ds_preferencia        as preferencia,
+    tb_preferencia.id_preferencia,
+    
+    tb_porte.ds_porte                        as porte,
+    tb_porte.id_porte,                
+    
+    tb_raca.ds_raca                            as raca,
+    tb_raca.id_raca,
+    
+    tb_sexo.ds_sexo                            as sexo,
+    tb_sexo.id_sexo
+    
+    
+from     tb_motivo_adocao
+inner join     tb_usuario on tb_motivo_adocao.id_usuario = tb_usuario.id_usuario
+inner join     tb_animal_adocao on tb_motivo_adocao.id_animal_adocao = tb_animal_adocao.id_animal_adocao 
+inner join tb_porte on tb_animal_adocao.id_porte = tb_porte.id_porte
+inner join tb_raca on tb_animal_adocao.id_raca = tb_raca.id_raca
+inner join tb_sexo on tb_animal_adocao.id_sexo = tb_sexo.id_sexo
+inner join tb_preferencia on tb_animal_adocao.id_preferencia = tb_preferencia.id_preferencia
+
+where tb_motivo_adocao.id_usuario = ?;
+    `;
+
+    const [result] = await con.query(command, [id]);
+    return result
 }
