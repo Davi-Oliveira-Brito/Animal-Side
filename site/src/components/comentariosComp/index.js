@@ -1,5 +1,5 @@
 import './index.scss'
-import SituacaoAnimal from '../situacaoAnimal';
+
 export default function ComentarioComp(props) {
 
     return (
