@@ -142,3 +142,8 @@ export async function Meusinteresses(id){
     const resp = await api.get(`/usuario/meusinteresses/${id}`);
     return resp.data;
 }
+
+export async function UsuarioPost(id){
+    const resp = await api.get(`/usuario/userPost/${id}`);
+    return resp.data
+}
