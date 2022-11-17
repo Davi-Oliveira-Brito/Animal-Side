@@ -1,9 +1,6 @@
 import './index.scss'
-
-import { useState } from 'react';
-
+import SituacaoAnimal from '../situacaoAnimal';
 export default function ComentarioComp(props) {
-    const [isOpen, setIsOpen] = useState('nao');
 
     return (
         <main className='comentario'>

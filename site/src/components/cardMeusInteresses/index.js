@@ -5,7 +5,7 @@ export default function CardMeusInteresses(props){
 
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
-            return URL.createObjectURL(props.imagem);
+            //return URL.createObjectURL(props.imagem);
         }else{
             return pegarImagem(props.imagem);
         }

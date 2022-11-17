@@ -137,3 +137,8 @@ export async function buscarComentariosPerdidos(id) {
     const resp = await api.get(`/usuario/comentarios/animal/perdido/${id}`);
     return resp.data;
 }
+
+export async function Meusinteresses(id){
+    const resp = await api.get(`/usuario/meusinteresses/${id}`);
+    return resp.data;
+}
