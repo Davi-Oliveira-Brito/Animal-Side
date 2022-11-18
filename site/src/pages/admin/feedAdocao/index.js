@@ -5,8 +5,8 @@ import './index.scss'
 // Components
 import NavBarAdmin from '../../../components/navBarAdmin/index.js';
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js';
-import CardFeedAdmin from '../../../components/cardFeedAdmin/index.js';
 import ActionPopUp from '../../../components/actionPopUp/index.js';
+import CardFeedAdmin from '../../../components/CardFeedAdmin';
 
 // Api
 import { buscaAnimal } from '../../../api/animalAPI.js';
@@ -39,7 +39,7 @@ export default function FeddAdocao() {
                     {animais.map(item => {
                         return (
                             <CardFeedAdmin
-                                id={item.id_animal_adocao}
+                                id_animal_adocao={item.id_animal_adocao}
                                 imagem={item.imagem}
                                 nome={item.nome}
                                 raca={item.raca}

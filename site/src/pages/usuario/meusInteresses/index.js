@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useSearchParams } from 'react';
+import React, { useEffect, useState, useSearchParams } from 'react';
 import { toast } from 'react-toastify';
 import storage from 'local-storage';
 
@@ -31,19 +31,19 @@ export default function UseInteresses() {
     }, []);
     return (
         <main className='meus-interesses-page'>
-            <SidebarUser/>
+            <SidebarUser />
             <div className='right'>
                 <div><NavBarAdmin /></div>
                 <div className='comp1'>
-                    <DadoUser 
-                    usuario='' 
-                    endereco=''/>
+                    <DadoUser
+                        nome={storage('usuario-logado').nome}
+                        regiao={storage('usuario-logado').endereco} />
                 </div>
                 <div className='comp2'>
-                {animais.map(item => {
+                    {animais.map(item => {
                         return (
                             <CardMeusInteresses
-                            id={item.id_animal_adocao}
+                                id={item.id_animal_adocao}
                                 imagem={item.imagem}
                                 nome={item.nome}
                                 raca={item.raca}

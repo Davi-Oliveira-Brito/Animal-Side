@@ -7,7 +7,7 @@ import SidebarUser from '../../../components/sidebarUsuario/index.js';
 import storage from 'local-storage';
 
 // API
-import { alterarInformacoes, listarInformacoes } from '../../../api/usuario/usuarioAPI';
+import { alterarInformacoes, buscarComentariosPerdidos, listarInformacoes } from '../../../api/usuario/usuarioAPI';
 import { useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify'
@@ -29,11 +29,11 @@ export default function PerfilUser(){
         toast.dark('✏️ Editando...', {autoClose: 1000});
         setNaoPodeEditar(false);        
     }
-    console.log(usuario);
+    
     async function salvar(){
         try {
             let resposta = await alterarInformacoes(usuario, storage('usuario-logado').id);
-            
+            console.log(resposta);
             storage('usuario-logado', {
                 id: storage('usuario-logado').id, 
                 nome: usuario.NM_USUARIO,
@@ -58,7 +58,6 @@ export default function PerfilUser(){
     useEffect(()=>{
         carregarUsuario();
     },[]);
-    console.log(usuario);
     return(
         <main className="user-perfil">
             <NavBarAdmin/>
@@ -131,7 +130,7 @@ export default function PerfilUser(){
                         <div onClick={()=> editar()}> Editar </div>
                     }
                     {naoPodeEditar === false &&
-                        <div onClick={()=> salvar(true)}> Salvar </div>
+                        <div onClick={()=> salvar()}> Salvar </div>
                     }
                 </div>
         

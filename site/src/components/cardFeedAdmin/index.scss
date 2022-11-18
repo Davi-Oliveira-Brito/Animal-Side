@@ -48,6 +48,10 @@
             font-size: 1.1em;
             font-family: 'Poppins-Regular';
 
+            & > div:first-child{
+                cursor: pointer;
+            }
+
             & > :nth-child(1){
                 display: flex;
                 justify-content: center;

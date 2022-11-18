@@ -1,4 +1,4 @@
-import buscarUsuarioPorId, { loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
+import buscarUsuarioPorId, { enviarFeedBack, loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
 
 import { Router } from "express";
 
@@ -51,12 +51,21 @@ server.get('/admin/nome', async (req,resp) =>{
 
 server.get('/admin/motivo/adocao', async (req, resp) => {
     try {
-        const info = {}
-        buscarUsuarioPorId
+        const result = await buscarUsuarioPorId();
+        resp.send(result);
     } catch (error) {
-        
+        resp.send(error.message);
     }
 });
 
+server.post('/admin/feedback', async (req, resp) => {
+    try {
+        const info = req.body;
+        const result = await enviarFeedBack(info);
+        resp.send(result);
+    } catch (error) {
+        resp.send(error);
+    }
+});
 
 export default server;

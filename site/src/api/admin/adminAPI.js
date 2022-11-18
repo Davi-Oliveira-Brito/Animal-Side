@@ -16,3 +16,17 @@ export async function nomeAdmin() {
     const resposta = await api.get('/admin/nome');
     return resposta.data;
 }
+
+export async function buscarComentarios() {
+    const resp = await api.get(`/admin/motivo/adocao`);
+    return resp.data;
+}
+
+export async function enviarFeedBack(info) {
+    const resp = await api.post('/admin/feedback', {
+        comentario: info.comentario,
+        usuario:info.usuario,
+        animal_adocao: info.animal_adocao
+    });
+    return resp.data;
+}

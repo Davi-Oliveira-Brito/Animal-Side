@@ -145,5 +145,10 @@ export async function Meusinteresses(id){
 
 export async function UsuarioPost(id){
     const resp = await api.get(`/usuario/userPost/${id}`);
-    return resp.data
+    return resp.data;
+}
+
+export async function MostrarFeedbacks(id){
+    const resp = await api.get(`/usuario/feedbacks/${id}`);
+    return resp.data;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './index.scss'
 import NavBar from '../../../components/navBar/index.js'
-import SideBar from '../../../components/sibarPerdidos';
+import SideBar from '../../../components/sideBar';
 import CardFeed from '../../../components/cardFeed/index.js'
 import { useState } from 'react';
 

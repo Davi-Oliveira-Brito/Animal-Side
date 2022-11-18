@@ -4,8 +4,14 @@ import './index.scss'
 
 import { pegarImagem } from '../../api/admin/animalAPI';
 import AnimalPopUp from '../animalInfoPopUp';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage'
+
+import { toast } from 'react-toastify';
 
 export default function CardFeed(props) {
+
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState('nao');
     function mostrarImagem() {
         if(typeof(props.imagem) == 'object'){
@@ -14,7 +20,19 @@ export default function CardFeed(props) {
             return pegarImagem(props.imagem)
         }
     }
-
+    function goNext() {
+        let canGo = true;
+        let obj = storage('usuario-logado');
+        for(const item in obj) {
+          if(obj[item] === null || !obj[item]) canGo = false; 
+        }
+    
+        if(canGo === true) navigate(`/motivo/adocao?animalId=${props.id}`)
+        else {
+          navigate(`/userPerfil`)
+          toast.dark('❗ Por favor termine seu cadastro antes de adotar!')
+        }
+      }
     return (
         <main className="comp-card">
             <AnimalPopUp 
@@ -46,7 +64,7 @@ export default function CardFeed(props) {
 
                     <div className="buttons">
                         <button onClick={() => setIsOpen('sim')} className="botao">Conhecer</button>
-                        <button className="botao">Adotar</button>
+                        <button onClick={() => goNext()} className="botao">Adotar</button>
                     </div>
 
                 </div>

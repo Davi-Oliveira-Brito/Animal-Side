@@ -11,7 +11,7 @@ const server = Router();
 server.post('/usuario/animal/perdido', async (req, resp) => {
     try {
         const animal = req.body;
-
+        console.log(animal);
         if(!animal.idade || animal.idade < 0 ) throw new Error('Idade inválida')
         if(typeof(animal.nome) != 'string' || !animal.nome || animal.nome.length < 2 ||animal.nome.length > 100) throw new Error('Nome Invalido')
         if(!animal.telefone || animal.telefone.length > 11 ) throw new Error('Telefone Inválido')
@@ -93,11 +93,11 @@ server.get('/usuario/informacao/:id', async(req, resp) => {
 server.put('/usuario/:id', async (req, resp) => {
     try {
         const usuario = req.body;
-        const { id } =req.params;
+        const { id } = req.params;
         if (!usuario.VL_RENDA || usuario.VL_RENDA <= 0 )  throw new Error("Campo Renda Invalida")
         if (!usuario.TM_TEMPO_SOZINHO_ANIMAL || usuario.TM_TEMPO_SOZINHO_ANIMAL <=0 ) throw new Error("Campo Tempo sozinho animal invalido")
         if (!usuario.QTD_PESSOAS_CASA || usuario.QTD_PESSOAS_CASA <= 0 ) throw new Error("Campo Quantidade de pessoas em casa invalido ")
-        if (!usuario.DS_EMAI) throw new Error('Campo Email inválido');
+        if (!usuario.DS_EMAIL) throw new Error('Campo Email inválido');
         if (!usuario.TP_RESIDENCIA) throw new Error('Campo Tipo Residencia Inválido');
         if (!usuario.DS_SENHA) throw new Error('Campo senha Inválido');
         

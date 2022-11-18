@@ -144,6 +144,10 @@ insert into tb_comentario(ds_comentario, id_usuario, id_animal_perdido)
 				   values('Vi um gato parecido aqui na rua', 1, 3);
 
 
+
+insert into tb_feedback(ds_feedback, id_usuario, id_animal_adocao)
+				 values('Comentario', 1, 1);
+
 -- Buscando informaçoes do usuario
 select * from tb_usuario where id_usuario = ?; 
 
@@ -201,7 +205,9 @@ inner join tb_animal_perdido on tb_comentario.id_animal_perdido = tb_animal_perd
 
 select 	id_motivo_adocao,
 		tb_usuario.id_usuario,
-		ds_comentario,
+		
+		tb_motivo_adocao.ds_comentario,
+		tb_motivo_adocao.id_animal_adocao,
 
 		tb_usuario.nm_usuario,
 		tb_usuario.ds_telefone,

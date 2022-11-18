@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import SituacaoAnimal from '../situacaoAnimal/index.js'
 
 export default function CardFeedAdmin(props) {
-    const [isOpen, setIsOpen] = useState('sim');
+    const [isOpen, setIsOpen] = useState('nao');
     const navigate = useNavigate();
     async function deletar() {
         try {
@@ -45,7 +45,7 @@ export default function CardFeedAdmin(props) {
                 </div>
 
                 <div className='btns'>
-                    <div>Situação</div>
+                    <div onClick={()=>setIsOpen('sim')}>Situação</div>
                     <div>
                         <div> <img className='img' onClick={() => navigate(`/cadastro?id=${props.id}`)} src="/assets/images/Edit.png" alt="" /></div>
                         <div> <img className='img' onClick={()=> deletar()}src="/assets/images/Close.png" alt="" /></div>

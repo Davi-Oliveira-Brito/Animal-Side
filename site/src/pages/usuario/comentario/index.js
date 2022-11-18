@@ -38,7 +38,7 @@ export default function UserComent() {
             <SidebarUser />
             <div className="coment-right">
                 <div className='dado'>
-                    <DadoUser
+                <DadoUser
                         nome={storage('usuario-logado').nome}
                         regiao={storage('usuario-logado').endereco} />
                 </div>
@@ -55,6 +55,8 @@ export default function UserComent() {
                             />
                         )
                     })}
+
+                    
                 </div>
 
             </div>

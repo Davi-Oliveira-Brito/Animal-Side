@@ -2,9 +2,30 @@ import './index.scss'
 import SidebarUser from '../../../components/sidebarUsuario';
 import DadoUser from '../../../components/dados';
 import NavBarAdmin from '../../../components/navBarAdmin';
-import ComentarioComp from '../../../components/comentariosComp';
+import FeedbackComp from '../../../components/cardFeedBack/index.js';
 import storage from 'local-storage';
+import { toast } from 'react-toastify';
+import { MostrarFeedbacks } from '../../../api/usuario/usuarioAPI';
+import { useState, useEffect } from 'react';
 export default function UserFeedBack() {
+    const [feedback, setFeedback] = useState([]);
+
+    async function carregarFeedbacks() {
+        try {
+            const r = await MostrarFeedbacks(storage('usuario-logado').id);
+            setFeedback(r.result);
+            console.log(r.result)
+        } catch (error) {
+            console.log(error)
+            toast.dark(error.response.data.error)
+        }
+    }
+
+    useEffect(() => {
+        carregarFeedbacks();
+    }, []);
+
+
    return (
       <main className="feedback-page">
             <NavBarAdmin />
@@ -17,11 +38,19 @@ export default function UserFeedBack() {
                 </div>
 
                 <div className='comp'>
-                    <ComentarioComp
-                    primeiraLetra='A'
-                    nome='Administrador'
-                    coment="Parabens seu merda, ganhou um novo amigo"/>
+                    {feedback.map(item => {
+                        return (
+                            <FeedbackComp
+                                id={item.id_feedback}
+                                nm_animal={item.nm_animal}
+                                nome="Administrador"
+                                coment={item.ds_feedback}
+                            />
+                        )
+                    })}
+
                 </div>
+
 
             </div>
         </main>
