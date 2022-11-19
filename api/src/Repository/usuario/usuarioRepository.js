@@ -187,13 +187,12 @@ export async function alterarAnimalPerdido(animal, id) {
         ds_telefone_contato         = ?,
         dt_dia_sumico	            = ?,
         ds_descricao		        = ?,
-        id_usuario			        = ?,
         id_porte			        = ?,
         id_raca			            = ?,
         id_sexo			            = ?
     where id_animal                 = ?;`
 
-   const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, animal.usuario, animal.porte, animal.raca, animal.sexo, id ]);
+   const result = await con.query(command, [animal.nome, animal.idade, animal.telefone, animal.diaSumico, animal.descricao, animal.porte, animal.raca, animal.sexo, id ]);
     return result.affectedRows
 }
 
@@ -290,21 +289,22 @@ where tb_motivo_adocao.id_usuario = ?;
 
 export async function userPost(id){
     const command= `
-    select  tb_animal_perdido.nm_animal                as nome,
-    tb_animal_perdido.nr_idade                as idade,
-    tb_animal_perdido.ds_telefone_contato   as telefone,
-    date_format(dt_dia_sumico,'%d/%m/%y')   as diaSumico,
-    tb_animal_perdido.ds_descricao            as descricao,
-    tb_animal_perdido.img_animal            as imagem,
+    select  tb_animal_perdido.id_animal,
+            tb_animal_perdido.nm_animal                as nome,
+            tb_animal_perdido.nr_idade                as idade,
+            tb_animal_perdido.ds_telefone_contato   as telefone,
+            date_format(dt_dia_sumico,'%d/%m/%y')   as diaSumico,
+            tb_animal_perdido.ds_descricao            as descricao,
+            tb_animal_perdido.img_animal            as imagem,
     
-    tb_porte.ds_porte                        as porte,
-    tb_porte.id_porte,                
+            tb_porte.ds_porte                        as porte,
+            tb_porte.id_porte,                
     
-    tb_raca.ds_raca                            as raca,
-    tb_raca.id_raca,
+            tb_raca.ds_raca                            as raca,
+            tb_raca.id_raca,
     
-    tb_sexo.ds_sexo                            as sexo,
-    tb_sexo.id_sexo
+            tb_sexo.ds_sexo                            as sexo,
+            tb_sexo.id_sexo
 
 from     tb_animal_perdido
 inner join tb_porte on tb_animal_perdido.id_porte = tb_porte.id_porte
@@ -315,4 +315,19 @@ where tb_animal_perdido.id_usuario = ?;`
 
 const [result] = await con.query(command, [id]);
 return result;
+}
+
+export async function deletarAnimalPerdido(id) {
+    const commando = `
+        delete from tb_comentario where id_animal_perdido = ?
+    `;
+
+    const [r1] = await con.query(commando, [id]);
+    console.log(r1);
+    const command = `
+        delete from tb_animal_perdido where id_animal = ?;
+    `;
+   
+    const [result] = await con.query(command, [id]);
+    return result.affectedRows
 }

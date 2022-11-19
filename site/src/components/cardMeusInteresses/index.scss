@@ -1,8 +1,7 @@
-
 .card-meus-interesses{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 1em;
     width: 90%;
     height: 15em;
@@ -23,6 +22,7 @@
         }
     }
     .card-right{
+        width: 50%;
         display: flex;
         flex-direction: column;
         .title{

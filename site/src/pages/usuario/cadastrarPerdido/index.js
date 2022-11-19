@@ -18,13 +18,14 @@ import { buscaFiltro } from '../../../api/animalAPI';
 import { toast } from 'react-toastify';
 import SidebarUser from '../../../components/sidebarUsuario';
 
+
 export default function UserCadastrarPerdido() {
     // Porte, Raca, Sexo, Preferencia são ID's 
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState();
     const [idAnimal, setIdAnimal] = useSearchParams('id');
     const [cannotWrite, setCannotWrite] = useState(false);
-
+    
     const [animal, setAnimal] = useState({
         nome: '',
         idade: 0,
@@ -78,7 +79,7 @@ export default function UserCadastrarPerdido() {
             toast.dark(error.response.data.error);
         }
     }
-
+    
     async function cadastrar() {
         try {
             if (animal.imagem) {
@@ -118,7 +119,7 @@ export default function UserCadastrarPerdido() {
             return pegarImagem(animal.imagem)
         }
     }
-
+    
     function mudarImagem() {
         document.getElementById('input-image').click();
     }
@@ -132,6 +133,8 @@ export default function UserCadastrarPerdido() {
         if (idAnimal.get('id') || idAnimal.get('id') !== null) carregarAnimal();
         carregarSelects();
     }, []);
+    
+    console.log(animal);
     return (
         <main className="cadastro-animal-perdido">
 
@@ -184,7 +187,7 @@ export default function UserCadastrarPerdido() {
                                         })}
                                     </select>
 
-                                    <input value={animal.diaSumico} onChange={(e) => setAnimal({ ...animal, diaSumico: e.target.value })} className="inputo" type="date" placeholder="Dia do sumiço:" />
+                                    <input value={animal.diaSumico.substring(0,10)} onChange={(e) => setAnimal({ ...animal, diaSumico: e.target.value })} className="inputo" type="date" placeholder="Dia do sumiço:" />
                                     <input value={animal.telefone} onChange={(e) => setAnimal({ ...animal, telefone: e.target.value })} className="inputo" type="text" placeholder="Telefone pra contato" />
 
                                 </div>

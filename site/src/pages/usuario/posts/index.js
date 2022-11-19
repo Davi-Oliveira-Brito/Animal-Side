@@ -3,7 +3,7 @@ import './index.scss'
 import { toast } from 'react-toastify';
 import storage from 'local-storage';
 
-import { UsuarioPost } from '../../../api/usuario/usuarioAPI';
+import { deletarAnimalPerdido, UsuarioPost } from '../../../api/usuario/usuarioAPI';
 import NavBarAdmin from '../../../components/navBarAdmin/index.js';
 import DadoUser from '../../../components/dados';
 import CardPostUser from '../../../components/cardPostUser';
@@ -12,10 +12,11 @@ import SideBarUsuario from '../../../components/sidebarUsuario'
 export default function UserPost(){
     const [perdido, setPerdido] = useState([]);
 
+
+
     async function carregarInfo(){
         try {
-            const r = await UsuarioPost(storage('local-usuario').id);
-            console.log(r);
+            const r = await UsuarioPost(storage('usuario-logado').id);
             setPerdido(r);
         } catch (error) {
             toast.dark(error.response.data.error);
@@ -30,10 +31,13 @@ export default function UserPost(){
             <SideBarUsuario/>
             <NavBarAdmin />
             <div className='top-post'>
-                <DadoUser/>
+                <DadoUser
+                        nome={storage('usuario-logado').nome}
+                        regiao={storage('usuario-logado').endereco} />
                {perdido.map( item =>{
                 return(
                     <CardPostUser
+                    carregarInfo={carregarInfo}
                     id={item.id_animal}
                     imagem={item.imagem}
                     nome={item.nome}

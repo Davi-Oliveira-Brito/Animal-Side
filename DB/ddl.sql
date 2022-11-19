@@ -1,4 +1,4 @@
-drop database if exists sistemaanimalside;
+ drop database if exists sistemaanimalside;
 create database if not exists sistemaanimalside;
 use sistemaanimalside;
 
@@ -47,8 +47,8 @@ create table tb_preferencia(
 );
 
 create table tb_sexo(
-id_sexo 		int primary key auto_increment,
-ds_sexo			varchar(100)
+	id_sexo 		int primary key auto_increment,
+	ds_sexo			varchar(100)
 );
 
 create table tb_animal_perdido(
@@ -68,6 +68,8 @@ create table tb_animal_perdido(
 	foreign key (id_porte) references tb_porte(id_porte),
 	foreign key (id_raca) references tb_raca(id_raca),
     foreign key (id_sexo) references tb_sexo(id_sexo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ); 
 create table tb_comentario_adocao(
 	id_comentario_adocao 	int primary key auto_increment,
@@ -75,6 +77,8 @@ create table tb_comentario_adocao(
 	ds_feedback 		varchar(100),
 	id_usuario			int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 create table tb_animal_adocao(
 	id_animal_adocao		int primary key auto_increment,
@@ -92,6 +96,8 @@ create table tb_animal_adocao(
 	foreign key (id_raca) references tb_raca(id_raca),
 	foreign key (id_preferencia) references tb_preferencia(id_preferencia),
     foreign key (id_sexo) references tb_sexo(id_sexo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 create table tb_doacao(
@@ -102,6 +108,8 @@ create table tb_doacao(
 	ds_email			varchar(100),
 	id_usuario			int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 create table tb_denuncia(
@@ -111,6 +119,8 @@ create table tb_denuncia(
 	id_animal_perdido	int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_perdido) references tb_animal_perdido(id_animal)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 create table tb_comentario(
@@ -120,14 +130,18 @@ create table tb_comentario(
 	id_animal_perdido	int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_perdido) references tb_animal_perdido(id_animal)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
-create table tb_animal_cometario(
+create table tb_animal_comentario(
 	id_animal_comentario 	int primary key auto_increment,
 	id_comentario			int,
 	id_animal_perdido		int,
 	foreign key (id_animal_perdido) references tb_animal_perdido(id_animal),
 	foreign key (id_comentario) references tb_comentario(id_comentario)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 
@@ -140,6 +154,7 @@ create table tb_calendario(
 	ds_telefone			varchar(100),
 	id_admin			int,
 	foreign key (id_admin) references tb_admin(id_admin)
+    ON DELETE CASCADE
 );
 
 create table tb_feedback (
@@ -149,7 +164,7 @@ create table tb_feedback (
 	id_animal_adocao	int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
-
+	ON DELETE CASCADE
 );
 
 create table tb_motivo_adocao(
@@ -159,4 +174,5 @@ create table tb_motivo_adocao(
     id_animal_adocao	int,
 	foreign key (id_usuario) references tb_usuario(ID_USUARIO),
 	foreign key (id_animal_adocao) references tb_animal_adocao(id_animal_adocao)
+	ON DELETE CASCADE
 );

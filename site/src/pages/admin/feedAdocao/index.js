@@ -6,7 +6,7 @@ import './index.scss'
 import NavBarAdmin from '../../../components/navBarAdmin/index.js';
 import SideBarAdmin from '../../../components/sideBarAdmin/index.js';
 import ActionPopUp from '../../../components/actionPopUp/index.js';
-import CardFeedAdmin from '../../../components/CardFeedAdmin';
+import CardFeedAdmin from '../../../components/cardFeedAdmin'
 
 // Api
 import { buscaAnimal } from '../../../api/animalAPI.js';

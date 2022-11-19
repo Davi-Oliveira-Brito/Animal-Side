@@ -1,6 +1,7 @@
 import { buscaAnimal, buscaPorte, buscaRaca, buscaPreferencia, buscaSexo, buscaAnimalId, buscaAnimalPerdidoPorFiltro } from '../Repository/animalRepository.js'
 
 import { Router } from "express";
+import { buscarAnimaisPerdidosPorId } from '../Repository/usuario/usuarioRepository.js';
 const server = Router();
 
 
@@ -60,6 +61,16 @@ server.get('/animal/id/:id', async (req,resp) =>{
     }
 
 })
+
+server.get('/animal/perdido/:id', async (req, reps) => {
+    try {
+        const { id } = req.params;
+        const result = await buscarAnimaisPerdidosPorId(id);
+        resp.send(result);
+    } catch (error) {
+        resp.send(error.message);        
+    }
+});
 
 server.get('/animal/porte', async (req,resp) =>{
     try{

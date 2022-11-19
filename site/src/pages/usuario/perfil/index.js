@@ -11,8 +11,10 @@ import { alterarInformacoes, buscarComentariosPerdidos, listarInformacoes } from
 import { useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
 export default function PerfilUser(){
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState([]);
     const [naoPodeEditar, setNaoPodeEditar] = useState(true);
     async function carregarUsuario() {
@@ -56,6 +58,10 @@ export default function PerfilUser(){
     }
 
     useEffect(()=>{
+        if(!storage('usuario-logado')){
+            navigate('/');
+            toast.dark('Por favor efetue o login!');
+        }
         carregarUsuario();
     },[]);
     return(

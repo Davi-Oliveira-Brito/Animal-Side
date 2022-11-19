@@ -1,4 +1,4 @@
-import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos, enviarComentarioPerdido, buscarComentariosPerdidos, mostrarFeedbacks, MeusInteresses } from "../../Repository/usuario/usuarioRepository.js"
+import { alterarInformacoes, cadastrarUsuario, listarInformacoes, loginUsuario, mostrarComentarios, buscarAnimaisPerdidosPorId, cadastroAnimalPerdido, alterarImagemPerdido, alterarAnimalPerdido, enviarAdocaoAnimal, buscarAnimaisPerdidos, enviarComentarioPerdido, buscarComentariosPerdidos, mostrarFeedbacks, MeusInteresses, userPost, deletarAnimalPerdido } from "../../Repository/usuario/usuarioRepository.js"
 import { Router } from "express";
 
 import multer from "multer";
@@ -11,7 +11,6 @@ const server = Router();
 server.post('/usuario/animal/perdido', async (req, resp) => {
     try {
         const animal = req.body;
-        console.log(animal);
         if(!animal.idade || animal.idade < 0 ) throw new Error('Idade inválida')
         if(typeof(animal.nome) != 'string' || !animal.nome || animal.nome.length < 2 ||animal.nome.length > 100) throw new Error('Nome Invalido')
         if(!animal.telefone || animal.telefone.length > 11 ) throw new Error('Telefone Inválido')
@@ -142,6 +141,7 @@ server.put('/usuario/animal/:id/perdido', async (req, resp) => {
         if(!animal.porte || !animal.sexo || !animal.raca) throw new Error('Preencha TODOS os cmapos')
 
         const result = await alterarAnimalPerdido(animal, id);
+
         resp.send({affectedRows: result});
     } catch (error) {
         resp.send({
@@ -257,10 +257,24 @@ server.get('/usuario/userPost/:id', async (req, resp) =>{
         const { id } = req.params;
         const result = await userPost(id);
 
-        resp.status(202).send({result})
+        resp.status(202).send(result);
     } catch (error) {
-        resp.status(404).send(error)
+        resp.status(404).send(error.message);
     }
 })
 
-export default server;
+server.delete('/usuario/animal/:id/perdido', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const result = await deletarAnimalPerdido(id);
+        resp.send({
+            x:result
+        });
+    } catch (error) {
+        resp.send({
+            x:error.message
+        });        
+    }
+});
+
+export default server

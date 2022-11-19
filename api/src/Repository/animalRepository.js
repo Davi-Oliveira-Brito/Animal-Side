@@ -203,4 +203,3 @@ export async function cadastroAnimal(animal) {
     
     return resposta.insertId;
 }
-

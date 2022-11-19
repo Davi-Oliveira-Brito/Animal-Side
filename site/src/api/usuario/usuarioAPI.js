@@ -47,6 +47,7 @@ export async function cadastroAnimalPerdido(animal, usuario) {
 
 export async function buscarAnimalPerdidoId(id){
     const resp = await api.get(`/usuario/animal/${id}/perdido/id`);
+    console.log(resp);
     return resp.data;
 }
 
@@ -109,7 +110,7 @@ export async function alterarAnimalPerdido(animal, id) {
         usuario:    animal.usuario,
         raca:       animal.raca,
         sexo:       animal.sexo,
-        diaSumico:  animal.diaSumico,
+        diaSumico:  animal.diaSumico ? animal.diaSumico.substring(0,10) : '',
         telefone:   animal.telefone
     });
 
@@ -151,4 +152,9 @@ export async function UsuarioPost(id){
 export async function MostrarFeedbacks(id){
     const resp = await api.get(`/usuario/feedbacks/${id}`);
     return resp.data;
+}
+
+export async function deletarAnimalPerdido(id){
+    const resp = await api.delete(`/usuario/animal/${id}/perdido`);
+    return resp.data
 }

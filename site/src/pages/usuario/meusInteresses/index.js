@@ -50,7 +50,8 @@ export default function UseInteresses() {
                                 porte={item.porte}
                                 idade={item.idade}
                                 preferencia={item.preferencia}
-                                descricao={item.descricao} />
+                                descricao={item.descricao} 
+                            />
                         )
                     })}
                 </div>
