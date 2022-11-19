@@ -43,7 +43,7 @@ export default function CardFeedAdmin(props) {
                 <div className='desc'>
                     {props.descricao}
                 </div>
-
+                
                 <div className='btns'>
                     <div onClick={()=>setIsOpen('sim')}>Situação</div>
                     <div>

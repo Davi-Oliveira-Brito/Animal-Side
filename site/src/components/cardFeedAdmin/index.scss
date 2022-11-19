@@ -48,10 +48,11 @@
             font-size: 1.1em;
             font-family: 'Poppins-Regular';
 
+            
             & > div:first-child{
                 cursor: pointer;
             }
-
+            
             & > :nth-child(1){
                 display: flex;
                 justify-content: center;
@@ -60,10 +61,16 @@
                 background-color: #FF6909;
                 color: white;
             }
-
+            
             & > :nth-child(2){
                 display: flex; 
                 gap: 15px;
+            }
+
+            & > div:last-child{
+                .img{
+                    cursor: pointer;
+                }
             }
         }
 

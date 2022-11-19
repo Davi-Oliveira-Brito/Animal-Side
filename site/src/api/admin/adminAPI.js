@@ -19,6 +19,7 @@ export async function nomeAdmin() {
 
 export async function buscarComentarios() {
     const resp = await api.get(`/admin/motivo/adocao`);
+    console.log(resp);
     return resp.data;
 }
 
@@ -28,5 +29,15 @@ export async function enviarFeedBack(info) {
         usuario:info.usuario,
         animal_adocao: info.animal_adocao
     });
+    return resp.data;
+}
+
+export async function buscarAdminInfo(id) {
+    const resp = await api.get(`/admin/info/${id}`);
+    return resp.data;
+}
+
+export async function alterarInfoAdmin(info) {
+    const resp = await api.put('/admin/info', info);
     return resp.data;
 }

@@ -24,15 +24,17 @@ export default function CardFeed(props) {
         let canGo = true;
         let obj = storage('usuario-logado');
         for(const item in obj) {
-          if(obj[item] === null || !obj[item]) canGo = false; 
+            console.log(obj[item]);
+            if(obj[item] === undefined || obj[item] === null) canGo = false; 
         }
-    
-        if(canGo === true) navigate(`/motivo/adocao?animalId=${props.id}`)
+        if(canGo === true){
+            navigate(`/motivo/adocao?animalId=${props.id}`)
+        }
         else {
           navigate(`/userPerfil`)
           toast.dark('❗ Por favor termine seu cadastro antes de adotar!')
         }
-      }
+    }
     return (
         <main className="comp-card">
             <AnimalPopUp 

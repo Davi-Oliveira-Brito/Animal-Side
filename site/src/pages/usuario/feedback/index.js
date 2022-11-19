@@ -14,7 +14,6 @@ export default function UserFeedBack() {
         try {
             const r = await MostrarFeedbacks(storage('usuario-logado').id);
             setFeedback(r.result);
-            console.log(r.result)
         } catch (error) {
             console.log(error)
             toast.dark(error.response.data.error)

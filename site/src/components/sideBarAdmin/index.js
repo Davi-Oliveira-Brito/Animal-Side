@@ -51,14 +51,6 @@ export default function SideBarAdmin() {
 
                 </div>
 
-                <div className="element-info" onClick={()=>navigate('/denuncias')}>
-
-                    <img className="comp-image" src="/assets/images/denuncias.png" alt="" />
-                    <button className="element-button">Denuncias</button>
-
-
-                </div>
-
             </div>
 
             

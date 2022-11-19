@@ -197,13 +197,22 @@ export async function alterarAnimalPerdido(animal, id) {
 }
 
 export async function enviarAdocaoAnimal(animalId, userId, comentario) {
-    const command = `
-    insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
-                          values(?, ?, ?);
+    const outroComando = `
+        select * from tb_motivo_adocao where id_animal_adocao = ?;
     `;
 
-    const [result] = await con.query(command, [comentario, userId, animalId]);
-    return result.insertId;
+    const [check] = await con.query(outroComando, [userId]);
+    if(!check.length){
+        const command = `
+        insert into tb_motivo_adocao(ds_comentario, id_usuario, id_animal_adocao)
+                              values(?, ?, ?);
+        `;
+    
+        const [result] = await con.query(command, [comentario, userId, animalId]);
+        return result.insertId;
+    }else{
+        throw new Error('Você já enviou uma mensagem de adoção!');
+    }
 }
 
 export async function enviarComentarioPerdido(comentario, userId, perdidoId) {

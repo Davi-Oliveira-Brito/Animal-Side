@@ -1,4 +1,4 @@
-import buscarUsuarioPorId, { enviarFeedBack, loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
+import buscarUsuarioPorId, { alterarInfoAdmin, buscarInfoAdmin, enviarFeedBack, loginAdmin, nomeAdmin} from "../../Repository/admin/adminRepository.js"
 
 import { Router } from "express";
 
@@ -62,10 +62,38 @@ server.post('/admin/feedback', async (req, resp) => {
     try {
         const info = req.body;
         const result = await enviarFeedBack(info);
-        resp.send(result);
+        resp.send({
+            x:result
+        });
     } catch (error) {
-        resp.send(error);
+        resp.status(400).send(error.message);
     }
 });
+
+
+server.get('/admin/info/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const result = await buscarInfoAdmin(id);
+        resp.send(result);
+    } catch (error) {
+        resp.status.send(error);        
+    }    
+});
+
+
+server.put('/admin/info', async (req, resp) => {
+    try {
+        const info = req.body;
+        const result = await alterarInfoAdmin(info);
+        console.log();
+        resp.send({
+            x:result.affectedRows
+        });
+    } catch (error) {
+        resp.status(400).send(error);       
+    }
+});
+
 
 export default server;

@@ -21,6 +21,7 @@ export default function PerfilUser(){
         try {
             const r = await listarInformacoes(storage('usuario-logado').id);
             setUsuario(r);
+            console.log(r);
         } catch (error) {
             toast.dark('Ops: ' + error.message);
         }
@@ -35,7 +36,6 @@ export default function PerfilUser(){
     async function salvar(){
         try {
             let resposta = await alterarInformacoes(usuario, storage('usuario-logado').id);
-            console.log(resposta);
             storage('usuario-logado', {
                 id: storage('usuario-logado').id, 
                 nome: usuario.NM_USUARIO,
@@ -113,9 +113,9 @@ export default function PerfilUser(){
                 </div>
                 <div>
                     <label>Possui outro animal ?</label>
-                    <select disabled={naoPodeEditar} placeholder='-' value={usuario.BT_ANIMAIS_CASA === null ? '' : usuario.BT_ANIMAIS_CASA} onChange={(e) => setUsuario({...usuario, BT_ANIMAIS_CASA: e.target.value})}>
-                        <option value={true} >Sim</option>
-                        <option value={false}>Não</option>
+                    <select disabled={naoPodeEditar} placeholder='-' value={usuario.BT_ANIMAIS_CASA === null ? '' : usuario.BT_ANIMAIS_CASA} onChange={(e) => setUsuario({...usuario, BT_ANIMAIS_CASA: Number(e.target.value)})}>
+                        <option value={1} >Sim</option>
+                        <option value={0}>Não</option>
                     </select>
 
                 </div>

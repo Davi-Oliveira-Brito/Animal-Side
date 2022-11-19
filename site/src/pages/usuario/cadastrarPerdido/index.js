@@ -151,7 +151,7 @@ export default function UserCadastrarPerdido() {
                         regiao={storage('usuario-logado').endereco} />
 
                     <div className="medio">
-                        <p>Cadastre para adoção</p>
+                        <p>Cadastre animal perdido</p>
                     </div>
                     <div className="quadrado">
                         <div className="baixo">
