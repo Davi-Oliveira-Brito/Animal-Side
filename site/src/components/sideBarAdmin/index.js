@@ -14,7 +14,7 @@ export default function SideBarAdmin() {
         <main className="comp-sideBar">
 
             <div className="logo">
-                <img src="/assets/images/logoRow.png" alt="" />
+                <img on onClick={()=> navigate('/')} src="/assets/images/logoRow.png" alt="" />
             </div>
 
             <div className="title">

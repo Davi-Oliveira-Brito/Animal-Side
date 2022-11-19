@@ -114,17 +114,12 @@ export default function PageOng() {
                         <h1 className='f6-title'>Feira de adoção</h1>
 
                         <p className='text'>
-                        A <span> FEIRA DE ADOÇÃO </span> serve para encontrarmos novos lares para os nossos animalzinhos.
+                        A <span> FEIRA DE ADOÇÃO </span> servirá para encontrarmos novos lares para os nossos animalzinhos.
                         </p>
 
                         <p className="text">
-                        Fique dentro das datas e encontre conosco o melhor companheiro para você. <br/>
-                        <span> obs:a feira ainda não esta pronta, mas em breve traremos novidades!! </span>
+                        Quando a feira estiver pronta, e vai estar, fique dentro das datas e encontre conosco o melhor companheiro para você.                       
                         </p>
-
-                        <button className="f6-button">
-                            Ver Calendário
-                        </button>
                     </div>
                 </div>
             </section>

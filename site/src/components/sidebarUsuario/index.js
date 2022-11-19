@@ -8,7 +8,8 @@ export default function SidebarUser() {
     return (
         <main className='comp-side-user'>
             <div className='side-sub'>
-                <img className="logo" src="/assets/images/logoRow.png" alt="" />
+                
+                <img onClick={()=> navigate('/')} className="logo" src="/assets/images/logoRow.png" alt="" />
 
 
                 <p className='titulo'>Perfil do usuário</p>

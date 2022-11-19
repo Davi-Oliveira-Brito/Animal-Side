@@ -60,8 +60,17 @@
                     background-color: #FF6909;
                     border: none;
     
+                    cursor: pointer;
                     width: 200px;
                     height: 42px;
+
+                    
+                }
+
+                .hero-button:hover{
+                    transition: 1s;
+                    background-color: #fb8034;
+                    
                 }
             }
 
@@ -126,8 +135,9 @@
             justify-content: center;
             width: 100%;
         }
-
+        
         .f2-button button{
+            cursor: pointer;
             
             font-family: 'Poppins-SemiBold';
             font-size: 20px;
@@ -402,9 +412,9 @@
             align-items: center;
             display:flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap:wrap;
-            width: 100%;
+            width: 85%;
             gap: 3em;
         }
     }
