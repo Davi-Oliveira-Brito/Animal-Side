@@ -33,9 +33,6 @@ server.post('/usuario/cadastrar', async (req, resp) =>{
 
         if(typeof(usuario.nome)  !== 'string' || !usuario.nome || usuario.nome.length <= 2 || usuario.nome.length > 100) 
             throw new Error('Digite um nome valido');
-            
-        if(!usuario.telefone || usuario.telefone.length > 11 ) 
-            throw new Error('Digite um telefone valido!');
 
         if(typeof(usuario.email ) !== 'string' || !usuario.email ) 
             throw new Error('Digite um email valido!');
@@ -92,14 +89,7 @@ server.get('/usuario/informacao/:id', async(req, resp) => {
 server.put('/usuario/:id', async (req, resp) => {
     try {
         const usuario = req.body;
-        const { id } = req.params;
-        if (!usuario.VL_RENDA || usuario.VL_RENDA <= 0 )  throw new Error("Campo Renda Invalida")
-        if (!usuario.TM_TEMPO_SOZINHO_ANIMAL || usuario.TM_TEMPO_SOZINHO_ANIMAL <=0 ) throw new Error("Campo Tempo sozinho animal invalido")
-        if (!usuario.QTD_PESSOAS_CASA || usuario.QTD_PESSOAS_CASA <= 0 ) throw new Error("Campo Quantidade de pessoas em casa invalido ")
-        if (!usuario.DS_EMAIL) throw new Error('Campo Email inválido');
-        if (!usuario.TP_RESIDENCIA) throw new Error('Campo Tipo Residencia Inválido');
-        if (!usuario.DS_SENHA) throw new Error('Campo senha Inválido');
-        
+        const { id } = req.params;        
         const result = await alterarInformacoes(usuario, id);
 
         resp.send({result});

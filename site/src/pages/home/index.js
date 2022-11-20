@@ -63,7 +63,7 @@ export default function LadingPage() {
 
                     </div>
                     <div className="f2-button">
-                        <button>Mais</button>
+                        <button onClick={()=>navigate('/feedadocao')}>Mais</button>
                     </div>
                 </div>
             </section>

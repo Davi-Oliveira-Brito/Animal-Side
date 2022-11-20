@@ -53,7 +53,7 @@ export default function Login() {
                 <div className="inputs">
                     <input className="email" type="text" placeholder="EMAIL"  value={email} onChange={e => setEmail(e.target.value)}/>
                     <input className="senha"type="password" placeholder="SENHA" value={senha} onChange={e => setSenha(e.target.value)}/>
-                    <a>Esqueceu sua senha?</a>
+                    
                 </div>
 
                 <button className="login-button" onClick={() => logar()}>ENTRAR</button>

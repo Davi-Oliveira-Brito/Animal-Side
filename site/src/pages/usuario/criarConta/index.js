@@ -47,7 +47,7 @@ export default function CriarConta() {
     return (
         <main className="user-cadastro-main">
             <div className="admin-left">
-                <button className="botao-direita">Pagina Inicial</button>
+                <button onClick={() => navigate('/')} className="botao-direita">Pagina Inicial</button>
                 <div className="imagem"><img src="/assets/images/CriaConta3.png" alt="" /></div>
             </div>
 
@@ -57,10 +57,10 @@ export default function CriarConta() {
                 <p className="admin-login-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
 
                 <div className="admin-inputs">
-                    <input className="email" type="text" placeholder="NOME DE USUARIO" value={nome} onChange={e => setNome(e.target.value)} />
-                    <input className="email" type="text" placeholder="NUMERO PRA CONTATO" value={telefone} onChange={e => setTelefone(e.target.value)} />
-                    <input className="email" type="text" placeholder="EMAIL" value={email} onChange={e => setEmail(e.target.value)} />
-                    <input className="senha" type="password" placeholder="SENHA" value={senha} onChange={e => setSenha(e.target.value)} />
+                    <input className="email" type="text" placeholder="Nome do usuario" value={nome} onChange={e => setNome(e.target.value)} />
+                    <input className="email" type="text" placeholder="Numero pra contato" value={telefone} onChange={e => setTelefone(e.target.value)} />
+                    <input className="email" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <input className="senha" type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)} />
                 </div>
 
                 <button onClick={()=>cadastrarNovoUsuario()} className="admin-login-button">Cadastrar</button>

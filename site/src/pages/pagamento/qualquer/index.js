@@ -44,10 +44,6 @@ export default function PagamentoQualquer(){
                 <div className='bottom-pagamento'>
                     <hr/>
 
-                    <div className='sair'>
-                        <img src="/assets/images/logout.png" alt="" />
-                        <p>Sair</p>
-                    </div>
                 </div>
 
             </div>

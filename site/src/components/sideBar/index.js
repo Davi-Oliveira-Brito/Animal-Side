@@ -73,12 +73,12 @@ export default function SideBar({ setAnimais, nome }) {
                     <p className="side-title">Idade</p>
                     <div className="check-side">
                         <input onChange={(e)=> setMenor(verificarCheckBox(e, 10))} type="checkbox" placeholder />
-                        <p className="side-text">Menor que 10 anos</p>
+                        <p className="side-text"> Maior 10</p>
                     </div>
                     
                     <div className="check-side">
                         <input onChange={(e)=> setMaior(verificarCheckBox(e, 10))} type="checkbox" placeholder />
-                        <p className="side-text">Maior que 10 anos</p>
+                        <p className="side-text"> Menor 10 </p>
                     </div>
                 </div>
                 

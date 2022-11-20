@@ -21,7 +21,6 @@ export default function PerfilUser(){
         try {
             const r = await listarInformacoes(storage('usuario-logado').id);
             setUsuario(r);
-            console.log(r);
         } catch (error) {
             toast.dark('Ops: ' + error.message);
         }
@@ -36,6 +35,7 @@ export default function PerfilUser(){
     async function salvar(){
         try {
             let resposta = await alterarInformacoes(usuario, storage('usuario-logado').id);
+            console.log(resposta);
             storage('usuario-logado', {
                 id: storage('usuario-logado').id, 
                 nome: usuario.NM_USUARIO,
@@ -95,7 +95,8 @@ export default function PerfilUser(){
                 <div>
                     <label>Tipo de residencia</label>
                     <select disabled={naoPodeEditar} placeholder='-' value={usuario.TP_RESIDENCIA} onChange={(e) => setUsuario({...usuario, TP_RESIDENCIA: e.target.value})}>
-                        <option>Casa</option>
+                        <option selected disabled>Selecione</option>
+                        <option >Casa</option>
                         <option>Apartamento</option>
                         <option>Chacara</option>
                     </select>

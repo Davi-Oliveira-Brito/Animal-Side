@@ -13,6 +13,7 @@ export default function Navbar(){
                 </div>
                 
                 <div className='element-nav-mom'>
+                    <a className='element-nav-feed' onClick={() => navigate('/')} >Home</a>
                     <a className='element-nav-feed' onClick={() => navigate('/ong')} >A ONG</a>
                     <a className='element-nav-feed' onClick={() => navigate('/quemsomos')} >Quem Somos?</a>
                     <a className='element-nav-feed' onClick={() => navigate('/ajude')} >Ajude</a>
