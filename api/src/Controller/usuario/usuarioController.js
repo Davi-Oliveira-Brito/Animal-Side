@@ -8,7 +8,7 @@ const upload = multer({dest: 'storage/animalAdocao'});
 const server = Router();
 
 
-server.post('/usuario/animal/perdido', async (req, resp) => {
+server.post('/usuario/cadastrar/animal/perdido', async (req, resp) => {
     try {
         const animal = req.body;
         if(!animal.idade || animal.idade < 0 ) throw new Error('Idade inválida')

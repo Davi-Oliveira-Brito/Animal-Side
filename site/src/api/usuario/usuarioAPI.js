@@ -30,7 +30,7 @@ export async function cadastrarUsuario(usuario) {
 }
 
 export async function cadastroAnimalPerdido(animal, usuario) {
-    const resposta = await api.post('/usuario/animal/perdido', {
+    const resposta = await api.post('/usuario/cadastrar/animal/perdido', {
         nome:           animal.nome.trim(),
         idade:          animal.idade,
         descricao:      animal.descricao.trim(),

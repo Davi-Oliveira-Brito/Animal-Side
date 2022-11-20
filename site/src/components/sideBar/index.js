@@ -37,15 +37,7 @@ export default function SideBar({ setAnimais, nome }) {
     return (
         <main className="side-feed" >
             <section className="side-sub-feed">
-                <div className="animais">
-                    <p className="side-title">Animais</p>
-                    <p className="side-text">Cachorros</p>
-                    <p className="side-text">Gatos</p>
-                    <p className="side-text">Pássaros</p>
-                    <p className="side-text">Porquinho da Índia</p>
-                </div>
-
-                <div className="sexo">
+               <div className="sexo">
                     <p className="side-title">Sexo</p>
                     {selects.sexo.map(item => {
                         return(
@@ -73,12 +65,12 @@ export default function SideBar({ setAnimais, nome }) {
                     <p className="side-title">Idade</p>
                     <div className="check-side">
                         <input onChange={(e)=> setMenor(verificarCheckBox(e, 10))} type="checkbox" placeholder />
-                        <p className="side-text"> Maior 10</p>
+                        <p className="side-text"> Maior que 10</p>
                     </div>
                     
                     <div className="check-side">
                         <input onChange={(e)=> setMaior(verificarCheckBox(e, 10))} type="checkbox" placeholder />
-                        <p className="side-text"> Menor 10 </p>
+                        <p className="side-text"> Menor que 10 </p>
                     </div>
                 </div>
                 

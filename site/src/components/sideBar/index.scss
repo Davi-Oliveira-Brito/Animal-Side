@@ -3,7 +3,6 @@
     flex-direction: column;
     min-height:100%;
     width: 14vw;
-    line-height: 2px;
     align-items: center;
 
     background-color: #FFFFFF;
@@ -13,7 +12,7 @@
         flex-direction: column;
         justify-content: space-between;
         min-height: 50vh;
-        width: 90%;    
+        width: 13vw;    
     }
 
     .animais{
@@ -41,7 +40,22 @@
         flex-direction: row;
         justify-content: flex-start;
         height: auto;
+        width: 100%;
     }
 
 
+}
+
+@media(max-width:900px){
+    .side-feed{
+        .side-sub-feed{
+            .side-text{
+                font-size: 12px;
+            }
+
+            .side-title{
+                font-size: 15px;
+            }
+        }
+    }
 }
