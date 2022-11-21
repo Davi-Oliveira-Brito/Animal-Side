@@ -17,11 +17,10 @@ export default function PageComentario(){
     async function enviar() {
         try {
             let inserteId = await enviarAdocaoAnimal(idAnimal.get('animalId'), storage('usuario-logado').id, comentario)
-            console.log(inserteId);
             toast.dark('😃 Estamos ansiosos pra te conhecer ');
             navigate('/feedAdocao');
         } catch (error) {
-            toast.dark('❗ ' + error.responde.data);
+            toast.dark('❗ ' + error.response.data.x);
         }
     }
     return(

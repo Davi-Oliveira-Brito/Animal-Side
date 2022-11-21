@@ -19,7 +19,7 @@ export default function FeedAnimalPerdido() {
     async function carregarAnimal() {
         try {
             const r = await buscarAnimalPerdido();
-            setAnimais(r.result);
+            setAnimais(r);
         } catch (error) {
             toast.dark('❗ ' + error.response.data);
         }

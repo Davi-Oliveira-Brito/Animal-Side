@@ -5,7 +5,7 @@ import './index.scss'
 import { deletarAnimal } from '../../api/admin/animalAPI'; 
 import { pegarImagem } from '../../api/admin/animalAPI';
 import { toast } from 'react-toastify';
-import SituacaoAnimal from '../situacaoAnimal/index.js'
+import SituacaoAnimal from '../SituacaoAnimal/index.js'
 
 export default function CardFeedAdmin(props) {
     const [isOpen, setIsOpen] = useState('nao');

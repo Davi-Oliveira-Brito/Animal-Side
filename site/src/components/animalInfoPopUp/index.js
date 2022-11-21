@@ -13,11 +13,12 @@ export default function AnimalPopUp(props) {
   function goNext() {
     let canGo = true;
     let obj = storage('usuario-logado');
-    for(const item in obj) {
-      if(obj[item] === null || !obj[item]) canGo = false; 
+    for (const item in obj) {
+      if (obj[item] === undefined || obj[item] === null) canGo = false;
     }
-
-    if(canGo === true) navigate(`/motivo/adocao?animalId=${props.id}`)
+    if (canGo === true) {
+      navigate(`/motivo/adocao?animalId=${props.id}`)
+    }
     else {
       navigate(`/userPerfil`)
       toast.dark('❗ Por favor termine seu cadastro antes de adotar!')
@@ -25,29 +26,29 @@ export default function AnimalPopUp(props) {
   }
 
   function mostrarImagem() {
-    if(typeof(props.imagem) == 'object'){
-        //return URL.createObjectURL(props.imagem);
-    }else{
-        return pegarImagem(props.imagem)
+    if (typeof (props.imagem) == 'object') {
+      //return URL.createObjectURL(props.imagem);
+    } else {
+      return pegarImagem(props.imagem)
     }
   }
-  useEffect(()=>{
-  },[]);
+  useEffect(() => {
+  }, []);
   return (
     <div className={`animal-info-popup ${props.isOpen}`}>
-        <div className='container'>
-          <div className='image'><img src={mostrarImagem()} alt="" /></div>
-          <div className='text'>
-            <div className='name'>{props.nome}</div>
-            <div className='info'><span>Raça: {props.raca}</span>  <span>Porte: {props.porte}</span>   <span>Idade: {props.idade}</span>   <span>Preferencia: {props.preferencia}</span></div>
-            <div className='desc'>{props.descricao}</div>
-            
-            <div className="buttons">
-              <button onClick={() => props.setIsOpen('nao')} className="botao">Fechar</button>
-              <button onClick={() => goNext()} className="botao">Adotar</button>
-            </div>
+      <div className='container'>
+        <div className='image'><img src={mostrarImagem()} alt="" /></div>
+        <div className='text'>
+          <div className='name'>{props.nome}</div>
+          <div className='info'><span>Raça: {props.raca}</span>  <span>Porte: {props.porte}</span>   <span>Idade: {props.idade}</span>   <span>Preferencia: {props.preferencia}</span></div>
+          <div className='desc'>{props.descricao}</div>
+
+          <div className="buttons">
+            <button onClick={() => props.setIsOpen('nao')} className="botao">Fechar</button>
+            <button onClick={() => goNext()} className="botao">Adotar</button>
           </div>
         </div>
+      </div>
     </div>
   )
 }
